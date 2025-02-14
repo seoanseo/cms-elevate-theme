@@ -1,3 +1,5 @@
+# EARLY DRAFT -- SUBJECT TO CHANGE
+
 # Elevate - HubSpot Default CMS Theme
 
 Elevate is HubSpot's default CMS theme, designed to provide a modern, flexible, and customizable foundation for building beautiful websites on the HubSpot CMS platform.
