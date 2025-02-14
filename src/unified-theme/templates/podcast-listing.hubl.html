@@ -1,0 +1,20 @@
+<!--
+  templateType: podcast_listing_page
+  isAvailableForNewContent: true
+  label: Podcast listing
+  screenshotPath: ./images/template-previews/podcast-listing.png
+-->
+{% set template_css = "../../assets/dist/css/podcast-listing.hubl.css" %}
+{% extends "./layouts/base.hubl.html" %}
+
+{% block body %}
+
+<div class="hs-elevate-content-wrapper hs-elevate-content-padding">
+  {% module 'podcast_listing' path="@hubspot/podcast_listing"
+      podcast= {
+        "show_id": content_type_group.values.hs_id
+      }
+  %}
+</div>
+
+{% endblock body %}

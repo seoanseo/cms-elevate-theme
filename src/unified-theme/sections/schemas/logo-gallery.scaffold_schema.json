@@ -1,0 +1,12 @@
+[
+  {
+    "name": "heading",
+    "type": "text",
+    "description": "A heading that goes over a group of customer logos who use the product."
+  },
+  {
+    "name": "anchor",
+    "type": "anchor",
+    "description": "An anchor id for the logo gallery section"
+  }
+]

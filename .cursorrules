@@ -1,0 +1,27 @@
+## PR Descriptions
+
+- Your response should be in markdown
+- Only complete this task if specifically asked to do so via `@pr` or asking directly for a pr description.
+- Your response should be consice and in the following format:
+
+```
+## Description
+<!-- Please share a brief description of your changes (what), as well as the motivation behind them (why).
+Ideally, each PR should be short and contain a single logical change. For larger projects, prefer multiple PRs with independent steps.
+Include links to relevant GitHub issues, Slack conversations, etc. to help others understand the context. -->
+
+## BRAVE
+<!-- Please document any noteworthy BRAVE considerations for this change, filling out or deleting sections as appropriate.
+See docs at https://product.hubteam.com/docs/reliability-docs/brave/index.html for more on each step.
+A final pre-merge checklist will be posted as a comment. -->
+
+#### Backwards Compatibility
+
+#### Rollout and Rollback Plan
+
+#### Automated Testing
+
+#### Verification
+
+#### Expect Dependencies to Fail
+```

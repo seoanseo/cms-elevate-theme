@@ -1,0 +1,434 @@
+---
+description: Implement and finish building a scaffolded module
+globs: 
+---
+# HubSpot React Module Implementation Guide
+
+This rule guides you through implementing a HubSpot React module after the initial scaffolding and field definitions are complete.
+
+## Prerequisites
+- Module scaffolding should be complete with basic file structure
+- `fields.tsx` should be fully defined with all necessary module fields
+- Types should be defined in `types.ts`
+
+## IMPORTANT: NEVER dangerouslySetInnerHTML
+- Never, under any circumstance, is it OK to use `dangerouslySetInnerHTML`
+  - Instead you should find another way to implement setting of content. 
+  - There are plenty of examples on how to correctly do this at the bottom of this file. 
+
+## Implementation Steps
+
+### 1. Review Module Structure
+1. Confirm the following files exist:
+   - `index.tsx` - Main module implementation
+   - `fields.tsx` - Field definitions
+   - `types.ts` - TypeScript types
+   - `assets/` - Directory for module assets
+   - `islands/` - Directory for client-side interactive components (if needed)
+
+### 2. Implement Core Module Component
+1. Import necessary dependencies:
+   ```typescript
+   import { ModuleMeta } from '../../types/modules.js';
+   import { styled } from 'styled-components';
+   import StyledComponentsRegistry from '../../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
+   // Add other required imports
+   ```
+
+2. Define styled components using styled-components:
+   ```typescript
+   const StyledContainer = styled.div`
+     // Add base styling
+     max-width: var(--hsElevate--container--maxWidth, 1200px);
+     margin: 0 auto;
+     padding: var(--hsElevate--spacing--48, 48px) var(--hsElevate--spacing--24, 24px);
+   `;
+   ```
+
+3. Implement the main Component:
+   ```typescript
+   export const Component = (props: ModuleFields) => {
+     // Destructure props
+     // Implement component logic
+     return (
+       <StyledComponentsRegistry>
+         <StyledContainer>
+           {/* Component JSX */}
+         </StyledContainer>
+       </StyledComponentsRegistry>
+     );
+   };
+   ```
+
+### 3. Island Components (if needed)
+If the module requires client-side interactivity:
+1. Create an island component in `islands/` directory
+2. Use the `?island` suffix when importing
+3. Wrap with `StyledIsland` component
+4. Set appropriate hydration strategy
+
+### 4. Module Metadata
+1. Define the module meta information:
+   ```typescript
+   export const meta: ModuleMeta = {
+     label: 'Module Name',
+     content_types: ['SITE_PAGE', 'LANDING_PAGE'],
+     icon: moduleIconSvg,
+     categories: ['design'],
+   };
+   ```
+
+2. Set module configuration:
+   ```typescript
+   export const defaultModuleConfig = {
+     moduleName: 'elevate/components/modules/module_name',
+     version: 0,
+     themeModule: true,
+   };
+   ```
+
+### 5. Styling Guidelines
+1. Use HubSpot Elevate CSS variables for:
+   - Spacing: `var(--hsElevate--spacing--{size})`
+   - Colors: `var(--hsElevate--{context}--{property})`
+   - Typography: Apply typography classes from field definitions
+2. Ensure responsive design
+3. Follow accessibility best practices
+
+### 6. Best Practices
+1. Use TypeScript types for all props and data structures
+2. Implement proper error handling
+3. Use semantic HTML elements
+4. Follow React performance best practices
+5. Add helpful comments for complex logic
+6. Ensure proper data validation
+
+### 7. Testing
+1. Test the module with various field configurations
+2. Verify responsive behavior
+3. Test accessibility
+4. Verify island component hydration (if applicable)
+
+### 5. Field Destructuring and Consumption
+Example showing proper field destructuring and usage from the SiteHeader module:
+
+```typescript
+// Types definition
+type MenuModulePropTypes = {
+  hublData: {
+    navigation: {
+      children: MenuDataType[];
+    };
+    companyName: string;
+    defaultLogo: LogoType;
+    logoLink: LinkType;
+  };
+  groupLogo: {
+    logo: LogoFieldType;
+  };
+  defaultContent: {
+    logoLinkAriaText: string;
+  };
+  groupButton: ButtonGroupType;
+  styles: StylesType;
+};
+
+// Component implementation with proper destructuring
+export const Component = (props: MenuModulePropTypes) => {
+  // First level destructuring - main groups
+  const {
+    hublData,
+    groupLogo: { logo: logoField },
+    defaultContent: { logoLinkAriaText },
+    groupButton,
+    styles,
+  } = props;
+
+  // Second level destructuring - hublData
+  const {
+    navigation: { children: navDataArray = [] },
+    companyName,
+    defaultLogo,
+    logoLink,
+  } = hublData;
+
+  // Destructure button group fields
+  const {
+    showButton,
+    buttonContentText: buttonText,
+    buttonContentLink: buttonLink,
+    buttonContentShowIcon: showIcon,
+    buttonContentIconPosition: iconPosition,
+  } = groupButton;
+
+  // Destructure style fields with defaults
+  const {
+    groupMenu: {
+      menuAlignment,
+      menuBackgroundColor: { color: menuBackgroundColor } = { color: '#ffffff' },
+      menuTextColor: { color: menuTextColor } = { color: '#09152B' },
+    },
+    groupButton: { buttonStyleVariant, buttonStyleSize },
+  } = styles;
+
+  return (
+    <StyledComponentsRegistry>
+      <SiteHeader $navBarBackgroundColor={menuBackgroundColor}>
+        <SiteHeaderContainer>
+          {/* Use destructured fields */}
+          <LogoContainer>
+            {showButton && (
+              <Button
+                buttonStyle={buttonStyleVariant}
+                buttonSize={buttonStyleSize}
+              >
+                {buttonText}
+              </Button>
+            )}
+          </LogoContainer>
+          <MainNavWrapper $menuTextColor={menuTextColor}>
+            <MenuComponent
+              menuDataArray={navDataArray}
+              menuAlignment={menuAlignment}
+            />
+          </MainNavWrapper>
+        </SiteHeaderContainer>
+      </SiteHeader>
+    </StyledComponentsRegistry>
+  );
+};
+```
+
+Key patterns demonstrated:
+1. Multi-level destructuring for nested fields
+2. Default values for optional fields
+3. Renaming during destructuring for clarity
+4. Type safety with TypeScript interfaces
+5. Organized grouping of related fields
+6. Proper consumption in styled-components and child components
+
+### 3. Interactive Module with Islands and State Management
+Example showing proper island component implementation with state management from the SiteHeader's mobile menu:
+
+```typescript
+// islands/MobileMenuIsland.tsx
+import { useEffect, useState } from 'react';
+import { useSharedIslandState } from '@hubspot/cms-components';
+import { styled } from 'styled-components';
+
+type MenuContainerProps = {
+  $isMenuSliding: boolean;
+  $showMenu: boolean;
+  $headerHeight: number;
+  $menuBackgroundColor: string;
+  $menuTextColor: string;
+  $menuAccentColor: string;
+};
+
+const MenuContainer = styled.div<MenuContainerProps>`
+  position: absolute;
+  background-color: ${({ $menuBackgroundColor }) => $menuBackgroundColor};
+  top: 100%;
+  left: ${({ $isMenuSliding }) => ($isMenuSliding ? '0' : '100%')};
+  width: 100%;
+  height: ${({ $headerHeight }) => `calc(100vh - ${$headerHeight}px)`};
+  transition: all 0.3s ease;
+  display: ${({ $showMenu }) => ($showMenu ? 'flex' : 'none')};
+
+  // ... other styles
+`;
+
+export default function MobileMenuIsland(props: MobileMenuIslandProps) {
+  // Local state for animations and UI
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [isMenuSliding, setIsMenuSliding] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+
+  // Shared state across islands
+  const [triggeredMenuItems, setTriggeredMenuItems] = useSharedIslandState();
+
+  // State for dynamic measurements
+  const [headerHeight, setHeaderHeight] = useState(0);
+
+  // Effect for handling menu open/close animation
+  useEffect(() => {
+    if (isAnimating) {
+      setShowMenu(true);
+      document.body.style.overflowY = 'hidden';
+    } else if (!isAnimating && showMenu) {
+      setIsClosing(true);
+      setIsMenuSliding(false);
+      document.body.style.overflowY = 'auto';
+    }
+  }, [isAnimating]);
+
+  // Effect for handling animation timing
+  useEffect(() => {
+    if (showMenu && !isClosing) {
+      setTimeout(() => {
+        setIsMenuSliding(true);
+      }, 100);
+    } else if (isClosing) {
+      setTimeout(() => {
+        setShowMenu(false);
+        setIsClosing(false);
+      }, 300);
+    }
+  }, [showMenu, isClosing]);
+
+  // Handler for menu toggle
+  const handleOpenCloseMenu = () => {
+    setTriggeredMenuItems([]);
+    setIsAnimating(!isAnimating);
+  };
+
+  return (
+    <>
+      <MenuContainer
+        $isMenuSliding={isMenuSliding}
+        $showMenu={showMenu}
+        $headerHeight={headerHeight}
+        $menuBackgroundColor={props.menuBackgroundColor}
+        $menuTextColor={props.menuTextColor}
+        $menuAccentColor={props.menuAccentColor}
+      >
+        {/* Menu content */}
+      </MenuContainer>
+      <HamburgerButton onClick={handleOpenCloseMenu} />
+    </>
+  );
+}
+```
+
+Key patterns demonstrated:
+1. Multiple state types:
+   - Local UI state with `useState`
+   - Shared state across islands with `useSharedIslandState`
+   - Measurement state for dynamic sizing
+2. Animation handling:
+   - Multiple states for different animation phases
+   - Timing control with `setTimeout`
+3. Side effects management:
+   - Coordinated state updates
+   - Document body modifications
+   - Cleanup on unmount
+4. Styled-components with dynamic props
+5. TypeScript prop typing for both component and styled-components
+
+## Common Patterns
+- Use `StyledComponentsRegistry` for styled-components
+- Leverage existing field libraries when possible
+- Follow existing module patterns for consistency
+- Use CSS variables for theming
+- Implement proper TypeScript types
+
+## Final Checklist
+- [ ] All props are properly typed
+- [ ] Styled components use theme variables
+- [ ] Module meta is properly configured
+- [ ] Islands are properly implemented (if needed)
+- [ ] Accessibility is considered
+- [ ] Responsive design is implemented
+- [ ] Error handling is in place
+- [ ] Code is properly commented
+
+## Examples
+
+### 1. Static Module Implementation (Metrics)
+Example showing proper static module implementation with styling and theme variables:
+
+```typescript
+// Metrics/index.tsx
+import { ModuleMeta } from '../../types/modules.js';
+import { styled } from 'styled-components';
+import StyledComponentsRegistry from '../../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
+
+type MetricProps = {
+  groupMetrics: {
+    metric: TextFieldType['default'];
+    description: TextFieldType['default'];
+  }[];
+  groupStyle: GroupStyle;
+};
+
+// Styled components with theme variables
+const MetricsContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+`;
+
+const MetricNumber = styled.div`
+  color: var(--hsElevate--metrics__accentColor);
+`;
+
+export const Component = (props: MetricProps) => {
+  const {
+    groupMetrics,
+    groupStyle: { headingStyleVariant, sectionStyleVariant },
+  } = props;
+
+  return (
+    <StyledComponentsRegistry>
+      <MetricsContainer>
+        {groupMetrics.map((metric, index) => (
+          <Metric key={index}>
+            <MetricNumber>{metric.metric}</MetricNumber>
+            <MetricDescription>{metric.description}</MetricDescription>
+          </Metric>
+        ))}
+      </MetricsContainer>
+    </StyledComponentsRegistry>
+  );
+};
+```
+
+### 2. Interactive Module with Islands (TestimonialSlider)
+Example showing proper island component usage:
+
+```typescript
+// TestimonialSlider/index.tsx
+import { ModuleMeta } from '../../types/modules.js';
+import { Island } from '@hubspot/cms-components';
+import TestimonialSlider from './islands/TestimonialSliderIsland.js?island';
+
+export const Component = (props: TestimonialSliderProps) => {
+  return (
+    <Island
+      hydrateOn="load"
+      module={TestimonialSlider}
+      groupTestimonial={props.groupTestimonial}
+      groupStyle={props.groupStyle}
+      clientOnly={true}
+    />
+  );
+};
+```
+
+### 4. Theme Variable Usage
+Example of proper theme variable implementation:
+
+```typescript
+function generateColorCssVars(sectionVariantField: SectionVariantType): CSSPropertiesMap {
+  const sectionColorsMap = {
+    section_variant_1: {
+      textColor: 'var(--hsElevate--section--lightSection--1__textColor)',
+      accentColor: 'var(--hsElevate--section--lightSection--1__accentColor)',
+    },
+    section_variant_2: {
+      textColor: 'var(--hsElevate--section--lightSection--2__textColor)',
+      accentColor: 'var(--hsElevate--section--lightSection--2__accentColor)',
+    }
+  };
+
+  return {
+    '--hsElevate--metrics__textColor': sectionColorsMap[sectionVariantField].textColor,
+    '--hsElevate--metrics__accentColor': sectionColorsMap[sectionVariantField].accentColor,
+  };
+}
+```
