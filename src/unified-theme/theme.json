@@ -1,14 +1,8 @@
 {
   "label": "ElevateThemePublic",
   "preview_path": "",
+  "extends": "@hubspot/ElevateTheme",
   "screenshot_path": "./images/template-previews/home.png",
-  "pinned_module_versions": {
-    "@hubspot/divider": "1",
-    "@hubspot/language_switcher": "1",
-    "@hubspot/post_listing": "1",
-    "@hubspot/search_input": "1",
-    "@hubspot/search_results": "1"
-  },
   "hidden_modules": [
     "@hubspot/blog_content",
     "@hubspot/button",
