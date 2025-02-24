@@ -10,7 +10,7 @@
     "test": "vitest",
     "test-verbose": "vitest --reporter verbose",
     "npm-install:all": "npm install && npm install --prefix src/unified-theme",
-    "yarn-install:all": "yarn && yarn install --prefix src/unified-theme"
+    "yarn-install:all": "yarn && cd src/unified-theme && yarn install"
   },
   "author": "HubSpot Content Assets Team",
   "license": "Apache-2.0",
