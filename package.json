@@ -6,7 +6,7 @@
     "build": "vite build",
     "upload": "hs project upload",
     "build-upload": "vite build && hs project upload",
-    "start": "hs-cms-dev-server ./src/unified-theme",
+    "start": "cd src/unified-theme && yarn start",
     "test": "vitest",
     "test-verbose": "vitest --reporter verbose",
     "npm-install:all": "npm install && npm install --prefix src/unified-theme",
