@@ -1,7 +1,6 @@
 {
   "label": "ElevateThemePublic",
   "preview_path": "",
-  "extends": "@hubspot/ElevateTheme",
   "screenshot_path": "./images/template-previews/home.png",
   "hidden_modules": [
     "@hubspot/blog_content",
