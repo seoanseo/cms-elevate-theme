@@ -28,9 +28,9 @@ Elevate is built with modern development practices in mind, utilizing:
 
 2. Install dependencies:
    ```bash
-   npm install
+   npm run npm-install:all
    # or
-   yarn install
+   yarn yarn-install:all
    ```
 
 3. Configure your HubSpot CLI:
