@@ -40,9 +40,9 @@ Elevate is built with modern development practices in mind, utilizing:
 
 4. Start the development server:
    ```bash
-   npm start
+   npm run start --ssl --showUI
    # or
-   yarn start
+   yarn start --ssl --showUI
    ```
 
 ## Available Scripts
