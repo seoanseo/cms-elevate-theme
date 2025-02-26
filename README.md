@@ -33,12 +33,19 @@ Elevate is built with modern development practices in mind, utilizing:
    yarn yarn-install:all
    ```
 
-3. Configure your HubSpot CLI:
+3. Configure your HubSpot CLI (if not installed already)
    ```bash
    hs init
    ```
 
-4. Start the development server:
+4. Build and upload the theme to your portal:
+   ```bash
+   npm run build-upload
+   # or
+   yarn build-upload
+   ```
+
+5. Start the development server:
    ```bash
    npm run start --ssl --showUI
    # or
