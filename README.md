@@ -47,9 +47,9 @@ Elevate is built with modern development practices in mind, utilizing:
 
 5. Start the development server:
    ```bash
-   npm run start --ssl --showUI
+   npm run npm-start
    # or
-   yarn start --ssl --showUI
+   yarn yarn-start
    ```
 
 ## Available Scripts
