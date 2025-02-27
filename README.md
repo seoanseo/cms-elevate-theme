@@ -30,30 +30,40 @@ Elevate is built with modern development practices in mind, utilizing:
 
 2. Install dependencies:
    ```bash
-   npm install
+   npm run npm-install:all
    # or
-   yarn install
+   yarn yarn-install:all
    ```
 
-3. Configure your HubSpot CLI:
+3. Configure your HubSpot CLI (if not installed already)
    ```bash
    hs init
    ```
 
-4. Start the development server:
+4. Build and upload the theme to your portal:
    ```bash
-   npm start
+   npm run build-upload
    # or
-   yarn start
+   yarn build-upload
+   ```
+
+5. Start the development server:
+   ```bash
+   npm run npm-start
+   # or
+   yarn yarn-start
    ```
 
 ## Available Scripts
 
-- `npm start` - Starts the local development server
-- `npm run build` - Builds the theme for production
-- `npm run upload` - Uploads the theme to HubSpot
-- `npm run build-upload` - Builds and uploads the theme in one command
-- `npm test` - Runs the test suite
+- `build` - Builds the theme for production
+- `upload` - Uploads the theme to HubSpot
+- `build-upload` - Builds and uploads the theme in one command
+- `test` - Runs the test suite
+- `npm-install:all` - Installs dependencies for all workspaces
+- `yarn-install:all` - Installs dependencies using Yarn for all workspaces
+- `npm-start` - Starts the development server using npm
+- `yarn-start` - Starts the development server using yarn
 
 ## Project Structure
 
@@ -72,7 +82,30 @@ Elevate is built with modern development practices in mind, utilizing:
 
 ## Development
 
-The theme uses HubSpot's local development server for real-time preview of your changes. When you run `npm start`, you can view your changes at the local development URL provided by the CLI.
+The theme uses HubSpot's local development server for real-time preview of your changes. When you run `npm run start` or `yarn yarn-start`, you can view your changes at the local development URL provided by the CLI.
+
+## Creating a child theme based on Elevate
+
+Building a child theme is a great way to extend the functionality of Elevate without having to modify the core theme files. This can be done in either design manager or using the unified theme framework.
+
+### Design manager
+
+1. Create a new theme in design manager
+2. Select "Use blank theme as starting point"
+3. Modify the theme.json file to include `"extends": "@hubspot/elevate"`
+4. Copy Elevate's theme fields.json file (`src/unified-theme/fields.json`) to the root of your new theme.
+5. Add your custom code to the `src/unified-theme` directory.
+
+### Unified theme framework
+
+1. From your cli run `npx @hubspot/create-cms-theme`
+2. Follow the prompts to create a blank unified theme project
+3. Modify the theme.json file to include `"extends": "@hubspot/elevate"`
+4. Copy Elevate'stheme fields.json file (`src/unified-theme/fields.json`) to the root of your new theme.
+
+### Notable items
+
+In order to override parent theme files from a child theme, you need to ensure that the file you are trying to override exists at the same path in both themes and has the same file name.
 
 
 ## Contributing

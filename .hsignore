@@ -1,0 +1,5 @@
+# These files are compiled into the assets/dist folder
+src/assets/_hs/css/*
+
+# Do not upload case studies files
+**/**/case-studies*\.hubl.html

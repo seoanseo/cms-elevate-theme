@@ -1,0 +1,137 @@
+{
+  "name": {
+    "message": "Heading",
+    "description": "",
+    "placeholders": null
+  },
+  "headingAndTextHeading.label": {
+    "message": "Heading text",
+    "description": "",
+    "placeholders": null
+  },
+  "headingAndTextHeading.default": {
+    "message": "A clear and bold heading",
+    "description": "",
+    "placeholders": null
+  },
+  "headingAndTextHeadingLevel.label": {
+    "message": "Heading level",
+    "description": "",
+    "placeholders": null
+  },
+  "headingAndTextHeadingLevel.help_text": {
+    "message": "Choose a heading level. Headings should be nested in a hierarchical way based on your content. <a href='https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements'>More information</a>",
+    "description": "",
+    "placeholders": null
+  },
+  "headingAndTextHeadingLevel.choices.h1": {
+    "message": "Heading 1",
+    "description": "",
+    "placeholders": null
+  },
+  "headingAndTextHeadingLevel.choices.h2": {
+    "message": "Heading 2",
+    "description": "",
+    "placeholders": null
+  },
+  "headingAndTextHeadingLevel.choices.h3": {
+    "message": "Heading 3",
+    "description": "",
+    "placeholders": null
+  },
+  "headingAndTextHeadingLevel.choices.h4": {
+    "message": "Heading 4",
+    "description": "",
+    "placeholders": null
+  },
+  "headingAndTextHeadingLevel.choices.h5": {
+    "message": "Heading 5",
+    "description": "",
+    "placeholders": null
+  },
+  "headingAndTextHeadingLevel.choices.h6": {
+    "message": "Heading 6",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.label": {
+    "message": "Styles",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.sectionStyleVariant.label": {
+    "message": "Text color",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.sectionStyleVariant.choices.section_variant_1": {
+    "message": "Light section 1 text color",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.sectionStyleVariant.choices.section_variant_2": {
+    "message": "Light section 2 text color",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.sectionStyleVariant.choices.section_variant_3": {
+    "message": "Light section 3 text color",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.sectionStyleVariant.choices.section_variant_4": {
+    "message": "Dark section text color",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.headingStyleVariant.label": {
+    "message": "Heading style",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.headingStyleVariant.choices.display_1": {
+    "message": "Display 1",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.headingStyleVariant.choices.display_2": {
+    "message": "Display 2",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.headingStyleVariant.choices.h1": {
+    "message": "Heading 1",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.headingStyleVariant.choices.h2": {
+    "message": "Heading 2",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.headingStyleVariant.choices.h3": {
+    "message": "Heading 3",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.headingStyleVariant.choices.h4": {
+    "message": "Heading 4",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.headingStyleVariant.choices.h5": {
+    "message": "Heading 5",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.headingStyleVariant.choices.h6": {
+    "message": "Heading 6",
+    "description": "",
+    "placeholders": null
+  },
+  "groupStyle.alignment.label": {
+    "message": "Alignment",
+    "description": "",
+    "placeholders": null
+  }
+}

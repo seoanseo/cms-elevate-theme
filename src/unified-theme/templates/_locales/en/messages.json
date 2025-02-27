@@ -1,0 +1,1812 @@
+{
+  "partial_header_skip_to_content": {
+    "message": "Skip to content",
+    "description": "",
+    "placeholders": null
+  },
+  "partial_footer_privacy": {
+    "message": "Privacy Policy",
+    "description": "",
+    "placeholders": null
+  },
+  "partial_footer_legal": {
+    "message": "Legal",
+    "description": "",
+    "placeholders": null
+  },
+  "partial_footer_copyright": {
+    "message": "© {{ year|render }}{{ branding_company_name ? ' ' ~ branding_company_name|render : '' }}. All rights reserved.",
+    "description": "",
+    "placeholders": null
+  },
+  "blog_post_share_post_heading": {
+    "message": "Share this post",
+    "description": "",
+    "placeholders": null
+  },
+  "blog_post_recent_posts_heading": {
+    "message": "Keep reading",
+    "description": "",
+    "placeholders": null
+  },
+  "blog_listing_page_description": {
+    "message": "A brief introductory description of your blog and the topics covered at a high level. Just one or two sentences should be just right.",
+    "description": "",
+    "placeholders": null
+  },
+  "error_404_heading": {
+    "message": "Page not found",
+    "description": "",
+    "placeholders": null
+  },
+  "error_404_description": {
+    "message": "We can't find the page you were looking for.",
+    "description": "",
+    "placeholders": null
+  },
+  "error_404_button": {
+    "message": "Go to home page",
+    "description": "",
+    "placeholders": null
+  },
+  "error_500_heading": {
+    "message": "This page isn't working",
+    "description": "",
+    "placeholders": null
+  },
+  "error_500_description": {
+    "message": "An internal server error occurred, but we're on the case!",
+    "description": "",
+    "placeholders": null
+  },
+  "error_500_button": {
+    "message": "Go to home page",
+    "description": "",
+    "placeholders": null
+  },
+  "backup_unsubscribe_header": {
+    "message": "Unsubscribe from emails",
+    "description": "",
+    "placeholders": null
+  },
+  "backup_unsubscribe_subheader": {
+    "message": "You'll be unsubscribed from all emails from {{ site_settings.company_name }} other than important account-related correspondence.",
+    "description": "",
+    "placeholders": null
+  },
+  "backup_unsubscribe_subheader_business_unit": {
+    "message": "You'll be unsubscribed from all emails from {{ business_unit().name }} other than important account-related correspondence.",
+    "description": "",
+    "placeholders": null
+  },
+  "backup_unsubscribe_input_help_text": {
+    "message": "Email address",
+    "description": "",
+    "placeholders": null
+  },
+  "backup_unsubscribe_button_text": {
+    "message": "Unsubscribe",
+    "description": "",
+    "placeholders": null
+  },
+  "subscription_confirmation_unsub_all_success": {
+    "message": "Your email preferences were updated.",
+    "description": "",
+    "placeholders": null
+  },
+  "subscription_confirmation_unsubscribe_all_success": {
+    "message": "You have successfully unsubscribed from all email communications.",
+    "description": "",
+    "placeholders": null
+  },
+  "subscription_confirmation_sub_update_success": {
+    "message": "Your email preferences were updated.",
+    "description": "",
+    "placeholders": null
+  },
+  "subscription_preferences_heading": {
+    "message": "Update email preferences for",
+    "description": "",
+    "placeholders": null
+  },
+  "subscription_preferences_single_text": {
+    "message": "Choose which emails you would like to receive from {{ site_settings.company_name }}:",
+    "description": "",
+    "placeholders": null
+  },
+  "subscription_preferences_single_text_business_unit": {
+    "message": "Choose which emails you would like to receive from {{ business_unit().name }}:",
+    "description": "",
+    "placeholders": null
+  },
+  "subscription_preferences_language_input_label": {
+    "message": "Select a language:",
+    "description": "",
+    "placeholders": null
+  },
+  "subscription_preferences_button_text": {
+    "message": "Update email preferences",
+    "description": "",
+    "placeholders": null
+  },
+  "subscription_preferences_unsub_all_option": {
+    "message": "Unsubscribe from all emails",
+    "description": "",
+    "placeholders": null
+  },
+  "subscription_preferences_footer": {
+    "message": "If this is not your address, an email was most likely forwarded to you from someone else and you can safely ignore this message.",
+    "description": "",
+    "placeholders": null
+  },
+  "subscription_preferences_resubscribe_text": {
+    "message": "You are presently unsubscribed from all of our emails. Would you like to receive our emails again?",
+    "description": "",
+    "placeholders": null
+  },
+  "subscription_preferences_resubscribe_button_text": {
+    "message": "Yes, resubscribe me!",
+    "description": "",
+    "placeholders": null
+  },
+  "password_prompt_heading": {
+    "message": "Password required",
+    "description": "",
+    "placeholders": null
+  },
+  "password_prompt_subheading": {
+    "message": "Please enter your password to view this page.",
+    "description": "",
+    "placeholders": null
+  },
+  "password_prompt_label": {
+    "message": "Password",
+    "description": "",
+    "placeholders": null
+  },
+  "about_banner_heading": {
+    "message": "The dream team of digital marketing",
+    "description": "",
+    "placeholders": null
+  },
+  "about_banner_description": {
+    "message": "Elevate has illuminated the digital marketing world since 2018, transforming from a small team of passionate marketers to a globally distributed creative force",
+    "description": "",
+    "placeholders": null
+  },
+  "about_metric_one_value": {
+    "message": "100M+",
+    "description": "",
+    "placeholders": null
+  },
+  "about_metric_one_description": {
+    "message": "Monthly active users",
+    "description": "",
+    "placeholders": null
+  },
+  "about_metric_two_value": {
+    "message": "200k+",
+    "description": "",
+    "placeholders": null
+  },
+  "about_metric_two_description": {
+    "message": "Marketing assets provided",
+    "description": "",
+    "placeholders": null
+  },
+  "about_metric_three_value": {
+    "message": "150",
+    "description": "",
+    "placeholders": null
+  },
+  "about_metric_three_description": {
+    "message": "countries across the world",
+    "description": "",
+    "placeholders": null
+  },
+  "about_our_services_heading": {
+    "message": "Our services",
+    "description": "",
+    "placeholders": null
+  },
+  "about_our_services_card_one_heading": {
+    "message": "Content Creation",
+    "description": "",
+    "placeholders": null
+  },
+  "about_our_services_card_one_description": {
+    "message": "Stand out with our captivating content creation services, tailored to engage today's digital audience",
+    "description": "",
+    "placeholders": null
+  },
+  "about_our_services_card_two_heading": {
+    "message": "Marketing Analytics",
+    "description": "",
+    "placeholders": null
+  },
+  "about_our_services_card_two_description": {
+    "message": "Our platform empowers informed decision-making, tracking campaign performance, and ROI",
+    "description": "",
+    "placeholders": null
+  },
+  "about_our_services_card_three_heading": {
+    "message": "Journey Optimization",
+    "description": "",
+    "placeholders": null
+  },
+  "about_our_services_card_three_description": {
+    "message": "Use customer data to deliver personalized messaging and content, enhancing engagement",
+    "description": "",
+    "placeholders": null
+  },
+  "about_our_mission_image_alt": {
+    "message": "Our mission",
+    "description": "",
+    "placeholders": null
+  },
+  "about_our_mission": {
+    "message": "To revolutionize digital marketing with solutions that empower businesses to achieve unparalleled success",
+    "description": "",
+    "placeholders": null
+  },
+  "about_our_values_heading": {
+    "message": "Our values",
+    "description": "",
+    "placeholders": null
+  },
+  "about_our_values_card_one_heading": {
+    "message": "Innovation",
+    "description": "",
+    "placeholders": null
+  },
+  "about_our_values_card_one_description": {
+    "message": "Embrace creativity and forward-thinking to inspire customers",
+    "description": "",
+    "placeholders": null
+  },
+  "about_our_values_card_two_heading": {
+    "message": "Integrity",
+    "description": "",
+    "placeholders": null
+  },
+  "about_our_values_card_two_description": {
+    "message": "Operate with honesty, transparency, and ethical standards in all dealings",
+    "description": "",
+    "placeholders": null
+  },
+  "about_our_values_card_three_heading": {
+    "message": "Empathy",
+    "description": "",
+    "placeholders": null
+  },
+  "about_our_values_card_three_description": {
+    "message": "Demonstrate compassionate and genuine desire to support each other",
+    "description": "",
+    "placeholders": null
+  },
+  "about_call_to_action_heading": {
+    "message": "Join our team",
+    "description": "",
+    "placeholders": null
+  },
+  "about_call_to_action_description": {
+    "message": "<p>Let's work on great things together and enjoy all the perks of Elevate.<br> Explore exciting opportunities and be a part of a dynamic and innovative work environment</p>",
+    "description": "",
+    "placeholders": null
+  },
+  "about_call_to_action_button_text": {
+    "message": "Get in touch",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_clickthrough_banner_heading": {
+    "message": "Modern marketing made for a modern world",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_clickthrough_banner_description": {
+    "message": "Meet the new standard for modern SaaS digital marketing",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_clickthrough_banner_button_text": {
+    "message": "Try free demo",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_clickthrough_banner_image_alt": {
+    "message": "An image of the Elevate app that shows off reporting functionality in the dashboard",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_clickthrough_image_and_text_1_heading": {
+    "message": "Elevate your business with automation made easy",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_clickthrough_image_and_text_1_description": {
+    "message": "Write a description highlighting the functionality, benefits, and uniqueness of your feature. A couple of sentences here is just right.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_clickthrough_feature_image_alt": {
+    "message": "An image of the workflow tool",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_clickthrough_image_and_text_2_heading": {
+    "message": "Marketing tools that help you understand every customer",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_clickthrough_image_and_text_2_description": {
+    "message": "Write a description highlighting the functionality, benefits, and uniqueness of your feature. A couple of sentences here is just right.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_clickthrough_testimonial_quote": {
+    "message": "The measurable results have transformed our business. Highly recommend for anyone looking to elevate their marketing game.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_clickthrough_testimonial_author_name": {
+    "message": "Neil Kumar",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_clickthrough_testimonial_author_title": {
+    "message": "VP of Marketing @ Lyraxionics",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_clickthrough_testimonial_quote_two": {
+    "message": "The intuitive interface and powerful analytics have driven our campaigns to new heights.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_clickthrough_testimonial_author_name_two": {
+    "message": "Emily Johnson",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_clickthrough_testimonial_author_title_two": {
+    "message": "Chief Marketing Officer @  Crypturon",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_clickthrough_testimonial_quote_three": {
+    "message": "The seamless integration with our existing tools has improved our workflow and increased our overall efficiency.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_clickthrough_testimonial_author_name_three": {
+    "message": "Michael Brown",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_clickthrough_testimonial_author_title_three": {
+    "message": "Director of Operations @ Zyntellix",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_clickthrough_testimonial_link_text": {
+    "message": "Read case study",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_downloadable_asset_image_alt": {
+    "message": "An image of an eBook labeled 'The Ultimate Marketing Playbook'",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_downloadable_asset_heading": {
+    "message": "Download your digital resource",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_downloadable_asset_description": {
+    "message": "Address your reader's challenges or goals and explain how the resource will help solve them",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_downloadable_asset_testimonial_quote": {
+    "message": "The measurable results have transformed our business. Highly recommend for anyone looking to elevate their marketing game.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_downloadable_asset_testimonial_author_name": {
+    "message": "Neil Kumar",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_downloadable_asset_testimonial_author_title": {
+    "message": "VP of Marketing @ Lyraxionics",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_downloadable_asset_testimonial_quote_two": {
+    "message": "The intuitive interface and powerful analytics have driven our campaigns to new heights.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_downloadable_asset_testimonial_author_name_two": {
+    "message": "Emily Johnson",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_downloadable_asset_testimonial_author_title_two": {
+    "message": "Chief Marketing Officer @  Crypturon",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_downloadable_asset_testimonial_quote_three": {
+    "message": "The seamless integration with our existing tools has improved our workflow and increased our overall efficiency.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_downloadable_asset_testimonial_author_name_three": {
+    "message": "Michael Brown",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_downloadable_asset_testimonial_author_title_three": {
+    "message": "Director of Operations @ Zyntellix",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_downloadable_asset_testimonial_link_text": {
+    "message": "Read case study",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_downloadable_asset_faq_one_question": {
+    "message": "What services does your digital marketing agency offer?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_downloadable_asset_faq_one_answer": {
+    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_downloadable_asset_faq_two_question": {
+    "message": "How can your digital marketing agency help my business grow?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_downloadable_asset_faq_two_answer": {
+    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_downloadable_asset_faq_three_question": {
+    "message": "Do you provide customized solutions for different businesses?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_downloadable_asset_faq_three_answer": {
+    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_downloadable_asset_faq_four_question": {
+    "message": "Can you track the performance of digital marketing campaigns?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_downloadable_asset_faq_four_answer": {
+    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_downloadable_asset_faq_five_question": {
+    "message": "What sets your digital marketing agency apart from others in the industry?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_downloadable_asset_faq_five_answer": {
+    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
+    "description": "",
+    "placeholders": null
+  },
+  "ty_download_image_alt_text": {
+    "message": "An image of the eBook cover titled 'The Ultimate Marketing Playbook'",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_heading": {
+    "message": "Schedule a demo with us",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_description": {
+    "message": "Experience our solution in action. Schedule a demo with one of our team members at your convenience. Add a brief description as to what your prospects can expect to learn.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_bullet_intro": {
+    "message": "We will discuss",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_bullet_one": {
+    "message": "Topic #1: Explain what the demo will cover",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_bullet_two": {
+    "message": "Topic #2: Explain what the demo will cover",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_bullet_three": {
+    "message": "Topic #3: Explain what the demo will cover",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_image_and_text_1_heading": {
+    "message": "Increase reach and engagement",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_image_and_text_1_description": {
+    "message": "Write a description highlighting the functionality, benefits, and uniqueness of your feature. A couple of sentences here is just right.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_image_and_text_2_heading": {
+    "message": "Optimize Performance and ROI",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_image_and_text_2_description": {
+    "message": "Write a description highlighting the functionality, benefits, and uniqueness of your feature. A couple of sentences here is just right.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_image_and_text_3_heading": {
+    "message": "Streamline Workflow and Collaboration",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_image_and_text_3_description": {
+    "message": "Write a description highlighting the functionality, benefits, and uniqueness of your feature. A couple of sentences here is just right.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_testimonial_quote": {
+    "message": "The measurable results have transformed our business. Highly recommend for anyone looking to elevate their marketing game.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_testimonial_author_name": {
+    "message": "Neil Kumar",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_testimonial_author_title": {
+    "message": "VP of Marketing @ Lyraxionics",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_testimonial_link_text": {
+    "message": "Read case study",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_testimonial_quote_two": {
+    "message": "The intuitive interface and powerful analytics have driven our campaigns to new heights.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_testimonial_author_name_two": {
+    "message": "Emily Johnson",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_testimonial_author_title_two": {
+    "message": "Chief Marketing Officer @  Crypturon",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_testimonial_quote_three": {
+    "message": "The seamless integration with our existing tools has improved our workflow and increased our overall efficiency.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_testimonial_author_name_three": {
+    "message": "Michael Brown",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_testimonial_author_title_three": {
+    "message": "Director of Operations @ Zyntellix",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_faq_one_question": {
+    "message": "What is the dress code for the company event or conference?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_faq_one_answer": {
+    "message": "The dress code for the event is formal attire. Make sure to dress to impress and showcase your professional style.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_faq_two_question": {
+    "message": "Is there transportation provided to the event venue?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_faq_two_answer": {
+    "message": "The dress code for the event is formal attire. Make sure to dress to impress and showcase your professional style.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_faq_three_question": {
+    "message": "Are there vegetarian or vegan meal options available during the event?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_faq_three_answer": {
+    "message": "The dress code for the event is formal attire. Make sure to dress to impress and showcase your professional style.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_faq_four_question": {
+    "message": "Can I bring a plus one to the company event or conference?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_faq_four_answer": {
+    "message": "The dress code for the event is formal attire. Make sure to dress to impress and showcase your professional style.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_faq_five_question": {
+    "message": "Will there be any opportunities for team-building activities during the event?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_faq_five_answer": {
+    "message": "The dress code for the event is formal attire. Make sure to dress to impress and showcase your professional style.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_heading": {
+    "message": "The marketing platform to drive conversion",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_description": {
+    "message": "A world class marketing solution created to drive results and dominate the digital landscape with ease",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_button_text": {
+    "message": "Start free trial",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_card_one_heading": {
+    "message": "Create and edit",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_card_one_content": {
+    "message": "Write a description highlighting the main capabilities of the product",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_card_two_heading": {
+    "message": "Publish and share",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_card_two_content": {
+    "message": "Write a description highlighting the main capabilities of the product",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_card_three_heading": {
+    "message": "Measure and analyze",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_card_three_content": {
+    "message": "Write a description highlighting the main capabilities of the product",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_features_heading": {
+    "message": "Explore Elevate's capabilities",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_features_description": {
+    "message": "We have all the tools you need to run an effective marketing strategy",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_testimonial_quote": {
+    "message": "The measurable results have transformed our business. Highly recommend for anyone looking to elevate their marketing game.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_testimonial_author_name": {
+    "message": "Neil Kumar",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_testimonial_author_title": {
+    "message": "VP of Marketing @ Lyraxionics",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_testimonial_quote_two": {
+    "message": "The intuitive interface and powerful analytics have driven our campaigns to new heights.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_testimonial_author_name_two": {
+    "message": "Emily Johnson",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_testimonial_author_title_two": {
+    "message": "Chief Marketing Officer @  Crypturon",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_testimonial_quote_three": {
+    "message": "The seamless integration with our existing tools has improved our workflow and increased our overall efficiency.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_testimonial_author_name_three": {
+    "message": "Michael Brown",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_testimonial_author_title_three": {
+    "message": "Director of Operations @ Zyntellix",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_testimonial_link_text": {
+    "message": "Read case study",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_image_and_text_1_heading": {
+    "message": "Increase reach and engagement",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_image_and_text_1_description": {
+    "message": "Write a description highlighting the functionality, benefits, and uniqueness of your feature. A couple of sentences here is just right.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_image_and_text_2_heading": {
+    "message": "Optimize Performance and ROI",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_image_and_text_2_description": {
+    "message": "Write a description highlighting the functionality, benefits, and uniqueness of your feature. A couple of sentences here is just right.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_image_and_text_3_heading": {
+    "message": "Streamline Workflow and Collaboration",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_image_and_text_3_description": {
+    "message": "Write a description highlighting the functionality, benefits, and uniqueness of your feature. A couple of sentences here is just right.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_faq_one_question": {
+    "message": "What services does your digital marketing agency offer?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_faq_one_answer": {
+    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_faq_two_question": {
+    "message": "How can your digital marketing agency help my business grow?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_faq_two_answer": {
+    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_faq_three_question": {
+    "message": "Do you provide customized solutions for different businesses?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_faq_three_answer": {
+    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_faq_four_question": {
+    "message": "Can you track the performance of digital marketing campaigns?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_faq_four_answer": {
+    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_faq_five_question": {
+    "message": "What sets your digital marketing agency apart from others in the industry?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_products_faq_five_answer": {
+    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_heading": {
+    "message": "Join us for the marketing event of the year",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_description": {
+    "message": "Come join us along with thousands of other marketers and thought leaders for a week of inspiring keynotes and new connections",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_image_and_text_heading": {
+    "message": "Gain insights from the world's top experts",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_image_and_text_bullet_intro": {
+    "message": "Event highlights",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_image_and_text_bullet_one": {
+    "message": "Highlight #1: Explain what attendees can expect to gain",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_image_and_text_bullet_two": {
+    "message": "Highlight #2: Explain what attendees can expect to gain",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_image_and_text_bullet_three": {
+    "message": "Highlight #3: Explain what attendees can expect to gain",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_testimonial_quote": {
+    "message": "The measurable results have transformed our business. Highly recommend for anyone looking to elevate their marketing game.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_testimonial_author_name": {
+    "message": "Neil Kumar",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_testimonial_author_title": {
+    "message": "VP of Marketing @ Lyraxionics",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_testimonial_quote_two": {
+    "message": "The intuitive interface and powerful analytics have driven our campaigns to new heights.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_testimonial_author_name_two": {
+    "message": "Emily Johnson",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_testimonial_author_title_two": {
+    "message": "Chief Marketing Officer @  Crypturon",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_testimonial_quote_three": {
+    "message": "The seamless integration with our existing tools has improved our workflow and increased our overall efficiency.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_testimonial_author_name_three": {
+    "message": "Michael Brown",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_testimonial_author_title_three": {
+    "message": "Director of Operations @ Zyntellix",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_testimonial_link_text": {
+    "message": "Read case study",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_faq_one_question": {
+    "message": "What is the dress code for the company event or conference?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_faq_one_answer": {
+    "message": "The dress code for the event is formal attire. Make sure to dress to impress and showcase your professional style.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_faq_two_question": {
+    "message": "Is there transportation provided to the event venue?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_faq_two_answer": {
+    "message": "The dress code for the event is formal attire. Make sure to dress to impress and showcase your professional style.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_faq_three_question": {
+    "message": "Are there vegetarian or vegan meal options available during the event?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_faq_three_answer": {
+    "message": "The dress code for the event is formal attire. Make sure to dress to impress and showcase your professional style.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_faq_four_question": {
+    "message": "Can I bring a plus one to the company event or conference?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_faq_four_answer": {
+    "message": "The dress code for the event is formal attire. Make sure to dress to impress and showcase your professional style.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_faq_five_question": {
+    "message": "Will there be any opportunities for team-building activities during the event?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_faq_five_answer": {
+    "message": "The dress code for the event is formal attire. Make sure to dress to impress and showcase your professional style.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_call_to_action_heading": {
+    "message": "Don't miss the epic event that marketers will be talking about",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_video_call_to_action_button_text": {
+    "message": "Register now",
+    "description": "",
+    "placeholders": null
+  },
+  "pricing_faq_one_question": {
+    "message": "What services does your digital marketing agency offer?",
+    "description": "",
+    "placeholders": null
+  },
+  "pricing_faq_one_answer": {
+    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
+    "description": "",
+    "placeholders": null
+  },
+  "pricing_faq_two_question": {
+    "message": "How can your digital marketing agency help my business grow?",
+    "description": "",
+    "placeholders": null
+  },
+  "pricing_faq_two_answer": {
+    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
+    "description": "",
+    "placeholders": null
+  },
+  "pricing_faq_three_question": {
+    "message": "Do you provide customized solutions for different businesses?",
+    "description": "",
+    "placeholders": null
+  },
+  "pricing_faq_three_answer": {
+    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
+    "description": "",
+    "placeholders": null
+  },
+  "pricing_faq_four_question": {
+    "message": "Can you track the performance of digital marketing campaigns?",
+    "description": "",
+    "placeholders": null
+  },
+  "pricing_faq_four_answer": {
+    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
+    "description": "",
+    "placeholders": null
+  },
+  "pricing_faq_five_question": {
+    "message": "What sets your digital marketing agency apart from others in the industry?",
+    "description": "",
+    "placeholders": null
+  },
+  "pricing_faq_five_answer": {
+    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
+    "description": "",
+    "placeholders": null
+  },
+  "pricing_call_to_action_heading": {
+    "message": "Ready to elevate your business?",
+    "description": "",
+    "placeholders": null
+  },
+  "pricing_call_to_action_button_text": {
+    "message": "Try for free",
+    "description": "",
+    "placeholders": null
+  },
+  "ty_download_heading": {
+    "message": "Thank you for your request",
+    "description": "",
+    "placeholders": null
+  },
+  "ty_download_description": {
+    "message": "We are pleased to share this resource with you. Explore insights that can support your marketing journey. If you like, check out a few other next steps. Enjoy!",
+    "description": "",
+    "placeholders": null
+  },
+  "ty_download_button_text": {
+    "message": "Download",
+    "description": "",
+    "placeholders": null
+  },
+  "ty_download_next_steps_heading": {
+    "message": "Next steps",
+    "description": "",
+    "placeholders": null
+  },
+  "ty_download_next_steps_subheading": {
+    "message": "Check out a few of our other resources and channels",
+    "description": "",
+    "placeholders": null
+  },
+  "ty_download_step_one_heading": {
+    "message": "Explore the content",
+    "description": "",
+    "placeholders": null
+  },
+  "ty_download_step_one_description": {
+    "message": "Dive into the digital resource and discover valuable insights",
+    "description": "",
+    "placeholders": null
+  },
+  "ty_download_step_two_heading": {
+    "message": "Apply the strategies",
+    "description": "",
+    "placeholders": null
+  },
+  "ty_download_step_two_description": {
+    "message": "Put the learnings into action to see real results in your work or life",
+    "description": "",
+    "placeholders": null
+  },
+  "ty_download_step_three_heading": {
+    "message": "Stay engaged",
+    "description": "",
+    "placeholders": null
+  },
+  "ty_download_step_three_description": {
+    "message": "Follow us on social media and join our community to stay updated",
+    "description": "",
+    "placeholders": null
+  },
+  "home_testimonial_quote": {
+    "message": "The measurable results have transformed our business. Highly recommend for anyone looking to elevate their marketing game.",
+    "description": "",
+    "placeholders": null
+  },
+  "home_testimonial_author_name": {
+    "message": "Neil Kumar",
+    "description": "",
+    "placeholders": null
+  },
+  "home_testimonial_author_title": {
+    "message": "VP of Marketing @ Lyraxionics",
+    "description": "",
+    "placeholders": null
+  },
+  "home_testimonial_quote_two": {
+    "message": "The intuitive interface and powerful analytics have driven our campaigns to new heights.",
+    "description": "",
+    "placeholders": null
+  },
+  "home_testimonial_author_name_two": {
+    "message": "Emily Johnson",
+    "description": "",
+    "placeholders": null
+  },
+  "home_testimonial_author_title_two": {
+    "message": "Chief Marketing Officer @  Crypturon",
+    "description": "",
+    "placeholders": null
+  },
+  "home_testimonial_quote_three": {
+    "message": "The seamless integration with our existing tools has improved our workflow and increased our overall efficiency.",
+    "description": "",
+    "placeholders": null
+  },
+  "home_testimonial_author_name_three": {
+    "message": "Michael Brown",
+    "description": "",
+    "placeholders": null
+  },
+  "home_testimonial_author_title_three": {
+    "message": "Director of Operations @ Zyntellix",
+    "description": "",
+    "placeholders": null
+  },
+  "home_testimonial_link_text": {
+    "message": "Read case study",
+    "description": "",
+    "placeholders": null
+  },
+  "podcast_episode_back_to_all_episodes": {
+    "message": "Back to all episodes",
+    "description": "",
+    "placeholders": null
+  },
+  "section_contact_heading": {
+    "message": "Contact us",
+    "description": "",
+    "placeholders": null
+  },
+  "section_contact_content": {
+    "message": "Have questions or need assistance? Fill out the form below, and our team will get back to you shortly. We're here to help!",
+    "description": "",
+    "placeholders": null
+  },
+  "section_cta_heading": {
+    "message": "Ready to Elevate your business?",
+    "description": "",
+    "placeholders": null
+  },
+  "section_cta_button_text": {
+    "message": "Get in touch",
+    "description": "",
+    "placeholders": null
+  },
+  "section_cta_centered_logo_alt": {
+    "message": "Elevate logo",
+    "description": "",
+    "placeholders": null
+  },
+  "section_cta_centered_heading": {
+    "message": "Join Elevate today and start elevating your marketing game",
+    "description": "",
+    "placeholders": null
+  },
+  "section_cta_centered_content": {
+    "message": "Be a part of a community of 10,000+ members who use Elevate and revolutionize your marketing efforts for a scalable future.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_cta_centered_button_text": {
+    "message": "Try free demo",
+    "description": "",
+    "placeholders": null
+  },
+  "section_faq_heading_updated": {
+    "message": "Frequently asked questions",
+    "description": "",
+    "placeholders": null
+  },
+  "section_faq_answer": {
+    "message": "<p>Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.</p>",
+    "description": "",
+    "placeholders": null
+  },
+  "section_faq_question_one": {
+    "message": "What services does your digital marketing agency offer?",
+    "description": "",
+    "placeholders": null
+  },
+  "section_faq_question_two": {
+    "message": "How can your digital marketing agency help my business grow?",
+    "description": "",
+    "placeholders": null
+  },
+  "section_faq_question_three": {
+    "message": "Do you provide customized solutions for different businesses?",
+    "description": "",
+    "placeholders": null
+  },
+  "section_faq_question_four": {
+    "message": "Can you track the performance of digital marketing campaigns?",
+    "description": "",
+    "placeholders": null
+  },
+  "section_faq_question_five": {
+    "message": "What sets your digital marketing agency apart from others in the industry?",
+    "description": "",
+    "placeholders": null
+  },
+  "section_heading_with_three_cards_label": {
+    "message": "Our services",
+    "description": "",
+    "placeholders": null
+  },
+  "section_features_heading": {
+    "message": "Explore Elevate's capabilities",
+    "description": "",
+    "placeholders": null
+  },
+  "section_features_content": {
+    "message": "We have all the tools you need to run an effective marketing strategy",
+    "description": "",
+    "placeholders": null
+  },
+  "section_features_feature_content": {
+    "message": "Write a brief description of the product's capabilities",
+    "description": "",
+    "placeholders": null
+  },
+  "section_features_feature_one_heading": {
+    "message": "Content creation",
+    "description": "",
+    "placeholders": null
+  },
+  "section_features_feature_two_heading": {
+    "message": "Analytics and reporting",
+    "description": "",
+    "placeholders": null
+  },
+  "section_features_feature_three_heading": {
+    "message": "Messaging",
+    "description": "",
+    "placeholders": null
+  },
+  "section_features_feature_four_heading": {
+    "message": "Integrations",
+    "description": "",
+    "placeholders": null
+  },
+  "section_features_feature_five_heading": {
+    "message": "Automation and workflows",
+    "description": "",
+    "placeholders": null
+  },
+  "section_features_feature_six_heading": {
+    "message": "Campaign scheduling",
+    "description": "",
+    "placeholders": null
+  },
+  "section_features_feature_seven_heading": {
+    "message": "AI Agents",
+    "description": "",
+    "placeholders": null
+  },
+  "section_features_feature_eight_heading": {
+    "message": "Cross channel distribution",
+    "description": "",
+    "placeholders": null
+  },
+  "section_heading_with_three_cards_heading": {
+    "message": "Impactful marketing solutions for business",
+    "description": "",
+    "placeholders": null
+  },
+  "section_heading_with_three_cards_card_one_heading": {
+    "message": "Content Creation",
+    "description": "",
+    "placeholders": null
+  },
+  "section_heading_with_three_cards_card_one_content": {
+    "message": "<p>Stand out with our captivating content creation services, tailored to engage today's digital audience </p>",
+    "description": "",
+    "placeholders": null
+  },
+  "section_heading_with_three_cards_card_two_heading": {
+    "message": "Marketing Analytics",
+    "description": "",
+    "placeholders": null
+  },
+  "section_hero_heading": {
+    "message": "Create legendary brands",
+    "description": "",
+    "placeholders": null
+  },
+  "section_hero_content": {
+    "message": "Add a brief and powerful description of your business' value proposition and how you solve for customers",
+    "description": "",
+    "placeholders": null
+  },
+  "section_hero_button_one_text": {
+    "message": "Request demo",
+    "description": "",
+    "placeholders": null
+  },
+  "section_hero_button_two_text": {
+    "message": "Learn more",
+    "description": "",
+    "placeholders": null
+  },
+  "section_hero_centered_heading": {
+    "message": "Pricing plans that elevate your business",
+    "description": "",
+    "placeholders": null
+  },
+  "section_hero_centered_content": {
+    "message": "Try Elevate free for 14 days, no credit card required.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_hero_centered_button_text": {
+    "message": "Try for free",
+    "description": "",
+    "placeholders": null
+  },
+  "section_heading_with_three_cards_card_two_content": {
+    "message": "<p>Our platform empowers informed decision-making, tracking campaign performance, and ROI</p>",
+    "description": "",
+    "placeholders": null
+  },
+  "section_heading_with_three_cards_card_three_heading": {
+    "message": "Journey Optimization",
+    "description": "",
+    "placeholders": null
+  },
+  "section_heading_with_three_cards_card_three_content": {
+    "message": "<p>Use customer data to deliver personalized messaging and content, enhancing engagement</p>",
+    "description": "",
+    "placeholders": null
+  },
+  "section_logo_gallery_heading": {
+    "message": "Trusted by leading companies",
+    "description": "",
+    "placeholders": null
+  },
+  "section_metrics_centered_heading": {
+    "message": "The numbers speak for themselves",
+    "description": "",
+    "placeholders": null
+  },
+  "section_metrics_centered_metric_one_metric": {
+    "message": "20+",
+    "description": "",
+    "placeholders": null
+  },
+  "section_metrics_centered_metric_one_description": {
+    "message": "Speakers and thought leaders",
+    "description": "",
+    "placeholders": null
+  },
+  "section_metrics_centered_metric_two_metric": {
+    "message": "150k+",
+    "description": "",
+    "placeholders": null
+  },
+  "section_metrics_centered_metric_two_description": {
+    "message": "Participants both virtual and in-person",
+    "description": "",
+    "placeholders": null
+  },
+  "section_metrics_centered_metric_three_metric": {
+    "message": "10",
+    "description": "",
+    "placeholders": null
+  },
+  "section_metrics_centered_metric_three_description": {
+    "message": "Workshops across a wide range of topics",
+    "description": "",
+    "placeholders": null
+  },
+  "section_metrics_metric_one_metric": {
+    "message": "15k+",
+    "description": "",
+    "placeholders": null
+  },
+  "section_metrics_metric_one_description": {
+    "message": "Customers of Elevate",
+    "description": "",
+    "placeholders": null
+  },
+  "section_metrics_metric_two_metric": {
+    "message": "200%",
+    "description": "",
+    "placeholders": null
+  },
+  "section_metrics_metric_two_description": {
+    "message": "Daily active users",
+    "description": "",
+    "placeholders": null
+  },
+  "section_metrics_metric_three_metric": {
+    "message": "300%",
+    "description": "",
+    "placeholders": null
+  },
+  "section_metrics_metric_three_description": {
+    "message": "Daily active users",
+    "description": "",
+    "placeholders": null
+  },
+  "section_multi_row_alternating_row_one_heading": {
+    "message": "Collaborate seamlessly",
+    "description": "",
+    "placeholders": null
+  },
+  "section_multi_row_alternating_row_one_content": {
+    "message": "<p>Write a description highlighting the functionality, benefits, and uniqueness of your feature. A couple of sentences here is just right.</p>",
+    "description": "",
+    "placeholders": null
+  },
+  "section_multi_row_alternating_row_one_button_text": {
+    "message": "Explore more",
+    "description": "",
+    "placeholders": null
+  },
+  "section_multi_row_alternating_row_two_heading": {
+    "message": "Manage multi-channel campaigns",
+    "description": "",
+    "placeholders": null
+  },
+  "section_multi_row_alternating_row_two_content": {
+    "message": "<p>Write a description highlighting the functionality, benefits, and uniqueness of your feature. A couple of sentences here is just right.</p>",
+    "description": "",
+    "placeholders": null
+  },
+  "section_multi_row_alternating_row_two_button_text": {
+    "message": "Explore more",
+    "description": "",
+    "placeholders": null
+  },
+  "section_multi_row_alternating_row_three_heading": {
+    "message": "Create and target content dynamically",
+    "description": "",
+    "placeholders": null
+  },
+  "section_multi_row_alternating_row_three_content": {
+    "message": "<p>Write a description highlighting the functionality, benefits, and uniqueness of your feature. A couple of sentences here is just right.</p>",
+    "description": "",
+    "placeholders": null
+  },
+  "section_multi_row_alternating_row_three_button_text": {
+    "message": "Explore more",
+    "description": "",
+    "placeholders": null
+  },
+  "section_multi_row_row_one_heading": {
+    "message": "Collaborate seamlessly",
+    "description": "",
+    "placeholders": null
+  },
+  "section_multi_row_row_one_content": {
+    "message": "<p>Write a description highlighting the functionality, benefits, and uniqueness of your feature. A couple of sentences here is just right.</p>",
+    "description": "",
+    "placeholders": null
+  },
+  "section_multi_row_row_one_button_text": {
+    "message": "Explore more",
+    "description": "",
+    "placeholders": null
+  },
+  "section_multi_row_row_two_heading": {
+    "message": "Manage multi-channel campaigns",
+    "description": "",
+    "placeholders": null
+  },
+  "section_multi_row_row_two_content": {
+    "message": "<p>Write a description highlighting the functionality, benefits, and uniqueness of your feature. A couple of sentences here is just right.</p>",
+    "description": "",
+    "placeholders": null
+  },
+  "section_multi_row_row_two_button_text": {
+    "message": "Explore more",
+    "description": "",
+    "placeholders": null
+  },
+  "section_multi_row_row_three_heading": {
+    "message": "Create and target content dynamically",
+    "description": "",
+    "placeholders": null
+  },
+  "section_multi_row_row_three_content": {
+    "message": "<p>Write a description highlighting the functionality, benefits, and uniqueness of your feature. A couple of sentences here is just right.</p>",
+    "description": "",
+    "placeholders": null
+  },
+  "section_multi_row_row_three_button_text": {
+    "message": "Explore more",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_one_heading": {
+    "message": "Starter",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_one_description": {
+    "message": "Perfect for small businesses or startups looking to kickstart their digital marketing efforts",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_one_price": {
+    "message": "$79",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_one_time_period": {
+    "message": "/month",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_one_feature_title": {
+    "message": "Starter plan includes",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_one_feature_one": {
+    "message": "Social media management",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_one_feature_two": {
+    "message": "Email marketing campaigns",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_one_feature_three": {
+    "message": "Basic SEO optimization",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_one_feature_four": {
+    "message": "Monthly performance reports",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_one_button_text": {
+    "message": "Get started",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_two_heading": {
+    "message": "Pro",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_two_description": {
+    "message": "Ideal for growing businesses that want to expand their online presence and reach a larger audience",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_two_price": {
+    "message": "$129",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_two_time_period": {
+    "message": "/month",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_two_feature_title": {
+    "message": "Everything in Starter plan",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_two_feature_one": {
+    "message": "Advanced social media management",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_two_feature_two": {
+    "message": "Email marketing automation",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_two_feature_three": {
+    "message": "Basic SEO optimization",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_two_feature_four": {
+    "message": "Comprehensive SEO analysis and recommendations",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_two_button_text": {
+    "message": "Get started",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_three_heading": {
+    "message": "Enterprise",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_three_description": {
+    "message": "Tailored for established businesses seeking a holistic digital marketing solution to boost brand visibility and engagement",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_three_price": {
+    "message": "$599",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_three_time_period": {
+    "message": "/month",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_three_feature_title": {
+    "message": "Starter plan includes",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_three_feature_one": {
+    "message": "Everything in Pro plan",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_three_feature_two": {
+    "message": "Customized social media strategies",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_three_feature_three": {
+    "message": "Personalized email marketing campaigns",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_three_feature_four": {
+    "message": "Advanced SEO implementation and monitoring",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_three_feature_five": {
+    "message": "Bi-weekly performance reports and strategy consultations",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_three_button_text": {
+    "message": "Contact sales",
+    "description": "",
+    "placeholders": null
+  },
+  "section_recent_blog_posts_heading": {
+    "message": "Recent blog posts",
+    "description": "",
+    "placeholders": null
+  },
+  "section_team_members_heading": {
+    "message": "Our team",
+    "description": "",
+    "placeholders": null
+  },
+  "section_team_members_description": {
+    "message": "Meet the awesome folks who make all of this possible day to day",
+    "description": "",
+    "placeholders": null
+  },
+  "section_team_member_name_placeholder": {
+    "message": "Team member",
+    "description": "",
+    "placeholders": null
+  },
+  "section_team_member_role_placeholder": {
+    "message": "Role here",
+    "description": "",
+    "placeholders": null
+  },
+  "section_two_col_cta_heading": {
+    "message": "All your marketing needs in one place",
+    "description": "",
+    "placeholders": null
+  },
+  "section_two_col_cta_button_text": {
+    "message": "Start free trial",
+    "description": "",
+    "placeholders": null
+  },
+  "section_video_heading": {
+    "message": "Watch for a sneak peek of the event",
+    "description": "",
+    "placeholders": null
+  },
+  "section_video_content": {
+    "message": "Watch our teaser video for a glimpse into the inspiring keynotes, interactive workshops, and networking opportunities that await",
+    "description": "",
+    "placeholders": null
+  },
+  "section_about_us_image_alt": {
+    "message": "Modern office building representing our company headquarters",
+    "description": "",
+    "placeholders": null
+  },
+  "section_about_us_heading": {
+    "message": "About company",
+    "description": "",
+    "placeholders": null
+  },
+  "section_about_us_description": {
+    "message": "In this section, provide a short overview on your customer. Mention the company's background, industry, or recent successes. Two to four sentence paragraphs are a good standard for the right amount of content.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_testimonial_quote": {
+    "message": "The Elevate theme has transformed our website. The modern design and intuitive layout have significantly improved our user engagement.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_testimonial_author_name": {
+    "message": "Alex Morgan",
+    "description": "",
+    "placeholders": null
+  },
+  "section_testimonial_author_title": {
+    "message": "Marketing Director",
+    "description": "",
+    "placeholders": null
+  },
+  "section_testimonial_image_alt": {
+    "message": "Testimonial author photo",
+    "description": "",
+    "placeholders": null
+  },
+  "section_testimonial_link_text": {
+    "message": "Read case study",
+    "description": "",
+    "placeholders": null
+  },
+  "section_gallery_heading": {
+    "message": "Gallery",
+    "description": "",
+    "placeholders": null
+  },
+  "section_gallery_content": {
+    "message": "Images of our company",
+    "description": "",
+    "placeholders": null
+  },
+  "section_gallery_image_alt": {
+    "message": "Gallery image",
+    "description": "",
+    "placeholders": null
+  },
+  "section_newsletter_heading": {
+    "message": "Join our email newsletter",
+    "description": "",
+    "placeholders": null
+  },
+  "section_newsletter_description": {
+    "message": "Keep up to date with our latest news and events",
+    "description": "",
+    "placeholders": null
+  },
+  "section_newsletter_image_alt": {
+    "message": "Newsletter signup illustration",
+    "description": "",
+    "placeholders": null
+  }
+}
