@@ -69,15 +69,32 @@ Elevate is built with modern development practices in mind, utilizing:
 
 ```
 ├── src/
-│   └── unified-theme/     # Main theme directory
-│       ├── fields.json    # Theme field definitions
-│       ├── theme.json     # Theme configuration
-│       ├── templates/     # HubL templates
-│       ├── sections/      # Theme sections
-│       └── helpers/       # Helper functions and variables
-├── build/                 # Build configuration
-├── lang/                  # Language files
-└── vite.config.ts        # Vite configuration
+│   └── unified-theme/         # Main theme directory
+│       ├── _locales/          # Localization files
+│       ├── assets/            # Theme assets
+│       ├── components/        # React components
+│       │   ├── modules/       # Theme modules (e.g., Accordion, Button, Card)
+│       │   │   └── ImageAndText/  # Example module structure
+│       │   │       ├── index.tsx
+│       │   │       ├── types.ts
+│       │   │       └── styles.ts
+│       │   ├── fieldLibrary/  # Field components for module fields
+│       │   ├── utils/         # Utility helpers
+│       │   ├── types/         # TypeScript type definitions
+│       │   └── ButtonComponent/  # Example shared component consumed by modules
+│       │       └── index.tsx
+│       ├── helpers/          # Helper functions and utilities
+│       ├── images/           # Theme images
+│       ├── sections/         # Theme sections
+│       ├── templates/        # Theme templates
+│       ├── fields.json       # Theme settings
+│       ├── theme.json        # Theme configuration
+│       ├── package.json      # Theme-specific dependencies
+│       └── tsconfig.json     # TypeScript configuration
+├── build/                    # Build configuration
+├── vite.config.ts            # Vite configuration
+├── package.json              # Project dependencies
+└── hsproject.json            # HubSpot project configuration
 ```
 
 ## Development
