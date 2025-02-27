@@ -59,6 +59,10 @@ Elevate is built with modern development practices in mind, utilizing:
 - `npm run upload` - Uploads the theme to HubSpot
 - `npm run build-upload` - Builds and uploads the theme in one command
 - `npm test` - Runs the test suite
+- `npm run npm-install:all` - Installs dependencies for all workspaces
+- `npm run yarn-install:all` - Installs dependencies using Yarn for all workspaces
+- `npm run npm-start` - Starts the development server using npm
+- `npm run yarn-start` - Starts the development server using yarn
 
 ## Project Structure
 
