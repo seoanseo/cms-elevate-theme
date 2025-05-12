@@ -118,6 +118,11 @@
             "name": "feature_four",
             "type": "text",
             "description": "The fourth feature of the pricing plan."
+          },
+          {
+            "name": "feature_five",
+            "type": "text",
+            "description": "The fifth feature of the pricing plan."
           }
         ]
       },

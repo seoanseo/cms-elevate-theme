@@ -25,9 +25,10 @@ interface GroupButton extends ButtonContentType {
 
 type GroupButtonStyle = ButtonStyleFieldLibraryType;
 
-type GroupContentStyle = SectionStyleFieldLibraryType & HeadingStyleFieldLibraryType & {
-  verticalAlignment: AlignmentFieldType['default'];
-};
+type GroupContentStyle = SectionStyleFieldLibraryType &
+  HeadingStyleFieldLibraryType & {
+    verticalAlignment: AlignmentFieldType['default'];
+  };
 
 type GroupStyle = {
   groupContent: GroupContentStyle;
@@ -77,20 +78,20 @@ type ImageAndTextWrapperProps = {
   $alignment: AlignmentFieldType['default'];
 };
 
-const ImageAndTextWrapper = styled.section<ImageAndTextWrapperProps>`
+const ImageAndText = styled.section<ImageAndTextWrapperProps>`
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   column-gap: var(--hsElevate--spacing--80, 80px);
-  ${(props) => getAlignmentFieldCss(props.$alignment)};
+  ${props => getAlignmentFieldCss(props.$alignment)};
 
   @media (min-width: 767px) {
     flex-direction: row;
   }
 `;
 
-const ImageWrapper = styled.div`
+const ImageContainer = styled.div`
   margin-block-end: var(--hsElevate--spacing--32, 32px);
 
   @media (min-width: 767px) {
@@ -105,7 +106,7 @@ const ImageContent = styled.img`
   width: 100%;
 `;
 
-const ContentWrapper = styled.div`
+const ContentContainer = styled.div`
   h1,
   h2,
   h3,
@@ -128,23 +129,10 @@ export const Component = (props: ImageAndTextProps) => {
   const {
     groupImage: { imagePosition, image },
     groupContent: { headingAndTextHeadingLevel, headingAndTextHeading, richTextContentHTML },
-    groupButton: {
-      showButton,
-      buttonContentText: text,
-      buttonContentLink: link,
-      buttonContentShowIcon: showIcon,
-      buttonContentIconPosition: iconPosition,
-    },
+    groupButton: { showButton, buttonContentText: text, buttonContentLink: link, buttonContentShowIcon: showIcon, buttonContentIconPosition: iconPosition },
     groupStyle: {
-      groupContent: {
-        sectionStyleVariant,
-        headingStyleVariant,
-        verticalAlignment,
-      },
-      groupButton: {
-        buttonStyleSize,
-        buttonStyleVariant,
-      },
+      groupContent: { sectionStyleVariant, headingStyleVariant, verticalAlignment },
+      groupButton: { buttonStyleSize, buttonStyleVariant },
     },
   } = props;
 
@@ -160,41 +148,48 @@ export const Component = (props: ImageAndTextProps) => {
 
   return (
     <StyledComponentsRegistry>
-      <ImageAndTextWrapper $alignment={verticalAlignment} style={cssVarsMap}>
+      <ImageAndText className="hs-elevate-image-and-text" $alignment={verticalAlignment} style={cssVarsMap}>
         {image.src && (
-          <ImageWrapper>
+          <ImageContainer className="hs-elevate-image-and-text__image-container">
             <ImageContent
+              className="hs-elevate-image-and-text__image"
               src={image.src}
               alt={image.alt}
               width={image.width}
               height={image.height}
               loading={image.loading !== 'disabled' ? image.loading : 'eager'}
             />
-          </ImageWrapper>
+          </ImageContainer>
         )}
         {hasContent && (
-          <ContentWrapper>
+          <ContentContainer className="hs-elevate-image-and-text__content-container">
             {headingAndTextHeading && (
-              <HeadingComponent headingLevel={headingAndTextHeadingLevel} headingStyleVariant={headingStyleVariant} heading={headingAndTextHeading} />
+              <HeadingComponent
+                additionalClassArray={['hs-elevate-image-and-text__title']}
+                headingLevel={headingAndTextHeadingLevel}
+                headingStyleVariant={headingStyleVariant}
+                heading={headingAndTextHeading}
+              />
             )}
-            {richTextContentHTML && <RichText fieldPath='groupContent.richTextContentHTML' />}
+            {richTextContentHTML && <RichText className="hs-elevate-image-and-text__body" fieldPath="groupContent.richTextContentHTML" />}
             {showButton && (
               <Button
+                additionalClassArray={['hs-elevate-image-and-text__button']}
                 buttonSize={buttonStyleSize}
                 buttonStyle={buttonStyleVariant}
                 href={buttonHref}
                 rel={buttonRel}
                 target={buttonTarget}
                 showIcon={showIcon}
-                iconFieldPath='groupButton.buttonContentIcon'
+                iconFieldPath="groupButton.buttonContentIcon"
                 iconPosition={iconPosition}
               >
                 {text}
               </Button>
             )}
-          </ContentWrapper>
+          </ContentContainer>
         )}
-      </ImageAndTextWrapper>
+      </ImageAndText>
     </StyledComponentsRegistry>
   );
 };

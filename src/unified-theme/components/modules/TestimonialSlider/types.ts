@@ -1,9 +1,4 @@
-import {
-  ImageFieldType,
-  TextFieldType,
-  LinkFieldType,
-  BooleanFieldType,
-} from '@hubspot/cms-components/fields';
+import { ImageFieldType, TextFieldType, LinkFieldType, BooleanFieldType } from '@hubspot/cms-components/fields';
 import { CardStyleFieldLibraryType } from '../../fieldLibrary/CardStyle/types.js';
 
 // Types for the testimonial slider
@@ -11,6 +6,23 @@ import { CardStyleFieldLibraryType } from '../../fieldLibrary/CardStyle/types.js
 export type TestimonialSliderProps = {
   groupTestimonial: TestimonialContentProps[];
   groupStyle: TestimonialStyleProps;
+  groupDefaultText: TestimonialDefaultTextProps;
+};
+
+// Types for testimonial default text
+
+export type TestimonialDefaultTextProps = {
+  previousArrowAltText: TextFieldType['default'];
+  nextArrowAltText: TextFieldType['default'];
+  navigateToSlideNumberAriaLabel: TextFieldType['default'];
+  navigateToPreviousSlideAriaLabel: TextFieldType['default'];
+  navigateToNextSlideAriaLabel: TextFieldType['default'];
+  navigateToFirstSlideAriaLabel: TextFieldType['default'];
+  navigateToLastSlideAriaLabel: TextFieldType['default'];
+  carouselAriaLabel: TextFieldType['default'];
+  selectSlideNavigationAriaLabel: TextFieldType['default'];
+  slideAriaLabel: TextFieldType['default'];
+  slideNumberOfSlidesTotalAriaLabel: TextFieldType['default'];
 };
 
 // Types for testimonial link

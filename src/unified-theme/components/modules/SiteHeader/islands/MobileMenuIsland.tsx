@@ -1,6 +1,6 @@
 import { CSSProperties, styled } from 'styled-components';
 import MenuComponent from '../../../MenuComponent/index.js';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useSharedIslandState } from '@hubspot/cms-components';
 import { Button } from '../../../ButtonComponent/index.js';
 import { getLinkFieldHref } from '../../../utils/content-fields.js';
@@ -16,6 +16,7 @@ const MenuContainer = styled.div<MenuContainerProps>`
   margin-top: 0;
   width: 100%;
   height: ${({ $headerHeight }) => `calc(100vh - ${$headerHeight}px)`};
+  height: ${({ $headerHeight }) => `calc(100dvh - ${$headerHeight}px)`};
   z-index: ${baseZindex};
   transition: all 0.3s ease;
   display: ${({ $showMenu }) => ($showMenu ? 'flex' : 'none')};
@@ -111,7 +112,7 @@ const MobileSlideoutButtonContainer = styled.div<{
   z-index: ${baseZindex + 20};
   background-color: ${({ $menuBackgroundColor }) => $menuBackgroundColor};
 
-  .hs-elevate-mobile-slideout__button {
+  .hs-elevate-site-header__mobile-button {
     width: 100%;
     height: 100%;
     justify-content: center;
@@ -154,6 +155,7 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
   const [triggeredMenuItems, setTriggeredMenuItems] = useSharedIslandState();
   const [headerHeight, setHeaderHeight] = useState(0);
   const [mobileButtonContainerHeight, setMobileButtonContainerHeight] = useState(0);
+  const targetAnchorRef = useRef<string | null>(null);
 
   const { flow, flyouts, menuBackgroundColor, menuAccentColor, menuTextColor, buttonStyleVariant, buttonStyleSize, groupButton, ...rest } = props;
 
@@ -169,12 +171,34 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
     if (isAnimating) {
       setShowMenu(true);
       // This is to prevent scrolling when the menu is open
-      document.body.style.overflowY = 'hidden';
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+      document.body.style.height = '100%';
+      document.body.style.top = `-${window.scrollY}px`;
     } else if (!isAnimating && showMenu) {
       setIsClosing(true);
       setIsMenuSliding(false);
-      // This is to re-enable scrolling when the menu is closed
-      document.body.style.overflowY = 'auto';
+      // Restore scrolling and position
+      const scrollY = document.body.style.top;
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+      document.body.style.height = '';
+      document.body.style.top = '';
+      window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    }
+  }, [isAnimating]);
+
+  // Handles smooth scrolling to an anchor link when mobile menu is closed
+  useEffect(() => {
+    if (!isAnimating && targetAnchorRef.current) {
+      // Menu is closed, now we can safely scroll
+      const element = document.querySelector(targetAnchorRef.current);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+      targetAnchorRef.current = null; // Reset the ref after scrolling
     }
   }, [isAnimating]);
 
@@ -216,7 +240,7 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
   }, []);
 
   useEffect(() => {
-    const buttonContainer = document.querySelector('.hs-elevate-mobile-slideout__button-container') as HTMLElement;
+    const buttonContainer = document.querySelector('.hs-elevate-site-header__mobile-menu-button-container') as HTMLElement;
 
     // If the button container doesn't exist, set the height to 0
     if (!buttonContainer) {
@@ -251,9 +275,21 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
     '--hsElevate--menu--topLevel__gap': '0',
   } as CSSProperties;
 
+  const handleMobileAnchorClick = (clickedMenuItemAnchor: string) => {
+    // Store the anchor reference for later use
+    targetAnchorRef.current = clickedMenuItemAnchor;
+    // Close the menu
+    handleOpenCloseMenu();
+  };
+
   return (
-    <div>
-      <HamburgerMenu className={showMenu ? 'active' : ''} tab-index="1" onClick={handleOpenCloseMenu} $menuTextColor={menuTextColor}>
+    <div className="hs-elevate-site-header__mobile-menu">
+      <HamburgerMenu
+        className={`hs-elevate-site-header__hamburger-menu ${showMenu ? 'active' : ''}`}
+        tab-index="1"
+        onClick={handleOpenCloseMenu}
+        $menuTextColor={menuTextColor}
+      >
         <div></div>
         <div></div>
         <div></div>
@@ -266,6 +302,7 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
         $menuAccentColor={menuAccentColor}
         $menuBackgroundColor={menuBackgroundColor}
         $menuTextColor={menuTextColor}
+        className="hs-elevate-site-header__menu-container"
       >
         <MenuComponent
           {...rest}
@@ -275,14 +312,16 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
           triggeredMenuItems={triggeredMenuItems}
           setTriggeredMenuItems={setTriggeredMenuItems}
           topLevelMenuItemStyles={topLevelMenuItemStyles}
+          mobileAnchorClickCallback={handleMobileAnchorClick}
+          additionalClassArray={['hs-elevate-site-header__menu']}
         />
         {showButton && (
-          <MobileSlideoutButtonContainer className="hs-elevate-mobile-slideout__button-container" $menuBackgroundColor={menuBackgroundColor}>
+          <MobileSlideoutButtonContainer className="hs-elevate-site-header__mobile-button-container" $menuBackgroundColor={menuBackgroundColor}>
             <Button
               href={getLinkFieldHref(buttonLink)}
               buttonStyle={buttonStyleVariant}
               buttonSize={buttonStyleSize}
-              additionalClassArray={['hs-elevate-mobile-slideout__button']}
+              additionalClassArray={['hs-elevate-site-header__mobile-button']}
               openInNewTab={buttonLink.open_in_new_tab}
               showIcon={showIcon}
               iconFieldPath="groupButton.buttonContentIcon"
