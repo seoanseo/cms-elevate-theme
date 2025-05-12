@@ -1610,26 +1610,31 @@
     "placeholders": null
   },
   "section_pricing_card_two_feature_title": {
-    "message": "Everything in Starter plan",
+    "message": "Pro plan includes",
     "description": "",
     "placeholders": null
   },
   "section_pricing_card_two_feature_one": {
-    "message": "Advanced social media management",
+    "message": "Everything in Starter plan",
     "description": "",
     "placeholders": null
   },
   "section_pricing_card_two_feature_two": {
-    "message": "Email marketing automation",
+    "message": "Advanced social media management",
     "description": "",
     "placeholders": null
   },
   "section_pricing_card_two_feature_three": {
-    "message": "Basic SEO optimization",
+    "message": "Email marketing automation",
     "description": "",
     "placeholders": null
   },
   "section_pricing_card_two_feature_four": {
+    "message": "Basic SEO optimization",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_card_two_feature_five": {
     "message": "Comprehensive SEO analysis and recommendations",
     "description": "",
     "placeholders": null
@@ -1660,7 +1665,7 @@
     "placeholders": null
   },
   "section_pricing_card_three_feature_title": {
-    "message": "Starter plan includes",
+    "message": "Enterprise plan includes",
     "description": "",
     "placeholders": null
   },
@@ -1806,6 +1811,666 @@
   },
   "section_newsletter_image_alt": {
     "message": "Newsletter signup illustration",
+    "description": "",
+    "placeholders": null
+  },
+  "section_testimonial_cards_quote_1": {
+    "message": "\"This platform transformed our ad strategy! Our ROI has never been better.\"",
+    "description": "",
+    "placeholders": null
+  },
+  "section_testimonial_cards_author_name_1": {
+    "message": "Jessica Sanders",
+    "description": "",
+    "placeholders": null
+  },
+  "section_testimonial_cards_author_title_1": {
+    "message": "Marketing Director @ Hexagontalx.io",
+    "description": "",
+    "placeholders": null
+  },
+  "section_testimonial_cards_quote_2": {
+    "message": "\"The analytics dashboard gives us real-time insights that are crucial for our campaigns. Highly recommend!\"",
+    "description": "",
+    "placeholders": null
+  },
+  "section_testimonial_cards_author_name_2": {
+    "message": "Michael Rivera",
+    "description": "",
+    "placeholders": null
+  },
+  "section_testimonial_cards_author_title_2": {
+    "message": "CEO of Zyntellx",
+    "description": "",
+    "placeholders": null
+  },
+  "section_testimonial_cards_quote_3": {
+    "message": "\"Their automation tools saved us so much time while boosting engagement across all channels.\"",
+    "description": "",
+    "placeholders": null
+  },
+  "section_testimonial_cards_author_name_3": {
+    "message": "Samantha Lee",
+    "description": "",
+    "placeholders": null
+  },
+  "section_testimonial_cards_author_title_3": {
+    "message": "Social Media Manager at Crypturon",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_heading": {
+    "message": "Our Products and Services",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_card_one_title": {
+    "message": "Real Time Analytics Dashboard",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_card_one_description": {
+    "message": "Real-time insights to optimize campaigns. Track key metrics and make data-driven decisions effortlessly.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_card_two_title": {
+    "message": "Targeted Ads",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_card_two_description": {
+    "message": "Reach the right audience with precision. Maximize ROI by delivering personalized ads to high-conversion segments.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_card_three_title": {
+    "message": "Social Media Scheduler",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_card_three_description": {
+    "message": "Automate posts and track engagement. Plan, publish, and analyze social content from one centralized platform.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_card_four_title": {
+    "message": "Email Campaigns",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_card_four_description": {
+    "message": "Craft and send personalized emails. Increase open rates with tailored messaging and automated workflows.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_card_five_title": {
+    "message": "SEO Optimization",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_card_five_description": {
+    "message": "Boost your visibility on search engines. Improve rankings with keyword insights and on-page optimization tools.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_card_six_title": {
+    "message": "AI Content Generator",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_card_six_description": {
+    "message": "Create engaging content in seconds. Generate blog posts, social media captions, and ad copy with ease.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_about_us_one_column_label": {
+    "message": "About us",
+    "description": "",
+    "placeholders": null
+  },
+  "section_about_us_one_column_heading": {
+    "message": "Elevate Your Online Presence",
+    "description": "",
+    "placeholders": null
+  },
+  "section_about_us_one_column_content": {
+    "message": "Crafting a great 'About Us' story starts with highlighting your passion and purpose. Instead of just listing features, show how your platform empowers growth. Focus on your team's expertise and understanding of the digital landscape. Use clear, relatable language that resonates with your audience",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_two_col_heading": {
+    "message": "Our Products and Services",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_two_col_feature_one_heading": {
+    "message": "Real Time Analytics Dashboard",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_two_col_feature_one_description": {
+    "message": "Real-time insights to optimize campaigns. Track key metrics and make data-driven decisions effortlessly.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_two_col_feature_two_heading": {
+    "message": "Targeted Ads",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_two_col_feature_two_description": {
+    "message": "Reach the right audience with precision. Maximize ROI by delivering personalized ads to high-conversion segments.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_two_col_feature_three_heading": {
+    "message": "Social Media Scheduler",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_two_col_feature_three_description": {
+    "message": "Automate posts and track engagement. Plan, publish, and analyze social content from one centralized platform.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_two_col_feature_four_heading": {
+    "message": "Email Campaigns",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_two_col_feature_four_description": {
+    "message": "Craft and send personalized emails. Increase open rates with tailored messaging and automated workflows.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_two_col_feature_five_heading": {
+    "message": "SEO Optimization",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_two_col_feature_five_description": {
+    "message": "Boost your visibility on search engines. Improve rankings with keyword insights and on-page optimization tools.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_two_col_feature_six_heading": {
+    "message": "AI Content Generator",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_two_col_feature_six_description": {
+    "message": "Create engaging content in seconds. Generate blog posts, social media captions, and ad copy with ease.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_list_heading": {
+    "message": "Our solutions to elevate your marketing",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_list_item_one": {
+    "message": "Real Time Analytics Dashboard",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_list_item_two": {
+    "message": "Targeted Ads",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_list_item_three": {
+    "message": "Social Media Scheduler",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_list_item_four": {
+    "message": "Email Campaigns",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_list_item_five": {
+    "message": "SEO Optimization",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_three_col_heading": {
+    "message": "Our Products and Services",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_three_col_feature_one_heading": {
+    "message": "Real Time Analytics Dashboard",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_three_col_feature_one_description": {
+    "message": "Real-time insights to optimize campaigns. Track key metrics and make data-driven decisions effortlessly.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_three_col_feature_two_heading": {
+    "message": "Social Media Scheduler",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_three_col_feature_two_description": {
+    "message": "Automate posts and track engagement. Plan, publish, and analyze social content from one centralized platform.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_three_col_feature_three_heading": {
+    "message": "SEO Optimization",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_three_col_feature_three_description": {
+    "message": "Boost your visibility on search engines. Improve rankings with keyword insights and on-page optimization tools.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_faq_two_column_question_one": {
+    "message": "What services does your digital marketing agency offer?",
+    "description": "",
+    "placeholders": null
+  },
+  "section_faq_two_column_answer_one": {
+    "message": "<p>Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.</p>",
+    "description": "",
+    "placeholders": null
+  },
+  "section_faq_two_column_question_two": {
+    "message": "How can your digital marketing agency help my business grow?",
+    "description": "",
+    "placeholders": null
+  },
+  "section_faq_two_column_answer_two": {
+    "message": "<p>Our agency can help your business grow by increasing your online visibility, driving website traffic, generating leads, improving brand awareness, and ultimately increasing sales and revenue through targeted digital marketing strategies.</p>",
+    "description": "",
+    "placeholders": null
+  },
+  "section_faq_two_column_question_three": {
+    "message": "Do you provide customized solutions for different businesses?",
+    "description": "",
+    "placeholders": null
+  },
+  "section_faq_two_column_answer_three": {
+    "message": "<p>Yes, we understand that every business is unique, and we tailor our digital marketing solutions to meet the specific needs and goals of each client. We offer customized strategies and campaigns to ensure maximum effectiveness.</p>",
+    "description": "",
+    "placeholders": null
+  },
+  "section_faq_two_column_question_four": {
+    "message": "Can you track the performance of digital marketing campaigns?",
+    "description": "",
+    "placeholders": null
+  },
+  "section_faq_two_column_answer_four": {
+    "message": "<p>Absolutely. We provide detailed analytics and reports to track the performance of your digital marketing campaigns. This allows us to measure key metrics, identify areas for improvement, and adjust strategies to achieve the best results.</p>",
+    "description": "",
+    "placeholders": null
+  },
+  "section_faq_two_column_question_five": {
+    "message": "What sets your digital marketing agency apart from others in the industry?",
+    "description": "",
+    "placeholders": null
+  },
+  "section_faq_two_column_answer_five": {
+    "message": "<p>Our agency is distinguished by our team of experienced professionals, innovative marketing strategies, client-focused approach, and commitment to delivering tangible results. We prioritize transparency, communication, and collaboration with our clients.</p>",
+    "description": "",
+    "placeholders": null
+  },
+  "section_faq_two_column_question_six": {
+    "message": "How do I get a quote for a project?",
+    "description": "",
+    "placeholders": null
+  },
+  "section_faq_two_column_answer_six": {
+    "message": "<p>Feel free to email us at salesinquiries@elevate.com with information about your specific business requirements and our team will work with you to create a customized quote for your needs</p>",
+    "description": "",
+    "placeholders": null
+  },
+  "section_hero_banner_two_column_tag_line": {
+    "message": "Data-Driven Marketing",
+    "description": "",
+    "placeholders": null
+  },
+  "section_hero_banner_two_column_heading": {
+    "message": "Smarter Digital Advertising, Better Results",
+    "description": "",
+    "placeholders": null
+  },
+  "section_hero_banner_two_column_list_item_one": {
+    "message": "Actionable Insights – Advanced analytics to track and improve performance",
+    "description": "",
+    "placeholders": null
+  },
+  "section_hero_banner_two_column_list_item_two": {
+    "message": "Automated Workflows – Streamline ad management and boost efficiency",
+    "description": "",
+    "placeholders": null
+  },
+  "section_hero_banner_two_column_list_item_three": {
+    "message": "Seamless Integrations – Connect with your favorite marketing tools effortlessly",
+    "description": "",
+    "placeholders": null
+  },
+  "section_hero_banner_two_column_button_text": {
+    "message": "Get Your Free Demo",
+    "description": "",
+    "placeholders": null
+  },
+  "section_hero_banner_two_column_image_alt": {
+    "message": "Marketing Dashboard",
+    "description": "",
+    "placeholders": null
+  },
+  "section_one_column_image_alt_text": {
+    "message": "Customer shopping experience image",
+    "description": "",
+    "placeholders": null
+  },
+  "section_countdown_heading": {
+    "message": "Let the countdown to ElevateExpo, the biggest marketing event of the year, begin",
+    "description": "",
+    "placeholders": null
+  },
+  "section_countdown_button_text": {
+    "message": "Register now",
+    "description": "",
+    "placeholders": null
+  },
+  "section_cta_two_column_heading": {
+    "message": "Maximize your marketing impact with AI-powered strategies",
+    "description": "",
+    "placeholders": null
+  },
+  "section_cta_two_column_paragraph_1": {
+    "message": "Unlock the power of data-driven advertising to reach the right audience, optimize campaigns in real-time, and boost your ROI effortlessly.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_cta_two_column_paragraph_2": {
+    "message": "Utilize our tools and insights to build lasting customer relationships. We provide the solutions for digital success.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_cta_two_column_button_text": {
+    "message": "Request a free demo",
+    "description": "",
+    "placeholders": null
+  },
+  "section_hero_banner_two_col_text_paragraph": {
+    "message": "Elevate your digital marketing with smart advertising and a sleek dashboard for data-driven results. Experience seamless campaigns with better outcomes.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_hero_banner_two_col_text_button_text": {
+    "message": "Get your free demo",
+    "description": "",
+    "placeholders": null
+  },
+  "section_hero_video_two_col_tag_line": {
+    "message": "Data-Driven Marketing",
+    "description": "",
+    "placeholders": null
+  },
+  "section_hero_video_two_col_heading": {
+    "message": "Smarter Digital Advertising, Better Results",
+    "description": "",
+    "placeholders": null
+  },
+  "section_hero_video_two_col_text_paragraph": {
+    "message": "Elevate your digital marketing with smart advertising and a sleek dashboard for data-driven results. Experience seamless campaigns with better outcomes.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_hero_video_two_col_button_text": {
+    "message": "Get started",
+    "description": "",
+    "placeholders": null
+  },
+  "section_hero_centered_dark_heading": {
+    "message": "Connect Your Brand with Purpose",
+    "description": "",
+    "placeholders": null
+  },
+  "section_hero_centered_dark_content": {
+    "message": "Build a brand with purpose by creating authentic connections, fostering loyalty, and driving real results that resonate with your audience.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_hero_centered_dark_button_text": {
+    "message": "Get started today",
+    "description": "",
+    "placeholders": null
+  },
+  "section_team_members_two_column_heading": {
+    "message": "Our team",
+    "description": "",
+    "placeholders": null
+  },
+  "section_team_members_two_column_description": {
+    "message": "Meet the awesome folks who make all of this possible day to day",
+    "description": "",
+    "placeholders": null
+  },
+  "section_team_members_two_column_member_name": {
+    "message": "Team Member Name",
+    "description": "",
+    "placeholders": null
+  },
+  "section_team_members_two_column_member_role": {
+    "message": "Highlight their core responsibilities as well as how they contribute to the team's success.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_team_members_two_column_button_one": {
+    "message": "Get in touch with us",
+    "description": "",
+    "placeholders": null
+  },
+  "section_team_members_two_column_button_two": {
+    "message": "Learn more",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_services_video_list_item_one": {
+    "message": "Actionable Insights – Advanced analytics to track and improve performance",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_services_video_list_item_two": {
+    "message": "Automated Workflows – Streamline ad management and boost efficiency",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_services_video_list_item_three": {
+    "message": "Seamless Integrations – Connect with your favorite marketing tools effortlessly",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_services_video_list_item_four": {
+    "message": "Data-Driven Strategies – Unlock actionable insights for maximum ROI",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_services_video_list_item_five": {
+    "message": "Multi-Platform Expertise – Reach your audience wherever they are",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_four_column_card_one_heading": {
+    "message": "Free Plan",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_four_column_card_one_price": {
+    "message": "$0",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_four_column_time_period": {
+    "message": "/month",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_four_column_card_one_feature_one": {
+    "message": "Basic tools",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_four_column_card_one_feature_two": {
+    "message": "Limited analytics",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_four_column_card_one_button_text": {
+    "message": "Get started",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_four_column_card_two_heading": {
+    "message": "Starter Plan",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_four_column_card_two_price": {
+    "message": "$79",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_four_column_card_two_feature_one": {
+    "message": "Multi-channel ads",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_four_column_card_two_feature_two": {
+    "message": "Standard analytics",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_four_column_card_two_feature_three": {
+    "message": "Email support",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_four_column_card_three_heading": {
+    "message": "Pro Plan",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_four_column_card_three_price": {
+    "message": "$129",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_four_column_card_three_feature_one": {
+    "message": "Advanced targeting",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_four_column_card_three_feature_two": {
+    "message": "A/B testing",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_four_column_card_three_feature_three": {
+    "message": "Priority support",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_four_column_card_four_heading": {
+    "message": "Enterprise Plan",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_four_column_card_four_price": {
+    "message": "$159",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_four_column_card_four_feature_one": {
+    "message": "Custom integrations",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_four_column_card_four_feature_two": {
+    "message": "Account management",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_four_column_card_four_feature_three": {
+    "message": "Unlimited access",
+    "description": "",
+    "placeholders": null
+  },
+  "section_pricing_four_column_card_four_button_text": {
+    "message": "Contact sales",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_three_col_dark_heading": {
+    "message": "Our products",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_three_col_dark_card_one_heading": {
+    "message": "Campaign Intelligence",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_three_col_dark_card_one_text": {
+    "message": "Unlock actionable insights with real-time analytics.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_three_col_dark_card_two_heading": {
+    "message": "Ad Automation Studio",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_three_col_dark_card_two_text": {
+    "message": "Build, test, and scale high-performing ad campaigns faster than ever.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_three_col_dark_card_three_heading": {
+    "message": "Audience Builder",
+    "description": "",
+    "placeholders": null
+  },
+  "section_products_and_services_three_col_dark_card_three_text": {
+    "message": "Create precise customer segments and audiences with ease.",
+    "description": "",
+    "placeholders": null
+  },
+  "section_team_members_dark_heading": {
+    "message": "Our team",
+    "description": "",
+    "placeholders": null
+  },
+  "section_team_members_dark_description": {
+    "message": "Meet the awesome folks who make all of this possible day to day",
+    "description": "",
+    "placeholders": null
+  },
+  "section_team_member_dark_name_placeholder": {
+    "message": "Team member",
+    "description": "",
+    "placeholders": null
+  },
+  "section_team_member_dark_role_placeholder": {
+    "message": "Role here",
+    "description": "",
+    "placeholders": null
+  },
+  "section_team_member_dark_button_one": {
+    "message": "Get in touch with us",
+    "description": "",
+    "placeholders": null
+  },
+  "section_team_member_dark_button_two": {
+    "message": "Learn more",
     "description": "",
     "placeholders": null
   }
