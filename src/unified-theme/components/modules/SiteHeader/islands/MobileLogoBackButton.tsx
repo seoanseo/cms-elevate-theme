@@ -5,16 +5,22 @@ import { LogoFieldType } from '@hubspot/cms-components/fields';
 
 type LogoImageProps = {
   $isHidden: boolean;
+  $fileTypeIsSVG: boolean;
 };
 
 const LogoImage = styled.img<LogoImageProps>`
-  max-width: 250px;
+  max-width: min(250px, 100%);
   max-height: 75px;
-  height: auto;
+  ${({ $fileTypeIsSVG }) => ($fileTypeIsSVG ? '' : 'height: auto;')}
   width: auto;
   display: block;
   visibility: ${({ $isHidden }) => ($isHidden ? 'hidden' : 'visible')};
   pointer-events: ${({ $isHidden }) => ($isHidden ? 'none' : 'auto')};
+  object-fit: contain;
+
+  @media (min-width: 769px) {
+    max-width: 250px;
+  }
 `;
 
 const CompanyNameFallback = styled.span`
@@ -101,22 +107,32 @@ export default function MobileLogoBackButton(props: MobileLogoBackButtonProps) {
   const goBackOneLevel = () => {
     setTriggeredMenuItems(triggeredMenuItems.slice(0, -1));
   };
+  const isFileTypeSvg = logoSrc ? logoSrc.endsWith('.svg') : false;
 
   return (
-    <div>
+    <div className="hs-elevate-site-header__back-button-container">
       {showBackButton && (
-        <StyledBackButton onClick={goBackOneLevel}>
-          <ArrowComponent />
+        <StyledBackButton className="hs-elevate-site-header__back-button" onClick={goBackOneLevel}>
+          <ArrowComponent additionalClassArray={['hs-elevate-site-header__back-button-icon']} />
           Back
         </StyledBackButton>
       )}
       {logoSrc && (
-        <LogoLink href={logoLink || '#'} $isHidden={showBackButton}>
-          <LogoImage $isHidden={showBackButton} src={logoSrc} alt={logoAlt} loading="eager" width={logoWidth} height={logoHeight} />
+        <LogoLink className="hs-elevate-site-header__logo-link" href={logoLink || '#'} $isHidden={showBackButton}>
+          <LogoImage
+            className="hs-elevate-site-header__logo"
+            $isHidden={showBackButton}
+            $fileTypeIsSVG={isFileTypeSvg}
+            src={logoSrc}
+            alt={logoAlt}
+            loading="eager"
+            width={logoWidth}
+            height={logoHeight}
+          />
           <LogoLinkScreenReader $isHidden={showBackButton}>{logoLinkAriaText}</LogoLinkScreenReader>
         </LogoLink>
       )}
-      {!logoSrc && !suppress_company_name && <CompanyNameFallback>{companyName}</CompanyNameFallback>}
+      {!logoSrc && !suppress_company_name && <CompanyNameFallback className="hs-elevate-site-header__company-name">{companyName}</CompanyNameFallback>}
     </div>
   );
 }

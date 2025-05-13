@@ -91,18 +91,24 @@ type PaginationProps = {
   };
 };
 
+function standardizePathName(currentPathName: string) {
+  // If the pathname is '/' return an empty string
+  // This is to avoid having a double slash in the basePagePath
+  // This only happens if the blog is setup in the root directory of the website
+  // or exists on a subdomain ex: https://blog.example.com/
+  return currentPathName === '/' ? '' : currentPathName;
+}
+
 export default function Pagination(props: PaginationProps) {
   const { currentPageNumber, totalPageCount, nextPageNumber, defaultContent } = props;
 
-  const currentPathName = usePageUrl().pathname;
+  const currentPathName = standardizePathName(usePageUrl().pathname);
   const pathNameWithoutPageInfo = currentPathName.replace(/\/page\/\d+/, '');
   const basePagePath = `${pathNameWithoutPageInfo}/page`;
   const nextPageUrl = `${basePagePath}/${nextPageNumber}`;
   const previousPageUrl = `${basePagePath}/${currentPageNumber > 1 ? currentPageNumber - 1 : 1}`;
-
   const enableNextButton = currentPageNumber < totalPageCount;
   const enablePreviousButton = currentPageNumber > 1;
-
   const standardizedPageNumbers = [-1, 0, 1];
   let displayFirstNumber = false;
   let displayLastNumber = false;
@@ -150,23 +156,35 @@ export default function Pagination(props: PaginationProps) {
   const pagesToDisplay = buildPaginationNumbers();
 
   return (
-    <PaginationContainer>
-      <NavLink className={!enablePreviousButton ? 'hs-elevate-disabled' : ''} href={previousPageUrl}>
-        <Chevron className="hs-elevate-helper--rotate-180" />
+    <PaginationContainer className="hs-elevate-blog-listing__pagination-container">
+      <NavLink className={`hs-elevate-blog-listing__pagination-link ${!enablePreviousButton ? 'hs-elevate-disabled' : ''}`} href={previousPageUrl}>
+        <Chevron additionalClassArray={['hs-elevate-helper--rotate-180', 'hs-elevate-blog-listing__pagination-icon']} />
         <ScreenReadyOnly>{defaultContent.previousPage}</ScreenReadyOnly>
       </NavLink>
 
-      {displayFirstNumber && <PaginationLink href={`${basePagePath}/1`}>1</PaginationLink>}
+      {displayFirstNumber && (
+        <PaginationLink className="hs-elevate-blog-listing__pagination-link" href={`${basePagePath}/1`}>
+          1
+        </PaginationLink>
+      )}
       {displayPreviousElipsis && <Elipsis>...</Elipsis>}
       {pagesToDisplay.map(index => (
-        <PaginationLink className={currentPageNumber === index ? 'active' : ''} key={index} href={`${basePagePath}/${index}`}>
+        <PaginationLink
+          className={`hs-elevate-blog-listing__pagination-link ${currentPageNumber === index ? 'active' : ''}`}
+          key={index}
+          href={`${basePagePath}/${index}`}
+        >
           {index}
         </PaginationLink>
       ))}
       {displayNextElipsis && <Elipsis>...</Elipsis>}
-      {displayLastNumber && <PaginationLink href={`${basePagePath}/${totalPageCount}`}>{totalPageCount}</PaginationLink>}
-      <NavLink href={nextPageUrl} className={!enableNextButton ? 'hs-elevate-disabled' : ''}>
-        <Chevron />
+      {displayLastNumber && (
+        <PaginationLink className="hs-elevate-blog-listing__pagination-link" href={`${basePagePath}/${totalPageCount}`}>
+          {totalPageCount}
+        </PaginationLink>
+      )}
+      <NavLink href={nextPageUrl} className={`hs-elevate-blog-listing__pagination-link ${!enableNextButton ? 'hs-elevate-disabled' : ''}`}>
+        <Chevron additionalClassArray={['hs-elevate-blog-listing__pagination-icon']} />
         <ScreenReadyOnly>{defaultContent.nextPage}</ScreenReadyOnly>
       </NavLink>
     </PaginationContainer>

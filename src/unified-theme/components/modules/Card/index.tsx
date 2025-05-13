@@ -72,13 +72,14 @@ type CardProps = {
 // Card component
 
 const CardContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  container-type: normal;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
   gap: var(--hsElevate--spacing--24, 24px);
+  justify-content: center;
 
-  @media (min-width: 1000px) {
-    flex-direction: row;
+  @container (min-width: 600px) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 `;
 
@@ -153,9 +154,16 @@ const StyledIcon = styled(Icon)`
   background-color: var(--hsElevate--cardIcon__backgroundColor);
 `;
 
+// Checks if an image path corresponds to one of the default images used on the card module in one of our sections/templates
+function isDefaultImage(imagePath: string): boolean {
+  if (!imagePath) return false;
+  return /team-member-small(?:-med)?-[1-5]/.test(imagePath);
+}
+
 type ImageWrapperProps = {
   $alignment: AlignmentFieldType['default'];
   $cardOrientation: 'row' | 'column';
+  $isDefaultCardImage: boolean;
 };
 
 const ImageWrapper = styled.div<ImageWrapperProps>`
@@ -169,12 +177,18 @@ const ImageWrapper = styled.div<ImageWrapperProps>`
 
   img {
     height: auto;
-    max-width: 250px;
+    max-width: min(250px, 100%);
     min-width: 80px;
     -o-object-fit: contain;
     object-fit: contain;
     -o-object-position: center;
     object-position: center;
+    ${props =>
+      props.$isDefaultCardImage &&
+      `
+      background-color: var(--hsElevate--cardIcon__backgroundColor);
+      border-radius: var(--hsElevate-rounded--large);
+    `}
   }
 
   @media (min-width: 1000px) {
@@ -182,6 +196,12 @@ const ImageWrapper = styled.div<ImageWrapperProps>`
     justify-content: ${props => getCardJustifyContent(props.$alignment, props.$cardOrientation)};
     margin-block-end: ${props => (props.$cardOrientation === 'column' ? 'var(--hsElevate--spacing--24, 24px)' : '0')};
     margin-inline-end: ${props => (props.$cardOrientation === 'row' ? 'var(--hsElevate--spacing--24, 24px)' : '0')};
+    ${props =>
+      props.$cardOrientation === 'row' &&
+      `
+      flex: 0 0 auto;
+      max-width: 40%;
+    `}
   }
 `;
 
@@ -216,10 +236,13 @@ const CardContent = styled.div<CardContentProps>`
 
   @media (min-width: 1000px) {
     align-self: ${props => getCardJustifyContent(props.$alignment, props.$cardOrientation)};
+    ${props => props.$cardOrientation === 'row' && `flex: 1 1 auto;`}
   }
 `;
 
-const ButtonContainer = styled.div<{ $alignment: AlignmentFieldType['default'] }>`
+const ButtonContainer = styled.div<{
+  $alignment: AlignmentFieldType['default'];
+}>`
   align-self: ${props => getAlignmentFieldCss(props.$alignment).justifyContent};
 `;
 
@@ -237,11 +260,13 @@ export const Component = (props: CardProps) => {
   const cssVarsMap = {
     ...generateColorCssVars(cardStyleVariant),
   };
+  const isIcon = imageOrIcon === 'icon';
+  const isImage = imageOrIcon === 'image';
   const textAlignment = alignment.horizontal_align?.toLowerCase() as 'left' | 'right' | 'center';
 
   return (
     <StyledComponentsRegistry>
-      <CardContainer style={cssVarsMap}>
+      <CardContainer className="hs-elevate-card-container" style={cssVarsMap}>
         {groupCards.map((card, index) => {
           const {
             groupButton: {
@@ -252,17 +277,29 @@ export const Component = (props: CardProps) => {
               buttonContentIconPosition: iconPosition,
             },
           } = card;
+          const hasValidImageSrc = card?.groupImage?.image?.src;
+          const isDefaultCardImage = hasValidImageSrc && isDefaultImage(card.groupImage.image.src);
+          const usesDefaultCardImage = isImage && isDefaultCardImage;
+          const isImageVisible = isImage && hasValidImageSrc;
+          const hasValidIconName = card?.groupIcon?.icon?.name;
+          const isIconVisible = isIcon && hasValidIconName;
 
           return (
-            <Card key={index} cardStyleVariant={cardStyleVariant} cardOrientation={cardOrientation}>
-              {imageOrIcon === 'icon' && card.groupIcon.icon && card.groupIcon.icon.name && (
-                <IconWrapper $cardOrientation={cardOrientation} $alignment={alignment}>
+            <Card additionalClassArray={['hs-elevate-card-container__card']} key={index} cardStyleVariant={cardStyleVariant} cardOrientation={cardOrientation}>
+              {isIconVisible && (
+                <IconWrapper className="hs-elevate-card-container__icon-wrapper" $cardOrientation={cardOrientation} $alignment={alignment}>
                   <StyledIcon purpose="DECORATIVE" fieldPath={`groupCards[${index}].groupIcon.icon`} />
                 </IconWrapper>
               )}
-              {imageOrIcon === 'image' && card.groupImage.image && card.groupImage.image.src && (
-                <ImageWrapper $cardOrientation={cardOrientation} $alignment={alignment}>
+              {isImageVisible && (
+                <ImageWrapper
+                  className="hs-elevate-card-container__image-wrapper"
+                  $cardOrientation={cardOrientation}
+                  $alignment={alignment}
+                  $isDefaultCardImage={usesDefaultCardImage}
+                >
                   <img
+                    className="hs-elevate-card-container__image"
                     src={card.groupImage.image.src}
                     alt={card.groupImage.image.alt}
                     width={card.groupImage.image.width}
@@ -271,18 +308,24 @@ export const Component = (props: CardProps) => {
                   />
                 </ImageWrapper>
               )}
-              <CardContent $alignment={alignment} $cardOrientation={cardOrientation}>
+              <CardContent className="hs-elevate-card-container__content" $alignment={alignment} $cardOrientation={cardOrientation}>
                 {card.groupContent.headingAndTextHeading && (
                   <HeadingComponent
                     headingLevel={card.groupContent.headingAndTextHeadingLevel}
                     heading={card.groupContent.headingAndTextHeading}
                     headingStyleVariant={headingStyleVariant}
                     inlineStyles={{ textAlign: textAlignment }}
+                    additionalClassArray={['hs-elevate-card-container__title']}
                   />
                 )}
-                <StyledRichText $alignment={alignment} $showButton={showButton} fieldPath={`groupCards[${index}].groupContent.richTextContentHTML`} />
+                <StyledRichText
+                  $alignment={alignment}
+                  $showButton={showButton}
+                  fieldPath={`groupCards[${index}].groupContent.richTextContentHTML`}
+                  className="hs-elevate-card-container__body"
+                />
                 {showButton && (
-                  <ButtonContainer $alignment={alignment}>
+                  <ButtonContainer className="hs-elevate-card-container__button-wrapper" $alignment={alignment}>
                     <Button
                       buttonSize={buttonStyleSize}
                       buttonStyle={buttonStyleVariant}
@@ -292,6 +335,7 @@ export const Component = (props: CardProps) => {
                       iconFieldPath={`groupCards[${index}].groupButton.buttonContentIcon`}
                       showIcon={showIcon}
                       iconPosition={iconPosition}
+                      additionalClassArray={['hs-elevate-card-container__button']}
                     >
                       {text}
                     </Button>

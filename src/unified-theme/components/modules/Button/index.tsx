@@ -78,30 +78,24 @@ function generateGapCssVars(gapField: StandardSizeType): CSSPropertiesMap {
   return { '--hsElevate--buttons__gap': gapMap[gapField] };
 }
 
-type ButtonWrapperProps = {
+type ButtonContainerProps = {
   $alignment: AlignmentFieldType['default'];
 };
 
-const ButtonWrapper = styled.div<ButtonWrapperProps>`
+const ButtonContainer = styled.div<ButtonContainerProps>`
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: var(--hsElevate--buttons__gap);
   justify-content: ${props => getAlignmentFieldCss(props.$alignment).justifyContent};
-
+  // When the container around the button gets smaller we want buttons to stack
   @container (max-width: 400px) {
     flex-direction: column;
-
-    // On mobile we want to default the buttons to be centered
-    // On larger screens with smaller containers we want the buttons to
-    // be aligned to the start of the container.
-    @media (min-width: 500px) {
-      align-items: ${props => getAlignmentFieldCss(props.$alignment).justifyContent};
-    }
+    align-items: ${props => getAlignmentFieldCss(props.$alignment).justifyContent};
   }
 `;
 
-const ButtonContainer = styled.div`
+const ButtonWrapper = styled.div`
   container-type: inline-size;
 `;
 
@@ -118,8 +112,8 @@ export const Component = (props: ButtonProps) => {
 
   return (
     <StyledComponentsRegistry>
-      <ButtonContainer>
-        <ButtonWrapper $alignment={alignment} style={cssVarsMap}>
+      <ButtonWrapper>
+        <ButtonContainer className="hs-elevate-button-container" $alignment={alignment} style={cssVarsMap}>
           {groupButtons.map((button, index) => (
             <Button
               key={index}
@@ -132,12 +126,13 @@ export const Component = (props: ButtonProps) => {
               showIcon={button.buttonContentShowIcon}
               iconFieldPath={`groupButtons[${index}].buttonContentIcon`}
               iconPosition={button.buttonContentIconPosition}
+              additionalClassArray={['hs-elevate-button-container__button']}
             >
               {button.buttonContentText}
             </Button>
           ))}
-        </ButtonWrapper>
-      </ButtonContainer>
+        </ButtonContainer>
+      </ButtonWrapper>
     </StyledComponentsRegistry>
   );
 };

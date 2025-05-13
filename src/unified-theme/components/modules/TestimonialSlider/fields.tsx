@@ -219,6 +219,19 @@ export const fields = (
         />
       </FieldGroup>
     </RepeatedFieldGroup>
+    <FieldGroup label="Default text" name="groupDefaultText" locked={true}>
+      <TextField label="Previous" name="previousArrowAltText" default="Previous" />
+      <TextField label="Next" name="nextArrowAltText" default="Next" />
+      <TextField label="Navigate to slide number" name="navigateToSlideNumberAriaLabel" default="Go to slide %s" />
+      <TextField label="Navigate to prev slide" name="navigateToPreviousSlideAriaLabel" default="Go to previous slide" />
+      <TextField label="Navigate to next slide" name="navigateToNextSlideAriaLabel" default="Go to next slide" />
+      <TextField label="Navigate to first slide" name="navigateToFirstSlideAriaLabel" default="Go to first slide" />
+      <TextField label="Navigate to last slide" name="navigateToLastSlideAriaLabel" default="Go to last slide" />
+      <TextField label="Carousel" name="carouselAriaLabel" default="Carousel" />
+      <TextField label="Select slide to show" name="selectSlideNavigationAriaLabel" default="Select a slide to show" />
+      <TextField label="Slide" name="slideAriaLabel" default="Slide" />
+      <TextField label="Slide num of slides total" name="slideNumberOfSlidesTotalAriaLabel" default="%s of %s" />
+    </FieldGroup>
     <StyleFields />
   </ModuleFields>
 );

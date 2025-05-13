@@ -99,14 +99,14 @@ const PricingCardsWrapper = styled.div`
   grid-template-rows: auto 1fr;
   align-items: start;
 
-  .hs-elevate-pricing-card {
+  .hs-elevate-pricing-card-container__card {
     padding: 0;
     display: grid;
     grid-template-rows: subgrid;
     grid-row: span 2;
   }
 
-  .hs-elevate-pricing-card__button {
+  .hs-elevate-pricing-card-container__button {
     width: 100%;
     justify-content: center;
   }
@@ -158,12 +158,23 @@ const PricingCardSummary = (props: PricingCardSummaryProps & HeadingStyleFieldLi
   } = props;
 
   return (
-    <PricingCardSummaryContainer>
-      <HeadingComponent headingLevel={headingAndTextHeadingLevel} heading={headingAndTextHeading} headingStyleVariant={headingStyleVariant} />
-      <PricingCardDescription>{description}</PricingCardDescription>
-      <PricingCardPriceContainer>
-        <PricingCardPrice>{price}</PricingCardPrice>
-        <PricingCardTimePeriod>{timePeriod}</PricingCardTimePeriod>
+    <PricingCardSummaryContainer className="hs-elevate-pricing-card-container__summary">
+      {headingAndTextHeading && (
+        <HeadingComponent
+          additionalClassArray={['hs-elevate-pricing-card-container__title']}
+          headingLevel={headingAndTextHeadingLevel}
+          heading={headingAndTextHeading}
+          headingStyleVariant={headingStyleVariant}
+        />
+      )}
+      {description && 
+        <PricingCardDescription className="hs-elevate-pricing-card-container__description">
+          {description}
+        </PricingCardDescription>
+      }
+      <PricingCardPriceContainer className="hs-elevate-pricing-card-container__price-container">
+        <PricingCardPrice className="hs-elevate-pricing-card-container__price">{price}</PricingCardPrice>
+        <PricingCardTimePeriod className="hs-elevate-pricing-card-container__time-period">{timePeriod}</PricingCardTimePeriod>
       </PricingCardPriceContainer>
     </PricingCardSummaryContainer>
   );
@@ -178,6 +189,7 @@ const PricingCardFeaturesContainer = styled.div`
   align-items: flex-start;
   grid-row: 2;
   height: 100%;
+  margin-bottom: var(--hsElevate--spacing--32, 32px);
 `;
 
 const PricingCardFeaturesList = styled.ul`
@@ -195,12 +207,13 @@ const PricingCardFeaturesListItem = styled.li`
     fill: var(--hsElevate--cardIcon__color);
     margin-block-start: var(--hsElevate--spacing--4, 4px);
     margin-inline-end: var(--hsElevate--spacing--12, 12px);
+    flex: 0 0 auto;
   }
 `;
 
 const ListArrow = () => {
   return (
-    <svg width="18" height="14" viewBox="0 0 18 14" xmlns="http://www.w3.org/2000/svg">
+    <svg className="hs-elevate-pricing-card-container__features-list-item-icon" width="18" height="14" viewBox="0 0 18 14" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.6328 1.11719C18.1211 1.60547 18.1211 2.39844 17.6328 2.88672L7.63281 12.8867C7.14453 13.375 6.35156 13.375 5.86328 12.8867L0.863281 7.88672C0.375 7.39844 0.375 6.60547 0.863281 6.11719C1.35156 5.62891 2.14453 5.62891 2.63281 6.11719L6.75 10.2305L15.8672 1.11719C16.3555 0.628906 17.1484 0.628906 17.6367 1.11719H17.6328Z" />
     </svg>
   );
@@ -213,11 +226,18 @@ const PricingCardFeatures = (props: PricingCardFeaturesProps & HeadingStyleField
   } = props;
 
   return (
-    <PricingCardFeaturesContainer>
-      <HeadingComponent headingLevel={headingAndTextHeadingLevel} heading={headingAndTextHeading} headingStyleVariant={headingStyleVariant} />
-      <PricingCardFeaturesList>
+    <PricingCardFeaturesContainer className="hs-elevate-pricing-card-container__features">
+      {headingAndTextHeading && (
+        <HeadingComponent
+          additionalClassArray={['hs-elevate-pricing-card-container__features-title']}
+          headingLevel={headingAndTextHeadingLevel}
+          heading={headingAndTextHeading}
+          headingStyleVariant={headingStyleVariant}
+        />
+      )}
+      <PricingCardFeaturesList className="hs-elevate-pricing-card-container__features-list">
         {groupFeatures.map((features, index) => (
-          <PricingCardFeaturesListItem key={index}>
+          <PricingCardFeaturesListItem key={index} className="hs-elevate-pricing-card-container__features-list-item">
             <ListArrow />
             {features.feature}
           </PricingCardFeaturesListItem>
@@ -252,15 +272,15 @@ export const Component = (props: PricingCardProps) => {
 
   return (
     <StyledComponentsRegistry>
-      <PricingCardsWrapper style={cssVarsMap}>
+      <PricingCardsWrapper style={cssVarsMap} className="hs-elevate-pricing-card-container">
         {groupPricingCards.map((pricingCard, index) => (
-          <Card key={index} additionalClassArray={['hs-elevate-pricing-card']} cardStyleVariant={cardStyleVariant} cardOrientation="column">
+          <Card key={index} additionalClassArray={['hs-elevate-pricing-card-container__card']} cardStyleVariant={cardStyleVariant} cardOrientation="column">
             <PricingCardSummary groupSummary={pricingCard.groupSummary} headingStyleVariant={summaryHeadingStyleVariant} />
             <PricingCardFeatures groupPlanFeatures={pricingCard.groupPlanFeatures} headingStyleVariant={planFeaturesHeadingStyleVariant} />
             {pricingCard.groupButton.showButton && (
-              <ButtonWrapper>
+              <ButtonWrapper className="hs-elevate-pricing-card-container__button-container">
                 <Button
-                  additionalClassArray={['hs-elevate-pricing-card__button']}
+                  additionalClassArray={['hs-elevate-pricing-card-container__button']}
                   buttonStyle={buttonStyleVariant}
                   buttonSize={buttonStyleSize}
                   href={getLinkFieldHref(pricingCard.groupButton.buttonContentLink)}

@@ -1,4 +1,4 @@
-import { styled } from 'styled-components'
+import { styled } from 'styled-components';
 import StyledComponentsRegistry from '../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
 import { CardStyleFieldLibraryType } from '../fieldLibrary/CardStyle/types.js';
 
@@ -43,7 +43,7 @@ const StyledCard = styled.article<StyledCardProps>`
   padding: var(--hsElevate--spacing--32, 32px);
 
   @media (min-width: 1000px) {
-    flex-direction: ${(props) => props.$cardOrientation};
+    flex-direction: ${props => props.$cardOrientation};
   }
 `;
 
@@ -54,9 +54,10 @@ export const Card = (props: CardProps) => {
   const cardClassName = getCardVariantClassName(cardStyleVariant);
 
   const additionalClasses = additionalClassArray ? additionalClassArray.join(' ') : '';
+
   return (
     <StyledComponentsRegistry>
-      <StyledCard className={`${cardClassName} ${additionalClasses}`} style={inlineStyles} $cardOrientation={cardOrientation}>
+      <StyledCard className={`hs-elevate-card ${cardClassName} ${additionalClasses}`} style={inlineStyles} $cardOrientation={cardOrientation}>
         {children || <DefaultContent />}
       </StyledCard>
     </StyledComponentsRegistry>

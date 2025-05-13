@@ -2,6 +2,7 @@
   templateType: section
   label: Hero banner - centered
   isAvailableForNewContent: true
+  landingPageSectionCategories: [HERO]
   scaffoldSchemaPath: ./schemas/hero-banner-centered.scaffold_schema.json
   screenshotPath: ../images/section-previews/hero-centered.png
   description: "Section with a centered heading, description, and button"
@@ -32,7 +33,7 @@
   background_color={{ context.background_color }},
   padding={
     "top": section_vertical_spacing_medium,
-    "bottom": 0
+    "bottom": section_vertical_spacing_medium
   },
   max_width=830
 %}

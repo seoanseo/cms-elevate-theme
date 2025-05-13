@@ -17,6 +17,15 @@ const defaultAccordion = {
 
 export const fields = (
   <ModuleFields>
+    <ChoiceField
+      label='Icon'
+      name='icon'
+      display='buttons'
+      choices={[['chevron', 'chevron'], ['plus', 'plus']]}
+      preset='expand_icon'
+      required={true}
+      default='chevron'
+    />
     <RepeatedFieldGroup
       label='Accordions'
       name='groupAccordions'
