@@ -44,11 +44,6 @@
         "description": "A heading that describes an action that someone should take."
       },
       {
-        "name": "description",
-        "type": "text",
-        "description": "A couple of sentences that provide more information about the action that someone should take."
-      },
-      {
         "name": "button_text",
         "type": "text",
         "description": "The button text that describes the call to action the user should take."

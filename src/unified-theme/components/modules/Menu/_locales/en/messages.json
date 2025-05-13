@@ -158,5 +158,20 @@
     "message": "Secondary",
     "description": "",
     "placeholders": null
+  },
+  "styles.groupLink.linkStyleVariant.inline_help_text": {
+    "message": "<a href=\"$theme_link\">Edit</a>",
+    "description": "",
+    "placeholders": null
+  },
+  "groupPlaceholderText.placeholderTitle.default": {
+    "message": "No menu selected",
+    "description": "",
+    "placeholders": null
+  },
+  "groupPlaceholderText.placeholderDescription.default": {
+    "message": "Select an existing menu from the sidebar, or create a new one by navigating to the Navigation Menus tool",
+    "description": "",
+    "placeholders": null
   }
 }

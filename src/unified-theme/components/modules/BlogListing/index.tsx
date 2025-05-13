@@ -50,7 +50,7 @@ const StyledCardContainer = styled.div<{ $pageNumber: number; $useFeaturedImage:
 
   .hs-elevate-card--blog {
     grid-column: span 1;
-    gird-row: span 1;
+    grid-row: span 1;
   }
 
   @media (min-width: 640px) {
@@ -167,41 +167,56 @@ export const Component = (props: BlogListingProps) => {
 
   return (
     <StyledComponentsRegistry>
-      <StyledCardContainer $pageNumber={currentPageNumber} $useFeaturedImage={!!use_featured_image_in_summary}>
+      <StyledCardContainer className="hs-elevate-blog-listing" $pageNumber={currentPageNumber} $useFeaturedImage={!!use_featured_image_in_summary}>
         {blogPosts.map(post => {
           return (
-            <Card key={post.id} cardOrientation="column" cardStyleVariant={cardStyleVariant} additionalClassArray={['hs-elevate-card--blog']}>
-              <StyledCardLink href={post.absoluteUrl}>
+            <Card
+              key={post.id}
+              cardOrientation="column"
+              cardStyleVariant={cardStyleVariant}
+              additionalClassArray={['hs-elevate-card--blog', 'hs-elevate-blog-listing__card']}
+            >
+              <StyledCardLink className="hs-elevate-blog-listing__card-link" href={post.absoluteUrl}>
                 {use_featured_image_in_summary && post.featuredImage && (
-                  <StyledImageContainer className="hs-elevate-card--blog__image-container">
+                  <StyledImageContainer className="hs-elevate-card--blog__image-container hs-elevate-blog-listing__card-image-container">
                     <StyledImage
                       src={post.featuredImage}
                       alt={post.featuredImageAltText || ''}
                       width={post.featuredImageWidth}
                       height={post.featuredImageHeight}
+                      className="hs-elevate-blog-listing__card-image"
                     />
                   </StyledImageContainer>
                 )}
-                <StyledCardContentContainer>
+                <StyledCardContentContainer className="hs-elevate-blog-listing__card-content-container">
                   {post?.topicNames?.length > 0 && (
-                    <StyledTagContainer>
+                    <StyledTagContainer className="hs-elevate-blog-listing__card-tag-container">
                       {post.topicNames.map((tag: string) => {
                         return (
-                          <TagComponent>
+                          <TagComponent additionalClassArray={['hs-elevate-blog-listing__card-tag']}>
                             <SanitizedContent content={tag} />
                           </TagComponent>
                         );
                       })}
                     </StyledTagContainer>
                   )}
-                  <StyledCardHeadingContainer $cardStyleVariant={cardStyleVariant}>
+                  <StyledCardHeadingContainer className="hs-elevate-blog-listing__card-heading-container" $cardStyleVariant={cardStyleVariant}>
                     <HeadingComponent
                       heading={post.title}
                       headingLevel={headingAndTextHeadingLevel}
                       headingStyleVariant={headingStyleVariant}
-                      additionalClassArray={['hs-elevate-card--blog__heading']}
+                      additionalClassArray={['hs-elevate-card--blog__heading', 'hs-elevate-blog-listing__card-heading']}
                     />
-                    {gatedContentIds.includes(post.id) && <GateIconImage src={GatedLockIcon} alt="Gated content" width="20" height="20" role="presentation" />}
+                    {gatedContentIds.includes(post.id) && (
+                      <GateIconImage
+                        className="hs-elevate-blog-listing__card-gate-icon"
+                        src={GatedLockIcon}
+                        alt="Gated content"
+                        width="20"
+                        height="20"
+                        role="presentation"
+                      />
+                    )}
                   </StyledCardHeadingContainer>
                 </StyledCardContentContainer>
               </StyledCardLink>

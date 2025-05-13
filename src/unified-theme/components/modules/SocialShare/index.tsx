@@ -265,7 +265,7 @@ export const Component = (props: SocialShareProps) => {
 
   return (
     <StyledComponentsRegistry>
-      <StyledSocialShare $alignment={alignment} style={cssVarsMap}>
+      <StyledSocialShare className="hs-elevate-social-share" $alignment={alignment} style={cssVarsMap}>
         {platforms.map(platform => {
           if (!currentUrl) {
             return null;
@@ -276,8 +276,13 @@ export const Component = (props: SocialShareProps) => {
           let iconFieldPath = `groupDefaultIcons.${platformMetaData.name}`;
 
           return (
-            <SocialLink key={platform} href={`${platformMetaData.base_url}${encodeURIComponent(currentUrl)}`} aria-label={platformMetaData.aria_label}>
-              <SocialIcon purpose="DECORATIVE" fieldPath={iconFieldPath} />
+            <SocialLink
+              className="hs-elevate-social-share__link"
+              key={platform}
+              href={`${platformMetaData.base_url}${encodeURIComponent(currentUrl)}`}
+              aria-label={platformMetaData.aria_label}
+            >
+              <SocialIcon className="hs-elevate-social-share__icon" purpose="DECORATIVE" fieldPath={iconFieldPath} />
             </SocialLink>
           );
         })}

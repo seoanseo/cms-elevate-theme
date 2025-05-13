@@ -13,7 +13,7 @@
 
 /* Form labels */
 
-:is(.hs-form, .hs-elevate-system-form)  label,
+:is(.hs-form, .hs-elevate-system-form) label,
 .hs-elevate-system-form--subscription-preferences .fakelabel {
   display: block;
   color: var(--hsElevate--formLabel__textColor);
@@ -38,49 +38,48 @@
 :is(.hs-form, .hs-elevate-system-form) select,
 :is(.hs-form, .hs-elevate-system-form) textarea {
   width: 100% !important;
+  border-radius: var(--hsElevate--formField__borderRadius);
   border-top: var(--hsElevate--formField__borderTop);
   border-right: var(--hsElevate--formField__borderRight);
-  border-left: var(--hsElevate--formField__borderLeft);
   border-bottom: var(--hsElevate--formField__borderBottom);
-  border-radius: var(--hsElevate--formField__borderRadius);
+  border-left: var(--hsElevate--formField__borderLeft);
   background-color: var(--hsElevate--formField__backgroundColor);
+  color: var(--hsElevate--formFieldInput__textColor);
   padding-block: var(--hsElevate--spacing--20);
   padding-inline: var(--hsElevate--spacing--32);
-  color: var(--hsElevate--formFieldInput__textColor);
 }
 
 .hs-input.hs-fieldtype-intl-phone {
-  width: 100%!important;
   display: flex;
+  width: 100% !important;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
   gap: 8px; /* matches column margins from form injection */
 }
 
 .hs-input.hs-fieldtype-intl-phone > input {
-  flex: 1 0 calc(70% - 8px)!important;
+  flex: 1 0 calc(70% - 8px) !important;
 }
 
 .hs-input.hs-fieldtype-intl-phone > select {
   flex: 1 0 30% !important;
 }
 
-@media (max-width: 600px){
+@media (width <= 600px) {
   .hs-input.hs-fieldtype-intl-phone {
-      width: 100%;
-      display: flex;
-      flex-dirction: column;
-      gap: 8px;
+    display: flex;
+    width: 100%;
+    flex-dirction: column;
+    gap: 8px;
   }
+
   .hs-input.hs-fieldtype-intl-phone > select,
   .hs-input.hs-fieldtype-intl-phone > input {
-      flex: 1 1 100%;
-      min-width: 100%;
-
+    min-width: 100%;
+    flex: 1 1 100%;
   }
-
 }
 
 .hs-form fieldset {
@@ -90,9 +89,9 @@
 /* Form fields - textarea */
 
 .hs-form textarea {
+  position: relative;
   height: 160px;
   border-radius: var(--hsElevate--formFieldTextArea__borderRadius);
-  position: relative;
 }
 
 .hs-form textarea::-webkit-resizer {
@@ -105,8 +104,8 @@
 
 .hs-form .hs_multi_line_field .input:after {
   position: absolute;
-  bottom: var(--hsElevate--spacing--8);
   right: var(--hsElevate--spacing--8);
+  bottom: var(--hsElevate--spacing--8);
   content: var(--hsElevate--formField__dragIcon);
   pointer-events: none;
 }
@@ -119,6 +118,7 @@
 
 .hs-form select {
   -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
 }
 
@@ -181,7 +181,7 @@
 :is(.hs-form, .hs-elevate-system-form) input[type='radio'] {
   height: var(--hsElevate--formFieldCheckboxRadio__size);
   width: var(--hsElevate--formFieldCheckboxRadio__size) !important;
-  accent-color: var( --hsElevate--formFieldCheckboxRadio__fillColor);
+  accent-color: var(--hsElevate--formFieldCheckboxRadio__fillColor);
   cursor: pointer;
   margin-inline-end: var(--hsElevate--spacing--12);
 }

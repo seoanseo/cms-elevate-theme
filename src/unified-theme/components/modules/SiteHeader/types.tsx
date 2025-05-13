@@ -51,6 +51,7 @@ export interface MenuModulePropTypes extends MenuModuleContentFields {
   maxDepth: maxMenuDepth;
   defaultContent: {
     logoLinkAriaText: string;
+    languageSwitcherSelectText: string;
   };
   accessibility: {
     menuName: TextFieldType['default'];
@@ -58,7 +59,7 @@ export interface MenuModulePropTypes extends MenuModuleContentFields {
   styles: MenuModuleStyles;
 }
 
-export type MainNavWrapperProps = {
+export type MainNavProps = {
   $navBarBackgroundColor: string;
   $menuAccentColor: string;
   $menuTextColor: string;
@@ -73,10 +74,14 @@ export interface MenuContainerProps {
   $menuBackgroundColor: string;
   $menuAccentColor: string;
   $menuTextColor: string;
+  $headerMobileLanguageSwitcherHeight: number;
 }
 
 export interface MobileMenuIslandProps extends MenuComponentProps, MenuModuleContentFields, ButtonStyleFieldLibraryType {
   menuBackgroundColor: string;
   menuAccentColor: string;
   menuTextColor: string;
+  menuTextHoverColor: string;
+  languageSwitcherSelectText: string;
+  langSwitcherIconFieldPath: string;
 }
