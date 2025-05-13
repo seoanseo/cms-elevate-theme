@@ -223,5 +223,60 @@
     "message": "Read case study",
     "description": "",
     "placeholders": null
+  },
+  "groupDefaultText.previousArrowAltText.default": {
+    "message": "Previous",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.nextArrowAltText.default": {
+    "message": "Next",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.navigateToSlideNumberAriaLabel.default": {
+    "message": "Go to slide %s",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.navigateToPreviousSlideAriaLabel.default": {
+    "message": "Go to previous slide",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.navigateToNextSlideAriaLabel.default": {
+    "message": "Go to next slide",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.navigateToFirstSlideAriaLabel.default": {
+    "message": "Go to first slide",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.navigateToLastSlideAriaLabel.default": {
+    "message": "Go to last slide",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.carouselAriaLabel.default": {
+    "message": "Carousel",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.selectSlideNavigationAriaLabel.default": {
+    "message": "Select a slide to show",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.slideAriaLabel.default": {
+    "message": "Slide",
+    "description": "",
+    "placeholders": null
+  },
+  "groupDefaultText.slideNumberOfSlidesTotalAriaLabel.default": {
+    "message": "%s of %s",
+    "description": "",
+    "placeholders": null
   }
 }
