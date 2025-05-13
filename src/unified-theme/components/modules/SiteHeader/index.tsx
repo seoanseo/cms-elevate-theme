@@ -1,3 +1,4 @@
+// import { dummyTranslations } from '../../LanguageSwitcherComponent/dummyData.js';
 import { ModuleMeta } from '../../types/modules.js';
 import MenuComponent from '../../MenuComponent/index.js?island';
 import SiteHeaderSVG from './assets/Header.svg';
@@ -7,11 +8,15 @@ import { styled } from 'styled-components';
 import MobileMenuIsland from './islands/MobileMenuIsland.js?island';
 import MobileLogoBackButton from './islands/MobileLogoBackButton.js?island';
 import StyledIsland from '../../StyledComponentsRegistry/StyledIsland.js';
-import { SharedIslandState } from '@hubspot/cms-components';
+import { SharedIslandState, useLanguageVariants } from '@hubspot/cms-components';
 import { getLinkFieldHref, getLinkFieldRel, getLinkFieldTarget } from '../../utils/content-fields.js';
-import { MenuModulePropTypes, MainNavWrapperProps } from './types.js';
+import { MenuModulePropTypes, MainNavProps } from './types.js';
+import LanguageSwitcherIsland from '../../LanguageSwitcherComponent/index.js?island';
 
-const SiteHeader = styled.div<{ $navBarBackgroundColor: string }>`
+const MOBILE_BREAKPOINT_NO_LANG_SWITCHER: string = '1100px';
+const MOBILE_BREAKPOINT_WITH_LANG_SWITCHER: string = '1215px';
+
+const SiteHeader = styled.div<{ $navBarBackgroundColor: string; $mobileBreakpoint: string }>`
   width: 100%;
   height: auto;
   background-color: ${({ $navBarBackgroundColor }) => $navBarBackgroundColor};
@@ -20,7 +25,7 @@ const SiteHeader = styled.div<{ $navBarBackgroundColor: string }>`
   padding-inline: var(--hsElevate--spacing--48, 48px);
   padding-block: var(--hsElevate--spacing--24, 24px);
 
-  @media (max-width: 768px) {
+  @media (max-width: ${props => props.$mobileBreakpoint}) {
     padding-inline: var(--hsElevate--spacing--32, 32px);
   }
 `;
@@ -37,7 +42,7 @@ const SiteHeaderContainer = styled.div`
   width: 100%;
 `;
 
-const MainNavWrapper = styled.div<MainNavWrapperProps>`
+const MainNav = styled.div<MainNavProps & { $mobileBreakpoint: string }>`
   flex: 1 1 auto;
   display: flex;
   flex-direction: row;
@@ -138,30 +143,44 @@ const MainNavWrapper = styled.div<MainNavWrapperProps>`
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: ${props => props.$mobileBreakpoint}) {
     display: none;
   }
 `;
-const ButtonContainer = styled.div`
-  display: none;
-
-  @media (min-width: 460px) {
-    margin-left: auto;
-    flex: 0 0 auto;
-    display: block;
+const LanguageSwitcherContainer = styled.div<{ $mobileBreakpoint: string }>`
+  @media (max-width: ${props => props.$mobileBreakpoint}) {
+    display: none;
   }
 `;
 
-const MobileMenuContainer = styled.div`
+const ButtonContainer = styled.div`
   display: none;
-  @media (max-width: 768px) {
+  flex: 0 1 auto;
+
+  @media (min-width: 460px) {
+    margin-left: auto;
+    display: block;
+  }
+
+  @media (min-width: 769px) {
+    flex: 0 0 auto;
+  }
+`;
+
+const MobileMenuContainer = styled.div<{ $mobileBreakpoint: string }>`
+  display: none;
+  @media (max-width: ${props => props.$mobileBreakpoint}) {
     display: block;
   }
 `;
 
 const LogoButtonContainer = styled.div`
-  flex: 0 0 auto;
+  flex: 0 1 auto;
   margin-right: auto;
+
+  @media (min-width: 769px) {
+    flex: 0 0 auto;
+  }
 `;
 
 export const Component = (props: MenuModulePropTypes) => {
@@ -173,7 +192,7 @@ export const Component = (props: MenuModulePropTypes) => {
       logoLink,
     },
     groupLogo: { logo: logoField },
-    defaultContent: { logoLinkAriaText },
+    defaultContent: { logoLinkAriaText, languageSwitcherSelectText },
     groupButton,
     styles,
   } = props;
@@ -193,7 +212,9 @@ export const Component = (props: MenuModulePropTypes) => {
   const {
     groupMenu: {
       menuAlignment,
-      menuBackgroundColor: { color: menuBackgroundColor } = { color: '#ffffff' },
+      menuBackgroundColor: { color: menuBackgroundColor } = {
+        color: '#ffffff',
+      },
       menuAccentColor: { color: menuAccentColor } = { color: '#D3DAE4' },
       menuTextColor: { color: menuTextColor } = { color: '#09152B' },
       menuTextHoverColor: { color: menuTextHoverColor } = { color: '#F7F9FC' },
@@ -201,13 +222,19 @@ export const Component = (props: MenuModulePropTypes) => {
     groupButton: { buttonStyleVariant, buttonStyleSize },
   } = styles;
 
+  const translations = useLanguageVariants();
+  const showLanguageSwitcher = translations?.length > 1;
+  const langSwitcherIconFieldPath = 'globe_icon';
+
+  const mobileBreakpoint = showLanguageSwitcher ? MOBILE_BREAKPOINT_WITH_LANG_SWITCHER : MOBILE_BREAKPOINT_NO_LANG_SWITCHER;
+
   return (
     <StyledComponentsRegistry>
-      <SiteHeader className="hs-elevate-site-header" $navBarBackgroundColor={menuBackgroundColor}>
+      <SiteHeader className="hs-elevate-site-header" $navBarBackgroundColor={menuBackgroundColor} $mobileBreakpoint={mobileBreakpoint}>
         <SharedIslandState value={[]}>
           {/* Controls back button when mobile nav is open */}
-          <SiteHeaderContainer>
-            <LogoButtonContainer>
+          <SiteHeaderContainer className="hs-elevate-site-header__header-container">
+            <LogoButtonContainer className="hs-elevate-site-header__logo-container">
               <StyledIsland
                 module={MobileLogoBackButton}
                 logoField={logoToUse}
@@ -216,11 +243,13 @@ export const Component = (props: MenuModulePropTypes) => {
                 logoLink={logoLink}
               />
             </LogoButtonContainer>
-            <MainNavWrapper
+            <MainNav
               $navBarBackgroundColor={menuBackgroundColor}
               $menuAccentColor={menuAccentColor}
               $menuTextColor={menuTextColor}
               $menuTextHoverColor={menuTextHoverColor}
+              $mobileBreakpoint={mobileBreakpoint}
+              className="hs-elevate-site-header__main-nav"
             >
               <StyledIsland
                 module={MenuComponent}
@@ -231,11 +260,26 @@ export const Component = (props: MenuModulePropTypes) => {
                 navigationAriaLabel="Main navigation"
                 flyouts={true}
                 wrapperStyle={{ flex: '1 0 100%' }}
+                additionalClassArray={['hs-elevate-site-header__main-nav-menu']}
               />
-            </MainNavWrapper>
+            </MainNav>
+
+            {showLanguageSwitcher && (
+              <LanguageSwitcherContainer $mobileBreakpoint={mobileBreakpoint}>
+                <StyledIsland
+                  module={LanguageSwitcherIsland}
+                  menuBackgroundColor={menuBackgroundColor}
+                  menuBackgroundColorHover={menuAccentColor}
+                  textColor={menuTextColor}
+                  textColorHover={menuTextHoverColor}
+                  languageSwitcherSelectText={languageSwitcherSelectText}
+                  langSwitcherIconFieldPath={langSwitcherIconFieldPath}
+                />
+              </LanguageSwitcherContainer>
+            )}
 
             {showButton && (
-              <ButtonContainer>
+              <ButtonContainer className="hs-elevate-site-header__button-container">
                 <Button
                   href={getLinkFieldHref(buttonLink)}
                   buttonStyle={buttonStyleVariant}
@@ -245,13 +289,14 @@ export const Component = (props: MenuModulePropTypes) => {
                   showIcon={showIcon}
                   iconFieldPath="groupButton.buttonContentIcon"
                   iconPosition={iconPosition}
+                  additionalClassArray={['hs-elevate-site-header__button']}
                 >
                   {buttonText}
                 </Button>
               </ButtonContainer>
             )}
 
-            <MobileMenuContainer>
+            <MobileMenuContainer className="hs-elevate-site-header__mobile-menu-container" $mobileBreakpoint={mobileBreakpoint}>
               <StyledIsland
                 module={MobileMenuIsland}
                 menuDataArray={navDataArray}
@@ -267,6 +312,10 @@ export const Component = (props: MenuModulePropTypes) => {
                 buttonStyleVariant={buttonStyleVariant}
                 buttonStyleSize={buttonStyleSize}
                 groupButton={groupButton}
+                hublData={props.hublData}
+                myAvailableTranslations={translations}
+                languageSwitcherSelectText={languageSwitcherSelectText}
+                langSwitcherIconFieldPath={langSwitcherIconFieldPath}
               />
             </MobileMenuContainer>
           </SiteHeaderContainer>
@@ -282,12 +331,12 @@ export const hublDataTemplate = `
   {% set hublData = {
       "navigation": menu(module.groupNavigation.menu, "site_root"),
       "companyName": branding_company_name,
-      "logoLink": brand_settings.primaryLogo.link,
+      "logoLink": brand_settings.logo.link,
       "defaultLogo": {
-        "src": brand_settings.primaryLogo.src,
-        "alt": brand_settings.primaryLogo.alt,
-        "width": brand_settings.primaryLogo.width,
-        "height": brand_settings.primaryLogo.height
+        "src": brand_settings.logo.src,
+        "alt": brand_settings.logo.alt,
+        "width": brand_settings.logo.width,
+        "height": brand_settings.logo.height
       }
     }
   %}

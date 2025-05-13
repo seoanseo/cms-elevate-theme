@@ -1,5 +1,6 @@
 export const sectionColorsMap = {
   section_variant_1: {
+    backgroundColor: 'var(--hsElevate--section--lightSection--1__backgroundColor)',
     textColor: 'var(--hsElevate--section--lightSection--1__textColor)',
     accentColor: 'var(--hsElevate--section--lightSection--1__accentColor)',
     linkColor: 'var(--hsElevate--section--lightSection--1--link__fontColor)',
@@ -13,6 +14,7 @@ export const sectionColorsMap = {
     blockquoteAccentColor: 'var(--hsElevate--section--lightSection--1--blockquote__accentColor)',
   },
   section_variant_2: {
+    backgroundColor: 'var(--hsElevate--section--lightSection--2__backgroundColor)',
     textColor: 'var(--hsElevate--section--lightSection--2__textColor)',
     accentColor: 'var(--hsElevate--section--lightSection--2__accentColor)',
     linkColor: 'var(--hsElevate--section--lightSection--2--link__fontColor)',
@@ -26,6 +28,7 @@ export const sectionColorsMap = {
     blockquoteAccentColor: 'var(--hsElevate--section--lightSection--2--blockquote__accentColor)',
   },
   section_variant_3: {
+    backgroundColor: 'var(--hsElevate--section--lightSection--3__backgroundColor)',
     textColor: 'var(--hsElevate--section--lightSection--3__textColor)',
     accentColor: 'var(--hsElevate--section--lightSection--3__accentColor)',
     linkColor: 'var(--hsElevate--section--lightSection--3--link__fontColor)',
@@ -39,6 +42,7 @@ export const sectionColorsMap = {
     blockquoteAccentColor: 'var(--hsElevate--section--lightSection--3--blockquote__accentColor)',
   },
   section_variant_4: {
+    backgroundColor: 'var(--hsElevate--section--darkSection--1__backgroundColor)',
     textColor: 'var(--hsElevate--section--darkSection--1__textColor)',
     accentColor: 'var(--hsElevate--section--darkSection--1__accentColor)',
     linkColor: 'var(--hsElevate--section--darkSection--1--link__fontColor)',
@@ -50,5 +54,5 @@ export const sectionColorsMap = {
     blockquoteTextColor: 'var(--hsElevate--section--darkSection--1--blockquote__textColor)',
     blockquoteBackgroundColor: 'var(--hsElevate--section--darkSection--1--blockquote__backgroundColor)',
     blockquoteAccentColor: 'var(--hsElevate--section--darkSection--1--blockquote__accentColor)',
-  }
-}
+  },
+};

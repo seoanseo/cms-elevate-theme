@@ -1,0 +1,209 @@
+---
+description: Configure section translations
+globs:
+---
+# Configure Section Translations
+
+After scaffolding a new section, follow these guidelines to swap out hardcoded English content with template translations. This should be focused on setting up the translation keys and swapping the key values into the section file.
+
+## Core Concepts
+
+Translations allow us to change the language of the content used in a section depending on what language the user sets the page to.
+
+### Adding keys in the `en.lyaml` file
+
+We have translations stored in `lyaml` files within the `lang` directory within the root directory (`cms-elevate-theme`). The _only_ file within the `lang` folder we should directly change is the `en.lyaml` file. This is because we use a translation service to take what we have in the `en.lyaml` file and add pull requests with changes to the other language `lyaml` files. @file ../../lang/en.lyaml
+
+Translations in the `lyaml` files are grouped under `templates`, `theme_settings`, and under module specific groups like `HSREACT__Accordion`. Translation keys for sections should _only_ be added under the `templates` group. New section translations should go at the bottom of that `templates` group and a section's translation keys should all be grouped together. Translation keys should be prefixed with `section_` followed by the section's name, and end in the modifier. Follow the naming convention `section_<section_name>_<element>_<descriptor>`. For example, if you were adding a translation key for a hero banner section's button text that would be named `section_hero_banner_button_text`.
+
+For images, the `src` attribute does not need translating, but the `alt` attribute does. That's because in HTML, the <img> tag's `src` value is a file path, which does not need translation. On the other hand, `alt` text does need translation because it's meant to be used for screen readers or as fallback text if the `src` path fails, all of which end-users consume.
+
+For images, the `src` attribute does not need translating, but the `alt` attribute does. That's because in HTML, the <img> tag's `src` value is a file path, which does not need translation. On the other hand, `alt` text does need translation because it's meant to be used for screen readers or as fallback text if the `src` path fails, all of which end-users consume.
+
+IMPORTANT: After identifying content to translate, create a numbered list of ONLY the exact strings that need keys, then verify this list against the file before making any changes. First, extract ALL hardcoded strings from the file into a list. Then create ONLY those specific translation keys. Never add keys for content not in this list. Before submitting changes, verify each added key maps to an exact string in the target file. Sanity check: compare the number of identified hardcoded strings with the number of new translation keys - these must match.
+
+WARNING: Adding ANY translation keys not directly corresponding to content in the current section file is a critical error. NEVER copy existing keys as templates or reference.
+
+### Adding function for pulling template translations
+
+To reference values from the `lang` file we use a HubL function of `load_translations`. We set this via a variable called `template_translations` and then use that where we reference the translations.
+
+The following code can be added below the section's template annotations and above the dnd_section HubL tag:
+`{% set template_translations = load_translations("../templates/_locales", html_lang, "en") %}`
+
+### Passing in the value into the section code
+
+Once we have the keys set up and the translations loaded on the section file, we can then swap out any English hardcoded content with a reference to the key that would look like this:
+```
+{% dnd_module
+  path="../components/modules/Heading",
+  headingAndTextHeadingLevel="h2",
+  headingAndTextHeading={{ template_translations.section_about_us_heading.message }},
+%}
+{% end_dnd_module %}
+```
+
+## Implementation Steps
+
+1. **Analyze Section File For Hardcoded Content**
+   - Look through the applicable section to see if there is hardcoded content being passed into one of the modules
+
+2. **Create Translation Keys For Each Piece of Hardcoded Content**
+   - Create new section translation keys for each piece of hardcoded content from the section file
+
+3. **MANDATORY Verification Before Edit**
+   - **Confirm Count:** State the total number of hardcoded strings identified in Step 1 and confirm it exactly matches the total number of keys generated in Step 2. Resolve any discrepancies *before* proceeding.
+   - **Confirm Uniqueness:** For **EACH** generated key, run `grep -rn 'new_key_name' lang/en.lyaml`. Confirm that no key already exists. State this confirmation. Do **NOT** proceed if duplicates are found.
+
+4. **Add Keys to `en.lyaml` File**
+   - DO NOT just describe this step - EXECUTE it by providing the actual YAML content that should be added to the `en.lyaml` file
+   - Create a numbered list of ONLY the exact strings that need keys.
+   - Add these keys to the `en.lyaml` file in the location described above
+
+5. **Add Function For Translations On Section File**
+   - Add the template_translations variable that references the load_translations function towards the top of the section file
+
+6. **Swap Out Hardcoded Content With Translation Variables**
+   - Swap out any hardcoded content with the applicable translation variables based on the new translation keys that were set up
+
+7. **Verify Translation Implementation**
+   - Confirm that the number of new keys added to `en.lyaml` matches the number of new translations used in the section file
+   - Check for duplicate keys with "grep -rn 'new_key_name' lang/en.lyaml" to ensure you're not adding duplicates
+   - Briefly review the changes in both files to ensure consistency.
+
+
+## Example Scenario
+
+Let's walk through an example where we want to configure section translations for a new "Hero Banner" section.
+
+Note that you shouldn't use this in your final output. But this example provides details on the process you should follow and what expectations are.
+
+The example prompt would be: `Can you set up translations for this new hero banner section?`
+
+This would be the example code for the section:
+```
+<!--
+  templateType: section
+  label: Hero banner
+  isAvailableForNewContent: true
+  scaffoldSchemaPath: ./schemas/hero-banner.scaffold_schema.json
+  goals: [ATTRACT_LEADS, GROW_PRESENCE, OFFER_SERVICES, PUBLISH_BLOG, SELL_PRODUCTS, SHOWCASE_WORK]
+  screenshotPath: ../images/section-previews/hero.png
+  description: "Section with a hero banner image on the right and a heading, description, and two buttons on the left."
+-->
+
+{% dnd_section %}
+  {% dnd_column %}
+    {% dnd_row %}
+      {% dnd_module
+        path="../components/modules/Heading",
+        headingAndTextHeadingLevel="h1",
+        headingAndTextHeading="Super cool heading"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+    {% dnd_row %}
+      {% dnd_module
+        path="../components/modules/RichText"
+      %}
+        {% module_attribute "richTextContentHTML" %}
+          <p>This is the coolest section ever</p>
+        {% end_module_attribute %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}
+```
+
+1. **Analyze Section File For Hardcoded Content**
+  - Identifies there are two pieces of hardcoded content which are:
+    - "Super cool heading" in the Heading module
+    - "This is the coolest section ever" in the RichText module
+
+2. **Create Translation Keys For Each Piece of Hardcoded Content**
+   - Two translation keys need to be created:
+     - section_hero_banner_heading: "Super cool heading"
+     - section_hero_banner_paragraph: "This is the coolest section ever"
+
+3. **MANDATORY Verification Before Edit**
+   - Confirm Count: Two hardcoded strings from Step 1 equals the amount of translation keys created in Step 2: two.
+   - Confirm Uniqueness: Each key is unique. This step is good to go.
+
+4. **Add Keys to `en.lyaml` File**
+   - Add only the key/value pairs that passed the verification check from Step 3.
+
+5. **Add Function For Translations On Section File**
+   - Add the template_translations variable that references the load_translations function towards the top of the section file
+
+6. **Swap Out Hardcoded Content With Translation Variables**
+   - Swap out any hardcoded content with the applicable translation variables based on the new translation keys that were set up
+
+7. **Verify Translation Implementation**
+   - Confirm that the number of new keys added to `en.lyaml` matches the number of new translations used in the section file
+   - Check for duplicate keys with "grep -rn 'new_key_name' lang/en.lyaml" to ensure you're not adding duplicates
+
+
+## Step 1: Analyze Section File For Hardcoded Content
+
+### Identifies there are two pieces of hardcoded content
+- "Super cool heading" in the Heading module
+- "This is the coolest section ever" in the RichText module
+
+## Step 2: Create Translation Keys For Each Piece of Hardcoded Content
+
+### Adds the following to the `en.lyaml` file (located in the root directory (`cms-elevate-theme`) inside the `lang` directory) at the bottom of the `templates` group:
+```
+section_hero_banner_heading: "Super cool heading"
+section_hero_banner_paragraph: "This is the coolest section ever"
+```
+
+## Step 3: Add Function For Translations On Section File
+
+### Adds the following under the template annotations of the file and above the dnd_section HubL tag
+```
+{% set template_translations = load_translations("../templates/_locales", html_lang, "en") %}
+```
+
+## Step 4: Swap Out Hardcoded Content With Translation Variables
+
+### This should swap out the identified hardcoded content in step 1 with the translation variables from step 2 and would look like this for this particular example:
+
+## Step 5: Verify Translation Implementation
+
+### This should double-check all of the updates you've made. Count the number of keys generated from the section file against the amount of new lines you added to the `en.lyaml` file - they should match. Grep for all the keys you added to ensure you didn't copy-paste from anywhere else in the file.
+```
+
+<!--
+  templateType: section
+  label: Hero banner
+  isAvailableForNewContent: true
+  scaffoldSchemaPath: ./schemas/hero-banner.scaffold_schema.json
+  goals: [ATTRACT_LEADS, GROW_PRESENCE, OFFER_SERVICES, PUBLISH_BLOG, SELL_PRODUCTS, SHOWCASE_WORK]
+  screenshotPath: ../images/section-previews/hero.png
+  description: "Section with a hero banner image on the right and a heading, description, and two buttons on the left."
+-->
+
+{% set template_translations = load_translations("../templates/_locales", html_lang, "en") %}
+
+{% dnd_section %}
+  {% dnd_column %}
+    {% dnd_row %}
+      {% dnd_module
+        path="../components/modules/Heading",
+        headingAndTextHeadingLevel="h1",
+        headingAndTextHeading={{ template_translations.section_hero_banner_heading.message }}
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+    {% dnd_row %}
+      {% dnd_module
+        path="../components/modules/RichText"
+      %}
+        {% module_attribute "richTextContentHTML" %}
+          <p>{{ template_translations.section_hero_banner_paragraph.message }}</p>
+        {% end_module_attribute %}
+      {% end_dnd_module %}
+    {% end_dnd_row %}
+  {% end_dnd_column %}
+{% end_dnd_section %}
+```

@@ -2,6 +2,7 @@
   templateType: section
   label: Testimonial
   isAvailableForNewContent: true
+  landingPageSectionCategories: [SOCIAL_PROOF]
   scaffoldSchemaPath: ./schemas/testimonial.scaffold_schema.json
   screenshotPath: ../images/section-previews/testimonial.png
   description: "A single testimonial section with an optional image, quote, author details, and case study link."
@@ -63,7 +64,7 @@
                 "max_height": context.image.height or 300,
                 "max_width": context.image.width or 300,
                 "size_type": context.image.size_type or "auto_custom_max",
-                "src": context.image.src or get_asset_url("../images/testimonial-author-large.png")
+                "src": context.image.src or get_asset_url("../images/testimonial-user-image-1.png")
               }
             },
             "groupLink": {

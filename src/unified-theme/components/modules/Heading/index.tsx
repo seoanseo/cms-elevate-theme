@@ -1,8 +1,5 @@
 import { ModuleMeta } from '../../types/modules.js';
-import {
-  TextAlignmentFieldType,
-  TextFieldType,
-} from '@hubspot/cms-components/fields';
+import { TextAlignmentFieldType, TextFieldType } from '@hubspot/cms-components/fields';
 import headingIconSvg from './assets/heading.svg';
 import HeadingComponent from '../../HeadingComponent/index.js';
 import { HeadingLevelType, SectionVariantType } from '../../types/fields.js';
@@ -11,6 +8,7 @@ import StyledComponentsRegistry from '../../StyledComponentsRegistry/StyledCompo
 import { SectionStyleFieldLibraryType } from '../../fieldLibrary/SectionStyle/types.js';
 import { HeadingStyleFieldLibraryType } from '../../fieldLibrary/HeadingStyle/types.js';
 import { HeadingAndTextFieldLibraryType } from '../../fieldLibrary/HeadingAndText/types.js';
+import { sectionColorsMap } from '../../utils/section-color-map.js';
 
 // Types
 
@@ -29,27 +27,12 @@ type HeadingProps = HeadingAndTextFieldLibraryType & {
 type CSSPropertiesMap = { [key: string]: string };
 
 function generateColorCssVars(sectionVariantField: SectionVariantType): CSSPropertiesMap {
-  const sectionColorsMap = {
-    section_variant_1: {
-      textColor: 'var(--hsElevate--section--lightSection--1__textColor)',
-    },
-    section_variant_2: {
-      textColor: 'var(--hsElevate--section--lightSection--2__textColor)',
-    },
-    section_variant_3: {
-      textColor: 'var(--hsElevate--section--lightSection--3__textColor)',
-    },
-    section_variant_4: {
-      textColor: 'var(--hsElevate--section--darkSection--1__textColor)',
-    },
-  };
-
   return {
     '--hsElevate--heading__textColor': sectionColorsMap[sectionVariantField].textColor,
   };
 }
 
-const HeadingWrapper = styled.div`
+const HeadingContainer = styled.div`
   h1,
   h2,
   h3,
@@ -73,14 +56,15 @@ export const Component = (props: HeadingProps) => {
 
   return (
     <StyledComponentsRegistry>
-      <HeadingWrapper style={cssVarsMap}>
+      <HeadingContainer style={cssVarsMap} className="hs-elevate-heading-container">
         <HeadingComponent
+          additionalClassArray={['hs-elevate-heading-container__heading']}
           headingLevel={headingAndTextHeadingLevel}
           heading={headingAndTextHeading}
           alignment={alignment}
           headingStyleVariant={headingStyleVariant}
         />
-      </HeadingWrapper>
+      </HeadingContainer>
     </StyledComponentsRegistry>
   );
 };
@@ -97,5 +81,5 @@ export const meta: ModuleMeta = {
 export const defaultModuleConfig = {
   moduleName: 'elevate/components/modules/heading',
   version: 0,
-  themeModule: true
+  themeModule: true,
 };
