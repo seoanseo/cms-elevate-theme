@@ -39,6 +39,7 @@ If applied, this commit will *\<your subject line here\>*
 * Use the imperative mood in the subject line
 * Wrap lines at 72 characters
 * Use the body to explain what and why you have done something. In most cases, you can leave out details about how a change has been made.
+* Keep the body short and concise max 2 - 3 sentences long.
 
 ### Information in commit messages
 * Describe why a change is being made.
