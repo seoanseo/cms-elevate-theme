@@ -90,7 +90,7 @@
     "placeholders": null
   },
   "styles.groupMenu.menuTextColor.label": {
-    "message": "Text color",
+    "message": "Text color (default)",
     "description": "",
     "placeholders": null
   },
@@ -166,6 +166,31 @@
   },
   "styles.groupButton.buttonStyleSize.choices.large": {
     "message": "Large",
+    "description": "",
+    "placeholders": null
+  },
+  "defaultContent.languageSwitcherSelectText.default": {
+    "message": "Select a language",
+    "description": "",
+    "placeholders": null
+  },
+  "globe_icon.label": {
+    "message": "Language switcher icon",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupMenu.menuTextHoverColor.label": {
+    "message": "Text color (hover)",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupButton.buttonStyleVariant.inline_help_text": {
+    "message": "<a href=\"$theme_link\">Edit</a>",
+    "description": "",
+    "placeholders": null
+  },
+  "styles.groupButton.buttonStyleSize.inline_help_text": {
+    "message": "<a href=\"$theme_link\">Edit</a>",
     "description": "",
     "placeholders": null
   }
