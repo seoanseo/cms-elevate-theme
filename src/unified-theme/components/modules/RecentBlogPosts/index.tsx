@@ -8,6 +8,7 @@ import fetchGatedPosts from '../../utils/ServerSideProps/fetchGatedBlogPosts.js'
 import { HeadingLevelType } from '../../types/fields.js';
 import { CardVariantType } from '../../types/fields.js';
 import { HeadingStyleFieldLibraryType } from '../../fieldLibrary/HeadingStyle/types.js';
+import { PlaceholderEmptyContent } from '../../PlaceholderComponent/PlaceholderEmptyContent.js';
 
 type RecentBlogPostsProps = {
   hublData: {
@@ -21,6 +22,7 @@ type RecentBlogPostsProps = {
       topicNames: string[];
       absoluteUrl: string;
     }[];
+    isInEditor: boolean;
   };
   fieldValues: {
     headingAndTextHeadingLevel: HeadingLevelType;
@@ -38,11 +40,11 @@ type RecentBlogPostsProps = {
   };
 };
 
-const StyledContainer = styled.div`
+const RecentBlogPosts = styled.div`
   container: blog-grid / inline-size;
 `;
 
-const Grid = styled.div`
+const BlogCardsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -68,19 +70,6 @@ const Grid = styled.div`
   }
 `;
 
-// TODO: Remove once cms-react implements the placeholder via EditorPlaceholder
-const NoPostsFound = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  padding: var(--hsElevate--spacing--32, 32px) var(--hsElevate--spacing--24, 24px) var(--hsElevate--spacing--12, 12px) var(--hsElevate--spacing--24, 24px);
-  border: 1px dashed #516f90;
-  background-color: #f5f8fae6;
-`;
-
 export const Component = (props: RecentBlogPostsProps) => {
   const {
     hublData: { posts, isInEditor },
@@ -99,13 +88,10 @@ export const Component = (props: RecentBlogPostsProps) => {
 
   return (
     <StyledComponentsRegistry>
-      <StyledContainer>
-        <Grid>
+      <RecentBlogPosts className="hs-elevate-recent-blog-posts">
+        <BlogCardsContainer className="hs-elevate-recent-blog-posts__blog-card-container">
           {postsToUse.length === 0 && isInEditor ? (
-            <NoPostsFound>
-              <h5>{placeholderTitle}</h5>
-              <p>{placeholderDescription}</p>
-            </NoPostsFound>
+            <PlaceholderEmptyContent title={placeholderTitle} description={placeholderDescription} icon={meta.icon} />
           ) : (
             postsToUse.map(post => (
               <BlogCardComponent
@@ -118,18 +104,19 @@ export const Component = (props: RecentBlogPostsProps) => {
                 headingStyleVariant={headingStyleVariant}
                 cardStyleVariant={cardStyleVariant}
                 gatedContentIds={gatedContentIds.map(id => id.toString())}
+                additionalClassArray={['hs-elevate-recent-blog-posts__blog-card']}
               />
             ))
           )}
-        </Grid>
-      </StyledContainer>
+        </BlogCardsContainer>
+      </RecentBlogPosts>
     </StyledComponentsRegistry>
   );
 };
 
 export { fields } from './fields.js';
 
-export const hublDataTemplate = `{
+export const hublDataTemplate = `
   {% if module.blog is number %}
     {% set blog = module.blog %}
   {% else %}
@@ -139,22 +126,22 @@ export const hublDataTemplate = `{
   {% set blog_post_ids = [] %}
   {% set blog_posts = [] %}
 
-{% for post in blog_recent_posts(blog, 3) %}
-  {% do blog_post_ids.append(post.id) %}
+  {% for post in blog_recent_posts(blog, 3) %}
+    {% do blog_post_ids.append(post.id) %}
 
-  {% set temp_post = {
-      id: post.id,
-      absoluteUrl: post.absoluteUrl,
-      featuredImage: post.featuredImage,
-      featuredImageAltText: post.featuredImageAltText,
-      featuredImageWidth: post.featuredImageWidth,
-      featuredImageHeight: post.featuredImageHeight,
-      title: post.label,
-      topicNames: post.topicNames
-    }
-  %}
-  {% do blog_posts.append(temp_post) %}
-{% endfor %}
+    {% set temp_post = {
+        id: post.id,
+        absoluteUrl: post.absoluteUrl|escape_url,
+        featuredImage: post.featuredImage,
+        featuredImageAltText: post.featuredImageAltText,
+        featuredImageWidth: post.featuredImageWidth,
+        featuredImageHeight: post.featuredImageHeight,
+        title: post.label,
+        topicNames: post.topicNames
+      }
+    %}
+    {% do blog_posts.append(temp_post) %}
+  {% endfor %}
 
   {% set hublData = {
     'posts': blog_posts,
@@ -162,7 +149,7 @@ export const hublDataTemplate = `{
     'isInEditor': is_in_editor
     }
   %}
-};`;
+`;
 
 export const getServerSideProps = withUrlPath(fetchGatedPosts);
 

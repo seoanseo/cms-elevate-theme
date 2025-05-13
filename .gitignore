@@ -126,6 +126,9 @@ hubspot.config.*
 hubspot.config.yaml
 hubspot.config.yml
 
+# Translations
+**/_locales/
+
 # Image compression source files
 src/images/img-src/**/*.*
 

@@ -1,0 +1,17 @@
+.blogArticleTagContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.tag {
+  padding: 2px 8px;
+
+  /* TODO: Remove these once we have global tag styles figure out */
+  border-radius: var(--hsElevate--tag__borderRadius, 10px);
+  background-color: var(--hsElevate--tag__backgroundColor, #e5f0ff);
+  color: var(--hsElevate--tag__textColor, #063e95);
+  font-weight: var(--hsElevate--tag__fontWeight, 500);
+}

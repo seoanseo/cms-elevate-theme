@@ -70,7 +70,7 @@ export const Component = (props: RichTextProps) => {
 
   return (
     <StyledComponentsRegistry>
-      <StyledRichText fieldPath='richTextContentHTML' style={cssVarsMap} />
+      <StyledRichText className="hs-elevate-rich-text" fieldPath="richTextContentHTML" style={cssVarsMap} />
     </StyledComponentsRegistry>
   );
 };
@@ -87,5 +87,5 @@ export const meta: ModuleMeta = {
 export const defaultModuleConfig = {
   moduleName: 'elevate/components/modules/rich_text',
   version: 0,
-  themeModule: true
+  themeModule: true,
 };

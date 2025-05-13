@@ -9,7 +9,7 @@ export default function HublPostCSSCleaner () {
     transform(source, id) {
       // Remove all comment keys from start and end
       // /*~| and |~*/
-      return source.replace(/(\/\*\~\|)\s*/g, "").replace(/\s*(\|\~\*\/)/g, "");
+      return source.replace(/(\/\*\~\|)/g, "").replace(/(\|\~\*\/)/g, "");
     },
   };
 }

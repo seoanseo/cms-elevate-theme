@@ -2,8 +2,9 @@
   templateType: section
   label: Video
   isAvailableForNewContent: true
-  scaffoldSchemaPath: ./schemas/video.scaffold_schema.json
+  landingPageSectionCategories: [MEDIA]
   goals: [GROW_PRESENCE]
+  scaffoldSchemaPath: ./schemas/video.scaffold_schema.json
   screenshotPath: ../images/section-previews/video.png
   description: "Section with a centered heading, description, and video."
 -->
@@ -72,12 +73,12 @@
           "oembed_response": {
               "type": "video",
           },
-          "oembed_url": context.video.embed_url or "https://www.youtube.com/watch?v=yBOCyKz0qPU",
+          "oembed_url": context.video.embed_url or "https://www.youtube.com/watch?v=q89-gvYRO_I",
           "size_type": "auto_full_width",
           "source_type": "oembed"
         },
         oembed_thumbnail={
-          "src": context.video.thumbnail or scaffold_content.thumbnail.src
+          "src": context.video.thumbnail or scaffold_content.thumbnail.src or get_asset_url("../images/video-placeholder-full-width.png")
         },
         video_type="embed"
       %}

@@ -6,6 +6,7 @@ import StyledComponentsRegistry from '../../StyledComponentsRegistry/StyledCompo
 import chartIconSvg from './assets/chart.svg';
 import { SectionStyleFieldLibraryType } from '../../fieldLibrary/SectionStyle/types.js';
 import { HeadingStyleFieldLibraryType } from '../../fieldLibrary/HeadingStyle/types.js';
+import { sectionColorsMap } from '../../utils/section-color-map.js';
 
 type GroupStyle = SectionStyleFieldLibraryType & HeadingStyleFieldLibraryType;
 
@@ -24,25 +25,6 @@ type MetricProps = {
 type CSSPropertiesMap = { [key: string]: string };
 
 function generateColorCssVars(sectionVariantField: SectionVariantType): CSSPropertiesMap {
-  const sectionColorsMap = {
-    section_variant_1: {
-      textColor: 'var(--hsElevate--section--lightSection--1__textColor)',
-      accentColor: 'var(--hsElevate--section--lightSection--1__accentColor)',
-    },
-    section_variant_2: {
-      textColor: 'var(--hsElevate--section--lightSection--2__textColor)',
-      accentColor: 'var(--hsElevate--section--lightSection--2__accentColor)',
-    },
-    section_variant_3: {
-      textColor: 'var(--hsElevate--section--lightSection--3__textColor)',
-      accentColor: 'var(--hsElevate--section--lightSection--3__accentColor)',
-    },
-    section_variant_4: {
-      textColor: 'var(--hsElevate--section--darkSection--1__textColor)',
-      accentColor: 'var(--hsElevate--section--darkSection--1__accentColor)',
-    },
-  };
-
   return {
     '--hsElevate--metrics__textColor': sectionColorsMap[sectionVariantField].textColor,
     '--hsElevate--metrics__accentColor': sectionColorsMap[sectionVariantField].accentColor,
@@ -111,12 +93,12 @@ export const Component = (props: MetricProps) => {
 
   return (
     <StyledComponentsRegistry>
-      <MetricsContainer style={cssVarsMap}>
+      <MetricsContainer className="hs-elevate-metrics-container" style={cssVarsMap}>
         {groupMetrics.map((metric, index) => {
           return (
-            <Metric key={index}>
-              <MetricNumber className={metricNumberClassName}>{metric.metric}</MetricNumber>
-              <MetricDescription>{metric.description}</MetricDescription>
+            <Metric className="hs-elevate-metrics-container__metric" key={index}>
+              <MetricNumber className={`${metricNumberClassName} hs-elevate-metrics-container__metric-number`}>{metric.metric}</MetricNumber>
+              <MetricDescription className="hs-elevate-metrics-container__metric-description">{metric.description}</MetricDescription>
             </Metric>
           );
         })}

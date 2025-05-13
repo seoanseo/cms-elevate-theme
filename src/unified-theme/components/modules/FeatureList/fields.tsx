@@ -1,5 +1,6 @@
 import {
   ModuleFields,
+  NumberField,
   RepeatedFieldGroup,
   BooleanField,
   IconField,
@@ -17,6 +18,16 @@ const contentDefault = 'Write a brief description of the product\'s capabilities
 
 export const fields = (
   <ModuleFields>
+    <NumberField
+      label='Number of items per row'
+      name='columns'
+      display='text'
+      required={true}
+      max={3}
+      min={1}
+      step={1}
+      default={2}
+    />
     <RepeatedFieldGroup
       label='Features'
       name='groupFeatures'

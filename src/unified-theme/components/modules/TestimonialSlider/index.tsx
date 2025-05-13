@@ -5,7 +5,16 @@ import { TestimonialSliderProps } from './types.js';
 import insertQuoteIconSvg from './assets/insert-quote.svg';
 
 export const Component = (props: TestimonialSliderProps) => {
-  return <Island hydrateOn="load" module={TestimonialSlider} groupTestimonial={props.groupTestimonial} groupStyle={props.groupStyle} clientOnly={true} />;
+  return (
+    <Island
+      hydrateOn="load"
+      module={TestimonialSlider}
+      groupTestimonial={props.groupTestimonial}
+      groupStyle={props.groupStyle}
+      groupDefaultText={props.groupDefaultText}
+      clientOnly={true}
+    />
+  );
 };
 
 export { fields } from './fields.js';

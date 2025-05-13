@@ -9,7 +9,7 @@ import MobileLogoBackButton from './islands/MobileLogoBackButton.js?island';
 import StyledIsland from '../../StyledComponentsRegistry/StyledIsland.js';
 import { SharedIslandState } from '@hubspot/cms-components';
 import { getLinkFieldHref, getLinkFieldRel, getLinkFieldTarget } from '../../utils/content-fields.js';
-import { MenuModulePropTypes, MainNavWrapperProps } from './types.js';
+import { MenuModulePropTypes, MainNavProps } from './types.js';
 
 const SiteHeader = styled.div<{ $navBarBackgroundColor: string }>`
   width: 100%;
@@ -37,7 +37,7 @@ const SiteHeaderContainer = styled.div`
   width: 100%;
 `;
 
-const MainNavWrapper = styled.div<MainNavWrapperProps>`
+const MainNav = styled.div<MainNavProps>`
   flex: 1 1 auto;
   display: flex;
   flex-direction: row;
@@ -142,13 +142,18 @@ const MainNavWrapper = styled.div<MainNavWrapperProps>`
     display: none;
   }
 `;
+
 const ButtonContainer = styled.div`
   display: none;
+  flex: 0 1 auto;
 
   @media (min-width: 460px) {
     margin-left: auto;
-    flex: 0 0 auto;
     display: block;
+  }
+
+  @media (min-width: 769px) {
+    flex: 0 0 auto;
   }
 `;
 
@@ -160,8 +165,12 @@ const MobileMenuContainer = styled.div`
 `;
 
 const LogoButtonContainer = styled.div`
-  flex: 0 0 auto;
+  flex: 0 1 auto;
   margin-right: auto;
+
+  @media (min-width: 769px) {
+    flex: 0 0 auto;
+  }
 `;
 
 export const Component = (props: MenuModulePropTypes) => {
@@ -193,7 +202,9 @@ export const Component = (props: MenuModulePropTypes) => {
   const {
     groupMenu: {
       menuAlignment,
-      menuBackgroundColor: { color: menuBackgroundColor } = { color: '#ffffff' },
+      menuBackgroundColor: { color: menuBackgroundColor } = {
+        color: '#ffffff',
+      },
       menuAccentColor: { color: menuAccentColor } = { color: '#D3DAE4' },
       menuTextColor: { color: menuTextColor } = { color: '#09152B' },
       menuTextHoverColor: { color: menuTextHoverColor } = { color: '#F7F9FC' },
@@ -206,8 +217,8 @@ export const Component = (props: MenuModulePropTypes) => {
       <SiteHeader className="hs-elevate-site-header" $navBarBackgroundColor={menuBackgroundColor}>
         <SharedIslandState value={[]}>
           {/* Controls back button when mobile nav is open */}
-          <SiteHeaderContainer>
-            <LogoButtonContainer>
+          <SiteHeaderContainer className="hs-elevate-site-header__header-container">
+            <LogoButtonContainer className="hs-elevate-site-header__logo-container">
               <StyledIsland
                 module={MobileLogoBackButton}
                 logoField={logoToUse}
@@ -216,11 +227,12 @@ export const Component = (props: MenuModulePropTypes) => {
                 logoLink={logoLink}
               />
             </LogoButtonContainer>
-            <MainNavWrapper
+            <MainNav
               $navBarBackgroundColor={menuBackgroundColor}
               $menuAccentColor={menuAccentColor}
               $menuTextColor={menuTextColor}
               $menuTextHoverColor={menuTextHoverColor}
+              className="hs-elevate-site-header__main-nav"
             >
               <StyledIsland
                 module={MenuComponent}
@@ -231,11 +243,12 @@ export const Component = (props: MenuModulePropTypes) => {
                 navigationAriaLabel="Main navigation"
                 flyouts={true}
                 wrapperStyle={{ flex: '1 0 100%' }}
+                additionalClassArray={['hs-elevate-site-header__main-nav-menu']}
               />
-            </MainNavWrapper>
+            </MainNav>
 
             {showButton && (
-              <ButtonContainer>
+              <ButtonContainer className="hs-elevate-site-header__button-container">
                 <Button
                   href={getLinkFieldHref(buttonLink)}
                   buttonStyle={buttonStyleVariant}
@@ -245,13 +258,14 @@ export const Component = (props: MenuModulePropTypes) => {
                   showIcon={showIcon}
                   iconFieldPath="groupButton.buttonContentIcon"
                   iconPosition={iconPosition}
+                  additionalClassArray={['hs-elevate-site-header__button']}
                 >
                   {buttonText}
                 </Button>
               </ButtonContainer>
             )}
 
-            <MobileMenuContainer>
+            <MobileMenuContainer className="hs-elevate-site-header__mobile-menu-container">
               <StyledIsland
                 module={MobileMenuIsland}
                 menuDataArray={navDataArray}
@@ -282,12 +296,12 @@ export const hublDataTemplate = `
   {% set hublData = {
       "navigation": menu(module.groupNavigation.menu, "site_root"),
       "companyName": branding_company_name,
-      "logoLink": brand_settings.primaryLogo.link,
+      "logoLink": brand_settings.logo.link,
       "defaultLogo": {
-        "src": brand_settings.primaryLogo.src,
-        "alt": brand_settings.primaryLogo.alt,
-        "width": brand_settings.primaryLogo.width,
-        "height": brand_settings.primaryLogo.height
+        "src": brand_settings.logo.src,
+        "alt": brand_settings.logo.alt,
+        "width": brand_settings.logo.width,
+        "height": brand_settings.logo.height
       }
     }
   %}

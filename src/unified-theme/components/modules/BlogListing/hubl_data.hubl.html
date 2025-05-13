@@ -6,7 +6,7 @@
 
   {% set temp_post = {
       id: post.id,
-      absoluteUrl: post.absoluteUrl,
+      absoluteUrl: post.absoluteUrl|escape_url,
       featuredImage: post.featuredImage,
       featuredImageAltText: post.featuredImageAltText,
       featuredImageWidth: post.featuredImageWidth,
