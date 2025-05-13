@@ -75,7 +75,7 @@
 
   /* Form field checkbox/radio */
   --hsElevate--formFieldCheckboxRadio__size: 24px;
-  --hsElevate--formFieldCheckboxRadio__fillColor: var(--hsElevate--button--primary__backgroundColor);
+  --hsElevate--formFieldCheckboxRadio__fillColor: #000000;
 
   /* Form field placeholder */
   --hsElevate--formFieldPlaceholder__textColor: {{ form.group_placeholder_text.text_color.color }};
@@ -133,12 +133,8 @@
 
   /* Form spacing */
   --hsElevate--form__padding: var(--hsElevate--spacing--48);
-}
 
-/* CSS variables for v1 form */
-
-.hsfc-Form,
-.hsfc-FormWrapper {
+  /* CSS variables for new forms */
 
   /* Global vars */
   --hsf-global__font-family: var(--hsElevate--formLabel__font);
@@ -238,6 +234,7 @@
   */
 
   /* Button */
+  --hsf-button__width: 100%;
   --hsf-button__font-family: var(--hsElevate--button--primary__font);
   --hsf-button__font-size: var(--hsElevate--button--primary__fontSize);
   --hsf-button__color: var(--hsElevate--button--primary__textColor);

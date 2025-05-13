@@ -2,11 +2,14 @@
   templateType: section
   label: Pricing
   isAvailableForNewContent: true
-  scaffoldSchemaPath: ./schemas/pricing.scaffold_schema.json
+  landingPageSectionCategories: [PRICING]
   goals: [SELL_PRODUCTS]
+  scaffoldSchemaPath: ./schemas/pricing.scaffold_schema.json
   screenshotPath: ../images/section-previews/pricing.png
   description: "Section with pricing cards that show the different pricing options that are offered."
 -->
+
+{# Shares schema and translation keys with pricing-dark.hubl.html #}
 
 {#
   Context variables
@@ -113,6 +116,9 @@
                 },
                 {
                   "feature": context.pricing_cards[1].features[3] or scaffold_content.group_pricing_card_two.group_features.feature_four or template_translations.section_pricing_card_two_feature_four.message
+                },
+                {
+                  "feature": context.pricing_cards[1].features[4] or scaffold_content.group_pricing_card_two.group_features.feature_five or template_translations.section_pricing_card_two_feature_five.message
                 }
               ],
             },

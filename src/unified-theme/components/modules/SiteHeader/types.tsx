@@ -58,7 +58,7 @@ export interface MenuModulePropTypes extends MenuModuleContentFields {
   styles: MenuModuleStyles;
 }
 
-export type MainNavWrapperProps = {
+export type MainNavProps = {
   $navBarBackgroundColor: string;
   $menuAccentColor: string;
   $menuTextColor: string;

@@ -340,7 +340,7 @@ export const Component = (props: SocialFollowProps) => {
 
   return (
     <StyledComponentsRegistry>
-      <StyledSocialFollow $alignment={alignment} style={cssVarsMap}>
+      <StyledSocialFollow className="hs-elevate-social-follow" $alignment={alignment} style={cssVarsMap}>
         {groupSocialLinks.map((socialLink, index) => {
           const {
             groupLink: { link },
@@ -360,8 +360,15 @@ export const Component = (props: SocialFollowProps) => {
           }
 
           return (
-            <SocialLink key={index} rel={getLinkFieldRel(link)} target={getLinkFieldTarget(link)} href={link.url.href} aria-label={socialIcon.aria_label}>
-              <SocialIcon purpose="DECORATIVE" fieldPath={iconFieldPath} />
+            <SocialLink
+              className="hs-elevate-social-follow__link"
+              key={index}
+              rel={getLinkFieldRel(link)}
+              target={getLinkFieldTarget(link)}
+              href={link.url.href}
+              aria-label={socialIcon.aria_label}
+            >
+              <SocialIcon className="hs-elevate-social-follow__icon" purpose="DECORATIVE" fieldPath={iconFieldPath} />
             </SocialLink>
           );
         })}

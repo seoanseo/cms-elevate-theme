@@ -1,13 +1,7 @@
 import { CSSProperties, useState } from 'react';
 import { styled } from 'styled-components';
 import ArrowComponent from './ArrowComponent.js';
-import {
-  A11yControllerType,
-  MenuDataType,
-  KeyboardEventCallback,
-  visibleMenuItemsControllerType,
-  maxMenuDepth,
-} from './types.js';
+import { A11yControllerType, MenuDataType, KeyboardEventCallback, visibleMenuItemsControllerType, maxMenuDepth } from './types.js';
 import { LinkStyleType } from '../types/fields.js';
 
 interface MenuItemComponentProps {
@@ -26,6 +20,7 @@ interface MenuItemComponentProps {
   setTriggeredMenuItems: (triggeredMenuItems: string[]) => void;
   isMobileMenu: boolean;
   linkStyleVariant: LinkStyleType;
+  mobileAnchorClickCallback?: (anchorLink: string) => void;
 }
 
 const baseZindex = 100;
@@ -34,11 +29,6 @@ const StyledMenuItemLinkContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  &:hover {
-    border-radius: 8px;
-    background-color: #f5f5f5;
-  }
 `;
 
 const StyledMenuItemLink = styled.a`
@@ -61,7 +51,7 @@ const StyledMenuArrow = styled.span`
 `;
 
 const StyledSubmenu = styled.ul<{ $flyouts?: boolean; $menuDepth: number }>`
-  ${(props) =>
+  ${props =>
     props?.$flyouts &&
     `
       position: absolute;
@@ -69,14 +59,14 @@ const StyledSubmenu = styled.ul<{ $flyouts?: boolean; $menuDepth: number }>`
       bottom: var(--hsElevate--flyoutSubMenu__bottom, 'auto');
   `}
 
-  ${(props) =>
+  ${props =>
     props?.$flyouts &&
     props?.$menuDepth === 1 &&
     `
       top: var(--hsElevate--firstFlyoutMenu__top, 100%);
       left: var(--hsElevate--firstFlyoutMenu__left, 0);
   `}
-  ${(props) =>
+  ${props =>
     props?.$flyouts &&
     props?.$menuDepth > 1 &&
     `
@@ -89,7 +79,7 @@ const StyledSubmenu = styled.ul<{ $flyouts?: boolean; $menuDepth: number }>`
 `;
 
 const StyledMenuItem = styled.li<{ $flyouts?: boolean; $menuDepth: number }>`
-  ${(props) =>
+  ${props =>
     props?.$flyouts &&
     props?.$menuDepth > 1 &&
     `
@@ -127,35 +117,24 @@ export default function MenuItemComponent(props: MenuItemComponentProps) {
     triggeredMenuItems,
     setTriggeredMenuItems,
     isMobileMenu,
-    linkStyleVariant
+    linkStyleVariant,
+    mobileAnchorClickCallback,
   } = props;
 
   const { visibleMenuItems, setVisibleMenuItems } = visibleMenuItemsController;
-  const {
-    handleFocus,
-    handleBlur,
-    menuItemRefs,
-    linkRefs,
-    keyboardEventCallback,
-  } = a11yController;
+  const { handleFocus, handleBlur, menuItemRefs, linkRefs, keyboardEventCallback } = a11yController;
   const idStringArray = idString.split('-');
   const currentLevel = idStringArray.length;
 
   const handleMouseEnter = () => {
     // Compares all visible menu item id strings to the current id string. All visible menu items should be a part of the current id string. Needed for switching between keyboard and mouse controls. Ex. Current hover = 0-0-1 Show - 0, 0-0, 0-0-1 Don't show - 0-1, etc.
     if (!visibleMenuItems.includes(idString)) {
-      setVisibleMenuItems((currentMenuIdArray) =>
-        [...currentMenuIdArray, idString].filter((item) =>
-          idString.startsWith(item)
-        )
-      );
+      setVisibleMenuItems(currentMenuIdArray => [...currentMenuIdArray, idString].filter(item => idString.startsWith(item)));
     }
   };
 
   const handleMouseLeave = () => {
-    setVisibleMenuItems((currentMenuIdArray) =>
-      currentMenuIdArray.filter((item) => item !== idString)
-    );
+    setVisibleMenuItems(currentMenuIdArray => currentMenuIdArray.filter(item => item !== idString));
   };
 
   function isUnderMaxDepth() {
@@ -169,9 +148,7 @@ export default function MenuItemComponent(props: MenuItemComponentProps) {
   function getSubmenuClasses(): string {
     const baseClass = 'hs-elevate-menu__submenu';
     const flyoutClass = flyouts ? 'hs-elevate-menu__flyout-submenu' : '';
-    const mobileClass = isMobileMenu
-      ? 'hs-elevate-menu__flyout-submenu--mobile'
-      : '';
+    const mobileClass = isMobileMenu ? 'hs-elevate-menu__flyout-submenu--mobile' : '';
 
     return `${baseClass} ${flyoutClass} ${mobileClass}`;
   }
@@ -209,10 +186,14 @@ export default function MenuItemComponent(props: MenuItemComponentProps) {
     return '';
   }
 
-  const showNestedMenuIcon =
-    (flyouts || isMobileMenu) &&
-    menuData.children.length > 0 &&
-    currentLevel != maxDepth;
+  const showNestedMenuIcon = (flyouts || isMobileMenu) && menuData.children.length > 0 && currentLevel != maxDepth;
+
+  const handleClick = e => {
+    if (menuData.url.startsWith('#')) {
+      e.preventDefault();
+      mobileAnchorClickCallback(menuData.url);
+    }
+  };
 
   return (
     <StyledMenuItem
@@ -220,11 +201,11 @@ export default function MenuItemComponent(props: MenuItemComponentProps) {
       $flyouts={flyouts}
       className={getMenuItemClass()}
       data-hs-elevate-menuitem-depth={currentLevel}
-      onFocus={(event) => handleFocus(event, idString)}
+      onFocus={event => handleFocus(event, idString)}
       onBlur={handleBlur}
-      onKeyDown={(event) => keyboardEventCallback(event, idString)}
+      onKeyDown={event => keyboardEventCallback(event, idString)}
       tabIndex={-1}
-      ref={(el) => (menuItemRefs.current[idString] = el)}
+      ref={el => (menuItemRefs.current[idString] = el)}
       role="menuitem"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -233,22 +214,16 @@ export default function MenuItemComponent(props: MenuItemComponentProps) {
         <StyledMenuItemLink
           style={addSubMenuItemStyles()}
           className={addMenuItemClasses(linkStyleVariant)}
+          onClick={e => handleClick(e)}
           href={menuData.url}
-          ref={(el) => (linkRefs.current[idString] = el)}
+          ref={el => (linkRefs.current[idString] = el)}
           tabIndex={-1}
-          aria-expanded={
-            menuData.children.length > 0
-              ? visibleMenuItems.includes(idString)
-              : undefined
-          }
+          aria-expanded={menuData.children.length > 0 ? visibleMenuItems.includes(idString) : undefined}
         >
           {menuData.label}
         </StyledMenuItemLink>
         {showNestedMenuIcon && (
-          <StyledMenuArrow
-            className="hs-elevate-menu__arrow"
-            onClick={() => handleTriggeredMenuItem(idString)}
-          >
+          <StyledMenuArrow className="hs-elevate-menu__arrow" onClick={() => handleTriggeredMenuItem(idString)}>
             <ArrowComponent />
           </StyledMenuArrow>
         )}
@@ -280,6 +255,7 @@ export default function MenuItemComponent(props: MenuItemComponentProps) {
                 setTriggeredMenuItems={setTriggeredMenuItems}
                 isMobileMenu={isMobileMenu}
                 linkStyleVariant={linkStyleVariant}
+                mobileAnchorClickCallback={mobileAnchorClickCallback}
               />
             );
           })}

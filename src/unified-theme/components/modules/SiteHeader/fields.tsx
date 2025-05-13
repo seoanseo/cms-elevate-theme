@@ -10,6 +10,7 @@ import {
   AdvancedVisibility,
 } from '@hubspot/cms-components/fields';
 import { ButtonContent, ButtonStyle } from '../../fieldLibrary/index.js';
+import { limitedColorDefaults } from '../../utils/theme-color-sets.js';
 
 const showButton = {
   controlling_field_path: 'groupButton.showButton',
@@ -21,6 +22,8 @@ const advancedShowButton: AdvancedVisibility = {
   boolean_operator: 'OR',
   criteria: [showButton],
 } as const;
+
+const limitedOptionsColorsSet = [...limitedColorDefaults.themeSectionTextColors, ...limitedColorDefaults.themeColors];
 
 export const fields = (
   <ModuleFields>
@@ -56,16 +59,7 @@ export const fields = (
               opacity: true,
             },
           }}
-          limitedOptions={[
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_light_section_1.group_fonts.text_color.color',
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_light_section_2.group_fonts.text_color.color',
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_light_section_3.group_fonts.text_color.color',
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_dark_section_1.group_fonts.text_color.color',
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_light_section_1.group_fonts.accent_color.color',
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_light_section_2.group_fonts.accent_color.color',
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_light_section_3.group_fonts.accent_color.color',
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_dark_section_1.group_fonts.accent_color.color',
-          ]}
+          limitedOptions={limitedOptionsColorsSet}
           default={{ color: '#09152B' }}
         />
         <ColorField
@@ -76,16 +70,7 @@ export const fields = (
               opacity: true,
             },
           }}
-          limitedOptions={[
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_light_section_1.group_fonts.text_color.color',
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_light_section_2.group_fonts.text_color.color',
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_light_section_3.group_fonts.text_color.color',
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_dark_section_1.group_fonts.text_color.color',
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_light_section_1.group_fonts.accent_color.color',
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_light_section_2.group_fonts.accent_color.color',
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_light_section_3.group_fonts.accent_color.color',
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_dark_section_1.group_fonts.accent_color.color',
-          ]}
+          limitedOptions={limitedOptionsColorsSet}
           inheritedValuePropertyValuePaths={{
             color: 'module.styles.groupMenu.menuTextColor.color',
           }}
@@ -99,16 +84,7 @@ export const fields = (
               opacity: true,
             },
           }}
-          limitedOptions={[
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_light_section_1.group_fonts.text_color.color',
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_light_section_2.group_fonts.text_color.color',
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_light_section_3.group_fonts.text_color.color',
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_dark_section_1.group_fonts.text_color.color',
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_light_section_1.group_fonts.accent_color.color',
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_light_section_2.group_fonts.accent_color.color',
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_light_section_3.group_fonts.accent_color.color',
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_dark_section_1.group_fonts.accent_color.color',
-          ]}
+          limitedOptions={limitedOptionsColorsSet}
           default={{ color: '#F7F9FC' }}
         />
         <ColorField
@@ -119,12 +95,7 @@ export const fields = (
               opacity: true,
             },
           }}
-          limitedOptions={[
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_light_section_1.group_section.background_color.color',
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_light_section_2.group_section.background_color.color',
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_light_section_3.group_section.background_color.color',
-            'theme.group_foundation.group_colors.group_more_settings.group_sections.group_dark_section_1.group_section.background_color.color',
-          ]}
+          limitedOptions={limitedColorDefaults.themeSectionBackgroundColors}
           default={{ color: '#ffffff' }}
         />
         <AlignmentField

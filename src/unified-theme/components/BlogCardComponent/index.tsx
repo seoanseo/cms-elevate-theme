@@ -23,6 +23,7 @@ interface BlogCardComponentProps {
   headingStyleVariant: HeadingStyleVariant;
   cardStyleVariant: CardVariantType;
   gatedContentIds?: string[];
+  additionalClassArray?: string[];
 }
 
 interface TagListProps {
@@ -128,10 +129,13 @@ const GateIconImage = styled.div<{ $cardStyleVariant: string }>`
 `;
 
 function BlogCardComponent(props: BlogCardComponentProps) {
-  const { post, headingAndTextHeadingLevel, headingStyleVariant, cardStyleVariant, gatedContentIds = [] } = props;
+  const { post, headingAndTextHeadingLevel, headingStyleVariant, cardStyleVariant, gatedContentIds = [], additionalClassArray } = props;
+
+  const additionalClasses = additionalClassArray ? additionalClassArray.join(' ') : '';
+
   return (
     <StyledComponentsRegistry>
-      <StyledCardWrapper className="hs-elevate-card--blog__card-wrapper">
+      <StyledCardWrapper className={`hs-elevate-card--blog__card-wrapper ${additionalClasses}`}>
         <Card key={post.id} cardOrientation="column" cardStyleVariant={cardStyleVariant} additionalClassArray={['hs-elevate-card--blog']}>
           <StyledCardLink href={post.absoluteUrl}>
             <StyledImageContainer className="hs-elevate-card--blog__image-container" $cardStyleVariant={cardStyleVariant}>

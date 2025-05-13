@@ -1,19 +1,5 @@
-import {
-  useState,
-  useRef,
-  KeyboardEvent,
-  FocusEvent,
-  useEffect,
-  useCallback,
-  useMemo,
-} from 'react';
-import {
-  MenuComponentProps,
-  MenuItemRefsType,
-  LinkRefsType,
-  A11yControllerType,
-  visibleMenuItemsControllerType,
-} from './types.js';
+import { useState, useRef, KeyboardEvent, FocusEvent, useEffect, useCallback, useMemo } from 'react';
+import { MenuComponentProps, MenuItemRefsType, LinkRefsType, A11yControllerType, visibleMenuItemsControllerType } from './types.js';
 import MenuItemComponent from './MenuItemComponent.js';
 import { getAlignmentFieldCss } from '../utils/style-fields.js';
 
@@ -28,17 +14,15 @@ function MenuComponent(props: MenuComponentProps) {
     triggeredMenuItems,
     setTriggeredMenuItems,
     linkStyleVariant,
+    additionalClassArray,
     ...rest
   } = props;
 
   // Used for keyboard navigation
   const isFirstRender = useRef<boolean>(true); // Don't useEffect on first render
-  const [triggerHandleKeydown, setTriggerHandleKeydown] =
-    useState<boolean>(false);
-  const [currentKeyboardEvent, setCurrentKeyboardEvent] =
-    useState<KeyboardEvent | null>(null);
-  const [currentKeyboardElementId, setCurrentKeyboardElementId] =
-    useState<string>('');
+  const [triggerHandleKeydown, setTriggerHandleKeydown] = useState<boolean>(false);
+  const [currentKeyboardEvent, setCurrentKeyboardEvent] = useState<KeyboardEvent | null>(null);
+  const [currentKeyboardElementId, setCurrentKeyboardElementId] = useState<string>('');
   // used for component state
   const [focusedItem, setFocusedItem] = useState(null);
   const [visibleMenuItems, setVisibleMenuItems] = useState<string[]>([]);
@@ -57,15 +41,11 @@ function MenuComponent(props: MenuComponentProps) {
       return;
     }
     const arrowKeyMap = {
-      ArrowDown: () =>
-        setVisibleMenuItems((currentArray: string[]) => [
-          ...currentArray,
-          currentKeyboardElementId,
-        ]),
+      ArrowDown: () => setVisibleMenuItems((currentArray: string[]) => [...currentArray, currentKeyboardElementId]),
       ArrowUp: () =>
-        setVisibleMenuItems((currentArray) =>
+        setVisibleMenuItems(currentArray =>
           // Remove last number from the id string to find the parent
-          currentArray.filter((item) => {
+          currentArray.filter(item => {
             const idAsArray = currentKeyboardElementId.split('-');
             idAsArray.pop();
             const idStringToRemove = idAsArray.join('-');
@@ -75,10 +55,9 @@ function MenuComponent(props: MenuComponentProps) {
     };
 
     // call keybaordEvent with the correct ID parsed from above.
-    if (currentKeyboardEvent.key in arrowKeyMap)
-      arrowKeyMap[currentKeyboardEvent.key]();
+    if (currentKeyboardEvent.key in arrowKeyMap) arrowKeyMap[currentKeyboardEvent.key]();
 
-    setTriggerHandleKeydown((prevState) => !prevState);
+    setTriggerHandleKeydown(prevState => !prevState);
   }, [currentKeyboardEvent, currentKeyboardElementId]);
 
   useEffect(() => {
@@ -89,30 +68,20 @@ function MenuComponent(props: MenuComponentProps) {
     setVisibleMenuItems([]);
   }
 
-  const keyboardEventCallback = useCallback(
-    (event: KeyboardEvent, elementId: string) => {
-      if (event.key === 'Tab') {
-        resetVisibleMenuItems();
-        return;
-      }
-      event.stopPropagation();
-      event.preventDefault();
-      setCurrentKeyboardEvent(event);
-      setCurrentKeyboardElementId(elementId);
-    },
-    []
-  );
+  const keyboardEventCallback = useCallback((event: KeyboardEvent, elementId: string) => {
+    if (event.key === 'Tab') {
+      resetVisibleMenuItems();
+      return;
+    }
+    event.stopPropagation();
+    event.preventDefault();
+    setCurrentKeyboardEvent(event);
+    setCurrentKeyboardElementId(elementId);
+  }, []);
 
   const handleKeydown = (e: KeyboardEvent, currentElementId: string) => {
     if (!e?.key) return;
-    const targetKeys = new Set([
-      'ArrowUp',
-      'ArrowDown',
-      'ArrowLeft',
-      'ArrowRight',
-      'Space',
-      'Escape',
-    ]);
+    const targetKeys = new Set(['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Space', 'Escape']);
     // rename space key from ' ' to 'Space' to make more readable
     const key = e.key === ' ' ? 'Space' : e.key;
     if (!targetKeys.has(key)) return true;
@@ -129,18 +98,14 @@ function MenuComponent(props: MenuComponentProps) {
     // Last number is needed for calculations later on 0
     const idArrayLastNumber = parseInt(idArray[idArray.length - 1]);
     const isNavElementFocused = idArray[0] === '';
-    const isNavElementFocusedAndArrowDown =
-      isNavElementFocused && key === 'ArrowDown';
+    const isNavElementFocusedAndArrowDown = isNavElementFocused && key === 'ArrowDown';
 
     function findNextSibling() {
       // Increment last number to find next sibling 0 -> 1
       const nextSiblingNumber = idArrayLastNumber + 1;
       // Create a clone of the OG array. We don't want to mutate the original
       // Add the new number to the end of the array as a string ["0", "0", "1"]
-      const idArrayParentLevelCopy = [
-        ...idArrayParentLevel,
-        nextSiblingNumber.toString(),
-      ];
+      const idArrayParentLevelCopy = [...idArrayParentLevel, nextSiblingNumber.toString()];
       // Join the array to create the new id "0-0-1"
       const nextSiblingId = idArrayParentLevelCopy.join('-');
       // Find the element in the refs object based off of the new id string
@@ -157,10 +122,7 @@ function MenuComponent(props: MenuComponentProps) {
 
     function findPreviousSibling() {
       const previousSiblingNumber = idArrayLastNumber - 1;
-      const idArrayParentLevelCopy = [
-        ...idArrayParentLevel,
-        previousSiblingNumber.toString(),
-      ];
+      const idArrayParentLevelCopy = [...idArrayParentLevel, previousSiblingNumber.toString()];
       const previousSiblingId = idArrayParentLevelCopy.join('-');
       const previousSiblingElement = linkRefs.current[previousSiblingId];
 
@@ -169,28 +131,19 @@ function MenuComponent(props: MenuComponentProps) {
         // The idea here is that we are going to try to match parent ID strings in the refs object
 
         // If the parent level is empty, we are at the top level.
-        const parentIdToMatch =
-          idArrayParentLevel.length > 0
-            ? `${idArrayParentLevel.join('-')}-`
-            : null;
-        const filteredSiblingsArray = Object.keys(linkRefs.current).filter(
-          (item) => {
-            if (parentIdToMatch === null) {
-              // if we are at the top level, we want to return all items that don't have a hyphen in them
-              return !item.includes('-') ? item : null;
-            }
-            // if we are not at the top level, we want to return all items that start with the parent ID.
-            // we also want to make sure that the item's length is the same length as the parent ID
-            return item.startsWith(parentIdToMatch) &&
-              item.split('-').length === parentIdToMatch.split('-').length
-              ? item
-              : null;
+        const parentIdToMatch = idArrayParentLevel.length > 0 ? `${idArrayParentLevel.join('-')}-` : null;
+        const filteredSiblingsArray = Object.keys(linkRefs.current).filter(item => {
+          if (parentIdToMatch === null) {
+            // if we are at the top level, we want to return all items that don't have a hyphen in them
+            return !item.includes('-') ? item : null;
           }
-        );
+          // if we are not at the top level, we want to return all items that start with the parent ID.
+          // we also want to make sure that the item's length is the same length as the parent ID
+          return item.startsWith(parentIdToMatch) && item.split('-').length === parentIdToMatch.split('-').length ? item : null;
+        });
 
         // return the last item if the filteredSiblingsArray
-        const lastSibling =
-          filteredSiblingsArray[filteredSiblingsArray.length - 1];
+        const lastSibling = filteredSiblingsArray[filteredSiblingsArray.length - 1];
         return linkRefs.current[lastSibling];
       }
 
@@ -269,14 +222,7 @@ function MenuComponent(props: MenuComponentProps) {
       menuItemRefs,
       linkRefs,
     }),
-    [
-      handleFocus,
-      handleBlur,
-      focusedItem,
-      keyboardEventCallback,
-      menuItemRefs,
-      linkRefs,
-    ]
+    [handleFocus, handleBlur, focusedItem, keyboardEventCallback, menuItemRefs, linkRefs]
   );
 
   const flowClasses = {
@@ -284,26 +230,19 @@ function MenuComponent(props: MenuComponentProps) {
     vertical: 'hs-elevate-menu--vertical',
   };
 
+  const additionalClasses = additionalClassArray ? additionalClassArray?.join(' ') : '';
+
   const hsElevateMenuClasses = `hs-elevate-menu ${flowClasses[flow]} ${
     isMobileMenu ? 'hs-elevate-menu--mobile' : 'hs-elevate-menu--desktop'
-  }`;
+  } ${additionalClasses}`;
 
   const listStyles = {
     padding: 0,
-  }
+  };
 
   return (
-    <nav
-      tabIndex={0}
-      ref={navRef}
-      onKeyDown={(e) => handleKeydown(e, '')}
-      aria-label={navigationAriaLabel}
-    >
-      <ul
-        role="menu"
-        className={hsElevateMenuClasses}
-        style={isMobileMenu ? {} : { ...getAlignmentFieldCss(menuAlignment), ...listStyles }}
-      >
+    <nav tabIndex={0} ref={navRef} onKeyDown={e => handleKeydown(e, '')} aria-label={navigationAriaLabel}>
+      <ul role="menu" className={hsElevateMenuClasses} style={isMobileMenu ? {} : { ...getAlignmentFieldCss(menuAlignment), ...listStyles }}>
         {menuDataArray.map((item, index: number) => {
           return (
             <MenuItemComponent

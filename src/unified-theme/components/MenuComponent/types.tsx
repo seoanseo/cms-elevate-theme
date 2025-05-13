@@ -1,15 +1,5 @@
-import {
-  AlignmentFieldType,
-  TextFieldType,
-  BooleanFieldType,
-} from '@hubspot/cms-components/fields';
-import {
-  KeyboardEvent,
-  FocusEvent,
-  CSSProperties,
-  Dispatch,
-  SetStateAction,
-} from 'react';
+import { AlignmentFieldType, TextFieldType, BooleanFieldType } from '@hubspot/cms-components/fields';
+import { KeyboardEvent, FocusEvent, CSSProperties, Dispatch, SetStateAction } from 'react';
 import { LinkStyleType } from '../types/fields.js';
 
 export type FlowDirection = 'horizontal' | 'vertical';
@@ -32,6 +22,8 @@ export type MenuComponentProps = {
   triggeredMenuItems: string[];
   linkStyleVariant: LinkStyleType;
   setTriggeredMenuItems: (triggeredMenuItems: string[]) => void;
+  mobileAnchorClickCallback?: (anchorLink: string) => void;
+  additionalClassArray?: string[];
 };
 
 export type MenuItemRefsType = {
@@ -53,10 +45,7 @@ export type MenuDataType = {
   children?: MenuDataType[];
 };
 
-export type KeyboardEventCallback = (
-  e: KeyboardEvent,
-  currentElId: string
-) => void;
+export type KeyboardEventCallback = (e: KeyboardEvent, currentElId: string) => void;
 
 export type A11yControllerType = {
   handleFocus: (e: FocusEvent, key: string) => void;
