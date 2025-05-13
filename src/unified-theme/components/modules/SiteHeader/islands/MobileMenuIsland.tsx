@@ -5,6 +5,7 @@ import { useSharedIslandState } from '@hubspot/cms-components';
 import { Button } from '../../../ButtonComponent/index.js';
 import { getLinkFieldHref } from '../../../utils/content-fields.js';
 import { MenuContainerProps, MobileMenuIslandProps } from '../types.js';
+import MobileSiteHeaderLanguageSwitcher from '../../../LanguageSwitcherComponent/MobileSiteHeaderLanguageSwitcherComponent.js';
 
 const baseZindex = 1000;
 
@@ -30,7 +31,8 @@ const MenuContainer = styled.div<MenuContainerProps>`
   }
 
   ul {
-    height: ${({ $headerHeight, $mobileButtonContainerHeight }) => `calc(100vh - ${$headerHeight}px - ${$mobileButtonContainerHeight}px)`};
+    height: ${({ $headerHeight, $mobileButtonContainerHeight, $headerMobileLanguageSwitcherHeight }) =>
+      `calc(100vh - ${$headerHeight}px - ${$mobileButtonContainerHeight}px - ${$headerMobileLanguageSwitcherHeight}px)`};
     width: 100%;
     background-color: ${({ $menuBackgroundColor }) => $menuBackgroundColor};
   }
@@ -100,11 +102,13 @@ const MenuContainer = styled.div<MenuContainerProps>`
 
 const MobileSlideoutButtonContainer = styled.div<{
   $menuBackgroundColor: string;
+  $headerMobileLanguageSwitcherHeight: number;
 }>`
   @media (min-width: 460px) {
     display: none;
   }
 
+  margin-bottom: ${({ $headerMobileLanguageSwitcherHeight }) => $headerMobileLanguageSwitcherHeight}px;
   display: block;
   padding: var(--hsElevate--spacing--24);
   width: 100%;
@@ -154,10 +158,24 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
   const [isClosing, setIsClosing] = useState(false);
   const [triggeredMenuItems, setTriggeredMenuItems] = useSharedIslandState();
   const [headerHeight, setHeaderHeight] = useState(0);
+  const [headerMobileLanguageSwitcherHeight, setHeaderMobileLanguageSwitcherHeight] = useState(0);
   const [mobileButtonContainerHeight, setMobileButtonContainerHeight] = useState(0);
   const targetAnchorRef = useRef<string | null>(null);
 
-  const { flow, flyouts, menuBackgroundColor, menuAccentColor, menuTextColor, buttonStyleVariant, buttonStyleSize, groupButton, ...rest } = props;
+  const {
+    flow,
+    flyouts,
+    menuBackgroundColor,
+    menuAccentColor,
+    menuTextColor,
+    menuTextHoverColor,
+    buttonStyleVariant,
+    buttonStyleSize,
+    groupButton,
+    languageSwitcherSelectText,
+    langSwitcherIconFieldPath,
+    ...rest
+  } = props;
 
   const {
     showButton,
@@ -240,7 +258,27 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
   }, []);
 
   useEffect(() => {
-    const buttonContainer = document.querySelector('.hs-elevate-site-header__mobile-menu-button-container') as HTMLElement;
+    const headerMobileLanguageSwitcherButton = document.querySelector('.hs-elevate-site-header__language-switcher-button') as HTMLElement;
+
+    if (!headerMobileLanguageSwitcherButton) return;
+
+    const updateHeight = () => {
+      const height = headerMobileLanguageSwitcherButton.offsetHeight;
+      setHeaderMobileLanguageSwitcherHeight(height);
+    };
+
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(headerMobileLanguageSwitcherButton);
+
+    updateHeight();
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    const buttonContainer = document.querySelector('.hs-elevate-site-header__mobile-button-container') as HTMLElement;
 
     // If the button container doesn't exist, set the height to 0
     if (!buttonContainer) {
@@ -299,6 +337,7 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
         $isMenuSliding={isMenuSliding}
         $headerHeight={headerHeight}
         $mobileButtonContainerHeight={mobileButtonContainerHeight}
+        $headerMobileLanguageSwitcherHeight={headerMobileLanguageSwitcherHeight}
         $menuAccentColor={menuAccentColor}
         $menuBackgroundColor={menuBackgroundColor}
         $menuTextColor={menuTextColor}
@@ -316,7 +355,11 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
           additionalClassArray={['hs-elevate-site-header__menu']}
         />
         {showButton && (
-          <MobileSlideoutButtonContainer className="hs-elevate-site-header__mobile-button-container" $menuBackgroundColor={menuBackgroundColor}>
+          <MobileSlideoutButtonContainer
+            className="hs-elevate-site-header__mobile-button-container"
+            $menuBackgroundColor={menuBackgroundColor}
+            $headerMobileLanguageSwitcherHeight={headerMobileLanguageSwitcherHeight}
+          >
             <Button
               href={getLinkFieldHref(buttonLink)}
               buttonStyle={buttonStyleVariant}
@@ -331,6 +374,16 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
             </Button>
           </MobileSlideoutButtonContainer>
         )}
+        {
+          <MobileSiteHeaderLanguageSwitcher
+            menuBackgroundColor={menuBackgroundColor}
+            menuBackgroundColorHover={menuAccentColor}
+            textColor={menuTextColor}
+            textColorHover={menuTextHoverColor}
+            languageSwitcherSelectText={languageSwitcherSelectText}
+            langSwitcherIconFieldPath={langSwitcherIconFieldPath}
+          />
+        }
       </MenuContainer>
     </div>
   );

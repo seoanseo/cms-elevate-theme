@@ -33,7 +33,7 @@ const StyledMenuItemLinkContainer = styled.div`
 
 const StyledMenuItemLink = styled.a`
   flex-grow: 1;
-  padding: 10px;
+  padding: var(--hsElevate--spacing--8, 8px);
   display: block;
 `;
 

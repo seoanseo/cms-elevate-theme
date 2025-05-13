@@ -8,6 +8,7 @@ import {
   TextField,
   BooleanField,
   AdvancedVisibility,
+  IconField,
 } from '@hubspot/cms-components/fields';
 import { ButtonContent, ButtonStyle } from '../../fieldLibrary/index.js';
 import { limitedColorDefaults } from '../../utils/theme-color-sets.js';
@@ -47,7 +48,18 @@ export const fields = (
     </FieldGroup>
     <FieldGroup label="Default content" name="defaultContent" locked={true}>
       <TextField label="Logo link aria text" name="logoLinkAriaText" default="Homepage" locked={true} />
+      <TextField label="Lang switcher select text" name="languageSwitcherSelectText" default="Select a language" locked={true} />
     </FieldGroup>
+    <IconField
+      label="Language switcher icon"
+      name="globe_icon"
+      iconSet="fontawesome-6.4.2"
+      default={{
+        name: 'earth-americas',
+      }}
+      required={true}
+      locked={true}
+    />
     <FieldGroup label="Styles" name="styles" tab="STYLE">
       <FieldGroup label="Menu" name="groupMenu" display="inline">
         <ColorField
