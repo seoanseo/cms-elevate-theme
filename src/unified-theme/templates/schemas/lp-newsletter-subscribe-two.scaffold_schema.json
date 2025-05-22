@@ -1,0 +1,159 @@
+[
+  {
+    "name": "group_hero_banner",
+    "type": "group",
+    "children": [
+      {
+        "name": "tag_line",
+        "type": "text",
+        "description": "A short tag line that appears above the main heading"
+      },
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "The main headline that describes the newsletter subscription offering"
+      },
+      {
+        "name": "paragraph",
+        "type": "text",
+        "description": "A brief description explaining the benefits of subscribing to the newsletter"
+      },
+      {
+        "name": "button_text",
+        "type": "text",
+        "description": "Call-to-action text for the subscription button"
+      },
+      {
+        "name": "button_link",
+        "type": "link",
+        "description": "Link for the subscription button"
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "description": "An image that visually represents the newsletter or digital marketing concepts",
+        "width": "791",
+        "height": "452"
+      }
+    ]
+  },
+  {
+    "name": "group_newsletter_signup",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Heading for the newsletter signup section"
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "description": "Description text explaining what subscribers will receive"
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "description": "An image that visually represents the newsletter or digital marketing concepts",
+        "width": "500",
+        "height": "875"
+      },
+      {
+        "name": "form",
+        "type": "form",
+        "description": "Newsletter subscription form"
+      }
+    ]
+  },
+  {
+    "name": "group_faq",
+    "type": "group",
+    "children": [
+      {
+        "name": "heading",
+        "type": "text",
+        "description": "Heading for the FAQ section"
+      },
+      {
+        "name": "group_faq_one",
+        "type": "group",
+        "children": [
+          {
+            "name": "title",
+            "type": "text",
+            "description": "Question about services offered by the digital marketing agency"
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Answer explaining the services offered"
+          }
+        ]
+      },
+      {
+        "name": "group_faq_two",
+        "type": "group",
+        "children": [
+          {
+            "name": "title",
+            "type": "text",
+            "description": "Question about how the agency helps businesses grow"
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Answer explaining the data-driven approach to business growth"
+          }
+        ]
+      },
+      {
+        "name": "group_faq_three",
+        "type": "group",
+        "children": [
+          {
+            "name": "title",
+            "type": "text",
+            "description": "Question about customized solutions"
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Answer explaining the tailored marketing strategies approach"
+          }
+        ]
+      },
+      {
+        "name": "group_faq_four",
+        "type": "group",
+        "children": [
+          {
+            "name": "title",
+            "type": "text",
+            "description": "Question about tracking campaign performance"
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Answer explaining analytics and performance tracking capabilities"
+          }
+        ]
+      },
+      {
+        "name": "group_faq_five",
+        "type": "group",
+        "children": [
+          {
+            "name": "title",
+            "type": "text",
+            "description": "Question about what sets the agency apart from competitors"
+          },
+          {
+            "name": "content",
+            "type": "text",
+            "description": "Answer explaining the unique selling points of the agency"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -19,6 +19,7 @@
     - image.image: The image to display alongside the testimonial.
     - link.text: The text to display for the testimonial link.
     - link.url: The URL for the testimonial.
+    - card_style_variant: The variant of the card style.
 #}
 
 {# Section variables #}
@@ -57,7 +58,7 @@
               "authorImage": context.author.image.src or {}
             },
             "groupImage": {
-              "showImage": context.image.show_image or true,
+              "showImage": context.image.show_image != null ? context.image.show_image : true,
               "image": {
                 "alt": context.image.alt or "",
                 "loading": context.image.loading or "lazy",
@@ -76,7 +77,7 @@
           }
         ],
         groupStyle={
-          "cardStyleVariant": "card_variant_1"
+          "cardStyleVariant": context.card_style_variant or "card_variant_1"
         }
       %}
       {% end_dnd_module %}

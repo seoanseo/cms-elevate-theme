@@ -21,6 +21,7 @@
     - cards[0].button.href: The link for the card button.
     - card_variant: The style variant for the card (optional).
     - button_style_variant: The style variant for the button (optional).
+    - max_width: The max width of the section (optional).
 #}
 
 {# Section variables #}
@@ -35,6 +36,7 @@
     "top": context.section_padding_top,
     "bottom": context.section_padding_bottom
   }
+  max_width={{ context.max_width or section_width_wide }}
 %}
   {% dnd_column %}
     {% dnd_row %}
