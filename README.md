@@ -1,5 +1,3 @@
-# EARLY DRAFT -- SUBJECT TO CHANGE
-
 # Elevate - HubSpot Default CMS Theme
 
 Elevate is HubSpot's default CMS theme, designed to provide a modern, flexible, and customizable foundation for building beautiful websites on the HubSpot CMS platform.
@@ -129,9 +127,9 @@ In order to override parent theme files from a child theme, you need to ensure t
 
 Note that this theme is maintained by HubSpot. It is configured to sync with an internal repository and was built so that developers can have access to the source code as the theme itself is not available in the design manager.
 
-No PR's will be accepted / considered / or reviewed.
+No PR's will be accepted / merged in here. Instead, we recommend creating issues.
 
-Feel free to open issues if you notice any bugs or have feature requests (unofficially supported) -- however if you notice bugs the recommended way to get them fixed is to open a ticket with HubSpot's support team (officially supported).
+Open issues if you notice any bugs or have feature requests (unofficially supported) -- however, if you notice impactful bugs, the recommended way to get them fixed is to open a ticket with HubSpot's support team (officially supported).
 
 ## License
 
@@ -140,6 +138,6 @@ This project is licensed under the Apache-2.0 License - see the LICENSE file for
 ## Support
 
 Learn more about HubSpot CMS:
-- [Building with React on Hubspot](https://github.hubspot.com/cms-react/)
+- [Building with React on Hubspot](https://developers.hubspot.com/docs/guides/cms/react/overview)
 - Check the [HubSpot Developer Documentation](https://developers.hubspot.com/)
 - Visit the [HubSpot Community](https://community.hubspot.com/)
