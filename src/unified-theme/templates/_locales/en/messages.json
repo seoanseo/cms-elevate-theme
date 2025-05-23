@@ -514,6 +514,231 @@
     "description": "",
     "placeholders": null
   },
+  "lp_event_signup_one_heading": {
+    "message": "Let the countdown to ElevateExpo the biggest marketing event of the year begin",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_button_text": {
+    "message": "Register now",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_testimonial_one_text": {
+    "message": "\"ElevateExpo was a game-changer! Inspiring keynotes and actionable insights - The event connects you to the future of marketing.\"",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_testimonial_two_text": {
+    "message": "\"Invaluable for networking. We made meaningful connections with peers and potential partners. The networking alone was worth it!\"",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_testimonial_three_text": {
+    "message": "\"ElevateExpo delivered cutting-edge insights and practical skills. The hands-on workshops and tech demos were directly relevant.\"",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_heading": {
+    "message": "Explore what ElevateExpo has to offer",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_subheading": {
+    "message": "Discover the valuable insights, connections, and skills waiting for you at ElevateExpo",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_one_heading": {
+    "message": "Unlock actionable strategies",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_one_description": {
+    "message": "Gain practical marketing tactics you can implement immediately",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_two_heading": {
+    "message": "Access exclusive resources",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_two_description": {
+    "message": "Receive materials and knowledge not available elsewhere",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_three_heading": {
+    "message": "Watch cutting-edge tech demos",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_three_description": {
+    "message": "Experience the newest innovations shaping the marketing landscape",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_four_heading": {
+    "message": "Find collaboration opportunities",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_four_description": {
+    "message": "Seek potential partners and explore new ventures",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_five_heading": {
+    "message": "Engage in expert panels",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_five_description": {
+    "message": "Hear diverse insights on critical industry trends in our panels",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_six_heading": {
+    "message": "Master emerging channels",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_six_description": {
+    "message": "Learn how to effectively leverage the latest platforms",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_seven_heading": {
+    "message": "Connect in networking hubs",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_seven_description": {
+    "message": "Forge valuable relationships with peers and speakers",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_eight_heading": {
+    "message": "Gain a competitive edge",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_features_feature_eight_description": {
+    "message": "Stay ahead of the curve with future-forward strategies and insights",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_speakers_heading": {
+    "message": "Our ElevateExpo speakers",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_speakers_subheading": {
+    "message": "We're a passionate team of marketing professionals dedicated to creating an unforgettable and impactful event for our community",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_speaker_name": {
+    "message": "Speaker",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_speaker_description": {
+    "message": "Role & company",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_products_heading": {
+    "message": "Fueling marketing success beyond the expo",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_products_product_one_name": {
+    "message": "Product or Service 1 Name",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_products_product_one_description": {
+    "message": "Brief description highlighting relevance to event topics (e.g. \"Our analytics platform empowers data-driven decisions, a key focus at ElevateExpo.\")",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_products_product_two_name": {
+    "message": "Product or Service 2 Name",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_products_product_two_description": {
+    "message": "Brief description highlighting relevance to event topics (e.g. \"Learn about the latest automation strategies, powered by our leading automation tools.\")",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_products_product_three_name": {
+    "message": "Product or Service 3 Name",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_products_product_three_description": {
+    "message": "Brief description highlighting relevance to event topics (e.g. \"Connect with industry leaders and explore partnership opportunities, just like you'll do at the expo.\")",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_products_product_four_name": {
+    "message": "Product or Service 4 Name",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_products_product_four_description": {
+    "message": "Brief description highlighting relevance (e.g. \"Master content creation techniques, a vital skill for success in today's digital landscape.\")",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_one_products_button_text": {
+    "message": "Learn more",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_two_hero_heading": {
+    "message": "Watch for a sneak peek of the event",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_two_hero_subheading": {
+    "message": "Watch our teaser video for a glimpse into the inspiring keynotes, interactive workshops, and networking opportunities that await",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_two_form_heading": {
+    "message": "Join us for the marketing event of the year",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_two_form_body": {
+    "message": "Come join us along with thousands of other marketers and thought leaders for a week of inspiring keynotes and new connections",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_two_gallery_heading": {
+    "message": "Event Gallery",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_two_gallery_subheading": {
+    "message": "Catch moments from our event",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_two_cta_heading": {
+    "message": "Join and connect with thousands of marketing professionals",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_event_signup_two_cta_button_text": {
+    "message": "Register now",
+    "description": "",
+    "placeholders": null
+  },
   "lp_meeting_heading": {
     "message": "Schedule a demo with us",
     "description": "",
@@ -859,6 +1084,206 @@
     "description": "",
     "placeholders": null
   },
+  "lp_product_free_trial_one_hero_tagline": {
+    "message": "Data-Driven Marketing",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_hero_heading": {
+    "message": "Smarter Digital Advertising, Better Results",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_hero_list_item_one": {
+    "message": "Actionable Insights - Advanced analytics to unlock hidden opportunities and optimize your spend",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_hero_list_item_two": {
+    "message": "Automated Workflow - Streamline your campaign management and free up valuable time",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_hero_list_item_three": {
+    "message": "Expert Support - Get guidance from our team of marketing professionals dedicated to your success",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_hero_button": {
+    "message": "Start your free trial",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_solutions_heading": {
+    "message": "Our solutions to elevate your marketing",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_solutions_item_one": {
+    "message": "Unified Campaign Management",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_solutions_item_two": {
+    "message": "AI-Powered Optimization",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_solutions_item_three": {
+    "message": "Precision Audience Targeting",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_solutions_item_four": {
+    "message": "Real-Time Analytics & Reporting",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_solutions_item_five": {
+    "message": "Workflow Automation",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_testimonial_quote": {
+    "message": "Partnering with Elevate has transformed our business. Their cutting-edge strategies and AI-powered targeting have significantly boosted our online presence and revenue.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_testimonial_name": {
+    "message": "Sarah Johnson",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_testimonial_title": {
+    "message": "Chief Marketing Officer @ StellarForge",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_testimonial_link": {
+    "message": "Read case study",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_gallery_heading": {
+    "message": "Explore the power of Elevate",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_gallery_description": {
+    "message": "Get a glimpse into the intuitive interface and powerful capabilities that make Elevate the leading digital marketing platform",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_metrics_heading": {
+    "message": "Proven results for businesses like yours",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_metrics_one_number": {
+    "message": "20+",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_metrics_one_label": {
+    "message": "Billion ad impressions managed",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_metrics_two_number": {
+    "message": "150k+",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_metrics_two_label": {
+    "message": "Campaigns optimized monthly",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_metrics_three_number": {
+    "message": "10x",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_metrics_three_label": {
+    "message": "Average ROI improvements over time",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_faq_one_question": {
+    "message": "What services does your digital marketing agency offer?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_faq_one_answer": {
+    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO)",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_faq_two_question": {
+    "message": "How can your digital marketing agency help my business grow?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_faq_two_answer": {
+    "message": "Yes! Our AI-powered optimization engine automatically adjusts your campaigns to maximize performance, typically resulting in 25-40% better ROI compared to manually managed campaigns.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_faq_three_question": {
+    "message": "Do you provide customized solutions for different businesses?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_faq_three_answer": {
+    "message": "Yes, we tailor our platform to meet the specific needs of your industry and business size. Our onboarding process includes a detailed assessment of your goals, target audience, and current marketing strategies to customize our solution to your unique requirements.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_faq_four_question": {
+    "message": "Can you track the performance of digital marketing campaigns?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_faq_four_answer": {
+    "message": "Absolutely! Our comprehensive analytics dashboard provides real-time tracking of all your marketing campaigns across channels. You'll see key metrics like conversion rates, click-through rates, ROI, and audience engagement, with customizable reports and actionable insights.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_faq_five_question": {
+    "message": "What sets your digital marketing agency apart from others in the industry?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_faq_five_answer": {
+    "message": "Our proprietary AI-driven optimization technology, dedicated success managers for every client, and proven track record of delivering 10x ROI improvements set us apart. Unlike traditional agencies, we combine cutting-edge technology with human expertise to continuously optimize your campaigns.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_faq_six_question": {
+    "message": "How quickly will I see results from your platform?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_faq_six_answer": {
+    "message": "Most clients begin seeing measurable improvements within the first 30 days of implementation. Our platform starts optimizing immediately, but the most significant results typically emerge after 2-3 months as our AI learns and refines your campaigns based on performance data.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_cta_heading": {
+    "message": "Ready to elevate your business?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_cta_button_one": {
+    "message": "Start your free trial",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_one_cta_button_two": {
+    "message": "Request a personalized demo",
+    "description": "",
+    "placeholders": null
+  },
   "lp_video_heading": {
     "message": "Join us for the marketing event of the year",
     "description": "",
@@ -1171,6 +1596,291 @@
   },
   "podcast_episode_back_to_all_episodes": {
     "message": "Back to all episodes",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_hero_tag_line": {
+    "message": "Data-Driven Marketing",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_hero_heading": {
+    "message": "Smarter digital advertising. Simpler results.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_hero_paragraph": {
+    "message": "Elevate your marketing with our intuitive platform and see real results. One dashboard, deep insights, powerful automation.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_hero_button": {
+    "message": "Start your free trial",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_highlights_overview_heading": {
+    "message": "Everything for online growth",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_hightlight_one_heading": {
+    "message": "Real-Time Analytics",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_highlight_one_content": {
+    "message": "Instant performance clarity. Track key metrics, make data-driven decisions.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_highlight_two_heading": {
+    "message": "Social Media Scheduler",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_hightlight_two_content": {
+    "message": "Effortless planning, publishing, analysis. Consistent engagement made easy.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_highlight_three_heading": {
+    "message": "SEO Optimization",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_highlight_three_content": {
+    "message": "Boost visibility, drive organic traffic. Actionable insights, performance monitoring.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_features_heading": {
+    "message": "Explore Elevate's capabilities",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_features_description": {
+    "message": "Unlock powerful marketing features with our all-in-one platform.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_feature_one_heading": {
+    "message": "Content creation",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_feature_one_content": {
+    "message": "Generate engaging content easily. Streamline your workflow.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_feature_two_heading": {
+    "message": "Analytics and reporting",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_feature_two_content": {
+    "message": "Understand your data, optimize strategies. Gain actionable insights.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_feature_three_heading": {
+    "message": "Messaging",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_feature_three_content": {
+    "message": "Personalized, automated messages across channels. Nurture leads, build relationships.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_feature_four_heading": {
+    "message": "Integrations",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_feature_four_content": {
+    "message": "Seamlessly connect with your existing tools and applications. Unified, efficient workflow.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_feature_five_heading": {
+    "message": "Automation and workflows",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_feature_five_content": {
+    "message": "Automate tasks, nurture leads. Scale without more work.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_feature_six_heading": {
+    "message": "Campaign scheduling",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_feature_six_content": {
+    "message": "Plan and execute campaigns precisely. Maximize impact.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_feature_seven_heading": {
+    "message": "AI Agents",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_feature_seven_content": {
+    "message": "Intelligent, insight-driven opportunities. Optimize campaigns.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_feature_eight_heading": {
+    "message": "Cross channel distribution",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_feature_eight_content": {
+    "message": "Manage campaigns across all channels. Maximize your reach.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_faq_heading": {
+    "message": "Frequently asked questions",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_faq_one_title": {
+    "message": "What services does your digital marketing agency offer?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_faq_one_content": {
+    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_faq_two_title": {
+    "message": "How can your digital marketing agency help my business grow?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_faq_two_content": {
+    "message": "We drive business growth through strategic digital marketing initiatives that enhance your brand visibility, attract high-quality prospects, and convert visitors into customers. Our approach combines data analytics with creative strategies, delivering measurable results that directly impact your bottom line while providing complete performance transparency.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_faq_three_title": {
+    "message": "Do you provide customized solutions for different businesses?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_faq_three_content": {
+    "message": "Absolutely. We reject one-size-fits-all approaches and instead create bespoke marketing strategies tailored to your specific industry, objectives, and target audience. Our team conducts thorough research to understand your unique market position, allowing us to develop solutions that resonate with your ideal customers and align perfectly with your business vision.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_faq_four_title": {
+    "message": "Can you track the performance of digital marketing campaigns?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_faq_four_content": {
+    "message": "Yes, comprehensive performance tracking is built into everything we do. We implement advanced analytics systems that monitor all campaign elements in real-time, from engagement metrics to conversion rates. You'll receive regular, easy-to-understand reports highlighting key performance indicators, ROI analysis, and actionable insights to continuously optimize your marketing investment.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_faq_five_title": {
+    "message": "What sets your digital marketing agency apart from others in the industry?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_product_free_trial_two_faq_five_content": {
+    "message": "Our difference lies in our results-first mentality, commitment to innovation, and genuine partnership approach. Unlike agencies that focus on vanity metrics, we prioritize tangible business outcomes. Our team combines industry expertise with cutting-edge techniques, maintaining complete transparency throughout our collaboration while treating your success as the ultimate measure of our own.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_two_hero_tagline": {
+    "message": "Data-Driven Marketing",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_two_hero_heading": {
+    "message": "Stay ahead of the curve in digital marketing",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_two_hero_paragraph": {
+    "message": "Subscribe to our newsletter for the latest insights and data-driven strategies to elevate your digital advertising.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_two_hero_button": {
+    "message": "Subscribe to our newsletter",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_two_form_heading": {
+    "message": "Join our email newsletter",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_two_form_description": {
+    "message": "Stay up-to-date with the latest insights and trends in digital marketing. Subscribe now to receive exclusive content delivered straight to your inbox.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_two_faq_heading": {
+    "message": "Frequently asked questions",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_two_faq_one_title": {
+    "message": "What services does your digital marketing agency offer?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_two_faq_one_content": {
+    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO).",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_two_faq_two_title": {
+    "message": "How can your digital marketing agency help my business grow?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_two_faq_two_content": {
+    "message": "Our data-driven approach helps identify your target audience, optimize your marketing channels, create engaging content, and continuously improve your strategy based on performance analytics. This comprehensive approach drives traffic, generates leads, and increases conversions for sustainable business growth.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_two_faq_three_title": {
+    "message": "Do you provide customized solutions for different businesses?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_two_faq_three_content": {
+    "message": "Yes, we create tailored marketing strategies based on your industry, target audience, goals, and budget. Our customized approach ensures that your marketing efforts are aligned with your specific business needs and objectives.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_two_faq_four_title": {
+    "message": "Can you track the performance of digital marketing campaigns?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_two_faq_four_content": {
+    "message": "Absolutely. We use advanced analytics tools to monitor all aspects of your campaigns including website traffic, conversion rates, engagement metrics, ROI, and more. You'll receive detailed reports and dashboards that show the performance of your marketing initiatives in real-time.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_two_faq_five_title": {
+    "message": "What sets your digital marketing agency apart from others in the industry?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_two_faq_five_content": {
+    "message": "Our agency stands out through our data-first approach, industry expertise, transparent reporting, innovative strategies, and dedicated account management. We focus on measurable results and continuous optimization to maximize your marketing ROI.",
     "description": "",
     "placeholders": null
   },
@@ -1825,7 +2535,7 @@
     "placeholders": null
   },
   "section_testimonial_cards_author_title_1": {
-    "message": "Marketing Director @ Hexagontalx.io",
+    "message": "Marketing Director @ Reviluxify",
     "description": "",
     "placeholders": null
   },
@@ -1840,7 +2550,7 @@
     "placeholders": null
   },
   "section_testimonial_cards_author_title_2": {
-    "message": "CEO of Zyntellx",
+    "message": "CEO @ Zyntellx",
     "description": "",
     "placeholders": null
   },
@@ -1855,7 +2565,7 @@
     "placeholders": null
   },
   "section_testimonial_cards_author_title_3": {
-    "message": "Social Media Manager at Crypturon",
+    "message": "Social Media Manager @ Crypturon",
     "description": "",
     "placeholders": null
   },
@@ -2471,6 +3181,171 @@
   },
   "section_team_member_dark_button_two": {
     "message": "Learn more",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_hero_tag_line": {
+    "message": "Products",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_hero_heading": {
+    "message": "Stop guessing, start converting.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_hero_paragraph": {
+    "message": "Unlock the secrets to higher conversion rates. Download our free guide and discover actionable strategies to transform your marketing efforts",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_hero_button_text": {
+    "message": "Get the free guide now",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_features_heading": {
+    "message": "Elevate your knowledge",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_features_description": {
+    "message": "Explore the power behind conversion. Inside our free conversion guide, you'll discover:",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_feature_one_heading": {
+    "message": "Conversion-boosting tactics",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_feature_one_content": {
+    "message": "Proven strategies to optimize your landing pages for maximum impact.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_feature_two_heading": {
+    "message": "Code to higher conversion rates",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_feature_two_content": {
+    "message": "Effective techniques for crafting compelling calls-to-action that drive results.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_feature_three_heading": {
+    "message": "Conversion toolkit",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_feature_three_content": {
+    "message": "Insights into understanding your audience and tailoring your message for conversion.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_feature_four_heading": {
+    "message": "Real-world examples",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_feature_four_content": {
+    "message": "See successful conversion strategies in action across various industries through our case studies.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_feature_five_heading": {
+    "message": "Common mistakes to avoid",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_feature_five_content": {
+    "message": "Identify and eliminate the pitfalls that are likely costing you valuable leads and sales.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_feature_six_heading": {
+    "message": "Step-by-step optimization checklist",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_feature_six_content": {
+    "message": "Follow a clear and actionable checklist to implement the strategies discussed.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_feature_seven_heading": {
+    "message": "A/B testing strategy",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_feature_seven_content": {
+    "message": "Learn how to set up effective experiments to continuously improve your conversion rates.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_feature_eight_heading": {
+    "message": "Mobile optimization techniques",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_feature_eight_content": {
+    "message": "Essential to ensure your landing pages convert effectively across all mobile devices.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_faq_heading": {
+    "message": "Ready to implement what you learn?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_faq_description": {
+    "message": "Elevate's platform provides the tools you need to put these conversion-boosting strategies into action. Explore more commonly asked questions.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_faq_question_one": {
+    "message": "What services does your digital marketing agency offer?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_faq_question_two": {
+    "message": "How can your digital marketing agency help my business grow?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_faq_question_three": {
+    "message": "Do you provide customized solutions for different businesses?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_faq_question_four": {
+    "message": "Can you track the performance of digital marketing campaigns?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_faq_question_five": {
+    "message": "What sets your digital marketing agency apart from others in the industry?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_faq_question_six": {
+    "message": "How do I get a quote for a project?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_cta_heading": {
+    "message": "Supercharge your strategy after you download",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_cta_description": {
+    "message": "Once you've mastered the fundamentals with our guide, explore how Elevate's AI-powered features can take your marketing to the next level, predicting trends and optimizing your campaigns for even greater conversion.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_one_cta_button_text": {
+    "message": "Download the free guide now",
     "description": "",
     "placeholders": null
   }

@@ -15,6 +15,7 @@
     - heading.heading_level: The heading level for the section heading.
     - heading.text: The text for the section heading.
     - content: The description content for the section.
+    - button.icon: The icon for the call-to-action button.
     - button.text: The text for the call-to-action button.
     - button.href: The URL for the call-to-action button.
     - button.size: The size of the button.
@@ -87,7 +88,7 @@
             },
             "buttonContentShowIcon": false,
             "buttonContentIcon": {
-              "name": "arrow-right"
+              "name": context.button.icon or "arrow-right"
             },
             "buttonContentIconPosition": "right"
           }

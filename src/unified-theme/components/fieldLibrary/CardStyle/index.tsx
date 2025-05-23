@@ -11,11 +11,11 @@ export default function CardStyle(props: CardStyle) {
 
   return (
     <ChoiceField
-      label='Card style'
-      name='cardStyleVariant'
-      visibilityRules='ADVANCED'
+      label="Card style"
+      name="cardStyleVariant"
+      visibilityRules="ADVANCED"
       advancedVisibility={cardStyleVisibility}
-      display='select'
+      display="select"
       choices={[
         ['card_variant_1', 'Card variant 1'],
         ['card_variant_2', 'Card variant 2'],
@@ -29,9 +29,9 @@ export default function CardStyle(props: CardStyle) {
           name: 'theme_link',
           params: {
             theme_path: '@hubspot/elevate',
-            theme_field_path: 'group_elements.group_cards.card_variant_1'
-          }
-        }
+            theme_field_path: 'group_elements.group_cards.card_variant_1',
+          },
+        },
       ]}
       required={true}
       default={cardStyleDefault}
