@@ -10,11 +10,17 @@
 
 {#
 Context Variables:
+  - context.section_variant: The section variant.
   - context.background_color: The background color of the section.
+  - context.anchor_id: The anchor id for the section.
   - context.heading.text: The heading text.
+  - context.heading.style_variant: The heading style variant.
   - context.content: The rich text content for the description.
   - context.image.alt: The alt text for the image.
   - context.image.src: The source URL of the image.
+  - context.image.loading: The loading type of the image.
+  - context.image.height: The height of the image.
+  - context.image.width: The width of the image.
 #}
 
 {% set template_translations = load_translations("../templates/_locales", html_lang, "en") %}
@@ -80,7 +86,7 @@ Context Variables:
               "alignment": {
                 "text_align": "LEFT"
               },
-              "headingStyleVariant": "h2",
+              "headingStyleVariant": context.heading.style_variant or "h2",
               "sectionStyleVariant": section_variant
             }
           %}

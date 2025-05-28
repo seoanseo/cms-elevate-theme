@@ -121,7 +121,7 @@ Context Variables:
                       "href": context.button.href or scaffold_content.group_button.button_link or "#"
                     }
                   },
-                  "buttonContentShowIcon": context.button.icon.show_icon is defined and context.button.icon.show_icon,
+                  "buttonContentShowIcon": context.button.icon.show_icon != null ? context.button.icon.show_icon : false,
                   "buttonContentIcon": {
                     "name": context.button.icon.name or "arrow-right"
                   },
