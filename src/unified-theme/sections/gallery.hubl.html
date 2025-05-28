@@ -10,8 +10,9 @@
 
 {#
 Context Variables:
-  - context.heading: Main heading text for the section
-  - context.content: Main content text below the heading
+  - context.background_color: The background color for the section.
+  - context.heading: Main heading text for the section.
+  - context.content: Main content text below the heading.
   - context.group_gallery: Group containing gallery images and their alt text.
 #}
 
@@ -20,7 +21,7 @@ Context Variables:
 {% from "../helpers/variables.hubl.html" import section_vertical_spacing_extra_small %}
 
 {% dnd_section
-  background_color="{{ context.background_color }}"
+  background_color={{ context.background_color }}
   vertical_alignment="MIDDLE"
 %}
   {% dnd_column %}

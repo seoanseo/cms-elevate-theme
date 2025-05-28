@@ -13,6 +13,7 @@
     - section_variant: The variant of the section style.
     - background_color: The background color of the section.
     - heading: The heading for the section.
+    - card_variant: The card variant to use.
     - cards[0-5].icon: The icon for each card.
     - cards[0-5].heading: The heading for each card.
     - cards[0-5].content: The content for each card.
@@ -22,6 +23,7 @@
 {% set template_translations = load_translations("../templates/_locales", html_lang, "en") %}
 {% import "../helpers/variables.hubl.html" %}
 {% set section_variant = context.section_variant or "section_variant_2" %}
+{% set card_variant = context.card_variant or "card_variant_1" %}
 
 {# Section #}
 {% dnd_section
@@ -102,11 +104,11 @@
         ]
         groupStyle={
           "groupCard": {
-            "cardStyleVariant": context.card_variant or "card_variant_1",
+            "cardStyleVariant": card_variant,
             "cardOrientation": "column",
           },
           "groupContent": {
-            "headingStyleAsDefault": "h4"
+            "headingStyleVariant": "h4"
           }
         }
       %}
@@ -171,11 +173,11 @@
         ]
         groupStyle={
           "groupCard": {
-            "cardStyleVariant": context.card_variant or "card_variant_1",
+            "cardStyleVariant": card_variant,
             "cardOrientation": "column"
           },
           "groupContent": {
-            "headingStyleAsDefault": "h4"
+            "headingStyleVariant": "h4"
           }
         }
       %}
@@ -240,11 +242,11 @@
         ]
         groupStyle={
           "groupCard": {
-            "cardStyleVariant": context.card_variant or "card_variant_1",
+            "cardStyleVariant": card_variant,
             "cardOrientation": "column"
           },
           "groupContent": {
-            "headingStyleAsDefault": "h4"
+            "headingStyleVariant": "h4"
           }
         }
       %}

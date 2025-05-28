@@ -3348,5 +3348,515 @@
     "message": "Download the free guide now",
     "description": "",
     "placeholders": null
+  },
+  "lp_meeting_booking_one_hero_heading": {
+    "message": "Book a meeting to elevate your marketing game",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_hero_description": {
+    "message": "Ready to take your digital marketing to the next level? Schedule a call with our experts to explore personalized strategies.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_testimonial_one": {
+    "message": "\"Their analytics tools gave us powerful insights. Our campaigns have never been better!\"",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_testimonial_two": {
+    "message": "\"We reached the perfect audience and saw amazing ROI!\"",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_testimonial_three": {
+    "message": "\"The social media scheduler saved us so much time!\"",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_features_heading": {
+    "message": "Explore Elevate's capabilities",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_features_description": {
+    "message": "Discover how Elevate can power your success - Let's chat!",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_feature_one_heading": {
+    "message": "Content creation",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_feature_one_content": {
+    "message": "Discuss how tailored content strategies can elevate your brand",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_feature_two_heading": {
+    "message": "Analytics and reporting",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_feature_two_content": {
+    "message": "Learn how in-depth data analysis can drive smarter decisions for your business",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_feature_three_heading": {
+    "message": "Messaging",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_feature_three_content": {
+    "message": "Explore personalized communication strategies to connect with your audience",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_feature_four_heading": {
+    "message": "Integrations",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_feature_four_content": {
+    "message": "See how seamlessly Elevate integrates with your tools for a streamlined workflow",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_feature_five_heading": {
+    "message": "Automation and workflows",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_feature_five_content": {
+    "message": "Discover how automation can save you time and improve your efficiency",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_feature_six_heading": {
+    "message": "Campaign scheduling",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_feature_six_content": {
+    "message": "Learn how to plan and execute successful campaigns across multiple channels",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_feature_seven_heading": {
+    "message": "AI Agents",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_feature_seven_content": {
+    "message": "Explore how AI-powered insights can give you a competitive edge",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_feature_eight_heading": {
+    "message": "Cross channel distribution",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_feature_eight_content": {
+    "message": "Discuss reaching your audience effectively across all the platforms that matter",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_testimonial_quote": {
+    "message": "The team at Elevate truly understood our needs during our initial meeting and offered tailored solutions that have been invaluable.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_testimonial_author_name": {
+    "message": "Neil Kumar",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_testimonial_author_title": {
+    "message": "VP of Marketing @ LuminaTech",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_testimonial_author_image_alt": {
+    "message": "Neil Kumar",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_testimonial_link_text": {
+    "message": "Read case study",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_video_heading": {
+    "message": "Watch for a sneak peek of the event",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_video_description": {
+    "message": "Get a glimpse of how we can help - Schedule a personalized demo and chat with us about your business needs.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_cta_heading": {
+    "message": "Ready to transform your digital marketing game? Let's connect.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_one_cta_button_text": {
+    "message": "Schedule a call",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_tag_line": {
+    "message": "Resource Download",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_hero_heading": {
+    "message": "Your free guide to smarter digital marketing awaits",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_hero_list_item_1": {
+    "message": "Discover Actionable Strategies Learn practical techniques you can implement immediately to improve your campaigns",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_hero_list_item_2": {
+    "message": "Simplify Your Marketing – Understand complex concepts broken down into easy-to-follow steps",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_hero_list_item_3": {
+    "message": "Achieve Measurable Results &#8212; Get the insights you need to track your progress and optimize for success",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_hero_button": {
+    "message": "Download the free guide now",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_features_heading": {
+    "message": "Explore the power of elevate",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_features_subheading": {
+    "message": "Check out a few of our other resources and channels",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_feature_1_heading": {
+    "message": "Demystifying your data",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_feature_1_desc": {
+    "message": "Learn how to make data-driven decisions that fuel growth",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_feature_2_heading": {
+    "message": "Mastering social media",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_feature_2_desc": {
+    "message": "Discover our step-by-step process for analyzing social media for impact",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_feature_3_heading": {
+    "message": "Launch faster with templates",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_feature_3_desc": {
+    "message": "Get access to adaptable landing page templates to accelerate your efforts",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_testimonial_quote": {
+    "message": "I was overwhelmed by digital marketing until I found this free guide. It broke everything down into easy-to-understand strategies.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_testimonial_author": {
+    "message": "Neil Kumar",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_testimonial_author_title": {
+    "message": "VP of Marketing @ LuminaTech",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_img_text_1_heading": {
+    "message": "Implement smarter strategies with ease",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_img_text_1_desc": {
+    "message": "Our platform provides the tools to automate the powerful, scalable systems you need to target, develop, grow and keep establishing your impact.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_img_text_2_heading": {
+    "message": "Everything you need to put your new knowledge into action",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_img_text_2_list_item_1": {
+    "message": "Real-time analytics: track the results of the strategies you learn in our guide",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_img_text_2_list_item_2": {
+    "message": "Campaign management: easily implement and optimize your campaigns",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_img_text_2_list_item_3": {
+    "message": "Reporting & insights: measure progress and identify improvement areas based on the principles in the guide",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_heading": {
+    "message": "Ready to take your results further?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_subheading": {
+    "message": "Once you've implemented the foundational strategies from our free guide, explore our platform plans to unlock advanced features for accelerated growth",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_card_1_heading": {
+    "message": "Starter",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_card_1_desc": {
+    "message": "Perfect for marketers new to digital strategies. Includes essential tools to launch your first campaigns.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_card_1_features_heading": {
+    "message": "Starter plan includes",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_card_1_feature_1": {
+    "message": "Social media management",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_card_1_feature_2": {
+    "message": "Email marketing campaigns",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_card_1_feature_3": {
+    "message": "Basic SEO optimization",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_card_1_feature_4": {
+    "message": "Monthly performance reports",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_card_1_button": {
+    "message": "Learn more",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_card_2_heading": {
+    "message": "Pro",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_card_2_desc": {
+    "message": "Ideal for growing businesses that want to expand their online presence and reach a larger audience",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_card_2_features_heading": {
+    "message": "Pro plan includes",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_card_2_feature_1": {
+    "message": "Everything in Starter plan",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_card_2_feature_2": {
+    "message": "Advanced social media management",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_card_2_feature_3": {
+    "message": "Email marketing automation",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_card_2_feature_4": {
+    "message": "Basic SEO optimization",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_card_2_feature_5": {
+    "message": "Comprehensive SEO analysis and recommendations",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_card_2_button": {
+    "message": "Learn more",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_card_3_heading": {
+    "message": "Enterprise",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_card_3_desc": {
+    "message": "Tailored for established businesses seeking a holistic digital marketing solution to boost brand visibility and engagement",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_card_3_features_heading": {
+    "message": "Enterprise plan includes",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_card_3_feature_1": {
+    "message": "Everything in Pro plan",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_card_3_feature_2": {
+    "message": "Customized social media strategies",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_card_3_feature_3": {
+    "message": "Personalized email marketing campaigns",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_card_3_feature_4": {
+    "message": "Advanced SEO implementation and monitoring",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_card_3_feature_5": {
+    "message": "Bi-weekly performance reports and strategy consultations",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_resource_download_two_pricing_card_3_button": {
+    "message": "Contact sales",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_one_main_heading": {
+    "message": "Join our email newsletter",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_one_main_description": {
+    "message": "Stay up-to-date with the latest insights and trends in digital marketing. Subscribe now to receive exclusive content delivered straight to your inbox.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_one_experts_heading": {
+    "message": "Gain insights from the world's top experts",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_one_experts_content": {
+    "message": "<p><strong>Here's a glimpse of what our subscribers enjoy:</strong></p><ul><li><strong>Highlight #1:</strong> Exclusive interviews with industry leaders</li><li><strong>Highlight #2:</strong> In-depth analyses of marketing trends</li><li><strong>Highlight #3:</strong> Practical guides and actionable strategies</li></ul>",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_one_features_heading": {
+    "message": "Elevate your marketing with our expertise",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_one_card_1_heading": {
+    "message": "Real Time Analytics Dashboard",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_one_card_1_content": {
+    "message": "Track the impact of the strategies you learn in our newsletter.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_one_card_2_heading": {
+    "message": "Targeted Ads",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_one_card_2_content": {
+    "message": "Refine your campaigns with insights from our expert analysis.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_one_card_3_heading": {
+    "message": "Social Media Scheduler",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_one_card_3_content": {
+    "message": "Implement effective social media strategies discussed in our newsletter.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_one_card_4_heading": {
+    "message": "Email Campaigns",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_one_card_4_content": {
+    "message": "Optimize your email marketing with the latest trends and best practices.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_one_card_5_heading": {
+    "message": "SEO Optimization",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_one_card_5_content": {
+    "message": "Improve your website's visibility using the SEO techniques we share.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_one_card_6_heading": {
+    "message": "AI Content Generator",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_one_card_6_content": {
+    "message": "Create high-quality content that aligns with the strategies highlighted in our newsletter.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_one_cta_heading": {
+    "message": "All your marketing needs in one place",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_newsletter_subscribe_one_cta_button_text": {
+    "message": "Subscribe to our newsletter",
+    "description": "",
+    "placeholders": null
   }
 }
