@@ -12,6 +12,7 @@
   Context variables
     - section_variant: The variant of the section style.
     - background_color: The background color of the section.
+    - max_width: The maximum width of the section.
     - heading.heading_level: The heading level for the section heading.
     - heading.style_variant: The style variant for the section heading.
     - heading.text: The text for the section heading.
@@ -38,7 +39,7 @@
     "top": section_vertical_spacing_medium,
     "bottom": section_vertical_spacing_medium
   },
-  max_width=830
+  max_width={{ context.max_width or 830 }}
 %}
   {% dnd_column %}
     {% dnd_row %}

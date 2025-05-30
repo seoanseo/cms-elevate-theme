@@ -142,8 +142,6 @@ const AccordionMinus = () => {
 
 const Accordion = styled.details<{ icon: AccordionIcon }>`
   margin-block-end: var(--hsElevate--accordion__gap);
-  padding-block: var(--hs-elevate--spacing--24, 24px);
-  padding-inline: var(--hs-elevate--spacing--32, 32px);
 
   &:last-of-type {
     margin-block-end: 0;
@@ -168,6 +166,12 @@ const Accordion = styled.details<{ icon: AccordionIcon }>`
 
 const AccordionSummary = styled.summary`
   display: flex;
+  padding-block: var(--hs-elevate--spacing--24, 24px);
+  padding-inline: var(--hs-elevate--spacing--32, 32px);
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const AccordionSummaryText = styled.span`
@@ -177,7 +181,8 @@ const AccordionSummaryText = styled.span`
 `;
 
 const StyledRichText = styled(RichText)`
-  margin-block-start: var(--hs-elevate--spacing--20, 20px);
+  padding-block: 0 var(--hs-elevate--spacing--24, 24px);
+  padding-inline: var(--hs-elevate--spacing--32, 32px);
 
   :last-child {
     margin-block-end: 0;
