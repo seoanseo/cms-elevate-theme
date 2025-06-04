@@ -47,7 +47,7 @@
             "type": "image",
             "description": "Image representing the downloadable resource.",
             "width": 640,
-            "height": 572
+            "height": 640
           },
           {
             "name": "alt",
@@ -210,7 +210,7 @@
             "type": "image",
             "description": "Image for the first image/text section.",
             "width": 400,
-            "height": 300
+            "height": 400
           },
           {
             "name": "alt",
@@ -244,7 +244,7 @@
             "type": "image",
             "description": "Image for the second image/text section.",
             "width": 655,
-            "height": 450
+            "height": 655
           },
           {
             "name": "alt",

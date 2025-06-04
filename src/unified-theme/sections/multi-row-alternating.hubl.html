@@ -18,6 +18,7 @@
     - group[0-2].image.height: The height of the image in each row.
     - group[0-2].image.width: The width of the image in each row.
     - group[0-2].image.src: The source URL for the image in each row.
+    - group[0-2].image.position: The position of the image in each row ("left" or "right").
     - group[0-2].heading.heading_level: The heading level for each row.
     - group[0-2].heading.text: The heading text for each row.
     - group[0-2].button.show_button: Whether to show the button in each row.
@@ -63,7 +64,7 @@
       {% dnd_module
         path="../components/modules/ImageAndText",
         groupImage={
-          "imagePosition": "left",
+          "imagePosition": context.group[0].image.position or "left",
           "image": {
             "alt": context.group[0].image.alt or scaffold_content.group_image_and_text_one.image.alt or "",
             "loading": context.group[0].image.loading or "lazy",
@@ -115,7 +116,7 @@
       {% dnd_module
         path="../components/modules/ImageAndText",
         groupImage={
-          "imagePosition": "right",
+          "imagePosition": context.group[1].image.position or "right",
           "image": {
             "alt": context.group[1].image.alt or scaffold_content.group_image_and_text_two.image.alt or "",
             "loading": context.group[1].image.loading or "lazy",
@@ -168,7 +169,7 @@
       {% dnd_module
         path="../components/modules/ImageAndText",
         groupImage={
-          "imagePosition": "left",
+          "imagePosition": context.group[2].image.position or "left",
           "image": {
             "alt": context.group[2].image.alt or scaffold_content.group_image_and_text_three.image.alt or "",
             "loading": context.group[2].image.loading or "lazy",

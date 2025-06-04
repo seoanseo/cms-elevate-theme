@@ -20,6 +20,7 @@
     - cards[0-2].heading: The heading for each card.
     - cards[0-2].content: The content for each card.
     - card_variant: The variant of the card style.
+    - card_heading_level: The heading level for the cards.
 #}
 
 {# Section variables #}
@@ -154,6 +155,9 @@
               "groupCard": {
                 "cardStyleVariant": context.card_variant or "card_variant_1",
                 "cardOrientation": "column",
+              },
+              "groupContent": {
+                "headingStyleVariant": context.card_heading_level or "h3"
               }
             }
           %}

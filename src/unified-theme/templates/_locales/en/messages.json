@@ -3858,5 +3858,605 @@
     "message": "Subscribe to our newsletter",
     "description": "",
     "placeholders": null
+  },
+  "lp_information_request_two_hero_heading": {
+    "message": "Maximize your marketing impact. Start your free trial today.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_hero_content": {
+    "message": "Unlock the power of AI-powered strategies and experience the future of marketing firsthand. Begin your free trial and see the difference.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_hero_button_text": {
+    "message": "Start your free trial",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_collaboration_heading": {
+    "message": "Experience seamless collaboration",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_collaboration_content": {
+    "message": "Write a description highlighting the functionality, benefits, and uniqueness of your feature. A couple of sentences here is just right.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_collaboration_button_text": {
+    "message": "Learn More",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_content_creation_heading": {
+    "message": "Unlock dynamic content creation",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_content_creation_content": {
+    "message": "Write a description highlighting the functionality, benefits, and uniqueness of your feature. A couple of sentences here is just right.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_content_creation_button_text": {
+    "message": "Explore Features",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_multichannel_heading": {
+    "message": "Simplify multi-channel management",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_multichannel_content": {
+    "message": "Write a description highlighting the functionality, benefits, and uniqueness of your feature. A couple of sentences here is just right.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_multichannel_button_text": {
+    "message": "See How It Works",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_heading": {
+    "message": "Our pricing and plans",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_starter_name": {
+    "message": "Starter",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_starter_description": {
+    "message": "Perfect for small businesses or startups looking to kickstart their digital marketing efforts",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_starter_price": {
+    "message": "$79",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_starter_time_period": {
+    "message": "/month",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_starter_features_heading": {
+    "message": "Starter plan includes",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_starter_feature_1": {
+    "message": "Social media management",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_starter_feature_2": {
+    "message": "Email marketing campaigns",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_starter_feature_3": {
+    "message": "Basic SEO optimization",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_starter_feature_4": {
+    "message": "Monthly performance reports",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_starter_button_text": {
+    "message": "Get started",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_pro_name": {
+    "message": "Pro",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_pro_description": {
+    "message": "Ideal for growing businesses that want to expand their online presence and reach a larger audience",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_pro_price": {
+    "message": "$129",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_pro_time_period": {
+    "message": "/month",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_pro_features_heading": {
+    "message": "Pro plan includes",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_pro_feature_1": {
+    "message": "Everything in Starter plan",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_pro_feature_2": {
+    "message": "Advanced social media management",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_pro_feature_3": {
+    "message": "Email marketing automation",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_pro_feature_4": {
+    "message": "Basic SEO optimization",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_pro_feature_5": {
+    "message": "Comprehensive SEO analysis and recommendations",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_pro_button_text": {
+    "message": "Get started",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_enterprise_name": {
+    "message": "Enterprise",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_enterprise_description": {
+    "message": "Tailored for established businesses seeking a holistic digital marketing solution to boost brand visibility and engagement",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_enterprise_price": {
+    "message": "$599",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_enterprise_time_period": {
+    "message": "/month",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_enterprise_features_heading": {
+    "message": "Enterprise plan includes",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_enterprise_feature_1": {
+    "message": "Everything in Pro plan",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_enterprise_feature_2": {
+    "message": "Customized social media strategies",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_enterprise_feature_3": {
+    "message": "Personalized email marketing campaigns",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_enterprise_feature_4": {
+    "message": "Advanced SEO implementation and monitoring",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_enterprise_feature_5": {
+    "message": "Bi-weekly performance reports and strategy consultations",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_pricing_enterprise_button_text": {
+    "message": "Contact sales",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_faq_heading": {
+    "message": "Frequently asked questions",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_faq_question_1": {
+    "message": "What services does your digital marketing agency offer?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_faq_question_2": {
+    "message": "How can your digital marketing agency help my business grow?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_faq_question_3": {
+    "message": "Do you provide customized solutions for different businesses?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_faq_question_4": {
+    "message": "Can you track the performance of digital marketing campaigns?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_two_faq_question_5": {
+    "message": "What sets your digital marketing agency apart from others in the industry?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_banner_heading": {
+    "message": "Modern marketing, Personalized guidance.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_banner_description": {
+    "message": "Ready to navigate the modern marketing landscape? Schedule a free consultation with our experts to discuss tailored strategies for your business.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_banner_button_text": {
+    "message": "Book your free consultation",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_services_label": {
+    "message": "Our Services",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_services_heading": {
+    "message": "Let's discuss the right solutions for your growth",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_service_one_heading": {
+    "message": "Content Creation",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_service_one_content": {
+    "message": "Explore how targeted content can drive engagement and conversions in a personalized meeting",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_service_two_heading": {
+    "message": "Marketing Analytics",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_service_two_content": {
+    "message": "Understand how data-driven insights can inform your strategy – let's analyze your needs together",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_service_three_heading": {
+    "message": "Journey Optimization",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_service_three_content": {
+    "message": "Discover how to create seamless customer journeys tailored to your audience in a dedicated consultation",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_benefits_heading": {
+    "message": "Ready to elevate your marketing? Let's chat",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_benefit_one_content": {
+    "message": "Targeted Ads: Discuss how to reach the right audience with precision during a personalized strategy session",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_benefit_two_content": {
+    "message": "Social Media Growth: Learn how we can help you build a thriving social presence in a one-on-one consultation",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_benefit_three_content": {
+    "message": "Email Campaigns: Explore effective email marketing strategies tailored to your goals in a dedicated meeting.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_benefit_four_content": {
+    "message": "SEO Optimization: Understand how to improve your search ranking – let's discuss your specific SEO needs.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_benefit_five_content": {
+    "message": "Conversion Optimization: Discover how to turn more visitors into customers through a customized conversion strategy session.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_products_heading": {
+    "message": "Our Products and Services",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_product_one_heading": {
+    "message": "Real Time Analytics Dashboard",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_product_one_content": {
+    "message": "See how our dashboard can provide actionable insights during a personalized demo.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_product_two_heading": {
+    "message": "Targeted Ads",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_product_two_content": {
+    "message": "Let's discuss how our targeted ad strategies can maximize your ROI.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_product_three_heading": {
+    "message": "Social Media Scheduler",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_product_three_content": {
+    "message": "Learn how to streamline your social media efforts in a brief consultation.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_product_four_heading": {
+    "message": "Email Campaigns",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_product_four_content": {
+    "message": "Explore how our email marketing services can boost engagement and conversions.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_product_five_heading": {
+    "message": "SEO Optimization",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_product_five_content": {
+    "message": "Understand our approach to improving your organic visibility – let's talk SEO.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_product_six_heading": {
+    "message": "AI Content Generator",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_product_six_content": {
+    "message": "Discover how AI can assist your content creation during a personalized demo.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_metric_one_value": {
+    "message": "15k+",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_metric_one_description": {
+    "message": "Customers on Elevate",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_metric_two_value": {
+    "message": "400%",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_metric_two_description": {
+    "message": "Daily active users",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_metric_three_value": {
+    "message": "300%",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_meeting_booking_two_metric_three_description": {
+    "message": "Daily active users",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_tag_line": {
+    "message": "Products",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_banner_heading": {
+    "message": "Transform your marketing, drive conversions",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_banner_paragraph": {
+    "message": "A world-class marketing solution crafted to drive results and simplify your workflow. Request a personalized demo to explore how Elevate can transform your strategy.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_banner_button_text": {
+    "message": "Request a demo",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_banner_image_alt": {
+    "message": "Marketing dashboard showing analytics and metrics",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_logo_gallery_content": {
+    "message": "Trusted by leading companies",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_features_label": {
+    "message": "Key features",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_features_heading": {
+    "message": "Elevate your online presence",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_card_one_heading": {
+    "message": "Create and edit",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_card_one_content": {
+    "message": "<p>Discover the intuitive tools for crafting compelling content using your personalized demo.</p>",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_card_two_heading": {
+    "message": "Publish and share",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_card_two_content": {
+    "message": "<p>Our platform empowers informed decision-making, tracking campaign performance, and data reporting.</p>",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_card_three_heading": {
+    "message": "Measure and analyze",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_card_three_content": {
+    "message": "<p>See how our robust analytics provide the insights you need - request a demo to explore reporting.</p>",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_testimonial_one_quote": {
+    "message": "Partnering with Elevate has transformed our business. The cutting-edge strategies and AI-powered targeting have significantly boosted our online presence and revenue. We saw the power from our initial demo.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_testimonial_one_author_name": {
+    "message": "Sarah Johnson",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_testimonial_one_author_title": {
+    "message": "Chief Marketing Officer @ StellarForge",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_testimonial_two_quote": {
+    "message": "The intuitive interface and powerful analytics have driven our campaigns to new heights. We've generated more ROI on our ad spend than ever before.",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_testimonial_two_author_name": {
+    "message": "Neil Kumar",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_testimonial_two_author_title": {
+    "message": "VP of Marketing @ Lyraxionics",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_faq_heading": {
+    "message": "Frequently asked questions",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_faq_question_one": {
+    "message": "What services does your digital marketing agency offer?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_faq_answer_one": {
+    "message": "<p>We offer a comprehensive range of digital marketing services including SEO, PPC advertising, social media marketing, content creation, email marketing, and web analytics.</p>",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_faq_question_two": {
+    "message": "How can your digital marketing agency help my business grow?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_faq_answer_two": {
+    "message": "<p>Our data-driven strategies and personalized approach help increase your online visibility, drive qualified traffic, and convert visitors into customers, ultimately growing your revenue.</p>",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_faq_question_three": {
+    "message": "Do you provide customized solutions for different businesses?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_faq_answer_three": {
+    "message": "<p>Yes, we tailor our marketing strategies to meet the unique needs and goals of each business, regardless of size or industry.</p>",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_faq_question_four": {
+    "message": "Can you track the performance of digital marketing campaigns?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_faq_answer_four": {
+    "message": "<p>Absolutely. We provide detailed analytics and reporting to track campaign performance, ROI, and key metrics that matter to your business.</p>",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_faq_question_five": {
+    "message": "What sets your digital marketing agency apart from others in the industry?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_faq_answer_five": {
+    "message": "<p>Our combination of cutting-edge AI technology, personalized strategies, and proven track record of delivering measurable results sets us apart from the competition.</p>",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_faq_question_six": {
+    "message": "How do I get a quote for a project?",
+    "description": "",
+    "placeholders": null
+  },
+  "lp_information_request_one_faq_answer_six": {
+    "message": "<p>Simply contact us through our website or give us a call. We'll schedule a consultation to understand your needs and provide a customized quote.</p>",
+    "description": "",
+    "placeholders": null
   }
 }

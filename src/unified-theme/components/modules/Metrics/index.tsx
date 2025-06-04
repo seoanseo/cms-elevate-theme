@@ -5,7 +5,7 @@ import { styled } from 'styled-components';
 import StyledComponentsRegistry from '../../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
 import chartIconSvg from './assets/chart.svg';
 import { SectionStyleFieldLibraryType } from '../../fieldLibrary/SectionStyle/types.js';
-import { HeadingStyleFieldLibraryType } from '../../fieldLibrary/HeadingStyle/types.js';
+import { HeadingStyleFieldLibraryType, HeadingStyleVariant } from '../../fieldLibrary/HeadingStyle/types.js';
 import { sectionColorsMap } from '../../utils/section-color-map.js';
 
 type GroupStyle = SectionStyleFieldLibraryType & HeadingStyleFieldLibraryType;
@@ -31,52 +31,89 @@ function generateColorCssVars(sectionVariantField: SectionVariantType): CSSPrope
   };
 }
 
-function getHeadingStyleAsClassName(headingStyleAs) {
-  const headingStyleAsMap = {
-    display_1: 'hs-elevate-display-1',
-    display_2: 'hs-elevate-display-2',
-    h1: 'hs-elevate-h1',
-    h2: 'hs-elevate-h2',
-    h3: 'hs-elevate-h3',
-    h4: 'hs-elevate-h4',
-    h5: 'hs-elevate-h5',
-    h6: 'hs-elevate-h6',
+// Based on the heading style a user selects for the metric number, we set a maximum font size and a minimum font size which is used for a font-size clamp on the MetricNumber component
+function generateMetricCssVars(headingStyleAs: HeadingStyleVariant): CSSPropertiesMap {
+  const metricCssVarsMap = {
+    display_1: 'var(--hsElevate--display1__fontSize)',
+    display_2: 'var(--hsElevate--display2__fontSize)',
+    h1: 'var(--hsElevate--h1__fontSize)',
+    h2: 'var(--hsElevate--h2__fontSize)',
+    h3: 'var(--hsElevate--h3__fontSize)',
+    h4: 'var(--hsElevate--h4__fontSize)',
+    h5: 'var(--hsElevate--h5__fontSize)',
+    h6: 'var(--hsElevate--h6__fontSize)',
   };
 
-  return headingStyleAsMap[headingStyleAs] || 'display_1';
+  return {
+    '--hsElevate--metrics__maxFontSize': metricCssVarsMap[headingStyleAs],
+    '--hsElevate--metrics__minFontSize': `calc(var(--hsElevate--metrics__maxFontSize) * var(--hsElevate--heading__tablet-modifier))`,
+  };
 }
 
-const MetricsContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
+const MetricsWrapper = styled.div`
+  container-type: inline-size;
+`;
 
-  @media (min-width: 768px) {
-    flex-direction: row;
-  }
+// Helper function to get metric container query breakpoints based on number of metrics in the repeater
+function getMetricBreakpoints(metricCount: number) {
+  const metricBreakpointsAsMap = {
+    2: [{ minWidth: 700, gap: 'var(--hsElevate--spacing--24, 24px)', columns: 2 }],
+    3: [{ minWidth: 900, gap: 'var(--hsElevate--spacing--24, 24px)', columns: 3 }],
+    4: [
+      { minWidth: 700, gap: 'var(--hsElevate--spacing--24, 24px)', columns: 2 }, // 2x2 grid
+      { minWidth: 950, gap: 'var(--hsElevate--spacing--16, 16px)', columns: 4 }, // Single row
+    ],
+  };
+
+  return metricBreakpointsAsMap[metricCount] || [];
+}
+
+const MetricsContainer = styled.div<{ $metricCount: number }>`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--hsElevate--spacing--32, 32px);
+
+  /* Sets grid template columns and gaps using container queries based on the number of metrics in the repeater to ensure mobile responsiveness */
+  ${props => {
+    const breakpoints = getMetricBreakpoints(props.$metricCount);
+
+    return breakpoints
+      .map(
+        breakpoint => `
+      @container (min-width: ${breakpoint.minWidth}px) {
+        grid-template-columns: repeat(${breakpoint.columns}, 1fr);
+        gap: ${breakpoint.gap};
+      }
+    `
+      )
+      .join('');
+  }}
 `;
 
 const Metric = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-block: var(--hsElevate--text__margin);
-
-  &:last-child {
-    margin-block: 0;
-  }
-
-  @media (min-width: 768px) {
-    margin-block: 0;
-  }
+  min-width: 0;
 `;
 
 const MetricNumber = styled.div`
   color: var(--hsElevate--metrics__accentColor);
+  max-width: 100%;
+  text-align: center;
+  font-size: var(--hsElevate--metrics__minFontSize);
+  line-height: var(--hsElevate--heading__lineHeight);
+
+  /* Dynamically sizes down the font size for the metric number based on the viewport width */
+  @media (min-width: 768px) {
+    font-size: clamp(var(--hsElevate--metrics__minFontSize), calc(1vw + var(--hsElevate--metrics__minFontSize)), var(--hsElevate--metrics__maxFontSize));
+  }
 `;
 
 const MetricDescription = styled.div`
   color: var(--hsElevate--metrics__textColor);
+  max-width: 100%;
+  text-align: center;
 `;
 
 export const Component = (props: MetricProps) => {
@@ -85,24 +122,25 @@ export const Component = (props: MetricProps) => {
     groupStyle: { headingStyleVariant, sectionStyleVariant },
   } = props;
 
-  const metricNumberClassName = getHeadingStyleAsClassName(headingStyleVariant);
-
   const cssVarsMap = {
     ...generateColorCssVars(sectionStyleVariant),
+    ...generateMetricCssVars(headingStyleVariant),
   };
 
   return (
     <StyledComponentsRegistry>
-      <MetricsContainer className="hs-elevate-metrics-container" style={cssVarsMap}>
-        {groupMetrics.map((metric, index) => {
-          return (
-            <Metric className="hs-elevate-metrics-container__metric" key={index}>
-              <MetricNumber className={`${metricNumberClassName} hs-elevate-metrics-container__metric-number`}>{metric.metric}</MetricNumber>
-              <MetricDescription className="hs-elevate-metrics-container__metric-description">{metric.description}</MetricDescription>
-            </Metric>
-          );
-        })}
-      </MetricsContainer>
+      <MetricsWrapper>
+        <MetricsContainer className="hs-elevate-metrics-container" style={cssVarsMap} $metricCount={groupMetrics.length}>
+          {groupMetrics.map((metric, index) => {
+            return (
+              <Metric className="hs-elevate-metrics-container__metric" key={index}>
+                <MetricNumber className="hs-elevate-metrics-container__metric-number">{metric.metric}</MetricNumber>
+                <MetricDescription className="hs-elevate-metrics-container__metric-description">{metric.description}</MetricDescription>
+              </Metric>
+            );
+          })}
+        </MetricsContainer>
+      </MetricsWrapper>
     </StyledComponentsRegistry>
   );
 };
