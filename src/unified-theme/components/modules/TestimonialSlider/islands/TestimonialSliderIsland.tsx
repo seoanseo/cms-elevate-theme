@@ -6,6 +6,7 @@ import { TestimonialLinkProps, TestimonialMetaProps, TestimonialProps, Testimoni
 import { CardVariantType } from '../../../types/fields.js';
 import { getLinkFieldHref, getLinkFieldRel, getLinkFieldTarget } from '../../../utils/content-fields.js';
 import { useEffect, useId, useState } from 'react';
+import { getCardVariantClassName } from '../../../utils/card-variants.js';
 
 // Checks if an image path corresponds to one of the default images used on the testimonial slider module in one of our sections/templates
 function isDefaultTestimonialImage(imagePath: string): boolean {
@@ -357,18 +358,6 @@ function generateBlockquoteCssVar(cardVariantField: CardVariantType): CSSPropert
   };
 }
 
-// Function to get the class name for the card variant
-function getCardVariantClassName(cardVariant) {
-  const cardVariants = {
-    card_variant_1: 'hs-elevate-card--variant-1',
-    card_variant_2: 'hs-elevate-card--variant-2',
-    card_variant_3: 'hs-elevate-card--variant-3',
-    card_variant_4: 'hs-elevate-card--variant-4',
-  };
-
-  return cardVariants[cardVariant] || 'hs-elevate-card--variant-1';
-}
-
 const TestimonialSliderContainer = styled.div`
   border: none;
   padding-block: var(--hsElevate--spacing--48, 48px);
@@ -415,10 +404,11 @@ const TestimonialSlider = (props: TestimonialSliderProps) => {
   }, []);
 
   const hasMultipleTestimonials = groupTestimonial.length > 1;
+  const cardVariantClassName = getCardVariantClassName({ cardVariant: cardStyleVariant, fallbackCardVariant: 'card_variant_1' });
 
   return (
     <StyledComponentsRegistry>
-      <TestimonialSliderContainer style={cssVarsMap} className={`hs-elevate-testimonial-slider ${getCardVariantClassName(cardStyleVariant)}`}>
+      <TestimonialSliderContainer style={cssVarsMap} className={`hs-elevate-testimonial-slider ${cardVariantClassName}`}>
         <StyledSplide
           className="hs-elevate-testimonial-slider__slider"
           hasTrack={false}

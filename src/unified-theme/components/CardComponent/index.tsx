@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 import StyledComponentsRegistry from '../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
 import { CardStyleFieldLibraryType } from '../fieldLibrary/CardStyle/types.js';
+import { getCardVariantClassName } from '../utils/card-variants.js';
 
 // Types
 
@@ -19,17 +20,6 @@ const DefaultContent = () => (
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac ipsum id nisl commodo blandit. Nam at sagittis erat, a lobortis nibh.</p>
   </>
 );
-
-function getCardVariantClassName(cardVariant) {
-  const cardVariants = {
-    card_variant_1: 'hs-elevate-card--variant-1',
-    card_variant_2: 'hs-elevate-card--variant-2',
-    card_variant_3: 'hs-elevate-card--variant-3',
-    card_variant_4: 'hs-elevate-card--variant-4',
-  };
-
-  return cardVariants[cardVariant] || 'hs-elevate-card--variant-1';
-}
 
 type StyledCardProps = {
   $cardOrientation: 'row' | 'column';
@@ -51,7 +41,7 @@ const StyledCard = styled.article<StyledCardProps>`
 
 export const Card = (props: CardProps) => {
   const { cardStyleVariant, additionalClassArray, inlineStyles, cardOrientation, children } = props;
-  const cardClassName = getCardVariantClassName(cardStyleVariant);
+  const cardClassName = getCardVariantClassName({ cardVariant: cardStyleVariant, fallbackCardVariant: 'card_variant_1' });
 
   const additionalClasses = additionalClassArray ? additionalClassArray.join(' ') : '';
 

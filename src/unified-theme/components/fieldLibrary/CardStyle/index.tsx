@@ -1,5 +1,6 @@
 import { ChoiceField, AdvancedVisibility } from '@hubspot/cms-components/fields';
-import { CardVariantType } from '../../types/fields.js';
+import { CardVariantType, CardVariantThemeFieldPathType } from '../../types/fields.js';
+import { getCardVariantChoices } from '../../utils/card-variants.js';
 
 type CardStyle = {
   cardStyleDefault: CardVariantType;
@@ -9,6 +10,8 @@ type CardStyle = {
 export default function CardStyle(props: CardStyle) {
   const { cardStyleDefault = 'primary', cardStyleVisibility = null } = props;
 
+  const themeFieldPath: CardVariantThemeFieldPathType = 'group_elements.group_cards.card_variant_1';
+
   return (
     <ChoiceField
       label="Card style"
@@ -16,12 +19,7 @@ export default function CardStyle(props: CardStyle) {
       visibilityRules="ADVANCED"
       advancedVisibility={cardStyleVisibility}
       display="select"
-      choices={[
-        ['card_variant_1', 'Card variant 1'],
-        ['card_variant_2', 'Card variant 2'],
-        ['card_variant_3', 'Card variant 3'],
-        ['card_variant_4', 'Card variant 4'],
-      ]}
+      choices={getCardVariantChoices()}
       inlineHelpText='<a href="$theme_link">Edit</a>'
       links={[
         {
@@ -29,7 +27,7 @@ export default function CardStyle(props: CardStyle) {
           name: 'theme_link',
           params: {
             theme_path: '@hubspot/elevate',
-            theme_field_path: 'group_elements.group_cards.card_variant_1',
+            theme_field_path: themeFieldPath,
           },
         },
       ]}
