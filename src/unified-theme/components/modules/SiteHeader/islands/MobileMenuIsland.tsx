@@ -162,7 +162,7 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
   const [headerHeight, setHeaderHeight] = useState(0);
   const [headerMobileLanguageSwitcherHeight, setHeaderMobileLanguageSwitcherHeight] = useState(0);
   const [mobileButtonContainerHeight, setMobileButtonContainerHeight] = useState(0);
-  const targetAnchorRef = useRef<string | null>(null);
+  const [pendingCallback, setPendingCallback] = useState<(() => void) | null>(null);
 
   const {
     flow,
@@ -207,18 +207,6 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
       document.body.style.height = '';
       document.body.style.top = '';
       window.scrollTo(0, parseInt(scrollY || '0') * -1);
-    }
-  }, [isAnimating]);
-
-  // Handles smooth scrolling to an anchor link when mobile menu is closed
-  useEffect(() => {
-    if (!isAnimating && targetAnchorRef.current) {
-      // Menu is closed, now we can safely scroll
-      const element = document.querySelector(targetAnchorRef.current);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-      targetAnchorRef.current = null; // Reset the ref after scrolling
     }
   }, [isAnimating]);
 
@@ -306,21 +294,27 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
     };
   }, []);
 
+  useEffect(() => {
+    if (!isAnimating && pendingCallback) {
+      pendingCallback();
+      setPendingCallback(null);
+    }
+  }, [isAnimating, pendingCallback]);
+
   const handleOpenCloseMenu = () => {
     setTriggeredMenuItems([]);
     setIsAnimating(!isAnimating);
   };
 
+  // Handles smooth scrolling to an anchor link when mobile menu is closed
+  const handleMobileAnchorClick = (cb: () => void) => {
+    handleOpenCloseMenu();
+    setPendingCallback(() => cb);
+  };
+
   const topLevelMenuItemStyles = {
     '--hsElevate--menu--topLevel__gap': '0',
   } as CSSProperties;
-
-  const handleMobileAnchorClick = (clickedMenuItemAnchor: string) => {
-    // Store the anchor reference for later use
-    targetAnchorRef.current = clickedMenuItemAnchor;
-    // Close the menu
-    handleOpenCloseMenu();
-  };
 
   return (
     <div className="hs-elevate-site-header__mobile-menu">
