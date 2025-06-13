@@ -1624,18 +1624,8 @@
     "description": "",
     "placeholders": null
   },
-  "lp_product_free_trial_two_hightlight_one_heading": {
-    "message": "Real-Time Analytics",
-    "description": "",
-    "placeholders": null
-  },
   "lp_product_free_trial_two_highlight_one_content": {
     "message": "Instant performance clarity. Track key metrics, make data-driven decisions.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_product_free_trial_two_highlight_two_heading": {
-    "message": "Social Media Scheduler",
     "description": "",
     "placeholders": null
   },
@@ -1644,18 +1634,8 @@
     "description": "",
     "placeholders": null
   },
-  "lp_product_free_trial_two_highlight_three_heading": {
-    "message": "SEO Optimization",
-    "description": "",
-    "placeholders": null
-  },
   "lp_product_free_trial_two_highlight_three_content": {
     "message": "Boost visibility, drive organic traffic. Actionable insights, performance monitoring.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_product_free_trial_two_features_heading": {
-    "message": "Explore Elevate's capabilities",
     "description": "",
     "placeholders": null
   },
@@ -1664,18 +1644,8 @@
     "description": "",
     "placeholders": null
   },
-  "lp_product_free_trial_two_feature_one_heading": {
-    "message": "Content creation",
-    "description": "",
-    "placeholders": null
-  },
   "lp_product_free_trial_two_feature_one_content": {
     "message": "Generate engaging content easily. Streamline your workflow.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_product_free_trial_two_feature_two_heading": {
-    "message": "Analytics and reporting",
     "description": "",
     "placeholders": null
   },
@@ -1684,18 +1654,8 @@
     "description": "",
     "placeholders": null
   },
-  "lp_product_free_trial_two_feature_three_heading": {
-    "message": "Messaging",
-    "description": "",
-    "placeholders": null
-  },
   "lp_product_free_trial_two_feature_three_content": {
     "message": "Personalized, automated messages across channels. Nurture leads, build relationships.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_product_free_trial_two_feature_four_heading": {
-    "message": "Integrations",
     "description": "",
     "placeholders": null
   },
@@ -1704,18 +1664,8 @@
     "description": "",
     "placeholders": null
   },
-  "lp_product_free_trial_two_feature_five_heading": {
-    "message": "Automation and workflows",
-    "description": "",
-    "placeholders": null
-  },
   "lp_product_free_trial_two_feature_five_content": {
     "message": "Automate tasks, nurture leads. Scale without more work.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_product_free_trial_two_feature_six_heading": {
-    "message": "Campaign scheduling",
     "description": "",
     "placeholders": null
   },
@@ -1724,18 +1674,8 @@
     "description": "",
     "placeholders": null
   },
-  "lp_product_free_trial_two_feature_seven_heading": {
-    "message": "AI Agents",
-    "description": "",
-    "placeholders": null
-  },
   "lp_product_free_trial_two_feature_seven_content": {
     "message": "Intelligent, insight-driven opportunities. Optimize campaigns.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_product_free_trial_two_feature_eight_heading": {
-    "message": "Cross channel distribution",
     "description": "",
     "placeholders": null
   },
@@ -1749,18 +1689,8 @@
     "description": "",
     "placeholders": null
   },
-  "lp_product_free_trial_two_faq_one_title": {
-    "message": "What services does your digital marketing agency offer?",
-    "description": "",
-    "placeholders": null
-  },
   "lp_product_free_trial_two_faq_one_content": {
     "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_product_free_trial_two_faq_two_title": {
-    "message": "How can your digital marketing agency help my business grow?",
     "description": "",
     "placeholders": null
   },
@@ -1769,28 +1699,13 @@
     "description": "",
     "placeholders": null
   },
-  "lp_product_free_trial_two_faq_three_title": {
-    "message": "Do you provide customized solutions for different businesses?",
-    "description": "",
-    "placeholders": null
-  },
   "lp_product_free_trial_two_faq_three_content": {
     "message": "Absolutely. We reject one-size-fits-all approaches and instead create bespoke marketing strategies tailored to your specific industry, objectives, and target audience. Our team conducts thorough research to understand your unique market position, allowing us to develop solutions that resonate with your ideal customers and align perfectly with your business vision.",
     "description": "",
     "placeholders": null
   },
-  "lp_product_free_trial_two_faq_four_title": {
-    "message": "Can you track the performance of digital marketing campaigns?",
-    "description": "",
-    "placeholders": null
-  },
   "lp_product_free_trial_two_faq_four_content": {
     "message": "Yes, comprehensive performance tracking is built into everything we do. We implement advanced analytics systems that monitor all campaign elements in real-time, from engagement metrics to conversion rates. You'll receive regular, easy-to-understand reports highlighting key performance indicators, ROI analysis, and actionable insights to continuously optimize your marketing investment.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_product_free_trial_two_faq_five_title": {
-    "message": "What sets your digital marketing agency apart from others in the industry?",
     "description": "",
     "placeholders": null
   },
@@ -3784,18 +3699,8 @@
     "description": "",
     "placeholders": null
   },
-  "lp_newsletter_subscribe_one_card_1_heading": {
-    "message": "Real Time Analytics Dashboard",
-    "description": "",
-    "placeholders": null
-  },
   "lp_newsletter_subscribe_one_card_1_content": {
     "message": "Track the impact of the strategies you learn in our newsletter.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_newsletter_subscribe_one_card_2_heading": {
-    "message": "Targeted Ads",
     "description": "",
     "placeholders": null
   },
@@ -3804,18 +3709,8 @@
     "description": "",
     "placeholders": null
   },
-  "lp_newsletter_subscribe_one_card_3_heading": {
-    "message": "Social Media Scheduler",
-    "description": "",
-    "placeholders": null
-  },
   "lp_newsletter_subscribe_one_card_3_content": {
     "message": "Implement effective social media strategies discussed in our newsletter.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_newsletter_subscribe_one_card_4_heading": {
-    "message": "Email Campaigns",
     "description": "",
     "placeholders": null
   },
@@ -3824,28 +3719,13 @@
     "description": "",
     "placeholders": null
   },
-  "lp_newsletter_subscribe_one_card_5_heading": {
-    "message": "SEO Optimization",
-    "description": "",
-    "placeholders": null
-  },
   "lp_newsletter_subscribe_one_card_5_content": {
     "message": "Improve your website's visibility using the SEO techniques we share.",
     "description": "",
     "placeholders": null
   },
-  "lp_newsletter_subscribe_one_card_6_heading": {
-    "message": "AI Content Generator",
-    "description": "",
-    "placeholders": null
-  },
   "lp_newsletter_subscribe_one_card_6_content": {
     "message": "Create high-quality content that aligns with the strategies highlighted in our newsletter.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_newsletter_subscribe_one_cta_heading": {
-    "message": "All your marketing needs in one place",
     "description": "",
     "placeholders": null
   },
