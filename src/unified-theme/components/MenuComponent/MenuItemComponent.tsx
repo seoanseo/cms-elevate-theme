@@ -103,6 +103,16 @@ const StyledSubmenu = styled.ul<{ $flyouts?: boolean; $menuDepth: number }>`
   padding: 0px;
 `;
 
+export const getAnchorFromUrl = (url: string): string => {
+  try {
+    return new URL(url).hash;
+  } catch {
+    // Handle relative URLs and direct anchor strings
+    const hashIndex = url.indexOf('#');
+    return hashIndex >= 0 ? url.slice(hashIndex) : '';
+  }
+};
+
 export default function MenuItemComponent(props: MenuItemComponentProps) {
   const {
     menuData,
@@ -193,7 +203,7 @@ export default function MenuItemComponent(props: MenuItemComponentProps) {
 
   const showNestedMenuIcon = (flyouts || isMobileMenu) && hasChildren && currentLevel != maxDepth;
 
-  const handleSmoothScroll = (anchorLink: string) => {
+  const handleSmoothScroll = (anchorLink: string): void => {
     const targetElement = document.querySelector(anchorLink);
 
     if (!targetElement) {
@@ -201,21 +211,26 @@ export default function MenuItemComponent(props: MenuItemComponentProps) {
       return;
     }
 
-    targetElement.scrollIntoView({
-      behavior: 'smooth',
-    });
+    targetElement.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const handleAnchorClick = (e: React.MouseEvent) => {
-    if (menuData.url?.startsWith('#')) {
-      e.preventDefault();
+  const handleAnchorClick = (e: React.MouseEvent): void => {
+    const url = menuData.url;
 
-      if (isMobileMenu && mobileAnchorClickCallback) {
-        mobileAnchorClickCallback(() => handleSmoothScroll(menuData.url));
-      } else {
-        handleSmoothScroll(menuData.url);
-      }
+    if (!url?.includes('#')) {
+      return;
     }
+
+    const anchor = getAnchorFromUrl(url);
+
+    e.preventDefault();
+
+    if (isMobileMenu && mobileAnchorClickCallback) {
+      mobileAnchorClickCallback(() => handleSmoothScroll(anchor));
+      return;
+    }
+
+    handleSmoothScroll(anchor);
   };
 
   // Define shared props used for the menu item link
