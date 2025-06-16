@@ -15,6 +15,7 @@ function MenuComponent(props: MenuComponentProps) {
     setTriggeredMenuItems,
     linkStyleVariant,
     additionalClassArray,
+    mobileAnchorClickCallback,
     ...rest
   } = props;
 
@@ -257,6 +258,7 @@ function MenuComponent(props: MenuComponentProps) {
               triggeredMenuItems={triggeredMenuItems}
               setTriggeredMenuItems={setTriggeredMenuItems}
               linkStyleVariant={linkStyleVariant}
+              mobileAnchorClickCallback={mobileAnchorClickCallback}
               {...rest}
             />
           );

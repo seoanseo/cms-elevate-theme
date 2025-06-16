@@ -20,7 +20,7 @@ interface MenuItemComponentProps {
   setTriggeredMenuItems: (triggeredMenuItems: string[]) => void;
   isMobileMenu: boolean;
   linkStyleVariant: LinkStyleType;
-  mobileAnchorClickCallback?: (anchorLink: string) => void;
+  mobileAnchorClickCallback?: (cb: () => void) => void;
 }
 
 // Base z-index for the menu component hierarchy. Using a base value with offsets ensures related elements maintain their stacking order when the base needs to be adjusted to account for new components that might conflict with z-index layering.
@@ -193,10 +193,28 @@ export default function MenuItemComponent(props: MenuItemComponentProps) {
 
   const showNestedMenuIcon = (flyouts || isMobileMenu) && hasChildren && currentLevel != maxDepth;
 
-  const handleClick = e => {
-    if (menuData.url.startsWith('#')) {
+  const handleSmoothScroll = (anchorLink: string) => {
+    const targetElement = document.querySelector(anchorLink);
+
+    if (!targetElement) {
+      console.warn(`Anchor target not found: ${anchorLink}`);
+      return;
+    }
+
+    targetElement.scrollIntoView({
+      behavior: 'smooth',
+    });
+  };
+
+  const handleAnchorClick = (e: React.MouseEvent) => {
+    if (menuData.url?.startsWith('#')) {
       e.preventDefault();
-      mobileAnchorClickCallback(menuData.url);
+
+      if (isMobileMenu && mobileAnchorClickCallback) {
+        mobileAnchorClickCallback(() => handleSmoothScroll(menuData.url));
+      } else {
+        handleSmoothScroll(menuData.url);
+      }
     }
   };
 
@@ -229,7 +247,7 @@ export default function MenuItemComponent(props: MenuItemComponentProps) {
         <StyledMenuItemLink
           {...sharedMenuItemLinkProps}
           {...(hasUrl
-            ? { onClick: e => handleClick(e), href: menuData.url }
+            ? { onClick: e => handleAnchorClick(e), href: menuData.url }
             : { as: 'span', onClick: () => isMobileMenu && menuData.children.length > 0 && handleTriggeredMenuItem(idString) })}
         >
           {menuData.label}
