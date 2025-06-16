@@ -20,7 +20,7 @@ interface MenuItemComponentProps {
   setTriggeredMenuItems: (triggeredMenuItems: string[]) => void;
   isMobileMenu: boolean;
   linkStyleVariant: LinkStyleType;
-  mobileAnchorClickCallback?: (anchorLink: string) => void;
+  mobileAnchorClickCallback?: (cb: () => void) => void;
 }
 
 // Base z-index for the menu component hierarchy. Using a base value with offsets ensures related elements maintain their stacking order when the base needs to be adjusted to account for new components that might conflict with z-index layering.
@@ -102,6 +102,16 @@ const StyledSubmenu = styled.ul<{ $flyouts?: boolean; $menuDepth: number }>`
   z-index: ${baseZindex + 10};
   padding: 0px;
 `;
+
+export const getAnchorFromUrl = (url: string): string => {
+  try {
+    return new URL(url).hash;
+  } catch {
+    // Handle relative URLs and direct anchor strings
+    const hashIndex = url.indexOf('#');
+    return hashIndex >= 0 ? url.slice(hashIndex) : '';
+  }
+};
 
 export default function MenuItemComponent(props: MenuItemComponentProps) {
   const {
@@ -193,11 +203,34 @@ export default function MenuItemComponent(props: MenuItemComponentProps) {
 
   const showNestedMenuIcon = (flyouts || isMobileMenu) && hasChildren && currentLevel != maxDepth;
 
-  const handleClick = e => {
-    if (menuData.url.startsWith('#')) {
-      e.preventDefault();
-      mobileAnchorClickCallback(menuData.url);
+  const handleSmoothScroll = (anchorLink: string): void => {
+    const targetElement = document.querySelector(anchorLink);
+
+    if (!targetElement) {
+      console.warn(`Anchor target not found: ${anchorLink}`);
+      return;
     }
+
+    targetElement.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleAnchorClick = (e: React.MouseEvent): void => {
+    const url = menuData.url;
+
+    if (!url?.includes('#')) {
+      return;
+    }
+
+    const anchor = getAnchorFromUrl(url);
+
+    e.preventDefault();
+
+    if (isMobileMenu && mobileAnchorClickCallback) {
+      mobileAnchorClickCallback(() => handleSmoothScroll(anchor));
+      return;
+    }
+
+    handleSmoothScroll(anchor);
   };
 
   // Define shared props used for the menu item link
@@ -229,7 +262,7 @@ export default function MenuItemComponent(props: MenuItemComponentProps) {
         <StyledMenuItemLink
           {...sharedMenuItemLinkProps}
           {...(hasUrl
-            ? { onClick: e => handleClick(e), href: menuData.url }
+            ? { onClick: e => handleAnchorClick(e), href: menuData.url }
             : { as: 'span', onClick: () => isMobileMenu && menuData.children.length > 0 && handleTriggeredMenuItem(idString) })}
         >
           {menuData.label}
