@@ -214,10 +214,14 @@ export default function MenuItemComponent(props: MenuItemComponentProps) {
     targetElement.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const isAnchorLink = (url: string): boolean => {
+    return Boolean(url?.includes('#'));
+  };
+
   const handleAnchorClick = (e: React.MouseEvent): void => {
     const url = menuData.url;
 
-    if (!url?.includes('#')) {
+    if (!isAnchorLink(url)) {
       return;
     }
 
@@ -242,6 +246,9 @@ export default function MenuItemComponent(props: MenuItemComponentProps) {
     'aria-expanded': menuData.children.length > 0 ? visibleMenuItems.includes(idString) : undefined,
   };
 
+  // Add target and rel attributes when linkTarget is provided except for anchor links
+  const linkAttributes = hasUrl && menuData.linkTarget === '_blank' && !isAnchorLink(menuData.url) ? { target: '_blank', rel: 'noopener' } : {};
+
   return (
     <StyledMenuItem
       $menuDepth={currentLevel}
@@ -262,7 +269,7 @@ export default function MenuItemComponent(props: MenuItemComponentProps) {
         <StyledMenuItemLink
           {...sharedMenuItemLinkProps}
           {...(hasUrl
-            ? { onClick: e => handleAnchorClick(e), href: menuData.url }
+            ? { onClick: e => handleAnchorClick(e), href: menuData.url, ...linkAttributes }
             : { as: 'span', onClick: () => isMobileMenu && menuData.children.length > 0 && handleTriggeredMenuItem(idString) })}
         >
           {menuData.label}

@@ -42,6 +42,7 @@ export type visibleMenuItemsControllerType = {
 export type MenuDataType = {
   label: string;
   url: string;
+  linkTarget?: string;
   children?: MenuDataType[];
 };
 
