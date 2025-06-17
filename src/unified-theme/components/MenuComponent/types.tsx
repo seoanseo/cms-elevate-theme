@@ -22,7 +22,7 @@ export type MenuComponentProps = {
   triggeredMenuItems: string[];
   linkStyleVariant: LinkStyleType;
   setTriggeredMenuItems: (triggeredMenuItems: string[]) => void;
-  mobileAnchorClickCallback?: (anchorLink: string) => void;
+  mobileAnchorClickCallback?: (cb: () => void) => void;
   additionalClassArray?: string[];
 };
 
@@ -42,6 +42,7 @@ export type visibleMenuItemsControllerType = {
 export type MenuDataType = {
   label: string;
   url: string;
+  linkTarget?: string;
   children?: MenuDataType[];
 };
 
