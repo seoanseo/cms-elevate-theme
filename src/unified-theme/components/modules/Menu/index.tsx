@@ -12,6 +12,7 @@ import { PlaceholderEmptyContent } from '../../PlaceholderComponent/PlaceholderE
 type MenuDataType = {
   label: string;
   url: string;
+  linkTarget?: string;
   children?: MenuDataType[];
 };
 
