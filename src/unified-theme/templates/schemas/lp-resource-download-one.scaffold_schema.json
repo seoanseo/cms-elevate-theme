@@ -206,7 +206,7 @@
         "name": "image",
         "type": "image",
         "description": "Image to be displayed alongside the FAQ section",
-        "width": "372",
+        "width": "552",
         "height": "552"
       },
       {
