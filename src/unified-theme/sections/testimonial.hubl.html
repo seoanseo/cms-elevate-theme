@@ -69,7 +69,7 @@
               }
             },
             "groupLink": {
-              "linkText": context.testimonial_link.text or template_translations.section_testimonial_link_text.message,
+              "linkText": context.testimonial_link.text != null ? context.testimonial_link.text : template_translations.section_testimonial_link_text.message,
               "link": {
                 "url": context.testimonial_link.url or {}
               }

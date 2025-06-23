@@ -29,7 +29,7 @@
         "description": "The URL that a user should be taken to when they click the button."
       },
       {
-        "name": "hero_image",
+        "name": "image",
         "type": "image",
         "description": "A hero image that visually represents the products or services being offered.",
         "width": "650",
@@ -136,7 +136,7 @@
             "description": "The job title or position of the first testimonial author."
           },
           {
-            "name": "author_image",
+            "name": "image",
             "type": "image",
             "description": "A professional headshot of the first testimonial author.",
             "width": "300",
@@ -164,7 +164,7 @@
             "description": "The job title or position of the second testimonial author."
           },
           {
-            "name": "author_image",
+            "name": "image",
             "type": "image",
             "description": "A professional headshot of the second testimonial author.",
             "width": "300",
@@ -280,7 +280,7 @@
         ]
       },
       {
-        "name": "faq_image",
+        "name": "image",
         "type": "image",
         "description": "An image that complements the FAQ section, showing features or product interface.",
         "width": "372",
