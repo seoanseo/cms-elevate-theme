@@ -49,11 +49,6 @@
             "description": "Image showcasing collaboration features.",
             "width": 779,
             "height": 779
-          },
-          {
-            "name": "alt",
-            "type": "text",
-            "description": "Alternative text describing the collaboration image for accessibility."
           }
         ]
       },
@@ -93,11 +88,6 @@
             "description": "Image showcasing content creation features.",
             "width": 779,
             "height": 779
-          },
-          {
-            "name": "alt",
-            "type": "text",
-            "description": "Alternative text describing the content creation image for accessibility."
           }
         ]
       },
@@ -137,11 +127,6 @@
             "description": "Image showcasing multichannel features.",
             "width": 779,
             "height": 779
-          },
-          {
-            "name": "alt",
-            "type": "text",
-            "description": "Alternative text describing the multichannel image for accessibility."
           }
         ]
       },

@@ -19,6 +19,7 @@
     - team_member: An array of team member items.
     - team_member[0-7].name: The name of each team member.
     - team_member[0-7].role: The role of each team member.
+    - team_member[0-7].image.src: The image src of each team member.
     - card_variant: The variant of the card style for team members.
 #}
 
@@ -98,7 +99,7 @@
               {
                 "groupImage": {
                   "image": {
-                    "src": get_asset_url("../images/team-member-1.png"),
+                    "src": context.team_member[0].image.src or get_asset_url("../images/team-member-1.png"),
                     "alt": "",
                     "loading": "lazy",
                     "size_type": "auto_custom_max"
@@ -121,7 +122,7 @@
               {
                 "groupImage": {
                   "image": {
-                    "src": get_asset_url("../images/team-member-2.png"),
+                    "src": context.team_member[1].image.src or get_asset_url("../images/team-member-2.png"),
                     "alt": "",
                     "loading": "lazy",
                     "size_type": "auto_custom_max"
@@ -144,7 +145,7 @@
               {
                 "groupImage": {
                   "image": {
-                    "src": get_asset_url("../images/team-member-3.png"),
+                    "src": context.team_member[2].image.src or get_asset_url("../images/team-member-3.png"),
                     "alt": "",
                     "loading": "lazy",
                     "size_type": "auto_custom_max"
@@ -167,7 +168,7 @@
               {
                 "groupImage": {
                   "image": {
-                    "src": get_asset_url("../images/team-member-4.png"),
+                    "src": context.team_member[3].image.src or get_asset_url("../images/team-member-4.png"),
                     "alt": "",
                     "loading": "lazy",
                     "size_type": "auto_custom_max"
@@ -211,7 +212,7 @@
               {
                 "groupImage": {
                   "image": {
-                    "src": get_asset_url("../images/team-member-5.png"),
+                    "src": context.team_member[4].image.src or get_asset_url("../images/team-member-5.png"),
                     "alt": "",
                     "loading": "lazy",
                     "size_type": "auto_custom_max"
@@ -234,7 +235,7 @@
               {
                 "groupImage": {
                   "image": {
-                    "src": get_asset_url("../images/team-member-6.png"),
+                    "src": context.team_member[5].image.src or get_asset_url("../images/team-member-6.png"),
                     "alt": "",
                     "loading": "lazy",
                     "size_type": "auto_custom_max"
@@ -257,7 +258,7 @@
               {
                 "groupImage": {
                   "image": {
-                    "src": get_asset_url("../images/team-member-7.png"),
+                    "src": context.team_member[6].image.src or get_asset_url("../images/team-member-7.png"),
                     "alt": "",
                     "loading": "lazy",
                     "size_type": "auto_custom_max"
@@ -280,7 +281,7 @@
               {
                 "groupImage": {
                   "image": {
-                    "src": get_asset_url("../images/team-member-8.png"),
+                    "src": context.team_member[7].image.src or get_asset_url("../images/team-member-8.png"),
                     "alt": "",
                     "loading": "lazy",
                     "size_type": "auto_custom_max"

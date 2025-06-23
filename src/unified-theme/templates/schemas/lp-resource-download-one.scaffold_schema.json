@@ -203,6 +203,13 @@
         "description": "A brief description introducing the FAQs"
       },
       {
+        "name": "image",
+        "type": "image",
+        "description": "Image to be displayed alongside the FAQ section",
+        "width": "552",
+        "height": "552"
+      },
+      {
         "name": "question_one",
         "type": "text",
         "description": "First frequently asked question about the resource"
