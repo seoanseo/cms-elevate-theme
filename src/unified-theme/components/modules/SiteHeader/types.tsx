@@ -7,6 +7,7 @@ import { ButtonStyleFieldLibraryType } from '../../fieldLibrary/ButtonStyle/type
 export type MenuDataType = {
   label: string;
   url: string;
+  linkTarget?: string;
   children?: MenuDataType[];
 };
 
