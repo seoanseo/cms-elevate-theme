@@ -154,16 +154,16 @@ const StyledIcon = styled(Icon)`
   background-color: var(--hsElevate--cardIcon__backgroundColor);
 `;
 
-// Checks if an image path corresponds to one of the default images used on the card module in one of our sections/templates
-function isDefaultImage(imagePath: string): boolean {
+// Checks if image path has '-use-background-' in its name to get the card icon's background color applied
+function imageShouldUseBackground(imagePath: string): boolean {
   if (!imagePath) return false;
-  return /team-member-small(?:-med)?-[1-5]/.test(imagePath);
+  return /-use-background-/.test(imagePath);
 }
 
 type ImageWrapperProps = {
   $alignment: AlignmentFieldType['default'];
   $cardOrientation: 'row' | 'column';
-  $isDefaultCardImage: boolean;
+  $useBackground: boolean;
 };
 
 const ImageWrapper = styled.div<ImageWrapperProps>`
@@ -184,7 +184,7 @@ const ImageWrapper = styled.div<ImageWrapperProps>`
     -o-object-position: center;
     object-position: center;
     ${props =>
-      props.$isDefaultCardImage &&
+      props.$useBackground &&
       `
       background-color: var(--hsElevate--cardIcon__backgroundColor);
       border-radius: var(--hsElevate-rounded--large);
@@ -265,7 +265,7 @@ export const Component = (props: CardProps) => {
   const textAlignment = alignment.horizontal_align?.toLowerCase() as 'left' | 'right' | 'center';
 
   const headingInlineStyles = {
-    textAlign: textAlignment
+    textAlign: textAlignment,
   };
 
   return (
@@ -282,8 +282,8 @@ export const Component = (props: CardProps) => {
             },
           } = card;
           const hasValidImageSrc = card?.groupImage?.image?.src;
-          const isDefaultCardImage = hasValidImageSrc && isDefaultImage(card.groupImage.image.src);
-          const usesDefaultCardImage = isImage && isDefaultCardImage;
+          const isCardImageWithBackground = hasValidImageSrc && imageShouldUseBackground(card.groupImage.image.src);
+          const cardImageUsesBackground = isImage && isCardImageWithBackground;
           const isImageVisible = isImage && hasValidImageSrc;
           const hasValidIconName = card?.groupIcon?.icon?.name;
           const isIconVisible = isIcon && hasValidIconName;
@@ -300,7 +300,7 @@ export const Component = (props: CardProps) => {
                   className="hs-elevate-card-container__image-wrapper"
                   $cardOrientation={cardOrientation}
                   $alignment={alignment}
-                  $isDefaultCardImage={usesDefaultCardImage}
+                  $useBackground={cardImageUsesBackground}
                 >
                   <img
                     className="hs-elevate-card-container__image"
