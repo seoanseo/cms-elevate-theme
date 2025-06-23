@@ -1,43 +1,15 @@
 import { ModuleMeta } from '../../types/modules.js';
-import { styled } from 'styled-components';
-import StyledComponentsRegistry from '../../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
+import styles from './rich-text.module.css';
 import { RichText } from '@hubspot/cms-components';
 import { SectionVariantType } from '../../types/fields.js';
 import richTextIconSvg from './assets/rich-text.svg';
 import { SectionStyleFieldLibraryType } from '../../fieldLibrary/SectionStyle/types.js';
 import { sectionColorsMap } from '../../utils/section-color-map.js';
+import cx from '../../utils/classnames.js';
 
 type RichTextProps = {
   groupStyle: SectionStyleFieldLibraryType;
 };
-
-const StyledRichText = styled(RichText)`
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  li,
-  span,
-  div {
-    color: var(--hsElevate--richText__textColor);
-  }
-
-  a:not(.hs-elevate-button) {
-    color: var(--hsElevate--richText__linkColor);
-    text-decoration: var(--hsElevate--richText__textDecoration);
-    text-decoration-color: var(--hsElevate--richText__textDecorationColor);
-  }
-
-  a:not(.hs-elevate-button):hover,
-  a:not(.hs-elevate-button):focus {
-    color: var(--hsElevate--richText__linkHoverColor);
-    text-decoration: var(--hsElevate--richText__linkHoverTextDecoration);
-    text-decoration-color: var(--hsElevate--richText__linkHoverTextDecorationColor);
-  }
-`;
 
 // Function to generate CSS variables for colors
 
@@ -68,11 +40,7 @@ export const Component = (props: RichTextProps) => {
     ...generateColorCssVars(sectionStyleVariant),
   };
 
-  return (
-    <StyledComponentsRegistry>
-      <StyledRichText className="hs-elevate-rich-text" fieldPath="richTextContentHTML" style={cssVarsMap} />
-    </StyledComponentsRegistry>
-  );
+  return <RichText className={cx('hs-elevate-rich-text', styles['hs-elevate-rich-text'])} fieldPath="richTextContentHTML" style={cssVarsMap} />;
 };
 
 export { fields } from './fields.js';
