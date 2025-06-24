@@ -4,7 +4,9 @@
   "description": "React modules for the Elevate theme",
   "scripts": {
     "start": "hs-cms-dev-server .",
-    "generate-tmp-json-for-translations": "jsx-module-fields-to-fields-json"
+    "generate-tmp-json-for-translations": "jsx-module-fields-to-fields-json",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "type": "module",
   "keywords": [],
@@ -21,6 +23,15 @@
   "devDependencies": {
     "@hubspot/cms-dev-server": "^1.0.0",
     "@testing-library/react": "^16",
-    "@vitejs/plugin-react": "^4"
+    "@vitejs/plugin-react": "^4",
+    "@storybook/addon-actions": "^8.6.14",
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/addon-interactions": "^8.6.14",
+    "@storybook/addon-links": "^8.6.14",
+    "@storybook/builder-vite": "^8.6.14",
+    "@storybook/react": "^8.6.14",
+    "@storybook/react-vite": "^8.6.14",
+    "@storybook/test": "^8.6.14",
+    "storybook": "^8.6.14"
   }
 }

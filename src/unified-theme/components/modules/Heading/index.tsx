@@ -1,14 +1,14 @@
 import { ModuleMeta } from '../../types/modules.js';
-import { TextAlignmentFieldType, TextFieldType } from '@hubspot/cms-components/fields';
+import { TextAlignmentFieldType } from '@hubspot/cms-components/fields';
 import headingIconSvg from './assets/heading.svg';
 import HeadingComponent from '../../HeadingComponent/index.js';
-import { HeadingLevelType, SectionVariantType } from '../../types/fields.js';
-import { styled } from 'styled-components';
-import StyledComponentsRegistry from '../../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
+import { SectionVariantType } from '../../types/fields.js';
+import styles from './heading.module.css';
 import { SectionStyleFieldLibraryType } from '../../fieldLibrary/SectionStyle/types.js';
 import { HeadingStyleFieldLibraryType } from '../../fieldLibrary/HeadingStyle/types.js';
 import { HeadingAndTextFieldLibraryType } from '../../fieldLibrary/HeadingAndText/types.js';
 import { sectionColorsMap } from '../../utils/section-color-map.js';
+import cx from '../../utils/classnames.js';
 
 // Types
 
@@ -32,17 +32,6 @@ function generateColorCssVars(sectionVariantField: SectionVariantType): CSSPrope
   };
 }
 
-const HeadingContainer = styled.div`
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: var(--hsElevate--heading__textColor);
-  }
-`;
-
 export const Component = (props: HeadingProps) => {
   const {
     headingAndTextHeadingLevel,
@@ -55,17 +44,15 @@ export const Component = (props: HeadingProps) => {
   };
 
   return (
-    <StyledComponentsRegistry>
-      <HeadingContainer style={cssVarsMap} className="hs-elevate-heading-container">
-        <HeadingComponent
-          additionalClassArray={['hs-elevate-heading-container__heading']}
-          headingLevel={headingAndTextHeadingLevel}
-          heading={headingAndTextHeading}
-          alignment={alignment}
-          headingStyleVariant={headingStyleVariant}
-        />
-      </HeadingContainer>
-    </StyledComponentsRegistry>
+    <div style={cssVarsMap} className={cx('hs-elevate-heading-container', styles['hs-elevate-heading-container'])}>
+      <HeadingComponent
+        additionalClassArray={['hs-elevate-heading-container__heading']}
+        headingLevel={headingAndTextHeadingLevel}
+        heading={headingAndTextHeading}
+        alignment={alignment}
+        headingStyleVariant={headingStyleVariant}
+      />
+    </div>
   );
 };
 
