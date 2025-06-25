@@ -71,7 +71,7 @@
   .hs-input.hs-fieldtype-intl-phone {
     display: flex;
     width: 100%;
-    flex-dirction: column;
+    flex-direction: column;
     gap: 8px;
   }
 

@@ -3,12 +3,12 @@ import { AlignmentFieldType, TextFieldType } from '@hubspot/cms-components/field
 import { StandardSizeType } from '../../types/fields.js';
 import { getLinkFieldHref, getLinkFieldRel, getLinkFieldTarget } from '../../utils/content-fields.js';
 import { getAlignmentFieldCss } from '../../utils/style-fields.js';
-import { styled } from 'styled-components';
-import StyledComponentsRegistry from '../../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
+import styles from './button.module.css';
 import { Button } from '../../ButtonComponent/index.js';
 import buttonIconSvg from './assets/button.svg';
 import { ButtonContentType } from '../../fieldLibrary/ButtonContent/types.js';
 import { ButtonStyleFieldLibraryType } from '../../fieldLibrary/ButtonStyle/types.js';
+import cx from '../../utils/classnames.js';
 
 // Types
 enum LinkType {
@@ -78,26 +78,12 @@ function generateGapCssVars(gapField: StandardSizeType): CSSPropertiesMap {
   return { '--hsElevate--buttons__gap': gapMap[gapField] };
 }
 
-type ButtonContainerProps = {
-  $alignment: AlignmentFieldType['default'];
-};
-
-const ButtonContainer = styled.div<ButtonContainerProps>`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: var(--hsElevate--buttons__gap);
-  justify-content: ${props => getAlignmentFieldCss(props.$alignment).justifyContent};
-  // When the container around the button gets smaller we want buttons to stack
-  @container (max-width: 400px) {
-    flex-direction: column;
-    align-items: ${props => getAlignmentFieldCss(props.$alignment).justifyContent};
-  }
-`;
-
-const ButtonWrapper = styled.div`
-  container-type: inline-size;
-`;
+function generateAlignmentCssVars(alignmentField: AlignmentFieldType['default']): CSSPropertiesMap {
+  const alignment = getAlignmentFieldCss(alignmentField);
+  return {
+    '--hsElevate--buttons__alignment': alignment.justifyContent || 'flex-start',
+  };
+}
 
 export const Component = (props: ButtonProps) => {
   const {
@@ -108,32 +94,31 @@ export const Component = (props: ButtonProps) => {
 
   const cssVarsMap = {
     ...generateGapCssVars(gap),
+    ...generateAlignmentCssVars(alignment),
   };
 
   return (
-    <StyledComponentsRegistry>
-      <ButtonWrapper>
-        <ButtonContainer className="hs-elevate-button-container" $alignment={alignment} style={cssVarsMap}>
-          {groupButtons.map((button, index) => (
-            <Button
-              key={index}
-              buttonStyle={buttonStyleVariant}
-              buttonSize={buttonStyleSize}
-              href={getLinkFieldHref(button.buttonContentLink)}
-              rel={getLinkFieldRel(button.buttonContentLink)}
-              ariaLabel={setAriaLabel(groupAriaLabels, button.buttonContentLink.url?.type)}
-              target={getLinkFieldTarget(button.buttonContentLink)}
-              showIcon={button.buttonContentShowIcon}
-              iconFieldPath={`groupButtons[${index}].buttonContentIcon`}
-              iconPosition={button.buttonContentIconPosition}
-              additionalClassArray={['hs-elevate-button-container__button']}
-            >
-              {button.buttonContentText}
-            </Button>
-          ))}
-        </ButtonContainer>
-      </ButtonWrapper>
-    </StyledComponentsRegistry>
+    <div className={cx('hs-elevate-button-wrapper', styles['hs-elevate-button-wrapper'])} style={cssVarsMap}>
+      <div className={cx('hs-elevate-button-container', styles['hs-elevate-button-container'])}>
+        {groupButtons.map((button, index) => (
+          <Button
+            key={index}
+            buttonStyle={buttonStyleVariant}
+            buttonSize={buttonStyleSize}
+            href={getLinkFieldHref(button.buttonContentLink)}
+            rel={getLinkFieldRel(button.buttonContentLink)}
+            ariaLabel={setAriaLabel(groupAriaLabels, button.buttonContentLink.url?.type)}
+            target={getLinkFieldTarget(button.buttonContentLink)}
+            showIcon={button.buttonContentShowIcon}
+            iconFieldPath={`groupButtons[${index}].buttonContentIcon`}
+            iconPosition={button.buttonContentIconPosition}
+            additionalClassArray={['hs-elevate-button-container__button']}
+          >
+            {button.buttonContentText}
+          </Button>
+        ))}
+      </div>
+    </div>
   );
 };
 
