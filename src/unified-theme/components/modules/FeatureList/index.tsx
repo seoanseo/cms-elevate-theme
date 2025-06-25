@@ -103,12 +103,17 @@ const StyledIcon = styled(Icon)`
 `;
 
 const ContentContainer = styled.div`
+  /* Heading styles with proportional spacing */
   h1,
   h2,
   h3,
   h4,
   h5,
-  h6,
+  h6 {
+    color: var(--hsElevate--featureList__textColor);
+    margin-block: var(--hsElevate--text--extraSmall__margin, 0 12px);
+  }
+
   p {
     color: var(--hsElevate--featureList__textColor);
   }
