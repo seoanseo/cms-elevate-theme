@@ -8,6 +8,7 @@ import { RichTextContentFieldLibraryType } from '../../fieldLibrary/RichTextCont
 import { CardStyleFieldLibraryType } from '../../fieldLibrary/CardStyle/types.js';
 import { getCardVariantClassName } from '../../utils/card-variants.js';
 import cx from '../../utils/classnames.js';
+import { createComponent } from '../../utils/create-component.js';
 
 // Types
 
@@ -113,6 +114,11 @@ export const Component = (props: AccordionProps) => {
     groupStyle: { cardStyleVariant, gap },
   } = props;
 
+  const AccordionContainer = createComponent('div');
+  const Accordion = createComponent('details');
+  const AccordionTitle = createComponent('summary');
+  const AccordionTitleText = createComponent('span');
+
   const cardClassName = getCardVariantClassName({ cardVariant: cardStyleVariant, fallbackCardVariant: 'card_variant_2' });
   const cssVarsMap = {
     ...generateGapCssVars(gap),
@@ -120,11 +126,13 @@ export const Component = (props: AccordionProps) => {
   };
 
   return (
-    <div className={cx('hs-elevate-accordion-container', styles['hs-elevate-accordion-container'])} style={cssVarsMap}>
+    <AccordionContainer className={cx('hs-elevate-accordion-container', styles['hs-elevate-accordion-container'])} style={cssVarsMap}>
       {groupAccordions.map((accordion, index) => (
-        <details className={cx('hs-elevate-accordion', cardClassName, styles['hs-elevate-accordion'])} key={index}>
-          <summary className={cx('hs-elevate-accordion__title', styles['hs-elevate-accordion__title'])}>
-            <span className={cx('hs-elevate-accordion__title-text', styles['hs-elevate-accordion__title-text'])}>{accordion.title}</span>
+        <Accordion className={cx('hs-elevate-accordion', cardClassName, styles['hs-elevate-accordion'])} key={index}>
+          <AccordionTitle className={cx('hs-elevate-accordion__title', styles['hs-elevate-accordion__title'])}>
+            <AccordionTitleText className={cx('hs-elevate-accordion__title-text', styles['hs-elevate-accordion__title-text'])}>
+              {accordion.title}
+            </AccordionTitleText>
             {icon === 'chevron' ? (
               <AccordionArrow />
             ) : (
@@ -133,15 +141,15 @@ export const Component = (props: AccordionProps) => {
                 <AccordionMinus />
               </>
             )}
-          </summary>
+          </AccordionTitle>
           <RichText
             className={cx('hs-elevate-accordion__body', styles['hs-elevate-accordion__body'])}
             fieldPath={`groupAccordions[${index}].richTextContentHTML`}
             tag="div"
           />
-        </details>
+        </Accordion>
       ))}
-    </div>
+    </AccordionContainer>
   );
 };
 

@@ -54,7 +54,7 @@ const DefaultContent = () => (
   </>
 );
 
-const StyledIcon = styled(Icon)<{ $iconPosition: ElementPositionType }>`
+export const StyledIcon = styled(Icon)<{ $iconPosition: ElementPositionType }>`
   display: block;
   height: 1.25rem;
   fill: currentColor;

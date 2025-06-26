@@ -24,9 +24,31 @@ const themeLink = {
   name: 'theme_link',
   params: {
     theme_path: '@hubspot/elevate',
-    theme_field_path: themeGroupSectionsPath
-  }
+    theme_field_path: themeGroupSectionsPath,
+  },
 };
+
+const timeStep = 10;
+
+// Default end date - calculates 1 year from build time (and rounds down to nearest step increment in the past)
+// Note: Resets weekly when re-rendering job runs, providing ~365 day countdown
+function getTimestamp30DaysFromNowRoundedDown(): number {
+  const MS_IN_DAY = 24 * 60 * 60 * 1000;
+  const now = new Date();
+
+  // Add 30 days
+  const future = new Date(now.getTime() + 30 * MS_IN_DAY);
+
+  // Round down to nearest timeStep increment
+  const minutes = future.getMinutes();
+  future.setMinutes(Math.floor(minutes / timeStep) * timeStep);
+  future.setSeconds(0);
+  future.setMilliseconds(0);
+
+  return future.getTime(); // returns timestamp in milliseconds
+}
+
+const endDate30DaysFromNow = getTimestamp30DaysFromNowRoundedDown();
 
 // Fields
 export const fields = (
@@ -35,8 +57,8 @@ export const fields = (
       label="End date"
       name="endDate"
       inlineHelpText="Typically your event's date or when you'd like for the timer to end."
-      step={10}
-      default={1775059200000}
+      step={timeStep}
+      default={endDate30DaysFromNow}
     />
     <FieldGroup label="Styles" name="groupStyle" tab="STYLE">
       <FieldGroup label="Counter" name="counter" display="inline">
