@@ -57,7 +57,12 @@ function generateIconColorCssVar(cardVariantField: CardVariantType): CSSProperti
   };
 }
 
-// Icons
+// Components
+
+const AccordionContainer = createComponent('div');
+const Accordion = createComponent('details');
+const AccordionTitle = createComponent('summary');
+const AccordionTitleText = createComponent('span');
 
 const AccordionArrow = () => {
   return (
@@ -113,11 +118,6 @@ export const Component = (props: AccordionProps) => {
     groupAccordions,
     groupStyle: { cardStyleVariant, gap },
   } = props;
-
-  const AccordionContainer = createComponent('div');
-  const Accordion = createComponent('details');
-  const AccordionTitle = createComponent('summary');
-  const AccordionTitleText = createComponent('span');
 
   const cardClassName = getCardVariantClassName({ cardVariant: cardStyleVariant, fallbackCardVariant: 'card_variant_2' });
   const cssVarsMap = {

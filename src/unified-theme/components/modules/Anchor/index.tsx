@@ -14,6 +14,8 @@ type AnchorProps = {
   };
 };
 
+// Components
+
 const Anchor = createComponent('span');
 const AnchorVisual = createComponent('span');
 

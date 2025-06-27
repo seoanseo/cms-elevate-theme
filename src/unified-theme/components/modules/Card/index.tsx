@@ -114,10 +114,20 @@ function generateColorCssVars(cardVariantField: string): CSSPropertiesMap {
 }
 
 // Checks if image path has '-use-background-' in its name to get the card icon's background color applied
+
 function imageShouldUseBackground(imagePath: string): boolean {
   if (!imagePath) return false;
   return /-use-background-/.test(imagePath);
 }
+
+// Components
+
+const CardContainer = createComponent('div');
+const IconWrapper = createComponent('div');
+const ImageWrapper = createComponent('div');
+const Image = createComponent('img');
+const CardContent = createComponent('div');
+const ButtonWrapper = createComponent('div');
 
 export const Component = (props: CardProps) => {
   const {
@@ -142,13 +152,6 @@ export const Component = (props: CardProps) => {
     ...generateColorCssVars(cardStyleVariant),
     ...generateAlignmentCssVars(alignment),
   };
-
-  const CardContainer = createComponent('div');
-  const IconWrapper = createComponent('div');
-  const ImageWrapper = createComponent('div');
-  const Image = createComponent('img');
-  const CardContent = createComponent('div');
-  const ButtonWrapper = createComponent('div');
 
   return (
     <CardContainer className={cx('hs-elevate-card-container', styles['hs-elevate-card-container'])} style={cssVarsMap}>

@@ -33,6 +33,10 @@ function generateColorCssVars(sectionVariantField: SectionVariantType): CSSPrope
   };
 }
 
+// Components
+
+const HeadingContainer = createComponent('div');
+
 export const Component = (props: HeadingProps) => {
   const {
     headingAndTextHeadingLevel,
@@ -43,8 +47,6 @@ export const Component = (props: HeadingProps) => {
   const cssVarsMap = {
     ...generateColorCssVars(sectionStyleVariant),
   };
-
-  const HeadingContainer = createComponent('div');
 
   return (
     <HeadingContainer style={cssVarsMap} className={cx('hs-elevate-heading-container', styles['hs-elevate-heading-container'])}>

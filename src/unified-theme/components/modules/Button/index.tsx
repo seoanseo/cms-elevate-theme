@@ -86,6 +86,11 @@ function generateAlignmentCssVars(alignmentField: AlignmentFieldType['default'])
   };
 }
 
+// Components
+
+const ButtonWrapper = createComponent('div');
+const ButtonContainer = createComponent('div');
+
 export const Component = (props: ButtonProps) => {
   const {
     groupButtons,
@@ -97,9 +102,6 @@ export const Component = (props: ButtonProps) => {
     ...generateGapCssVars(gap),
     ...generateAlignmentCssVars(alignment),
   };
-
-  const ButtonWrapper = createComponent('div');
-  const ButtonContainer = createComponent('div');
 
   return (
     <ButtonWrapper className={cx('hs-elevate-button-wrapper', styles['hs-elevate-button-wrapper'])} style={cssVarsMap}>
