@@ -40,21 +40,10 @@
       },
       {
         "name": "image",
-        "type": "group",
-        "children": [
-          {
-            "name": "src",
-            "type": "image",
-            "description": "Image representing the downloadable resource.",
-            "width": 640,
-            "height": 640
-          },
-          {
-            "name": "alt",
-            "type": "text",
-            "description": "Alternative text describing the hero image for accessibility."
-          }
-        ]
+        "type": "image",
+        "description": "Image representing the downloadable resource.",
+        "width": "640",
+        "height": "640"
       }
     ]
   },
@@ -78,21 +67,10 @@
         "children": [
           {
             "name": "image",
-            "type": "group",
-            "children": [
-              {
-                "name": "src",
-                "type": "image",
-                "description": "Image for the first feature.",
-                "width": 140,
-                "height": 140
-              },
-              {
-                "name": "alt",
-                "type": "text",
-                "description": "Alternative text describing the first feature image for accessibility."
-              }
-            ]
+            "type": "image",
+            "description": "Image for the first feature.",
+            "width": "140",
+            "height": "140"
           },
           {
             "name": "heading",
@@ -112,21 +90,10 @@
         "children": [
           {
             "name": "image",
-            "type": "group",
-            "children": [
-              {
-                "name": "src",
-                "type": "image",
-                "description": "Image for the second feature.",
-                "width": 140,
-                "height": 140
-              },
-              {
-                "name": "alt",
-                "type": "text",
-                "description": "Alternative text describing the second feature image for accessibility."
-              }
-            ]
+            "type": "image",
+            "description": "Image for the second feature.",
+            "width": "140",
+            "height": "140"
           },
           {
             "name": "heading",
@@ -146,21 +113,10 @@
         "children": [
           {
             "name": "image",
-            "type": "group",
-            "children": [
-              {
-                "name": "src",
-                "type": "image",
-                "description": "Image for the third feature.",
-                "width": 140,
-                "height": 140
-              },
-              {
-                "name": "alt",
-                "type": "text",
-                "description": "Alternative text describing the third feature image for accessibility."
-              }
-            ]
+            "type": "image",
+            "description": "Image for the third feature.",
+            "width": "140",
+            "height": "140"
           },
           {
             "name": "heading",
@@ -203,21 +159,10 @@
     "children": [
       {
         "name": "image",
-        "type": "group",
-        "children": [
-          {
-            "name": "src",
-            "type": "image",
-            "description": "Image for the first image/text section.",
-            "width": 400,
-            "height": 400
-          },
-          {
-            "name": "alt",
-            "type": "text",
-            "description": "Alternative text describing the first section image for accessibility."
-          }
-        ]
+        "type": "image",
+        "description": "Image for the first image/text section.",
+        "width": "400",
+        "height": "400"
       },
       {
         "name": "heading",
@@ -237,21 +182,10 @@
     "children": [
       {
         "name": "image",
-        "type": "group",
-        "children": [
-          {
-            "name": "src",
-            "type": "image",
-            "description": "Image for the second image/text section.",
-            "width": 655,
-            "height": 655
-          },
-          {
-            "name": "alt",
-            "type": "text",
-            "description": "Alternative text describing the second section image for accessibility."
-          }
-        ]
+        "type": "image",
+        "description": "Image for the second image/text section.",
+        "width": "655",
+        "height": "655"
       },
       {
         "name": "heading",
