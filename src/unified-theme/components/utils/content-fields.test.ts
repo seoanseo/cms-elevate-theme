@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest';
-import { getLinkFieldHref, getLinkFieldRel } from './content-fields.js';
+import { getLinkFieldHref, getLinkFieldRel, getLinkFieldTarget } from './content-fields.js';
 import { LinkFieldType } from '@hubspot/cms-components/fields';
 
 describe('getLinkFieldHref', () => {
@@ -61,5 +61,33 @@ describe('getLinkFieldRel', () => {
       no_follow: false,
     };
     expect(getLinkFieldRel(fieldValue)).toBe('');
+  });
+});
+
+describe('getLinkFieldTarget', () => {
+  test('returns empty string for null/undefined field value', () => {
+    expect(getLinkFieldTarget(null)).toBe('');
+    expect(getLinkFieldTarget(undefined)).toBe('');
+  });
+
+  test('returns _blank when open_in_new_tab is true', () => {
+    const fieldValue: LinkFieldType['default'] = {
+      open_in_new_tab: true,
+    };
+    expect(getLinkFieldTarget(fieldValue)).toBe('_blank');
+  });
+
+  test('returns empty string when open_in_new_tab is false', () => {
+    const fieldValue: LinkFieldType['default'] = {
+      open_in_new_tab: false,
+    };
+    expect(getLinkFieldTarget(fieldValue)).toBe('');
+  });
+
+  test('returns empty string when open_in_new_tab property is missing', () => {
+    const fieldValue: LinkFieldType['default'] = {
+      url: { href: 'http://example.com', type: 'EXTERNAL', content_id: 1 },
+    };
+    expect(getLinkFieldTarget(fieldValue)).toBe('');
   });
 });
