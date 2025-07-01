@@ -40,7 +40,7 @@
           }
         },
         "image": {
-          "src": get_asset_url("../images/marketing-dashboard.png"),
+          "src": scaffold_content.group_hero_banner.image.src or get_asset_url("../images/marketing-dashboard.png"),
           "alt": scaffold_content.group_hero_banner.image.alt or "",
           "width": scaffold_content.group_hero_banner.image.width or 640,
           "height": scaffold_content.group_hero_banner.image.height or 572
@@ -100,7 +100,7 @@
                   "max_height": scaffold_content.group_features.group_feature_1.image.height or 140,
                   "max_width": scaffold_content.group_features.group_feature_1.image.width or 140,
                   "size_type": "auto_custom_max",
-                  "src": get_asset_url("../images/graphs-doc.png")
+                  "src": scaffold_content.group_features.group_feature_1.image.src or get_asset_url("../images/graphs-doc.png")
                 },
                 horizontal_alignment="CENTER"
               %}
@@ -145,7 +145,7 @@
                   "max_height": scaffold_content.group_features.group_feature_2.image.height or 140,
                   "max_width": scaffold_content.group_features.group_feature_2.image.width or 140,
                   "size_type": "auto_custom_max",
-                  "src": get_asset_url("../images/step-three.png")
+                  "src": scaffold_content.group_features.group_feature_2.image.src or get_asset_url("../images/step-three.png")
                 },
                 horizontal_alignment="CENTER"
               %}
@@ -190,7 +190,7 @@
                   "max_height": scaffold_content.group_features.group_feature_3.image.height or 140,
                   "max_width": scaffold_content.group_features.group_feature_3.image.width or 140,
                   "size_type": "auto_custom_max",
-                  "src": get_asset_url("../images/step-two.png")
+                  "src": scaffold_content.group_features.group_feature_3.image.src or get_asset_url("../images/step-two.png")
                 },
                 horizontal_alignment="CENTER"
               %}
@@ -235,7 +235,7 @@
         "quote": scaffold_content.group_testimonial.quote or template_translations.lp_resource_download_two_testimonial_quote.message,
         "author": {
           "name": scaffold_content.group_testimonial.author_name or template_translations.lp_resource_download_two_testimonial_author.message,
-          "title": scaffold_content.group_testimonial.author_title or template_translations.lp_resource_download_two_testimonial_author_title.message
+          "title": scaffold_content.group_testimonial.author_title or template_translations.shared_testimonials_author_title_1.message
         }
       }
     %}
@@ -250,7 +250,7 @@
             groupImage={
               "imagePosition": "right",
               "image": {
-                "src": get_asset_url("../images/value-prop-two.png"),
+                "src": scaffold_content.group_image_and_text_1.image.src or get_asset_url("../images/value-prop-two.png"),
                 "alt": scaffold_content.group_image_and_text_1.image.alt or "",
                 "width": scaffold_content.group_image_and_text_1.image.width or 400,
                 "height": scaffold_content.group_image_and_text_1.image.height or 300
@@ -310,7 +310,7 @@
                 "max_height": scaffold_content.group_image_and_text_2.image.height or 450,
                 "max_width": scaffold_content.group_image_and_text_2.image.width or 655,
                 "size_type": "auto_custom_max",
-                "src": get_asset_url("../images/products-services-feature-image.png")
+                "src": scaffold_content.group_image_and_text_2.image.src or get_asset_url("../images/products-services-feature-image.png")
               }
             %}
             {% end_dnd_module %}
