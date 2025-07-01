@@ -102,14 +102,14 @@
             %}
               {% dnd_module
                 path="@hubspot/linked_image"
-                img={{ scaffold_content.group_newsletter_signup.image or {
-                  "alt": "",
-                  "loading": "lazy",
-                  "max_height": 699,
-                  "max_width": 593,
+                img={
+                  "alt": scaffold_content.group_newsletter_signup.newsletter_image.alt or "",
+                  "loading": "eager",
+                  "max_height": scaffold_content.group_newsletter_signup.newsletter_image.height or 699,
+                  "max_width": scaffold_content.group_newsletter_signup.newsletter_image.width or 593,
                   "size_type": "auto_custom_max",
-                  "src": get_asset_url("../images/newsletter-emails.png")
-                } }}
+                  "src": scaffold_content.group_newsletter_signup.newsletter_image.src or get_asset_url("../images/newsletter-emails.png")
+                }
               %}
               {% end_dnd_module %}
             {% end_dnd_row %}
