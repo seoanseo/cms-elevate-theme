@@ -12,11 +12,11 @@
 
 {# Default content for accordions #}
 
-{% set accordion_one_answer = "<p>{{ scaffold_content.group_faqs.group_faq_one.answer or template_translations.lp_downloadable_asset_faq_one_answer.message }}</p>" %}
-{% set accordion_two_answer = "<p>{{ scaffold_content.group_faqs.group_faq_two.answer or template_translations.lp_downloadable_asset_faq_two_answer.message }}</p>" %}
-{% set accordion_three_answer = "<p>{{ scaffold_content.group_faqs.group_faq_three.answer or template_translations.lp_downloadable_asset_faq_three_answer.message }}</p>" %}
-{% set accordion_four_answer = "<p>{{ scaffold_content.group_faqs.group_faq_four.answer or template_translations.lp_downloadable_asset_faq_four_answer.message }}</p>" %}
-{% set accordion_five_answer = "<p>{{ scaffold_content.group_faqs.group_faq_five.answer or template_translations.lp_downloadable_asset_faq_five_answer.message }}</p>" %}
+{% set accordion_one_answer = "<p>{{ scaffold_content.group_faqs.group_faq_one.answer or template_translations.shared_faq_answer_1.message }}</p>" %}
+{% set accordion_two_answer = "<p>{{ scaffold_content.group_faqs.group_faq_two.answer or template_translations.shared_faq_answer_2.message }}</p>" %}
+{% set accordion_three_answer = "<p>{{ scaffold_content.group_faqs.group_faq_three.answer or template_translations.shared_faq_answer_3.message }}</p>" %}
+{% set accordion_four_answer = "<p>{{ scaffold_content.group_faqs.group_faq_four.answer or template_translations.shared_faq_answer_4.message }}</p>" %}
+{% set accordion_five_answer = "<p>{{ scaffold_content.group_faqs.group_faq_five.answer or template_translations.shared_faq_answer_5.message }}</p>" %}
 
 {% block header %}
   {% global_partial path="./partials/lp-header.hubl.html" %}
@@ -125,11 +125,11 @@
         groupTestimonial=[
           {
             "groupQuote": {
-              "quote": template_translations.lp_downloadable_asset_testimonial_quote.message
+              "quote": template_translations.shared_testimonials_quote_1.message
             },
             "groupAuthor": {
-              "authorName": template_translations.lp_downloadable_asset_testimonial_author_name.message,
-              "authorTitle": template_translations.lp_downloadable_asset_testimonial_author_title.message,
+              "authorName": template_translations.shared_testimonials_author_name_1.message,
+              "authorTitle": template_translations.shared_testimonials_author_title_1.message,
               "authorImage": {}
             },
             "groupImage": {
@@ -144,17 +144,17 @@
               }
             },
             "groupLink": {
-              "linkText": template_translations.lp_downloadable_asset_testimonial_link_text.message,
+              "linkText": template_translations.shared_testimonials_link_text.message,
               "link": {}
             }
           },
           {
             "groupQuote": {
-              "quote": template_translations.lp_downloadable_asset_testimonial_quote_two.message
+              "quote": template_translations.shared_testimonials_quote_2.message
             },
             "groupAuthor": {
-              "authorName": template_translations.lp_downloadable_asset_testimonial_author_name_two.message,
-              "authorTitle": template_translations.lp_downloadable_asset_testimonial_author_title_two.message,
+              "authorName": template_translations.shared_testimonials_author_name_2.message,
+              "authorTitle": template_translations.shared_testimonials_author_title_2.message,
               "authorImage": {}
             },
             "groupImage": {
@@ -169,17 +169,17 @@
               }
             },
             "groupLink": {
-              "linkText": template_translations.lp_downloadable_asset_testimonial_link_text.message,
+              "linkText": template_translations.shared_testimonials_link_text.message,
               "link": {}
             }
           },
           {
             "groupQuote": {
-              "quote": template_translations.lp_downloadable_asset_testimonial_quote_three.message
+              "quote": template_translations.shared_testimonials_quote_3.message
             },
             "groupAuthor": {
-              "authorName": template_translations.lp_downloadable_asset_testimonial_author_name_three.message,
-              "authorTitle": template_translations.lp_downloadable_asset_testimonial_author_title_three.message,
+              "authorName": template_translations.shared_testimonials_author_name_3.message,
+              "authorTitle": template_translations.shared_testimonials_author_title_3.message,
               "authorImage": {}
             },
             "groupImage": {
@@ -194,7 +194,7 @@
               }
             },
             "groupLink": {
-              "linkText": template_translations.lp_downloadable_asset_testimonial_link_text.message,
+              "linkText": template_translations.shared_testimonials_link_text.message,
               "link": {}
             }
           }
@@ -240,23 +240,23 @@
         },
         "faqs": [
           {
-            "title": scaffold_content.group_faqs.group_faq_one.question or template_translations.lp_downloadable_asset_faq_one_question.message,
+            "title": scaffold_content.group_faqs.group_faq_one.question or template_translations.shared_faq_question_1.message,
             "content": accordion_one_answer|render
           },
           {
-            "title": scaffold_content.group_faqs.group_faq_two.question or template_translations.lp_downloadable_asset_faq_two_question.message,
+            "title": scaffold_content.group_faqs.group_faq_two.question or template_translations.shared_faq_question_2.message,
             "content": accordion_two_answer|render
           },
           {
-            "title": scaffold_content.group_faqs.group_faq_three.question or template_translations.lp_downloadable_asset_faq_three_question.message,
+            "title": scaffold_content.group_faqs.group_faq_three.question or template_translations.shared_faq_question_3.message,
             "content": accordion_three_answer|render
           },
           {
-            "title": scaffold_content.group_faqs.group_faq_four.question or template_translations.lp_downloadable_asset_faq_four_question.message,
+            "title": scaffold_content.group_faqs.group_faq_four.question or template_translations.shared_faq_question_4.message,
             "content": accordion_four_answer|render
           },
           {
-            "title": scaffold_content.group_faqs.group_faq_five.question or template_translations.lp_downloadable_asset_faq_five_question.message,
+            "title": scaffold_content.group_faqs.group_faq_five.question or template_translations.shared_faq_question_5.message,
             "content": accordion_five_answer|render
           }
         ]

@@ -9,6 +9,7 @@ import { HeadingStyleFieldLibraryType } from '../../fieldLibrary/HeadingStyle/ty
 import { HeadingAndTextFieldLibraryType } from '../../fieldLibrary/HeadingAndText/types.js';
 import { sectionColorsMap } from '../../utils/section-color-map.js';
 import cx from '../../utils/classnames.js';
+import { createComponent } from '../../utils/create-component.js';
 
 // Types
 
@@ -32,6 +33,10 @@ function generateColorCssVars(sectionVariantField: SectionVariantType): CSSPrope
   };
 }
 
+// Components
+
+const HeadingContainer = createComponent('div');
+
 export const Component = (props: HeadingProps) => {
   const {
     headingAndTextHeadingLevel,
@@ -44,7 +49,7 @@ export const Component = (props: HeadingProps) => {
   };
 
   return (
-    <div style={cssVarsMap} className={cx('hs-elevate-heading-container', styles['hs-elevate-heading-container'])}>
+    <HeadingContainer style={cssVarsMap} className={cx('hs-elevate-heading-container', styles['hs-elevate-heading-container'])}>
       <HeadingComponent
         additionalClassArray={['hs-elevate-heading-container__heading']}
         headingLevel={headingAndTextHeadingLevel}
@@ -52,7 +57,7 @@ export const Component = (props: HeadingProps) => {
         alignment={alignment}
         headingStyleVariant={headingStyleVariant}
       />
-    </div>
+    </HeadingContainer>
   );
 };
 

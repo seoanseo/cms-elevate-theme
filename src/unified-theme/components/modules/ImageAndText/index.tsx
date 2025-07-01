@@ -6,8 +6,7 @@ import { ImageFieldType, BooleanFieldType, AlignmentFieldType } from '@hubspot/c
 import { ElementPositionType, SectionVariantType } from '../../types/fields.js';
 import { getLinkFieldHref, getLinkFieldRel, getLinkFieldTarget } from '../../utils/content-fields.js';
 import { getAlignmentFieldCss } from '../../utils/style-fields.js';
-import { styled } from 'styled-components';
-import StyledComponentsRegistry from '../../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
+import styles from './image-and-text.module.css';
 import imageAndTextIconSvg from './assets/image.svg';
 import { ButtonContentType } from '../../fieldLibrary/ButtonContent/types.js';
 import { ButtonStyleFieldLibraryType } from '../../fieldLibrary/ButtonStyle/types.js';
@@ -16,6 +15,8 @@ import { RichTextContentFieldLibraryType } from '../../fieldLibrary/RichTextCont
 import { HeadingStyleFieldLibraryType } from '../../fieldLibrary/HeadingStyle/types.js';
 import { HeadingAndTextFieldLibraryType } from '../../fieldLibrary/HeadingAndText/types.js';
 import { sectionColorsMap } from '../../utils/section-color-map.js';
+import cx from '../../utils/classnames.js';
+import { createComponent } from '../../utils/create-component.js';
 
 // Types
 
@@ -74,56 +75,20 @@ function generateImagePositionCssVars(imagePositionField: ElementPositionType): 
   };
 }
 
-type ImageAndTextWrapperProps = {
-  $alignment: AlignmentFieldType['default'];
-};
+function generateAlignmentCssVars(alignmentField: AlignmentFieldType['default']): CSSPropertiesMap {
+  const alignmentCss = getAlignmentFieldCss(alignmentField);
 
-const ImageAndText = styled.section<ImageAndTextWrapperProps>`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  column-gap: var(--hsElevate--spacing--80, 80px);
-  ${props => getAlignmentFieldCss(props.$alignment)};
+  return {
+    '--hsElevate--imageAndText__alignItems': alignmentCss.alignItems || 'center',
+  };
+}
 
-  @media (min-width: 767px) {
-    flex-direction: row;
-  }
-`;
+// Components
 
-const ImageContainer = styled.div`
-  margin-block-end: var(--hsElevate--spacing--32, 32px);
-
-  @media (min-width: 767px) {
-    order: var(--hsElevate--imageAndText__order, 0);
-    width: 55%;
-    margin-block-end: 0;
-  }
-`;
-
-const ImageContent = styled.img`
-  height: auto;
-  width: 100%;
-`;
-
-const ContentContainer = styled.div`
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  li,
-  span,
-  div {
-    color: var(--hsElevate--imageAndText__textColor);
-  }
-
-  @media (min-width: 767px) {
-    width: 45%;
-  }
-`;
+const ImageAndText = createComponent('div');
+const ImageContainer = createComponent('div');
+const Image = createComponent('img');
+const ContentContainer = createComponent('div');
 
 export const Component = (props: ImageAndTextProps) => {
   const {
@@ -144,53 +109,52 @@ export const Component = (props: ImageAndTextProps) => {
   const cssVarsMap = {
     ...generateImagePositionCssVars(imagePosition),
     ...generateColorCssVars(sectionStyleVariant),
+    ...generateAlignmentCssVars(verticalAlignment),
   };
 
   return (
-    <StyledComponentsRegistry>
-      <ImageAndText className="hs-elevate-image-and-text" $alignment={verticalAlignment} style={cssVarsMap}>
-        {image.src && (
-          <ImageContainer className="hs-elevate-image-and-text__image-container">
-            <ImageContent
-              className="hs-elevate-image-and-text__image"
-              src={image.src}
-              alt={image.alt}
-              width={image.width}
-              height={image.height}
-              loading={image.loading !== 'disabled' ? image.loading : 'eager'}
+    <ImageAndText className={cx('hs-elevate-image-and-text', styles['hs-elevate-image-and-text'])} style={cssVarsMap}>
+      {image.src && (
+        <ImageContainer className={cx('hs-elevate-image-and-text__image-container', styles['hs-elevate-image-and-text__image-container'])}>
+          <Image
+            className={cx('hs-elevate-image-and-text__image', styles['hs-elevate-image-and-text__image'])}
+            src={image.src}
+            alt={image.alt}
+            width={image.width}
+            height={image.height}
+            loading={image.loading !== 'disabled' ? image.loading : 'eager'}
+          />
+        </ImageContainer>
+      )}
+      {hasContent && (
+        <ContentContainer className={cx('hs-elevate-image-and-text__content-container', styles['hs-elevate-image-and-text__content-container'])}>
+          {headingAndTextHeading && (
+            <HeadingComponent
+              additionalClassArray={['hs-elevate-image-and-text__title']}
+              headingLevel={headingAndTextHeadingLevel}
+              headingStyleVariant={headingStyleVariant}
+              heading={headingAndTextHeading}
             />
-          </ImageContainer>
-        )}
-        {hasContent && (
-          <ContentContainer className="hs-elevate-image-and-text__content-container">
-            {headingAndTextHeading && (
-              <HeadingComponent
-                additionalClassArray={['hs-elevate-image-and-text__title']}
-                headingLevel={headingAndTextHeadingLevel}
-                headingStyleVariant={headingStyleVariant}
-                heading={headingAndTextHeading}
-              />
-            )}
-            {richTextContentHTML && <RichText className="hs-elevate-image-and-text__body" fieldPath="groupContent.richTextContentHTML" />}
-            {showButton && (
-              <Button
-                additionalClassArray={['hs-elevate-image-and-text__button']}
-                buttonSize={buttonStyleSize}
-                buttonStyle={buttonStyleVariant}
-                href={buttonHref}
-                rel={buttonRel}
-                target={buttonTarget}
-                showIcon={showIcon}
-                iconFieldPath="groupButton.buttonContentIcon"
-                iconPosition={iconPosition}
-              >
-                {text}
-              </Button>
-            )}
-          </ContentContainer>
-        )}
-      </ImageAndText>
-    </StyledComponentsRegistry>
+          )}
+          {richTextContentHTML && <RichText className="hs-elevate-image-and-text__body" fieldPath="groupContent.richTextContentHTML" />}
+          {showButton && (
+            <Button
+              additionalClassArray={['hs-elevate-image-and-text__button']}
+              buttonSize={buttonStyleSize}
+              buttonStyle={buttonStyleVariant}
+              href={buttonHref}
+              rel={buttonRel}
+              target={buttonTarget}
+              showIcon={showIcon}
+              iconFieldPath="groupButton.buttonContentIcon"
+              iconPosition={iconPosition}
+            >
+              {text}
+            </Button>
+          )}
+        </ContentContainer>
+      )}
+    </ImageAndText>
   );
 };
 
