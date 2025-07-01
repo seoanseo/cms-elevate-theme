@@ -1,4 +1,104 @@
 {
+  "shared_testimonials_quote_1": {
+    "message": "The measurable results have transformed our business. Highly recommend for anyone looking to elevate their marketing game.",
+    "description": "",
+    "placeholders": null
+  },
+  "shared_testimonials_quote_2": {
+    "message": "The intuitive interface and powerful analytics have driven our campaigns to new heights.",
+    "description": "",
+    "placeholders": null
+  },
+  "shared_testimonials_quote_3": {
+    "message": "The seamless integration with our existing tools has improved our workflow and increased our overall efficiency.",
+    "description": "",
+    "placeholders": null
+  },
+  "shared_testimonials_author_name_1": {
+    "message": "Neil Kumar",
+    "description": "",
+    "placeholders": null
+  },
+  "shared_testimonials_author_name_2": {
+    "message": "Emily Johnson",
+    "description": "",
+    "placeholders": null
+  },
+  "shared_testimonials_author_name_3": {
+    "message": "Michael Brown",
+    "description": "",
+    "placeholders": null
+  },
+  "shared_testimonials_author_title_1": {
+    "message": "VP of Marketing @ Lyraxionics",
+    "description": "",
+    "placeholders": null
+  },
+  "shared_testimonials_author_title_2": {
+    "message": "Chief Marketing Officer @ Crypturon",
+    "description": "",
+    "placeholders": null
+  },
+  "shared_testimonials_author_title_3": {
+    "message": "Director of Operations @ Zyntellix",
+    "description": "",
+    "placeholders": null
+  },
+  "shared_testimonials_link_text": {
+    "message": "Read case study",
+    "description": "",
+    "placeholders": null
+  },
+  "shared_faq_question_1": {
+    "message": "What services does your digital marketing agency offer?",
+    "description": "",
+    "placeholders": null
+  },
+  "shared_faq_question_2": {
+    "message": "How can your digital marketing agency help my business grow?",
+    "description": "",
+    "placeholders": null
+  },
+  "shared_faq_question_3": {
+    "message": "Do you provide customized solutions for different businesses?",
+    "description": "",
+    "placeholders": null
+  },
+  "shared_faq_question_4": {
+    "message": "Can you track the performance of digital marketing campaigns?",
+    "description": "",
+    "placeholders": null
+  },
+  "shared_faq_question_5": {
+    "message": "What sets your digital marketing agency apart from others in the industry?",
+    "description": "",
+    "placeholders": null
+  },
+  "shared_faq_answer_1": {
+    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
+    "description": "",
+    "placeholders": null
+  },
+  "shared_faq_answer_2": {
+    "message": "Our agency can help your business grow by increasing your online visibility, driving website traffic, generating leads, improving brand awareness, and ultimately increasing sales and revenue through targeted digital marketing strategies.",
+    "description": "",
+    "placeholders": null
+  },
+  "shared_faq_answer_3": {
+    "message": "Yes, we understand that every business is unique, and we tailor our digital marketing solutions to meet the specific needs and goals of each client. We offer customized strategies and campaigns to ensure maximum effectiveness.",
+    "description": "",
+    "placeholders": null
+  },
+  "shared_faq_answer_4": {
+    "message": "Absolutely. We provide detailed analytics and reports to track the performance of your digital marketing campaigns. This allows us to measure key metrics, identify areas for improvement, and adjust strategies to achieve the best results.",
+    "description": "",
+    "placeholders": null
+  },
+  "shared_faq_answer_5": {
+    "message": "Our agency is distinguished by our team of experienced professionals, innovative marketing strategies, client-focused approach, and commitment to delivering tangible results. We prioritize transparency, communication, and collaboration with our clients.",
+    "description": "",
+    "placeholders": null
+  },
   "partial_header_skip_to_content": {
     "message": "Skip to content",
     "description": "",
@@ -339,56 +439,6 @@
     "description": "",
     "placeholders": null
   },
-  "lp_clickthrough_testimonial_quote": {
-    "message": "The measurable results have transformed our business. Highly recommend for anyone looking to elevate their marketing game.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_clickthrough_testimonial_author_name": {
-    "message": "Neil Kumar",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_clickthrough_testimonial_author_title": {
-    "message": "VP of Marketing @ Lyraxionics",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_clickthrough_testimonial_quote_two": {
-    "message": "The intuitive interface and powerful analytics have driven our campaigns to new heights.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_clickthrough_testimonial_author_name_two": {
-    "message": "Emily Johnson",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_clickthrough_testimonial_author_title_two": {
-    "message": "Chief Marketing Officer @  Crypturon",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_clickthrough_testimonial_quote_three": {
-    "message": "The seamless integration with our existing tools has improved our workflow and increased our overall efficiency.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_clickthrough_testimonial_author_name_three": {
-    "message": "Michael Brown",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_clickthrough_testimonial_author_title_three": {
-    "message": "Director of Operations @ Zyntellix",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_clickthrough_testimonial_link_text": {
-    "message": "Read case study",
-    "description": "",
-    "placeholders": null
-  },
   "lp_downloadable_asset_image_alt": {
     "message": "An image of an eBook labeled 'The Ultimate Marketing Playbook'",
     "description": "",
@@ -401,106 +451,6 @@
   },
   "lp_downloadable_asset_description": {
     "message": "Address your reader's challenges or goals and explain how the resource will help solve them",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_downloadable_asset_testimonial_quote": {
-    "message": "The measurable results have transformed our business. Highly recommend for anyone looking to elevate their marketing game.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_downloadable_asset_testimonial_author_name": {
-    "message": "Neil Kumar",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_downloadable_asset_testimonial_author_title": {
-    "message": "VP of Marketing @ Lyraxionics",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_downloadable_asset_testimonial_quote_two": {
-    "message": "The intuitive interface and powerful analytics have driven our campaigns to new heights.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_downloadable_asset_testimonial_author_name_two": {
-    "message": "Emily Johnson",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_downloadable_asset_testimonial_author_title_two": {
-    "message": "Chief Marketing Officer @  Crypturon",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_downloadable_asset_testimonial_quote_three": {
-    "message": "The seamless integration with our existing tools has improved our workflow and increased our overall efficiency.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_downloadable_asset_testimonial_author_name_three": {
-    "message": "Michael Brown",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_downloadable_asset_testimonial_author_title_three": {
-    "message": "Director of Operations @ Zyntellix",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_downloadable_asset_testimonial_link_text": {
-    "message": "Read case study",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_downloadable_asset_faq_one_question": {
-    "message": "What services does your digital marketing agency offer?",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_downloadable_asset_faq_one_answer": {
-    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_downloadable_asset_faq_two_question": {
-    "message": "How can your digital marketing agency help my business grow?",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_downloadable_asset_faq_two_answer": {
-    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_downloadable_asset_faq_three_question": {
-    "message": "Do you provide customized solutions for different businesses?",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_downloadable_asset_faq_three_answer": {
-    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_downloadable_asset_faq_four_question": {
-    "message": "Can you track the performance of digital marketing campaigns?",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_downloadable_asset_faq_four_answer": {
-    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_downloadable_asset_faq_five_question": {
-    "message": "What sets your digital marketing agency apart from others in the industry?",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_downloadable_asset_faq_five_answer": {
-    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
     "description": "",
     "placeholders": null
   },
@@ -804,56 +754,6 @@
     "description": "",
     "placeholders": null
   },
-  "lp_meeting_testimonial_quote": {
-    "message": "The measurable results have transformed our business. Highly recommend for anyone looking to elevate their marketing game.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_meeting_testimonial_author_name": {
-    "message": "Neil Kumar",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_meeting_testimonial_author_title": {
-    "message": "VP of Marketing @ Lyraxionics",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_meeting_testimonial_link_text": {
-    "message": "Read case study",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_meeting_testimonial_quote_two": {
-    "message": "The intuitive interface and powerful analytics have driven our campaigns to new heights.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_meeting_testimonial_author_name_two": {
-    "message": "Emily Johnson",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_meeting_testimonial_author_title_two": {
-    "message": "Chief Marketing Officer @  Crypturon",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_meeting_testimonial_quote_three": {
-    "message": "The seamless integration with our existing tools has improved our workflow and increased our overall efficiency.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_meeting_testimonial_author_name_three": {
-    "message": "Michael Brown",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_meeting_testimonial_author_title_three": {
-    "message": "Director of Operations @ Zyntellix",
-    "description": "",
-    "placeholders": null
-  },
   "lp_meeting_faq_one_question": {
     "message": "What is the dress code for the company event or conference?",
     "description": "",
@@ -959,56 +859,6 @@
     "description": "",
     "placeholders": null
   },
-  "lp_products_testimonial_quote": {
-    "message": "The measurable results have transformed our business. Highly recommend for anyone looking to elevate their marketing game.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_products_testimonial_author_name": {
-    "message": "Neil Kumar",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_products_testimonial_author_title": {
-    "message": "VP of Marketing @ Lyraxionics",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_products_testimonial_quote_two": {
-    "message": "The intuitive interface and powerful analytics have driven our campaigns to new heights.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_products_testimonial_author_name_two": {
-    "message": "Emily Johnson",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_products_testimonial_author_title_two": {
-    "message": "Chief Marketing Officer @  Crypturon",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_products_testimonial_quote_three": {
-    "message": "The seamless integration with our existing tools has improved our workflow and increased our overall efficiency.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_products_testimonial_author_name_three": {
-    "message": "Michael Brown",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_products_testimonial_author_title_three": {
-    "message": "Director of Operations @ Zyntellix",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_products_testimonial_link_text": {
-    "message": "Read case study",
-    "description": "",
-    "placeholders": null
-  },
   "lp_products_image_and_text_1_heading": {
     "message": "Increase reach and engagement",
     "description": "",
@@ -1036,56 +886,6 @@
   },
   "lp_products_image_and_text_3_description": {
     "message": "Write a description highlighting the functionality, benefits, and uniqueness of your feature. A couple of sentences here is just right.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_products_faq_one_question": {
-    "message": "What services does your digital marketing agency offer?",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_products_faq_one_answer": {
-    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_products_faq_two_question": {
-    "message": "How can your digital marketing agency help my business grow?",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_products_faq_two_answer": {
-    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_products_faq_three_question": {
-    "message": "Do you provide customized solutions for different businesses?",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_products_faq_three_answer": {
-    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_products_faq_four_question": {
-    "message": "Can you track the performance of digital marketing campaigns?",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_products_faq_four_answer": {
-    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_products_faq_five_question": {
-    "message": "What sets your digital marketing agency apart from others in the industry?",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_products_faq_five_answer": {
-    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
     "description": "",
     "placeholders": null
   },
@@ -1314,56 +1114,6 @@
     "description": "",
     "placeholders": null
   },
-  "lp_video_testimonial_quote": {
-    "message": "The measurable results have transformed our business. Highly recommend for anyone looking to elevate their marketing game.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_video_testimonial_author_name": {
-    "message": "Neil Kumar",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_video_testimonial_author_title": {
-    "message": "VP of Marketing @ Lyraxionics",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_video_testimonial_quote_two": {
-    "message": "The intuitive interface and powerful analytics have driven our campaigns to new heights.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_video_testimonial_author_name_two": {
-    "message": "Emily Johnson",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_video_testimonial_author_title_two": {
-    "message": "Chief Marketing Officer @  Crypturon",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_video_testimonial_quote_three": {
-    "message": "The seamless integration with our existing tools has improved our workflow and increased our overall efficiency.",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_video_testimonial_author_name_three": {
-    "message": "Michael Brown",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_video_testimonial_author_title_three": {
-    "message": "Director of Operations @ Zyntellix",
-    "description": "",
-    "placeholders": null
-  },
-  "lp_video_testimonial_link_text": {
-    "message": "Read case study",
-    "description": "",
-    "placeholders": null
-  },
   "lp_video_faq_one_question": {
     "message": "What is the dress code for the company event or conference?",
     "description": "",
@@ -1421,56 +1171,6 @@
   },
   "lp_video_call_to_action_button_text": {
     "message": "Register now",
-    "description": "",
-    "placeholders": null
-  },
-  "pricing_faq_one_question": {
-    "message": "What services does your digital marketing agency offer?",
-    "description": "",
-    "placeholders": null
-  },
-  "pricing_faq_one_answer": {
-    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
-    "description": "",
-    "placeholders": null
-  },
-  "pricing_faq_two_question": {
-    "message": "How can your digital marketing agency help my business grow?",
-    "description": "",
-    "placeholders": null
-  },
-  "pricing_faq_two_answer": {
-    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
-    "description": "",
-    "placeholders": null
-  },
-  "pricing_faq_three_question": {
-    "message": "Do you provide customized solutions for different businesses?",
-    "description": "",
-    "placeholders": null
-  },
-  "pricing_faq_three_answer": {
-    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
-    "description": "",
-    "placeholders": null
-  },
-  "pricing_faq_four_question": {
-    "message": "Can you track the performance of digital marketing campaigns?",
-    "description": "",
-    "placeholders": null
-  },
-  "pricing_faq_four_answer": {
-    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
-    "description": "",
-    "placeholders": null
-  },
-  "pricing_faq_five_question": {
-    "message": "What sets your digital marketing agency apart from others in the industry?",
-    "description": "",
-    "placeholders": null
-  },
-  "pricing_faq_five_answer": {
-    "message": "Our digital marketing agency offers services such as social media management, search engine optimization (SEO), pay-per-click advertising, content marketing, email marketing, and website design and development.",
     "description": "",
     "placeholders": null
   },
