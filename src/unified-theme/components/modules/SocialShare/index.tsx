@@ -1,12 +1,13 @@
 import { ModuleMeta } from '../../types/modules.js';
-import { styled } from 'styled-components';
 import { Icon, usePageUrl } from '@hubspot/cms-components';
-import StyledComponentsRegistry from '../../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
 import socialIconSvg from './assets/social-follow.svg';
 import { TextFieldType, AlignmentFieldType } from '@hubspot/cms-components/fields';
 import { StandardSizeType, ButtonStyleType } from '../../types/fields.js';
 import { getAlignmentFieldCss } from '../../utils/style-fields.js';
 import { ButtonStyleFieldLibraryType } from '../../fieldLibrary/ButtonStyle/types.js';
+import styles from './social-share.module.css';
+import cx from '../../utils/classnames.js';
+import { createComponent } from '../../utils/create-component.js';
 
 // Types
 
@@ -157,63 +158,18 @@ function generateButtonStyles(buttonStyleVariant: ButtonStyleType): CSSPropertie
   };
 }
 
-type StyledSocialShareProps = {
-  $alignment: AlignmentFieldType['default'];
-};
+function generateAlignmentCssVars(alignmentField: AlignmentFieldType['default']): CSSPropertiesMap {
+  const alignmentCss = getAlignmentFieldCss(alignmentField);
 
-const StyledSocialShare = styled.div<StyledSocialShareProps>`
-  display: flex;
-  align-items: center;
-  ${props => getAlignmentFieldCss(props.$alignment)};
-  gap: var(--hsElevate--socialShareIcon__gap);
-  flex-wrap: wrap;
-`;
+  return {
+    '--hsElevate--socialShare__justifyContent': alignmentCss.justifyContent || 'flex-start',
+  };
+}
 
-const SocialLink = styled.a`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--hsElevate--socialShareIcon__shape);
-  background-color: var(--hsElevate--socialShareIcon__backgroundColor);
-  border-color: var(--hsElevate--socialShareIcon__borderColor);
-  border-style: solid;
-  border-width: var(--hsElevate--socialShareIcon__borderWidth);
-  padding: var(--hsElevate--socialShareIcon__padding);
+// Components
 
-  svg {
-    fill: var(--hsElevate--socialShareIcon__color);
-  }
-
-  &:hover {
-    background-color: var(--hsElevate--socialShareIcon__hover--backgroundColor);
-    border-color: var(--hsElevate--socialShareIcon__hover--borderColor);
-    border-width: var(--hsElevate--socialShareIcon__hover--borderWidth);
-
-    svg {
-      fill: var(--hsElevate--socialShareIcon__hover--color);
-    }
-  }
-
-  &:active {
-    background-color: var(--hsElevate--socialShareIcon__active--backgroundColor);
-    border-color: var(--hsElevate--socialShareIcon__active--borderColor);
-    border-width: var(--hsElevate--socialShareIcon__active--borderWidth);
-
-    svg {
-      fill: var(--hsElevate--socialShareIcon__active--color);
-    }
-  }
-
-  &:focus {
-    outline: 2px solid #53acff;
-    outline-offset: 2px;
-  }
-`;
-
-const SocialIcon = styled(Icon)`
-  width: var(--hsElevate--socialShareIcon__size);
-  height: var(--hsElevate--socialShareIcon__size);
-`;
+const SocialShareContainer = createComponent('div');
+const SocialLink = createComponent('a');
 
 function getPlatformMetaData(socialLink: string, defaultText: DefaultTextProps) {
   const platformMetaData = {
@@ -259,35 +215,34 @@ export const Component = (props: SocialShareProps) => {
     ...generateIconShapeCssVars(shape),
     ...generateIconGapCssVars(spaceBetweenIcons),
     ...generateButtonStyles(buttonStyleVariant),
+    ...generateAlignmentCssVars(alignment),
   };
 
   const currentUrl = usePageUrl().href;
 
   return (
-    <StyledComponentsRegistry>
-      <StyledSocialShare className="hs-elevate-social-share" $alignment={alignment} style={cssVarsMap}>
-        {platforms.map(platform => {
-          if (!currentUrl) {
-            return null;
-          }
+    <SocialShareContainer className={cx('hs-elevate-social-share', styles['hs-elevate-social-share'])} style={cssVarsMap}>
+      {platforms.map(platform => {
+        if (!currentUrl) {
+          return null;
+        }
 
-          const platformMetaData = getPlatformMetaData(platform, groupDefaultText);
+        const platformMetaData = getPlatformMetaData(platform, groupDefaultText);
 
-          let iconFieldPath = `groupDefaultIcons.${platformMetaData.name}`;
+        let iconFieldPath = `groupDefaultIcons.${platformMetaData.name}`;
 
-          return (
-            <SocialLink
-              className="hs-elevate-social-share__link"
-              key={platform}
-              href={`${platformMetaData.base_url}${encodeURIComponent(currentUrl)}`}
-              aria-label={platformMetaData.aria_label}
-            >
-              <SocialIcon className="hs-elevate-social-share__icon" purpose="DECORATIVE" fieldPath={iconFieldPath} />
-            </SocialLink>
-          );
-        })}
-      </StyledSocialShare>
-    </StyledComponentsRegistry>
+        return (
+          <SocialLink
+            className={cx('hs-elevate-social-share__link', styles['hs-elevate-social-share__link'])}
+            key={platform}
+            href={`${platformMetaData.base_url}${encodeURIComponent(currentUrl)}`}
+            aria-label={platformMetaData.aria_label}
+          >
+            <Icon className={cx('hs-elevate-social-share__icon', styles['hs-elevate-social-share__icon'])} purpose="DECORATIVE" fieldPath={iconFieldPath} />
+          </SocialLink>
+        );
+      })}
+    </SocialShareContainer>
   );
 };
 

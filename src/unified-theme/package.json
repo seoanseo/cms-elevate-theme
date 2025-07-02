@@ -6,7 +6,8 @@
     "start": "hs-cms-dev-server .",
     "generate-tmp-json-for-translations": "jsx-module-fields-to-fields-json",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test-storybook": "test-storybook"
   },
   "type": "module",
   "keywords": [],
@@ -18,7 +19,8 @@
     "isomorphic-dompurify": "^2.15.0",
     "prop-types": "^15.8",
     "react": "^18",
-    "styled-components": "^6"
+    "styled-components": "^6",
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@hubspot/cms-dev-server": "^1.0.0",
@@ -32,6 +34,7 @@
     "@storybook/react": "^8.6.14",
     "@storybook/react-vite": "^8.6.14",
     "@storybook/test": "^8.6.14",
+    "@storybook/test-runner": "^0.19.1",
     "storybook": "^8.6.14"
   }
 }

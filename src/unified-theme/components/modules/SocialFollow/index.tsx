@@ -1,13 +1,14 @@
 import { ModuleMeta } from '../../types/modules.js';
-import { styled } from 'styled-components';
 import { Icon } from '@hubspot/cms-components';
-import StyledComponentsRegistry from '../../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
 import socialIconSvg from './assets/social-follow.svg';
 import { IconFieldType, LinkFieldType, TextFieldType, AlignmentFieldType, BooleanFieldType } from '@hubspot/cms-components/fields';
 import { StandardSizeType, ButtonStyleType } from '../../types/fields.js';
-import { getAlignmentFieldCss } from '../../utils/style-fields.js';
 import { getLinkFieldRel, getLinkFieldTarget } from '../../utils/content-fields.js';
 import { ButtonStyleFieldLibraryType } from '../../fieldLibrary/ButtonStyle/types.js';
+import { getAlignmentFieldCss } from '../../utils/style-fields.js';
+import styles from './social-follow.module.css';
+import cx from '../../utils/classnames.js';
+import { createComponent } from '../../utils/create-component.js';
 
 // Types
 
@@ -102,6 +103,14 @@ function generateIconGapCssVars(iconGapField: SizeOption): CSSPropertiesMap {
   };
 }
 
+function generateAlignmentCssVars(alignmentField: AlignmentFieldType['default']): CSSPropertiesMap {
+  const alignmentCss = getAlignmentFieldCss(alignmentField);
+
+  return {
+    '--hsElevate--socialFollow__justifyContent': alignmentCss.justifyContent || 'flex-start',
+  };
+}
+
 function generateButtonStyles(buttonStyleVariant: ButtonStyleType): CSSPropertiesMap {
   const iconStyles = {
     primary: {
@@ -178,67 +187,10 @@ function generateButtonStyles(buttonStyleVariant: ButtonStyleType): CSSPropertie
   };
 }
 
-type StyledSocialFollowProps = {
-  $alignment: AlignmentFieldType['default'];
-};
+// Components
 
-const StyledSocialFollow = styled.div<StyledSocialFollowProps>`
-  display: flex;
-  align-items: center;
-  ${props => getAlignmentFieldCss(props.$alignment)};
-  gap: var(--hsElevate--socialFollowIcon__gap);
-  flex-wrap: wrap;
-`;
-
-const SocialLink = styled.a`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--hsElevate--socialFollowIcon__shape);
-  background-color: var(--hsElevate--socialFollowIcon__backgroundColor);
-  border-color: var(--hsElevate--socialFollowIcon__borderColor);
-  border-style: solid;
-  border-width: var(--hsElevate--socialFollowIcon__borderWidth);
-  padding: var(--hsElevate--socialFollowIcon__padding);
-
-  svg {
-    fill: var(--hsElevate--socialFollowIcon__color);
-  }
-
-  &:hover {
-    background-color: var(--hsElevate--socialFollowIcon__hover--backgroundColor);
-    border-color: var(--hsElevate--socialFollowIcon__hover--borderColor);
-    border-width: var(--hsElevate--socialFollowIcon__hover--borderWidth);
-
-    svg {
-      fill: var(--hsElevate--socialFollowIcon__hover--color);
-    }
-  }
-
-  &:active {
-    background-color: var(--hsElevate--socialFollowIcon__active--backgroundColor);
-    border-color: var(--hsElevate--socialFollowIcon__active--borderColor);
-    border-width: var(--hsElevate--socialFollowIcon__active--borderWidth);
-
-    svg {
-      fill: var(--hsElevate--socialFollowIcon__active--color);
-    }
-  }
-
-  &:focus {
-    outline: 2px solid #53acff;
-    outline-offset: 2px;
-  }
-`;
-
-type SocialIconProps = {
-  iconColor: string;
-};
-
-const SocialIcon = styled(Icon)`
-  width: var(--hsElevate--socialFollowIcon__size);
-  height: var(--hsElevate--socialFollowIcon__size);
-`;
+const SocialFollowContainer = createComponent('div');
+const SocialLink = createComponent('a');
 
 function getSocialIcon(socialLink: string, defaultText: DefaultTextProps) {
   const icons = {
@@ -335,45 +287,44 @@ export const Component = (props: SocialFollowProps) => {
     ...generateIconSizeAndPaddingCssVars(buttonStyleSize),
     ...generateIconShapeCssVars(shape),
     ...generateIconGapCssVars(spaceBetweenIcons),
+    ...generateAlignmentCssVars(alignment),
     ...generateButtonStyles(buttonStyleVariant),
   };
 
   return (
-    <StyledComponentsRegistry>
-      <StyledSocialFollow className="hs-elevate-social-follow" $alignment={alignment} style={cssVarsMap}>
-        {groupSocialLinks.map((socialLink, index) => {
-          const {
-            groupLink: { link },
-            groupIcon: { customizeIcon },
-          } = socialLink;
+    <SocialFollowContainer className={cx('hs-elevate-social-follow', styles['hs-elevate-social-follow'])} style={cssVarsMap}>
+      {groupSocialLinks.map((socialLink, index) => {
+        const {
+          groupLink: { link },
+          groupIcon: { customizeIcon },
+        } = socialLink;
 
-          if (!link || !link.url) {
-            return null;
-          }
+        if (!link || !link.url) {
+          return null;
+        }
 
-          const host = getHost(link.url.type, link.url.href);
-          const socialIcon = getSocialIcon(host, groupDefaultText);
+        const host = getHost(link.url.type, link.url.href);
+        const socialIcon = getSocialIcon(host, groupDefaultText);
 
-          let iconFieldPath = `groupDefaultIcons.${socialIcon.name}`;
-          if (customizeIcon) {
-            iconFieldPath = `groupSocialLinks[${index}].groupIcon.customIcon`;
-          }
+        let iconFieldPath = `groupDefaultIcons.${socialIcon.name}`;
+        if (customizeIcon) {
+          iconFieldPath = `groupSocialLinks[${index}].groupIcon.customIcon`;
+        }
 
-          return (
-            <SocialLink
-              className="hs-elevate-social-follow__link"
-              key={index}
-              rel={getLinkFieldRel(link)}
-              target={getLinkFieldTarget(link)}
-              href={link.url.href}
-              aria-label={socialIcon.aria_label}
-            >
-              <SocialIcon className="hs-elevate-social-follow__icon" purpose="DECORATIVE" fieldPath={iconFieldPath} />
-            </SocialLink>
-          );
-        })}
-      </StyledSocialFollow>
-    </StyledComponentsRegistry>
+        return (
+          <SocialLink
+            className={cx('hs-elevate-social-follow__link', styles['hs-elevate-social-follow__link'])}
+            key={index}
+            rel={getLinkFieldRel(link)}
+            target={getLinkFieldTarget(link)}
+            href={link.url.href}
+            aria-label={socialIcon.aria_label}
+          >
+            <Icon className={cx('hs-elevate-social-follow__icon', styles['hs-elevate-social-follow__icon'])} purpose="DECORATIVE" fieldPath={iconFieldPath} />
+          </SocialLink>
+        );
+      })}
+    </SocialFollowContainer>
   );
 };
 

@@ -9,6 +9,7 @@ import buttonIconSvg from './assets/button.svg';
 import { ButtonContentType } from '../../fieldLibrary/ButtonContent/types.js';
 import { ButtonStyleFieldLibraryType } from '../../fieldLibrary/ButtonStyle/types.js';
 import cx from '../../utils/classnames.js';
+import { createComponent } from '../../utils/create-component.js';
 
 // Types
 enum LinkType {
@@ -85,6 +86,11 @@ function generateAlignmentCssVars(alignmentField: AlignmentFieldType['default'])
   };
 }
 
+// Components
+
+const ButtonWrapper = createComponent('div');
+const ButtonContainer = createComponent('div');
+
 export const Component = (props: ButtonProps) => {
   const {
     groupButtons,
@@ -98,8 +104,8 @@ export const Component = (props: ButtonProps) => {
   };
 
   return (
-    <div className={cx('hs-elevate-button-wrapper', styles['hs-elevate-button-wrapper'])} style={cssVarsMap}>
-      <div className={cx('hs-elevate-button-container', styles['hs-elevate-button-container'])}>
+    <ButtonWrapper className={cx('hs-elevate-button-wrapper', styles['hs-elevate-button-wrapper'])} style={cssVarsMap}>
+      <ButtonContainer className={cx('hs-elevate-button-container', styles['hs-elevate-button-container'])}>
         {groupButtons.map((button, index) => (
           <Button
             key={index}
@@ -117,8 +123,8 @@ export const Component = (props: ButtonProps) => {
             {button.buttonContentText}
           </Button>
         ))}
-      </div>
-    </div>
+      </ButtonContainer>
+    </ButtonWrapper>
   );
 };
 

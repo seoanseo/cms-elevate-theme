@@ -1,12 +1,15 @@
-import { BooleanFieldType, IconFieldType, TextFieldType } from '@hubspot/cms-components/fields';
+import { IconFieldType, TextFieldType } from '@hubspot/cms-components/fields';
 import { ModuleMeta } from '../../types/modules.js';
 import listIconSvg from '../FeatureList/assets/list.svg';
 import { Icon } from '@hubspot/cms-components';
-import { styled } from 'styled-components';
-import StyledComponentsRegistry from '../../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
+import styles from './list.module.css';
 import { SectionVariantType } from '../../types/fields.js';
 import { SectionStyleFieldLibraryType } from '../../fieldLibrary/SectionStyle/types.js';
 import { sectionColorsMap } from '../../utils/section-color-map.js';
+import cx from '../../utils/classnames.js';
+import { createComponent } from '../../utils/create-component.js';
+
+// Types
 
 type ListProps = {
   listIcon: IconFieldType['default'];
@@ -22,33 +25,9 @@ type GroupListItems = {
   };
 };
 
-const ListContainer = styled.ul`
-  padding-left: 0px;
-`;
-
-const ListItem = styled.li`
-  align-items: flex-start;
-  display: flex;
-  gap: var(--hsElevate--spacing--8, 8px);
-  margin-bottom: var(--hsElevate--spacing--16, 16px);
-  color: var(--hsElevate--list__textColor);
-`;
-
-const StyledIconContainer = styled.span`
-  border-radius: 100%;
-  background: var(--hsElevate--list__accentColor);
-`;
-
-const StyledIcon = styled(Icon)`
-  display: block;
-  height: 1.75rem;
-  width: 1.75rem;
-  flex: 0 0 1.75rem;
-  padding: var(--hsElevate--spacing--8, 8px);
-  fill: var(--hsElevate--list__sectionBackgroundColor);
-`;
-
 type CSSPropertiesMap = { [key: string]: string };
+
+// Function to generate color CSS variables
 
 function generateColorCssVars(sectionVariantField: SectionVariantType): CSSPropertiesMap {
   return {
@@ -57,6 +36,12 @@ function generateColorCssVars(sectionVariantField: SectionVariantType): CSSPrope
     '--hsElevate--list__sectionBackgroundColor': sectionColorsMap[sectionVariantField].backgroundColor,
   };
 }
+
+// Components
+
+const ListContainer = createComponent('ul');
+const ListItem = createComponent('li');
+const IconContainer = createComponent('span');
 
 export const Component = (props: ListProps) => {
   const {
@@ -68,22 +53,23 @@ export const Component = (props: ListProps) => {
   const cssColorVars = { ...generateColorCssVars(sectionStyleVariant) };
 
   return (
-    <StyledComponentsRegistry>
-      <ListContainer className="hs-elevate-list-container" style={cssColorVars}>
-        {groupListItems.map((item, index) => {
-          return (
-            <ListItem className="hs-elevate-list-container__item" key={`${index} ${item.groupListContent.listItemContent}`}>
-              {listIcon.name && (
-                <StyledIconContainer className="hs-elevate-list-container__icon-container">
-                  <StyledIcon className="hs-elevate-list-container__icon" fieldPath={`listIcon`} purpose="DECORATIVE" />
-                </StyledIconContainer>
-              )}
-              {item.groupListContent.listItemContent}
-            </ListItem>
-          );
-        })}
-      </ListContainer>
-    </StyledComponentsRegistry>
+    <ListContainer className={cx('hs-elevate-list-container', styles['hs-elevate-list-container'])} style={cssColorVars}>
+      {groupListItems.map((item, index) => {
+        return (
+          <ListItem
+            className={cx('hs-elevate-list-container__item', styles['hs-elevate-list-container__item'])}
+            key={`${index} ${item.groupListContent.listItemContent}`}
+          >
+            {listIcon.name && (
+              <IconContainer className={cx('hs-elevate-list-container__icon-container', styles['hs-elevate-list-container__icon-container'])}>
+                <Icon className={cx('hs-elevate-list-container__icon', styles['hs-elevate-list-container__icon'])} fieldPath="listIcon" purpose="DECORATIVE" />
+              </IconContainer>
+            )}
+            {item.groupListContent.listItemContent}
+          </ListItem>
+        );
+      })}
+    </ListContainer>
   );
 };
 
