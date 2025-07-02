@@ -1,4 +1,23 @@
-export const sectionColorsMap = {
+import { SectionVariantType } from '../types/fields.js';
+
+export type SectionColorConfig = {
+  backgroundColor: string;
+  textColor: string;
+  accentColor: string;
+  linkColor: string;
+  textDecoration: string;
+  textDecorationColor: string;
+  linkHoverColor: string;
+  linkHoverTextDecoration: string;
+  linkHoverTextDecorationColor: string;
+  blockquoteTextColor: string;
+  blockquoteBackgroundColor: string;
+  blockquoteAccentColor: string;
+};
+
+export type SectionColorsMap = Record<SectionVariantType, SectionColorConfig>;
+
+export const sectionColorsMap: SectionColorsMap = {
   section_variant_1: {
     backgroundColor: 'var(--hsElevate--section--lightSection--1__backgroundColor)',
     textColor: 'var(--hsElevate--section--lightSection--1__textColor)',
