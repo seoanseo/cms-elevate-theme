@@ -27,23 +27,27 @@ p {
   margin-block: var(--hsElevate--text__margin);
 }
 
-a:not(.hs-elevate-button),
+a:not(.hs-elevate-button, .hs-elevate-blog-listing__pagination-link, .hs-elevate-card--blog__link),
 a.hs-elevate-link--primary,
 .hs-elevate-link--primary a {
   color: var(--hsElevate--link--primary__fontColor);
   cursor: pointer;
+  -webkit-text-decoration: var(--hsElevate--link--primary__textDecoration);
   text-decoration: var(--hsElevate--link--primary__textDecoration);
+  -webkit-text-decoration-color: var(--hsElevate--link--primary__textDecorationColor);
   text-decoration-color: var(--hsElevate--link--primary__textDecorationColor);
 }
 
-a:not(.hs-elevate-button):hover,
-a:not(.hs-elevate-button):focus,
+a:not(.hs-elevate-button, .hs-elevate-blog-listing__pagination-link, .hs-elevate-card--blog__link):hover,
+a:not(.hs-elevate-button, .hs-elevate-blog-listing__pagination-link, .hs-elevate-card--blog__link):focus,
 a.hs-elevate-link--primary:hover,
 .hs-elevate-link--primary a:hover,
 a.hs-elevate-link--primary:focus,
 .hs-elevate-link--primary a:focus {
   color: var(--hsElevate--link--primary__hover--fontColor);
+  -webkit-text-decoration: var(--hsElevate--link--primary__hover--textDecoration);
   text-decoration: var(--hsElevate--link--primary__hover--textDecoration);
+  -webkit-text-decoration-color: var(--hsElevate--link--primary__hover--textDecorationColor);
   text-decoration-color: var(--hsElevate--link--primary__hover--textDecorationColor);
 }
 
@@ -51,7 +55,9 @@ a.hs-elevate-link--secondary,
 .hs-elevate-link--secondary a {
   color: var(--hsElevate--link--secondary__fontColor);
   cursor: pointer;
+  -webkit-text-decoration: var(--hsElevate--link--secondary__textDecoration);
   text-decoration: var(--hsElevate--link--secondary__textDecoration);
+  -webkit-text-decoration-color: var(--hsElevate--link--secondary__textDecorationColor);
   text-decoration-color: var(--hsElevate--link--secondary__textDecorationColor);
 }
 
@@ -59,7 +65,9 @@ a.hs-elevate-link--secondary:hover,
 .hs-elevate-link--secondary a:hover a.hs-elevate-link--secondary:focus,
 .hs-elevate-link--secondary a:focus {
   color: var(--hsElevate--link--secondary__hover--fontColor);
+  -webkit-text-decoration: var(--hsElevate--link--secondary__hover--textDecoration);
   text-decoration: var(--hsElevate--link--secondary__hover--textDecoration);
+  -webkit-text-decoration-color: var(--hsElevate--link--secondary__hover--textDecorationColor);
   text-decoration-color: var(--hsElevate--link--secondary__hover--textDecorationColor);
 }
 

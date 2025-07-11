@@ -1,9 +1,9 @@
 import { CSSProperties, styled } from 'styled-components';
 import MenuComponent from '../../../MenuComponent/index.js';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { useSharedIslandState } from '@hubspot/cms-components';
 import { Button } from '../../../ButtonComponent/index.js';
-import { getLinkFieldHref } from '../../../utils/content-fields.js';
+import { getLinkFieldHref, getLinkFieldRel, getLinkFieldTarget } from '../../../utils/content-fields.js';
 import { MenuContainerProps, MobileMenuIslandProps } from '../types.js';
 import MobileSiteHeaderLanguageSwitcher from '../../../LanguageSwitcherComponent/MobileSiteHeaderLanguageSwitcherComponent.js';
 
@@ -360,11 +360,12 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
               href={getLinkFieldHref(buttonLink)}
               buttonStyle={buttonStyleVariant}
               buttonSize={buttonStyleSize}
-              additionalClassArray={['hs-elevate-site-header__mobile-button']}
-              openInNewTab={buttonLink.open_in_new_tab}
+              target={getLinkFieldTarget(buttonLink)}
+              rel={getLinkFieldRel(buttonLink)}
               showIcon={showIcon}
               iconFieldPath="groupButton.buttonContentIcon"
               iconPosition={iconPosition}
+              additionalClassArray={['hs-elevate-site-header__mobile-button']}
             >
               {buttonText}
             </Button>

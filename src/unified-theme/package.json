@@ -6,8 +6,9 @@
     "start": "hs-cms-dev-server .",
     "generate-tmp-json-for-translations": "jsx-module-fields-to-fields-json",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "test-storybook": "test-storybook"
+    "build-storybook": "storybook build --output-dir ../../cms-elevate-theme-static-assets/dist",
+    "test-storybook": "test-storybook",
+    "preview-storybook": "npx serve ../../cms-elevate-theme-static-assets/dist -l 8080"
   },
   "type": "module",
   "keywords": [],

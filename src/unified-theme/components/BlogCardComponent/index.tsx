@@ -1,12 +1,14 @@
-import { styled } from 'styled-components';
 import { Card } from '../CardComponent/index.js';
-import StyledComponentsRegistry from '../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
+import styles from './blog-card.module.css';
+import cx from '../utils/classnames.js';
+import { createComponent } from '../utils/create-component.js';
 import { TagComponent } from '../TagComponent/index.js';
-import GatedLockIcon from '../modules/BlogListing/assets/gated-lock-icon.svg';
 import HeadingComponent from '../HeadingComponent/index.js';
 import SanitizedContent from '../SanitizeHTML/index.js';
 import { CardVariantType, HeadingLevelType } from '../types/fields.js';
 import { HeadingStyleVariant } from '../fieldLibrary/HeadingStyle/types.js';
+
+// Types
 
 interface BlogCardComponentProps {
   post: {
@@ -26,9 +28,13 @@ interface BlogCardComponentProps {
   additionalClassArray?: string[];
 }
 
+// Components
+
 interface TagListProps {
   tags: string[];
 }
+
+const CardTagContainer = createComponent('div');
 
 const TagList = ({ tags }: TagListProps) => {
   if (!tags || tags.length === 0) {
@@ -36,129 +42,104 @@ const TagList = ({ tags }: TagListProps) => {
   }
 
   return (
-    <StyledTagContainer>
+    <CardTagContainer className={cx(`hs-elevate-card--blog__tag-container`, styles['hs-elevate-card--blog__tag-container'])}>
       {tags.map((tag: string, index: number) => (
         <TagComponent key={index}>
           <SanitizedContent content={tag} />
         </TagComponent>
       ))}
-    </StyledTagContainer>
+    </CardTagContainer>
   );
 };
 
-function parseCardVariant(cardStyleVariant: string) {
-  if (!cardStyleVariant) return 'variant2';
+// Functions to generate CSS variables
 
-  return `variant${cardStyleVariant.split('_').pop()}`;
+type CSSPropertiesMap = { [key: string]: string };
+
+function generateColorCssVars(cardStyleVariant: string): CSSPropertiesMap {
+  const iconColorsMap = {
+    card_variant_1: {
+      textColor: 'var(--hsElevate--card--variant1__textColor)',
+      iconBackgroundColor: 'var(--hsElevate--card--variant1__iconBackgroundColor)',
+    },
+    card_variant_2: {
+      textColor: 'var(--hsElevate--card--variant2__textColor)',
+      iconBackgroundColor: 'var(--hsElevate--card--variant2__iconBackgroundColor)',
+    },
+    card_variant_3: {
+      textColor: 'var(--hsElevate--card--variant3__textColor)',
+      iconBackgroundColor: 'var(--hsElevate--card--variant3__iconBackgroundColor)',
+    },
+    card_variant_4: {
+      textColor: 'var(--hsElevate--card--variant4__textColor)',
+      iconBackgroundColor: 'var(--hsElevate--card--variant4__iconBackgroundColor)',
+    },
+  };
+
+  return {
+    '--hsElevate--blogCard__textColor': iconColorsMap[cardStyleVariant].textColor,
+    '--hsElevate--blogCardIcon__backgroundColor': iconColorsMap[cardStyleVariant].iconBackgroundColor,
+  };
 }
 
-const StyledCardWrapper = styled.div`
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-
-  .hs-elevate-card--blog {
-    padding: 0; // override padding to get image flush with card
-    overflow: hidden;
-  }
-`;
-
-const StyledImageContainer = styled.div<{ $cardStyleVariant: string }>`
-  overflow: hidden;
-  position: relative;
-  object-fit: cover;
-  background-color: ${({ $cardStyleVariant }) => `var(--hsElevate--card--${parseCardVariant($cardStyleVariant)}__iconBackgroundColor)`};
-  width: 100%;
-  max-width: 100%;
-  aspect-ratio: 1.41;
-`;
-
-const StyledImage = styled.img`
-  object-fit: cover;
-  position: relative;
-  width: 100%;
-  height: 100%;
-`;
-
-const StyledCardContentContainer = styled.div`
-  padding: var(--hsElevate--spacing--32, 32px);
-`;
-
-const StyledCardHeadingContainer = styled.div<{ $cardStyleVariant: string }>`
-  .hs-elevate-card--blog__heading {
-    color: ${({ $cardStyleVariant }) => `var(--hsElevate--card--${parseCardVariant($cardStyleVariant)}__textColor)`};
-    margin-bottom: 0;
-    text-decoration: none;
-    display: inline;
-  }
-`;
-
-const StyledCardLink = styled.a`
-  text-decoration: none;
-  width: 100%;
-  display: block;
-  height: 100%;
-
-  &&&:hover {
-    text-decoration: none;
-  }
-`;
-
-const StyledTagContainer = styled.div`
-  margin-bottom: var(--hsElevate--spacing--24, 24px);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: var(--hsElevate--spacing--8, 8px);
-  flex-wrap: wrap;
-`;
-
-const GateIconImage = styled.div<{ $cardStyleVariant: string }>`
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  margin-inline-start: var(--hsElevate--spacing--8, 8px);
-  mask-size: contain;
-  mask-position: center;
-  mask-repeat: no-repeat;
-  mask-image: url(${GatedLockIcon});
-  background-color: ${({ $cardStyleVariant }) =>
-    `var(--hsElevate--card--${parseCardVariant($cardStyleVariant)}__textColor)`}; // to match heading color -- not a mistake
-`;
+const CardWrapper = createComponent('div');
+const ImageContainer = createComponent('div');
+const Image = createComponent('img');
+const CardContentContainer = createComponent('div');
+const CardHeadingContainer = createComponent('div');
+const CardLink = createComponent('a');
+const GateIconImage = createComponent('div');
 
 function BlogCardComponent(props: BlogCardComponentProps) {
-  const { post, headingAndTextHeadingLevel, headingStyleVariant, cardStyleVariant, gatedContentIds = [], additionalClassArray } = props;
+  const { post, headingAndTextHeadingLevel, headingStyleVariant, cardStyleVariant = 'card_variant_2', gatedContentIds = [], additionalClassArray } = props;
 
   const additionalClasses = additionalClassArray ? additionalClassArray.join(' ') : '';
 
+  const cssVarsMap = {
+    ...generateColorCssVars(cardStyleVariant),
+  };
+
   return (
-    <StyledComponentsRegistry>
-      <StyledCardWrapper className={`hs-elevate-card--blog__card-wrapper ${additionalClasses}`}>
-        <Card key={post.id} cardOrientation="column" cardStyleVariant={cardStyleVariant} additionalClassArray={['hs-elevate-card--blog']}>
-          <StyledCardLink href={post.absoluteUrl}>
-            <StyledImageContainer className="hs-elevate-card--blog__image-container" $cardStyleVariant={cardStyleVariant}>
-              {post.featuredImage && (
-                <StyledImage src={post.featuredImage} alt={post.featuredImageAltText || ''} width={post.featuredImageWidth} height={post.featuredImageHeight} />
-              )}
-            </StyledImageContainer>
-            <StyledCardContentContainer>
-              <TagList tags={post?.topicNames || []} />
-              <StyledCardHeadingContainer $cardStyleVariant={cardStyleVariant}>
-                <HeadingComponent
-                  heading={post.title}
-                  headingLevel={headingAndTextHeadingLevel}
-                  headingStyleVariant={headingStyleVariant}
-                  additionalClassArray={['hs-elevate-card--blog__heading']}
+    <CardWrapper style={cssVarsMap} className={cx(`hs-elevate-card--blog__card-wrapper`, styles['hs-elevate-card--blog__card-wrapper'], additionalClasses)}>
+      <Card
+        key={post.id}
+        cardOrientation="column"
+        cardStyleVariant={cardStyleVariant}
+        additionalClassArray={['hs-elevate-card--blog', styles['hs-elevate-card--blog']]}
+      >
+        <CardLink className={cx('hs-elevate-card--blog__link', styles['hs-elevate-card--blog__link'])} href={post.absoluteUrl}>
+          <ImageContainer className={cx(`hs-elevate-card--blog__image-container`, styles['hs-elevate-card--blog__image-container'])}>
+            {post.featuredImage && (
+              <Image
+                className={cx(`hs-elevate-card--blog__image`, styles['hs-elevate-card--blog__image'])}
+                src={post.featuredImage}
+                alt={post.featuredImageAltText || ''}
+                width={post.featuredImageWidth}
+                height={post.featuredImageHeight}
+              />
+            )}
+          </ImageContainer>
+          <CardContentContainer className={cx(`hs-elevate-card--blog__content-container`, styles['hs-elevate-card--blog__content-container'])}>
+            <TagList tags={post?.topicNames || []} />
+            <CardHeadingContainer>
+              <HeadingComponent
+                heading={post.title}
+                headingLevel={headingAndTextHeadingLevel}
+                headingStyleVariant={headingStyleVariant}
+                additionalClassArray={['hs-elevate-card--blog__heading', styles['hs-elevate-card--blog__heading']]}
+              />
+              {gatedContentIds.includes(post.id) && (
+                <GateIconImage
+                  className={cx('hs-elevate-card--blog__gate-icon', styles['hs-elevate-card--blog__gate-icon'])}
+                  aria-label="Gated content"
+                  role="presentation"
                 />
-                {gatedContentIds.includes(post.id) && <GateIconImage $cardStyleVariant={cardStyleVariant} aria-label="Gated content" role="presentation" />}
-              </StyledCardHeadingContainer>
-            </StyledCardContentContainer>
-          </StyledCardLink>
-        </Card>
-      </StyledCardWrapper>
-    </StyledComponentsRegistry>
+              )}
+            </CardHeadingContainer>
+          </CardContentContainer>
+        </CardLink>
+      </Card>
+    </CardWrapper>
   );
 }
 
