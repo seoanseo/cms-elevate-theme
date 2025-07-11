@@ -1,14 +1,17 @@
 import { ModuleMeta } from '../../types/modules.js';
-import { styled } from 'styled-components';
+import styles from './recent-blog-posts.module.css';
+import cx from '../../utils/classnames.js';
+import { createComponent } from '../../utils/create-component.js';
 import { withUrlPath } from '@hubspot/cms-components';
 import cardIconSvg from './assets/card-icon-temp.svg';
 import BlogCardComponent from '../../BlogCardComponent/index.js';
-import StyledComponentsRegistry from '../../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
 import fetchGatedPosts from '../../utils/ServerSideProps/fetchGatedBlogPosts.js';
 import { HeadingLevelType } from '../../types/fields.js';
 import { CardVariantType } from '../../types/fields.js';
 import { HeadingStyleFieldLibraryType } from '../../fieldLibrary/HeadingStyle/types.js';
 import { PlaceholderEmptyContent } from '../../PlaceholderComponent/PlaceholderEmptyContent.js';
+
+// Types
 
 type RecentBlogPostsProps = {
   hublData: {
@@ -40,45 +43,17 @@ type RecentBlogPostsProps = {
   };
 };
 
-const RecentBlogPosts = styled.div`
-  container: blog-grid / inline-size;
-`;
+// Components
 
-const BlogCardsContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  gap: var(--hsElevate--spacing--32, 32px);
-  margin-bottom: var(--hsElevate--spacing--48, 48px);
-  justify-content: center;
-  align-items: stretch;
-
-  @container blog-grid (inline-size >= 768px) {
-    .hs-elevate-card--blog__card-wrapper {
-      width: calc(50% - var(--hsElevate--spacing--32, 32px));
-      max-width: calc(50% - var(--hsElevate--spacing--32, 32px));
-      height: auto;
-    }
-  }
-
-  @container blog-grid (inline-size >= 1001px) {
-    .hs-elevate-card--blog__card-wrapper {
-      width: calc(33.333% - var(--hsElevate--spacing--32, 32px));
-      max-width: calc(33.333% - var(--hsElevate--spacing--32, 32px));
-      height: auto;
-    }
-  }
-`;
+const RecentBlogPosts = createComponent('div');
+const BlogCardsContainer = createComponent('div');
 
 export const Component = (props: RecentBlogPostsProps) => {
   const {
     hublData: { posts, isInEditor },
     fieldValues: {
       headingAndTextHeadingLevel,
-      groupStyle: {
-        cardStyleVariant,
-        headingStyleVariant: { headingStyleVariant },
-      },
+      groupStyle: { cardStyleVariant, headingStyleVariant },
       groupPlaceholderText: { placeholderTitle, placeholderDescription },
     },
     serverSideProps: { gatedContentIds },
@@ -87,30 +62,28 @@ export const Component = (props: RecentBlogPostsProps) => {
   const postsToUse = posts || [];
 
   return (
-    <StyledComponentsRegistry>
-      <RecentBlogPosts className="hs-elevate-recent-blog-posts">
-        <BlogCardsContainer className="hs-elevate-recent-blog-posts__blog-card-container">
-          {postsToUse.length === 0 && isInEditor ? (
-            <PlaceholderEmptyContent title={placeholderTitle} description={placeholderDescription} icon={meta.icon} />
-          ) : (
-            postsToUse.map(post => (
-              <BlogCardComponent
-                key={post.id}
-                post={{
-                  ...post,
-                  id: post.id.toString(),
-                }}
-                headingAndTextHeadingLevel={headingAndTextHeadingLevel}
-                headingStyleVariant={headingStyleVariant}
-                cardStyleVariant={cardStyleVariant}
-                gatedContentIds={gatedContentIds.map(id => id.toString())}
-                additionalClassArray={['hs-elevate-recent-blog-posts__blog-card']}
-              />
-            ))
-          )}
-        </BlogCardsContainer>
-      </RecentBlogPosts>
-    </StyledComponentsRegistry>
+    <RecentBlogPosts className={cx('hs-elevate-recent-blog-posts', styles['hs-elevate-recent-blog-posts'])}>
+      <BlogCardsContainer className={cx('hs-elevate-recent-blog-posts__blog-card-container', styles['hs-elevate-recent-blog-posts__blog-card-container'])}>
+        {postsToUse.length === 0 && isInEditor ? (
+          <PlaceholderEmptyContent title={placeholderTitle} description={placeholderDescription} icon={meta.icon} />
+        ) : (
+          postsToUse.map(post => (
+            <BlogCardComponent
+              key={post.id}
+              post={{
+                ...post,
+                id: post.id.toString(),
+              }}
+              headingAndTextHeadingLevel={headingAndTextHeadingLevel}
+              headingStyleVariant={headingStyleVariant}
+              cardStyleVariant={cardStyleVariant}
+              gatedContentIds={gatedContentIds.map(id => id.toString())}
+              additionalClassArray={['hs-elevate-recent-blog-posts__blog-card', styles['hs-elevate-recent-blog-posts__blog-card']]}
+            />
+          ))
+        )}
+      </BlogCardsContainer>
+    </RecentBlogPosts>
   );
 };
 

@@ -1,7 +1,8 @@
 import { Splide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
-import { styled } from 'styled-components';
-import StyledComponentsRegistry from '../../../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
+import styles from '../testimonial-slider.module.css';
+import cx from '../../../utils/classnames.js';
+import { createComponent } from '../../../utils/create-component.js';
 import { TestimonialLinkProps, TestimonialMetaProps, TestimonialProps, TestimonialSliderProps } from '../types.js';
 import { CardVariantType } from '../../../types/fields.js';
 import { getLinkFieldHref, getLinkFieldRel, getLinkFieldTarget } from '../../../utils/content-fields.js';
@@ -9,6 +10,7 @@ import { useEffect, useId, useState } from 'react';
 import { getCardVariantClassName } from '../../../utils/card-variants.js';
 
 // Checks if an image path corresponds to one of the default images used on the testimonial slider module in one of our sections/templates
+
 function isDefaultTestimonialImage(imagePath: string): boolean {
   if (!imagePath) return false;
   return /testimonial-user-image-[1-5]/.test(imagePath);
@@ -16,20 +18,11 @@ function isDefaultTestimonialImage(imagePath: string): boolean {
 
 // Navigation
 
-const NavigationButton = styled.button`
-  background: transparent !important;
-  fill: var(--hsElevate--cardIcon__fillColor);
-`;
-
-const NavigationArrowImage = styled.svg`
-  height: 38px !important;
-  width: 24px !important;
-  fill: var(--hsElevate--cardIcon__fillColor, #000) !important;
-`;
-
 type NavigationArrowProps = {
   altText?: string;
 };
+
+const NavigationArrowImage = createComponent('svg');
 
 const NavigationArrow = (props: NavigationArrowProps) => {
   const { altText } = props;
@@ -46,7 +39,7 @@ const NavigationArrow = (props: NavigationArrowProps) => {
       height="39"
       viewBox="0 0 24 39"
       fill="none"
-      className="hs-elevate-testimonial-slider__navigation-icon"
+      className={cx('hs-elevate-testimonial-slider__navigation-icon', styles['hs-elevate-testimonial-slider__navigation-icon'])}
     >
       {altText && (
         <title className="hs-elevate-testimonial-slider__navigation-icon-title" id={uniqueInstanceId}>
@@ -63,13 +56,19 @@ type NavigationProps = {
   nextAltText: string;
 };
 
+const NavigationButton = createComponent('button');
+
 const Navigation = ({ previousAltText, nextAltText }: NavigationProps) => {
   return (
     <div className="splide__arrows hs-elevate-testimonial-slider__navigation">
-      <NavigationButton className="splide__arrow splide__arrow--prev hs-elevate-testimonial-slider__prev">
+      <NavigationButton
+        className={cx('splide__arrow', 'splide__arrow--prev', 'hs-elevate-testimonial-slider__prev', styles['hs-elevate-testimonial-slider__prev'])}
+      >
         <NavigationArrow altText={previousAltText} />
       </NavigationButton>
-      <NavigationButton className="splide__arrow splide__arrow--next hs-elevate-testimonial-slider__next">
+      <NavigationButton
+        className={cx('splide__arrow', 'splide__arrow--next', 'hs-elevate-testimonial-slider__next', styles['hs-elevate-testimonial-slider__next'])}
+      >
         <NavigationArrow altText={nextAltText} />
       </NavigationButton>
     </div>
@@ -78,17 +77,7 @@ const Navigation = ({ previousAltText, nextAltText }: NavigationProps) => {
 
 // Testimonial link
 
-const Link = styled.a<{ $contentCentered?: boolean }>`
-  display: flex;
-  align-items: center;
-  justify-content: ${props => (props.$contentCentered ? 'center' : 'flex-start')};
-  font-size: var(--hsElevate--body--small__fontSize);
-  gap: 8px;
-`;
-
-const LinkArrowImage = styled.svg`
-  fill: var(--hsElevate--links__fontColor);
-`;
+const LinkArrowImage = createComponent('svg');
 
 const LinkArrow = () => {
   return (
@@ -98,15 +87,17 @@ const LinkArrow = () => {
       viewBox="0 0 8 15"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="hs-elevate-testimonial-slider__link-icon"
+      className={cx('hs-elevate-testimonial-slider__link-icon', styles['hs-elevate-testimonial-slider__link-icon'])}
     >
       <path d="M7.70625 6.79414C8.09688 7.18477 8.09688 7.81914 7.70625 8.20977L1.70625 14.2098C1.31563 14.6004 0.681251 14.6004 0.290626 14.2098C-0.0999985 13.8191 -0.0999985 13.1848 0.290626 12.7941L5.58438 7.50039L0.293751 2.20664C-0.0968735 1.81602 -0.0968735 1.18164 0.293751 0.791016C0.684376 0.400391 1.31875 0.400391 1.70938 0.791016L7.70938 6.79102L7.70625 6.79414Z" />
     </LinkArrowImage>
   );
 };
 
+const Link = createComponent('a');
+
 const TestimonialLink = (props: TestimonialLinkProps) => {
-  const { contentCentered, linkText, link } = props;
+  const { linkText, link } = props;
 
   const linkHref = getLinkFieldHref(link);
   const linkRel = getLinkFieldRel(link);
@@ -114,7 +105,12 @@ const TestimonialLink = (props: TestimonialLinkProps) => {
   return (
     <>
       {linkText && (
-        <Link className="hs-elevate-testimonial-slider__link" $contentCentered={contentCentered} href={linkHref} rel={linkRel} target={linkTarget}>
+        <Link
+          className={cx('hs-elevate-testimonial-slider__link', styles['hs-elevate-testimonial-slider__link'])}
+          href={linkHref}
+          rel={linkRel}
+          target={linkTarget}
+        >
           {linkText} <LinkArrow />
         </Link>
       )}
@@ -124,83 +120,60 @@ const TestimonialLink = (props: TestimonialLinkProps) => {
 
 // Testimonial meta (author and link)
 
-const Footer = styled.footer`
-  margin-block: var(--hsElevate--text--large__margin, 0 32px);
-`;
-
-const AuthorContainer = styled.div<{ $contentCentered?: boolean }>`
-  margin-block-end: var(--hsElevate--spacing--24, 24px);
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: ${props => (props.$contentCentered ? 'center' : 'flex-start')};
-  gap: var(--hsElevate--gap--large, 20px);
-`;
-
-const AuthorImageContainer = styled.div`
-  overflow: hidden;
-  height: 80px;
-  border-radius: 50%;
-  flex: 0 0 80px;
-  aspect-ratio: 1 / 1;
-`;
-
-const AuthorImage = styled.img<{ $isDefaultImage?: boolean }>`
-  height: 100%;
-  width: 100%;
-  -o-object-fit: cover;
-  object-fit: cover;
-  -o-object-position: center;
-  object-position: center;
-  ${props => props.$isDefaultImage && `background-color: var(--hsElevate--color--accent--3)`};
-`;
-
-const AuthorName = styled.span`
-  display: block;
-  margin-block: var(--hsElevate--text--extraSmall__margin, 0 12px);
-  font-size: var(--hsElevate--body--large__fontSize);
-  line-height: 1;
-`;
-
-const AuthorTitle = styled.span`
-  display: block;
-  font-size: var(--hsElevate--body--small__fontSize);
-`;
+const Footer = createComponent('footer');
+const AuthorContainer = createComponent('div');
+const AuthorImageContainer = createComponent('div');
+const AuthorImage = createComponent('img');
+const AuthorName = createComponent('span');
+const AuthorTitle = createComponent('span');
 
 const TestimonialMeta = (props: TestimonialMetaProps) => {
-  const { contentCentered, authorName, authorTitle, authorImage, linkText, link } = props;
+  const { authorName, authorTitle, authorImage, linkText, link } = props;
 
   const hasAuthorElement = authorName || authorTitle || authorImage.src;
 
   const isDefaultAuthorImage = authorImage.src && isDefaultTestimonialImage(authorImage.src);
 
+  const authorImageClasses = cx('hs-elevate-testimonial-slider__author-image', styles['hs-elevate-testimonial-slider__author-image'], {
+    [styles['hs-elevate-testimonial-slider__author-image--use-background']]: isDefaultAuthorImage,
+  });
+
   return (
     <>
       {(hasAuthorElement || linkText) && (
-        <Footer className="hs-elevate-testimonial-slider__footer">
+        <Footer className={cx('hs-elevate-testimonial-slider__footer', styles['hs-elevate-testimonial-slider__footer'])}>
           {hasAuthorElement && (
-            <AuthorContainer className="hs-elevate-testimonial-slider__author-container" $contentCentered={contentCentered}>
+            <AuthorContainer className={cx('hs-elevate-testimonial-slider__author-container', styles['hs-elevate-testimonial-slider__author-container'])}>
               {authorImage.src && (
-                <AuthorImageContainer className="hs-elevate-testimonial-slider__author-image-container">
+                <AuthorImageContainer
+                  className={cx('hs-elevate-testimonial-slider__author-image-container', styles['hs-elevate-testimonial-slider__author-image-container'])}
+                >
                   <AuthorImage
                     data-splide-lazy={authorImage.src}
                     alt={authorImage.alt}
                     width={authorImage.width}
                     height={authorImage.height}
-                    $isDefaultImage={isDefaultAuthorImage}
-                    className="hs-elevate-testimonial-slider__author-image"
+                    className={cx(authorImageClasses)}
                   />
                 </AuthorImageContainer>
               )}
               {(authorName || authorTitle) && (
                 <div>
-                  {authorName && <AuthorName className="hs-elevate-testimonial-slider__author-name">{authorName}</AuthorName>}
-                  {authorTitle && <AuthorTitle className="hs-elevate-testimonial-slider__author-title">{authorTitle}</AuthorTitle>}
+                  {authorName && (
+                    <AuthorName className={cx('hs-elevate-testimonial-slider__author-name', styles['hs-elevate-testimonial-slider__author-name'])}>
+                      {authorName}
+                    </AuthorName>
+                  )}
+                  {authorTitle && (
+                    <AuthorTitle className={cx('hs-elevate-testimonial-slider__author-title', styles['hs-elevate-testimonial-slider__author-title'])}>
+                      {authorTitle}
+                    </AuthorTitle>
+                  )}
                 </div>
               )}
             </AuthorContainer>
           )}
-          <TestimonialLink contentCentered={contentCentered} linkText={linkText} link={link} />
+          <TestimonialLink linkText={linkText} link={link} />
         </Footer>
       )}
     </>
@@ -209,69 +182,18 @@ const TestimonialMeta = (props: TestimonialMetaProps) => {
 
 // Testimonial slide content
 
-const SlideContainer = styled.blockquote`
-  display: flex;
-  padding: var(--hsElevate--spacing--24, 24px) var(--hsElevate--spacing--12, 12px);
-  border-left: 0;
-  margin: 0 0 2rem 0;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--hsElevate--text--large__margin, 0 40px);
+const SlideContainer = createComponent('blockquote');
+const ImageContainer = createComponent('div');
+const TestimonialImage = createComponent('img');
+const ContentContainer = createComponent('div');
+const QuoteText = createComponent('span');
 
-  @media (min-width: 1000px) {
-    padding: var(--hsElevate--spacing--24, 24px);
-    margin: 0 40px 2rem 40px;
-    flex-direction: row;
-    gap: var(--hsElevate--spacing--72, 72px);
-  }
-`;
-
-const ImageContainer = styled.div`
-  overflow: hidden;
-  height: 300px;
-  flex: 1 0 100%;
-  align-self: center;
-  border-radius: 32px;
-  display: flex;
-  margin-block: var(--hsElevate--text--large__margin, 0 32px);
-
-  @media (min-width: 1000px) {
-    flex: 1 0 30%;
-    align-self: auto;
-    margin-block-end: 0;
-  }
-
-  img {
-    height: 100%;
-    width: 100%;
-    -o-object-fit: cover;
-    object-fit: cover;
-    -o-object-position: center;
-    object-position: center;
-  }
-`;
-
-const TestimonialImage = styled.img<{ $isDefaultImage?: boolean }>`
-  height: 100%;
-  width: 100%;
-  -o-object-fit: cover;
-  object-fit: cover;
-  -o-object-position: center;
-  object-position: center;
-  ${props => props.$isDefaultImage && `background-color: var(--hsElevate--color--accent--3)`};
-`;
-
-const ContentContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const QuoteText = styled.span<{ $contentCentered?: boolean }>`
-  margin-block: var(--hsElevate--text--large__margin, 0 40px);
-  font-weight: 500;
-  font-size: 2rem;
-  text-align: ${props => (props.$contentCentered ? 'center' : 'left')};
-`;
+function generateAlignmentCSSVars(contentCentered: boolean): CSSPropertiesMap {
+  return {
+    '--hsElevate--testimonial__alignment': contentCentered ? 'center' : 'flex-start',
+    '--hsElevate--testimonial__textAlign': contentCentered ? 'center' : 'left',
+  };
+}
 
 const Testimonial = (props: TestimonialProps) => {
   const { quote, authorName, authorTitle, authorImage, showImage, image, linkText, link } = props;
@@ -279,34 +201,26 @@ const Testimonial = (props: TestimonialProps) => {
   // If there is an image the content in the slider is left aligned, otherwise it is center aligned
   const contentCentered = showImage && image.src ? false : true;
 
+  const cssVarsMap = {
+    ...generateAlignmentCSSVars(contentCentered),
+  };
+
   const isDefaultImage = image.src && isDefaultTestimonialImage(image.src);
 
+  const testimonialImageClasses = cx('hs-elevate-testimonial-slider__image', styles['hs-elevate-testimonial-slider__image'], {
+    [styles['hs-elevate-testimonial-slider__image--use-background']]: isDefaultImage,
+  });
+
   return (
-    <SlideContainer className="hs-elevate-testimonial-slider__slide">
+    <SlideContainer style={cssVarsMap} className={cx('hs-elevate-testimonial-slider__slide', styles['hs-elevate-testimonial-slider__slide'])}>
       {showImage && image.src && (
-        <ImageContainer className="hs-elevate-testimonial-slider__image-container">
-          <TestimonialImage
-            className="hs-elevate-testimonial-slider__image"
-            data-splide-lazy={image.src}
-            alt={image.alt}
-            width={image.width}
-            height={image.height}
-            $isDefaultImage={isDefaultImage}
-          />
+        <ImageContainer className={cx('hs-elevate-testimonial-slider__image-container', styles['hs-elevate-testimonial-slider__image-container'])}>
+          <TestimonialImage className={cx(testimonialImageClasses)} data-splide-lazy={image.src} alt={image.alt} width={image.width} height={image.height} />
         </ImageContainer>
       )}
-      <ContentContainer className="hs-elevate-testimonial-slider__content-container">
-        <QuoteText className="hs-elevate-testimonial-slider__quote-text" $contentCentered={contentCentered}>
-          {quote}
-        </QuoteText>
-        <TestimonialMeta
-          contentCentered={contentCentered}
-          authorName={authorName}
-          authorTitle={authorTitle}
-          authorImage={authorImage}
-          linkText={linkText}
-          link={link}
-        />
+      <ContentContainer className={cx('hs-elevate-testimonial-slider__content-container', styles['hs-elevate-testimonial-slider__content-container'])}>
+        <QuoteText className={cx('hs-elevate-testimonial-slider__quote-text', styles['hs-elevate-testimonial-slider__quote-text'])}>{quote}</QuoteText>
+        <TestimonialMeta authorName={authorName} authorTitle={authorTitle} authorImage={authorImage} linkText={linkText} link={link} />
       </ContentContainer>
     </SlideContainer>
   );
@@ -358,30 +272,7 @@ function generateBlockquoteCssVar(cardVariantField: CardVariantType): CSSPropert
   };
 }
 
-const TestimonialSliderContainer = styled.div`
-  border: none;
-  padding-block: var(--hsElevate--spacing--48, 48px);
-`;
-
-const StyledSplide = styled(Splide)`
-  padding-inline: var(--hsElevate--spacing--48, 48px);
-
-  .splide__pagination__page {
-    height: 4px;
-    width: 48px;
-    border: none;
-    border-radius: 20px;
-    margin: 0 6px;
-    opacity: 0.3;
-    background-color: var(--hsElevate--cardIcon__fillColor, #000);
-  }
-
-  .splide__pagination__page.is-active {
-    background-color: var(--hsElevate--cardIcon__fillColor, #000);
-    opacity: 1;
-    transform: none;
-  }
-`;
+const TestimonialSliderContainer = createComponent('div');
 
 const TestimonialSlider = (props: TestimonialSliderProps) => {
   const {
@@ -407,53 +298,54 @@ const TestimonialSlider = (props: TestimonialSliderProps) => {
   const cardVariantClassName = getCardVariantClassName({ cardVariant: cardStyleVariant, fallbackCardVariant: 'card_variant_1' });
 
   return (
-    <StyledComponentsRegistry>
-      <TestimonialSliderContainer style={cssVarsMap} className={`hs-elevate-testimonial-slider ${cardVariantClassName}`}>
-        <StyledSplide
-          className="hs-elevate-testimonial-slider__slider"
-          hasTrack={false}
-          options={{
-            lazyLoad: true,
-            rewind: true,
-            direction: htmlDirection,
-            arrows: hasMultipleTestimonials,
-            pagination: hasMultipleTestimonials,
-            i18n: {
-              // https://splidejs.com/guides/i18n/
-              prev: groupDefaultText.navigateToPreviousSlideAriaLabel,
-              next: groupDefaultText.navigateToNextSlideAriaLabel,
-              first: groupDefaultText.navigateToFirstSlideAriaLabel,
-              last: groupDefaultText.navigateToLastSlideAriaLabel,
-              slideX: groupDefaultText.navigateToSlideNumberAriaLabel,
-              carousel: groupDefaultText.carouselAriaLabel,
-              select: groupDefaultText.selectSlideNavigationAriaLabel,
-              slide: groupDefaultText.slideAriaLabel,
-              slideLabel: groupDefaultText.slideNumberOfSlidesTotalAriaLabel,
-            },
-          }}
-        >
-          <div className="splide__track hs-elevate-testimonial-slider__track">
-            <div className="splide__list hs-elevate-testimonial-slider__list">
-              {groupTestimonial.map(testimonial => (
-                <div className="splide__slide hs-elevate-testimonial-slider__slide" key={testimonial.groupQuote.quote}>
-                  <Testimonial
-                    quote={testimonial.groupQuote.quote}
-                    authorName={testimonial.groupAuthor.authorName}
-                    authorTitle={testimonial.groupAuthor.authorTitle}
-                    authorImage={testimonial.groupAuthor.authorImage}
-                    showImage={testimonial.groupImage.showImage}
-                    image={testimonial.groupImage.image}
-                    linkText={testimonial.groupLink.linkText}
-                    link={testimonial.groupLink.link}
-                  />
-                </div>
-              ))}
-            </div>
+    <TestimonialSliderContainer
+      style={cssVarsMap}
+      className={cx('hs-elevate-testimonial-slider', styles['hs-elevate-testimonial-slider'], cardVariantClassName)}
+    >
+      <Splide
+        className={cx('hs-elevate-testimonial-slider__slider', styles['hs-elevate-testimonial-slider__slider'])}
+        hasTrack={false}
+        options={{
+          lazyLoad: true,
+          rewind: true,
+          direction: htmlDirection,
+          arrows: hasMultipleTestimonials,
+          pagination: hasMultipleTestimonials,
+          i18n: {
+            // https://splidejs.com/guides/i18n/
+            prev: groupDefaultText.navigateToPreviousSlideAriaLabel,
+            next: groupDefaultText.navigateToNextSlideAriaLabel,
+            first: groupDefaultText.navigateToFirstSlideAriaLabel,
+            last: groupDefaultText.navigateToLastSlideAriaLabel,
+            slideX: groupDefaultText.navigateToSlideNumberAriaLabel,
+            carousel: groupDefaultText.carouselAriaLabel,
+            select: groupDefaultText.selectSlideNavigationAriaLabel,
+            slide: groupDefaultText.slideAriaLabel,
+            slideLabel: groupDefaultText.slideNumberOfSlidesTotalAriaLabel,
+          },
+        }}
+      >
+        <div className="splide__track hs-elevate-testimonial-slider__track">
+          <div className="splide__list hs-elevate-testimonial-slider__list">
+            {groupTestimonial.map(testimonial => (
+              <div className="splide__slide hs-elevate-testimonial-slider__slide" key={testimonial.groupQuote.quote}>
+                <Testimonial
+                  quote={testimonial.groupQuote.quote}
+                  authorName={testimonial.groupAuthor.authorName}
+                  authorTitle={testimonial.groupAuthor.authorTitle}
+                  authorImage={testimonial.groupAuthor.authorImage}
+                  showImage={testimonial.groupImage.showImage}
+                  image={testimonial.groupImage.image}
+                  linkText={testimonial.groupLink.linkText}
+                  link={testimonial.groupLink.link}
+                />
+              </div>
+            ))}
           </div>
-          {hasMultipleTestimonials && <Navigation previousAltText={groupDefaultText.previousArrowAltText} nextAltText={groupDefaultText.nextArrowAltText} />}
-        </StyledSplide>
-      </TestimonialSliderContainer>
-    </StyledComponentsRegistry>
+        </div>
+        {hasMultipleTestimonials && <Navigation previousAltText={groupDefaultText.previousArrowAltText} nextAltText={groupDefaultText.nextArrowAltText} />}
+      </Splide>
+    </TestimonialSliderContainer>
   );
 };
 

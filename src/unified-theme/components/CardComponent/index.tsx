@@ -1,5 +1,5 @@
-import { styled } from 'styled-components';
-import StyledComponentsRegistry from '../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
+import styles from './card.module.css';
+import cx from '../utils/classnames.js';
 import { CardStyleFieldLibraryType } from '../fieldLibrary/CardStyle/types.js';
 import { getCardVariantClassName } from '../utils/card-variants.js';
 
@@ -21,35 +21,20 @@ const DefaultContent = () => (
   </>
 );
 
-type StyledCardProps = {
-  $cardOrientation: 'row' | 'column';
-};
-
-const StyledCard = styled.article<StyledCardProps>`
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  align-items: center;
-  padding: var(--hsElevate--spacing--32, 32px);
-
-  @media (min-width: 1000px) {
-    flex-direction: ${props => props.$cardOrientation};
-  }
-`;
-
 // Component
 
 export const Card = (props: CardProps) => {
   const { cardStyleVariant, additionalClassArray, inlineStyles, cardOrientation, children } = props;
   const cardClassName = getCardVariantClassName({ cardVariant: cardStyleVariant, fallbackCardVariant: 'card_variant_1' });
-
   const additionalClasses = additionalClassArray ? additionalClassArray.join(' ') : '';
+  const cardClasses = cx('hs-elevate-card', styles['hs-elevate-card'], cardClassName, additionalClasses, {
+    [styles['hs-elevate-card--row']]: cardOrientation === 'row',
+    [styles['hs-elevate-card--column']]: cardOrientation === 'column',
+  });
 
   return (
-    <StyledComponentsRegistry>
-      <StyledCard className={`hs-elevate-card ${cardClassName} ${additionalClasses}`} style={inlineStyles} $cardOrientation={cardOrientation}>
-        {children || <DefaultContent />}
-      </StyledCard>
-    </StyledComponentsRegistry>
+    <article className={cardClasses} style={inlineStyles}>
+      {children || <DefaultContent />}
+    </article>
   );
 };

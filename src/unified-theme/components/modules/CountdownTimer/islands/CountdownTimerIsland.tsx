@@ -1,66 +1,35 @@
 import { useEffect, useState } from 'react';
-import { styled } from 'styled-components';
-import StyledComponentsRegistry from '../../../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
 import { CountdownTimerProps, GroupStyle, TimeLeft, EndDate, CounterStyles, CounterLabelsStyles } from '../types.js';
+import styles from '../countdown-timer.module.css';
+import cx from '../../../utils/classnames.js';
+import { createComponent } from '../../../utils/create-component.js';
 
-const CountdownTimer = styled.time`
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: var(--hsElevate--spacing--12, 12px);
+// Components
+const CountdownTimer = createComponent('time');
+const TimeUnitContainer = createComponent('div');
+const Value = createComponent('span');
+const Label = createComponent('span');
+const CompletedMessage = createComponent('p');
 
-  @media (min-width: 767px) {
-    gap: var(--hsElevate--spacing--20, 20px);
-  }
-`;
+// Functions to generate CSS variables
+type CSSPropertiesMap = { [key: string]: string };
 
-const TimeUnitContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--hsElevate--spacing--8, 8px);
-  /* Width logic:
-   * - Tries to be 200px wide by default
-   * - Won't go smaller than 25% of container width
-   * - Will shrink below 200px if 25% of container is smaller
-   * - Will expand beyond 200px if 25% of container is larger
-  */
-  width: max(min(200px, 25%), 25%);
-`;
+function generateCounterCssVars(counter: CounterStyles): CSSPropertiesMap {
+  return {
+    '--hsElevate--countdownTimer__borderThickness': `${counter?.borderThickness ?? 1}px`,
+    '--hsElevate--countdownTimer__borderColor': counter?.borderColor?.color || '#000',
+    '--hsElevate--countdownTimer__textColor': counter?.textColor?.color || '#000',
+    '--hsElevate--countdownTimer__fillColor': counter?.fillColor?.color || 'transparent',
+  };
+}
 
-const Value = styled.span<{ $counter: CounterStyles }>`
-  width: 100%;
-  padding: var(--hsElevate--spacing--16, 16px) var(--hsElevate--spacing--12, 12px);
-  border: ${({ $counter }) => $counter?.borderThickness}px solid ${({ $counter }) => $counter?.borderColor?.color};
-  border-radius: var(--hsElevate-rounded);
-  color: ${({ $counter }) => $counter?.textColor?.color};
-  font-size: clamp(1rem, 5vw + 1rem, var(--hsElevate--display1__fontSize));
-  line-height: 1;
-  text-align: center;
-  ${({ $counter }) =>
-    $counter?.fill === 'filled' &&
-    `
-    background-color: ${$counter.fillColor?.color};
-  `}
+function generateCounterLabelsCssVars(counterLabels: CounterLabelsStyles): CSSPropertiesMap {
+  return {
+    '--hsElevate--countdownTimer__labelTextColor': counterLabels?.textColor?.color || '#000',
+  };
+}
 
-  @media (min-width: 767px) {
-    padding: var(--hsElevate--spacing--32, 32px) var(--hsElevate--spacing--24, 24px);
-  }
-`;
-
-const Label = styled.span<{ $counterLabels: CounterLabelsStyles }>`
-  width: 100%;
-  color: ${({ $counterLabels }) => $counterLabels?.textColor?.color};
-  font-size: clamp(0.75rem, 1vw + 0.75rem, var(--hsElevate--h4__fontSize));
-  text-align: center;
-`;
-
-const CompletedMessage = styled.p<{ $counterLabels: CounterLabelsStyles }>`
-  color: ${({ $counterLabels }) => $counterLabels?.textColor?.color};
-  text-align: center;
-`;
-
-const calculateTimeLeft = (endDate: EndDate): TimeLeft => {
+export const calculateTimeLeft = (endDate: EndDate): TimeLeft => {
   // Calculate difference between the current date and end date in seconds
   const differenceBetweenDates = (endDate - Date.now()) / 1000;
   const secondsPerMinute = 60;
@@ -91,14 +60,22 @@ const TimeUnit = (props: TimeUnitProps) => {
   } = props;
   const formatNumber = (num: number) => num.toString().padStart(2, '0');
 
+  const cssVarsMap = {
+    ...generateCounterCssVars(counter),
+    ...generateCounterLabelsCssVars(counterLabels),
+  };
+
+  const valueClasses = cx('hs-elevate-countdown-timer__value', styles['hs-elevate-countdown-timer__value'], {
+    [styles['hs-elevate-countdown-timer__value--filled']]: counter?.fill === 'filled',
+  });
+
   return (
-    <TimeUnitContainer className="hs-elevate-countdown-timer__time-unit-container">
-      <Value className="hs-elevate-countdown-timer__value" $counter={counter}>
-        {formatNumber(value)}
-      </Value>
-      <Label className="hs-elevate-countdown-timer__label" $counterLabels={counterLabels}>
-        {label}
-      </Label>
+    <TimeUnitContainer
+      className={cx('hs-elevate-countdown-timer__time-unit-container', styles['hs-elevate-countdown-timer__time-unit-container'])}
+      style={cssVarsMap}
+    >
+      <Value className={valueClasses}>{formatNumber(value)}</Value>
+      <Label className={cx('hs-elevate-countdown-timer__label', styles['hs-elevate-countdown-timer__label'])}>{label}</Label>
     </TimeUnitContainer>
   );
 };
@@ -136,25 +113,26 @@ export default function CountdownTimerIsland(props: CountdownTimerProps) {
 
   const dateTimeString = new Date(endDate).toISOString();
 
+  const completedMessageCssVars = generateCounterLabelsCssVars(groupStyle.counterLabels);
+
   // If countdown is complete, show a message
   if (endDate <= Date.now()) {
     return (
-      <StyledComponentsRegistry>
-        <CompletedMessage className="hs-elevate-countdown-timer__completed-message" $counterLabels={groupStyle.counterLabels}>
-          {completedMessage}
-        </CompletedMessage>
-      </StyledComponentsRegistry>
+      <CompletedMessage
+        className={cx('hs-elevate-countdown-timer__completed-message', styles['hs-elevate-countdown-timer__completed-message'])}
+        style={completedMessageCssVars}
+      >
+        {completedMessage}
+      </CompletedMessage>
     );
   }
 
   return (
-    <StyledComponentsRegistry>
-      <CountdownTimer className="hs-elevate-countdown-timer" dateTime={dateTimeString}>
-        <TimeUnit value={timeLeft.days} label={days} groupStyle={groupStyle} />
-        <TimeUnit value={timeLeft.hours} label={hours} groupStyle={groupStyle} />
-        <TimeUnit value={timeLeft.minutes} label={minutes} groupStyle={groupStyle} />
-        <TimeUnit value={timeLeft.seconds} label={seconds} groupStyle={groupStyle} />
-      </CountdownTimer>
-    </StyledComponentsRegistry>
+    <CountdownTimer className={cx('hs-elevate-countdown-timer', styles['hs-elevate-countdown-timer'])} dateTime={dateTimeString}>
+      <TimeUnit value={timeLeft.days} label={days} groupStyle={groupStyle} />
+      <TimeUnit value={timeLeft.hours} label={hours} groupStyle={groupStyle} />
+      <TimeUnit value={timeLeft.minutes} label={minutes} groupStyle={groupStyle} />
+      <TimeUnit value={timeLeft.seconds} label={seconds} groupStyle={groupStyle} />
+    </CountdownTimer>
   );
 }

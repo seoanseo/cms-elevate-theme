@@ -1,85 +1,10 @@
-import { styled } from 'styled-components';
+import styles from './pagination.module.css';
+import cx from '../../utils/classnames.js';
+import { createComponent } from '../../utils/create-component.js';
 import Chevron from './chevron.js';
 import { usePageUrl } from '@hubspot/cms-components';
 
-const PaginationContainer = styled.nav`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: var(--hsElevate--spacing--24, 24px);
-`;
-
-const PaginationLink = styled.a`
-  && {
-    position: relative;
-    display: block;
-    text-decoration: none;
-    line-height: 1;
-    color: var(--hsElevate--section--lightSection--1--link__fontColor);
-
-    &:is(.active) {
-      width: 44px;
-      text-align: center;
-    }
-
-    &:is(.active):before {
-      content: '';
-      width: 44px;
-      height: 44px;
-      border: 2px solid var(--hsElevate--section--lightSection--1--link__fontColor);
-      border-radius: 50%;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    &&:hover {
-      text-decoration: none;
-      color: var(--hsElevate--section--lightSection--1--link__hover--fontColor);
-
-      &:is(.active):before {
-        border-color: var(--hsElevate--section--lightSection--1--link__hover--fontColor);
-      }
-    }
-  }
-`;
-
-const NavLink = styled.a`
-  &.hs-elevate-disabled {
-    pointer-events: none;
-    opacity: 0.5;
-  }
-
-  .hs-elevate-helper--rotate-180 {
-    transform: rotate(180deg);
-  }
-
-  & path {
-    fill: var(--hsElevate--section--lightSection--1--link__fontColor);
-  }
-
-  &:hover path {
-    fill: var(--hsElevate--section--lightSection--1--link__hover--fontColor);
-  }
-`;
-
-const Elipsis = styled(PaginationLink)`
-  pointer-events: none;
-`;
-
-const ScreenReadyOnly = styled.span`
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-`;
+// Types
 
 type PaginationProps = {
   currentPageNumber: number;
@@ -91,13 +16,103 @@ type PaginationProps = {
   };
 };
 
-function standardizePathName(currentPathName: string) {
+// Helper functions
+
+export function standardizePathName(currentPathName: string) {
   // If the pathname is '/' return an empty string
   // This is to avoid having a double slash in the basePagePath
   // This only happens if the blog is setup in the root directory of the website
   // or exists on a subdomain ex: https://blog.example.com/
   return currentPathName === '/' ? '' : currentPathName;
 }
+
+export function buildPaginationNumbers(currentPageNumber: number, totalPageCount: number) {
+  const standardizedPageNumbers = [-1, 0, 1];
+  let displayFirstNumber = false;
+  let displayLastNumber = false;
+  let displayPreviousEllipsis = false;
+  let displayNextEllipsis = false;
+
+  // Threshold allows us to manipulate the array above(standardizedPageNumbers)
+  // to change how many pages we want to display
+  // without needing to change other parts of the function.
+  const threshold = Math.abs(standardizedPageNumbers[0]);
+
+  if (totalPageCount <= standardizedPageNumbers.length) {
+    // If we have less than the length of the standardizedPageNumbers array
+    // Then just display all the pages.
+    return {
+      pagesToDisplay: Array.from({ length: totalPageCount }, (_, i) => i + 1),
+      displayFirstNumber,
+      displayLastNumber,
+      displayPreviousEllipsis,
+      displayNextEllipsis,
+    };
+  }
+
+  /* ----------------- */
+  // We now know that we have more than standardizedPageNumbers.length pages
+  /* ----------------- */
+
+  if (currentPageNumber <= threshold) {
+    // If current page number is less than the threshold display standardizedPageNumbers.length
+    displayLastNumber = true;
+    displayNextEllipsis = true;
+    return {
+      pagesToDisplay: Array.from({ length: standardizedPageNumbers.length }, (_, i) => i + 1),
+      displayFirstNumber,
+      displayLastNumber,
+      displayPreviousEllipsis,
+      displayNextEllipsis,
+    };
+  }
+
+  if (currentPageNumber >= totalPageCount - threshold) {
+    // Display the last standardized pages
+    displayFirstNumber = true;
+    displayPreviousEllipsis = true;
+    return {
+      pagesToDisplay: Array.from({ length: standardizedPageNumbers.length }, (_, i) => totalPageCount - standardizedPageNumbers.length + i + 1),
+      displayFirstNumber,
+      displayLastNumber,
+      displayPreviousEllipsis,
+      displayNextEllipsis,
+    };
+  }
+
+  // display standardized pages around the current page
+  displayFirstNumber = currentPageNumber === threshold + 1 ? false : true;
+  displayPreviousEllipsis = currentPageNumber === threshold + 1 ? false : true;
+  displayNextEllipsis = currentPageNumber === totalPageCount - threshold - 1 ? false : true;
+  displayLastNumber = true;
+  return {
+    pagesToDisplay: standardizedPageNumbers.map(pageNumber => currentPageNumber + pageNumber),
+    displayFirstNumber,
+    displayLastNumber,
+    displayPreviousEllipsis,
+    displayNextEllipsis,
+  };
+}
+
+// Components
+
+const PaginationContainer = createComponent('nav');
+const PaginationLink = createComponent('a');
+const NavLink = createComponent('a');
+
+type ScreenReadyOnlyProps = {
+  content: string;
+};
+
+const ScreenReadyOnly = (props: ScreenReadyOnlyProps) => {
+  const { content } = props;
+
+  return <span className={styles['hs-elevate-blog-listing__screen-ready-only']}>{content}</span>;
+};
+
+const Ellipsis = () => {
+  return <a className={cx(styles['hs-elevate-blog-listing__ellipsis'], styles['hs-elevate-blog-listing__pagination-link'])}>...</a>;
+};
 
 export default function Pagination(props: PaginationProps) {
   const { currentPageNumber, totalPageCount, nextPageNumber, defaultContent } = props;
@@ -109,83 +124,57 @@ export default function Pagination(props: PaginationProps) {
   const previousPageUrl = `${basePagePath}/${currentPageNumber > 1 ? currentPageNumber - 1 : 1}`;
   const enableNextButton = currentPageNumber < totalPageCount;
   const enablePreviousButton = currentPageNumber > 1;
-  const standardizedPageNumbers = [-1, 0, 1];
-  let displayFirstNumber = false;
-  let displayLastNumber = false;
-  let displayPreviousElipsis = false;
-  let displayNextElipsis = false;
 
-  function buildPaginationNumbers() {
-    // Threshold allows us to manipulate the array above(standardizedPageNumbers)
-    // to change howmany pages we want to display
-    // without needing to change other parts of the function.
-    const threshold = Math.abs(standardizedPageNumbers[0]);
+  const { pagesToDisplay, displayFirstNumber, displayLastNumber, displayPreviousEllipsis, displayNextEllipsis } = buildPaginationNumbers(
+    currentPageNumber,
+    totalPageCount
+  );
 
-    if (totalPageCount <= standardizedPageNumbers.length) {
-      // If we have less than the lenght of the standardizedPageNumbers array
-      // Then just display all the pages.
-      return Array.from({ length: totalPageCount }, (_, i) => i + 1);
-    }
+  const previousNavLinkClasses = cx('hs-elevate-blog-listing__nav-link', styles['hs-elevate-blog-listing__nav-link'], {
+    [styles['hs-elevate-blog-listing__nav-link--disabled']]: !enablePreviousButton,
+  });
 
-    /* ----------------- */
-    // We now know that we have more than standardizedPageNumbers.length pages
-    /* ----------------- */
+  const chevronClasses = cx('hs-elevate-blog-listing__pagination-icon', styles['hs-elevate-blog-listing__pagination-icon']);
 
-    if (currentPageNumber <= threshold) {
-      // If current page number is less than the threshold display standardizedPageNumbers.length
-      displayLastNumber = true;
-      displayNextElipsis = true;
-      return Array.from({ length: standardizedPageNumbers.length }, (_, i) => i + 1);
-    }
+  const paginationLinkClasses = cx('hs-elevate-blog-listing__pagination-link', styles['hs-elevate-blog-listing__pagination-link']);
 
-    if (currentPageNumber >= totalPageCount - threshold) {
-      // Display the last standardized pages
-      displayFirstNumber = true;
-      displayPreviousElipsis = true;
-      return Array.from({ length: standardizedPageNumbers.length }, (_, i) => totalPageCount - standardizedPageNumbers.length + i + 1);
-    }
-
-    // display standardized pages around the current page
-    displayFirstNumber = currentPageNumber === threshold + 1 ? false : true;
-    displayPreviousElipsis = currentPageNumber === threshold + 1 ? false : true;
-    displayNextElipsis = currentPageNumber === totalPageCount - threshold - 1 ? false : true;
-    displayLastNumber = true;
-    return standardizedPageNumbers.map(pageNumber => currentPageNumber + pageNumber);
-  }
-
-  const pagesToDisplay = buildPaginationNumbers();
+  const nextNavLinkClasses = cx('hs-elevate-blog-listing__nav-link', styles['hs-elevate-blog-listing__nav-link'], {
+    [styles['hs-elevate-blog-listing__nav-link--disabled']]: !enableNextButton,
+  });
 
   return (
-    <PaginationContainer className="hs-elevate-blog-listing__pagination-container">
-      <NavLink className={`hs-elevate-blog-listing__pagination-link ${!enablePreviousButton ? 'hs-elevate-disabled' : ''}`} href={previousPageUrl}>
-        <Chevron additionalClassArray={['hs-elevate-helper--rotate-180', 'hs-elevate-blog-listing__pagination-icon']} />
-        <ScreenReadyOnly>{defaultContent.previousPage}</ScreenReadyOnly>
+    <PaginationContainer className={cx('hs-elevate-blog-listing__pagination-container', styles['hs-elevate-blog-listing__pagination-container'])}>
+      <NavLink className={previousNavLinkClasses} href={previousPageUrl}>
+        <Chevron additionalClassArray={[chevronClasses, 'hs-elevate-helper--rotate-180', styles['hs-elevate-helper--rotate-180']]} />
+        <ScreenReadyOnly content={defaultContent.previousPage} />
       </NavLink>
 
       {displayFirstNumber && (
-        <PaginationLink className="hs-elevate-blog-listing__pagination-link" href={`${basePagePath}/1`}>
+        <PaginationLink className={paginationLinkClasses} href={`${basePagePath}/1`}>
           1
         </PaginationLink>
       )}
-      {displayPreviousElipsis && <Elipsis>...</Elipsis>}
+      {displayPreviousEllipsis && <Ellipsis />}
       {pagesToDisplay.map(index => (
         <PaginationLink
-          className={`hs-elevate-blog-listing__pagination-link ${currentPageNumber === index ? 'active' : ''}`}
+          className={cx(paginationLinkClasses, {
+            [styles['hs-elevate-blog-listing__pagination-link--active']]: currentPageNumber === index,
+          })}
           key={index}
           href={`${basePagePath}/${index}`}
         >
           {index}
         </PaginationLink>
       ))}
-      {displayNextElipsis && <Elipsis>...</Elipsis>}
+      {displayNextEllipsis && <Ellipsis />}
       {displayLastNumber && (
-        <PaginationLink className="hs-elevate-blog-listing__pagination-link" href={`${basePagePath}/${totalPageCount}`}>
+        <PaginationLink className={paginationLinkClasses} href={`${basePagePath}/${totalPageCount}`}>
           {totalPageCount}
         </PaginationLink>
       )}
-      <NavLink href={nextPageUrl} className={`hs-elevate-blog-listing__pagination-link ${!enableNextButton ? 'hs-elevate-disabled' : ''}`}>
-        <Chevron additionalClassArray={['hs-elevate-blog-listing__pagination-icon']} />
-        <ScreenReadyOnly>{defaultContent.nextPage}</ScreenReadyOnly>
+      <NavLink className={nextNavLinkClasses} href={nextPageUrl}>
+        <Chevron additionalClassArray={[chevronClasses]} />
+        <ScreenReadyOnly content={defaultContent.nextPage} />
       </NavLink>
     </PaginationContainer>
   );
