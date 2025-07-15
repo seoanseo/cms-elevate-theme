@@ -1,7 +1,7 @@
 // For testing purposes / local developement swap out translations with dummyTranslations
-// import { dummyTranslations, dummyTranslationsAsObject } from './dummyData.js';
-import { styled } from 'styled-components';
-import StyledComponentsRegistry from '../StyledComponentsRegistry/StyledComponentsRegistry.jsx';
+import styles from './mobile-site-header-language-switcher.module.css';
+import cx from '../utils/classnames.js';
+import { createComponent } from '../utils/create-component.js';
 import { useState, useRef, useMemo } from 'react';
 import { getLanguageDisplayName, shouldDisplayLanguageSwitcher, createTranslationsArrayAsObject } from './utils.js';
 import LanguageOptions from './LanguageOptions.jsx';
@@ -10,98 +10,37 @@ import { useLanguageVariants, Icon } from '@hubspot/cms-components';
 import GlobeIcon from './assets/Globe.js';
 import { useDocumentLang } from '../hooks/useDocumentLang.js';
 
-const LANGUAGE_OPTIONS_CONTAINER_HEIGHT = '75vh';
+// Functions to generate CSS variables
 
-const MobileLanguageSwitcherContainer = styled.div<{
-  $menuBackgroundColor: string;
-  $accentColor: string;
-  $isOpen: boolean;
-}>`
-  position: absolute;
-  width: 100%;
-  background-color: ${({ $menuBackgroundColor }) => $menuBackgroundColor};
-  border-top: 1px solid ${({ $accentColor }) => $accentColor};
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1030;
-  transform: translateY(${({ $isOpen }) => ($isOpen ? '0' : 'calc(100% - 56px)')});
-  transition: transform 0.3s ease;
-  max-height: ${LANGUAGE_OPTIONS_CONTAINER_HEIGHT};
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-`;
+type CSSPropertiesMap = { [key: string]: string };
 
-const LanguageSwitcherButton = styled.button<{ $menuTextColor: string; $menuBackgroundColor: string }>`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: auto;
-  padding: var(--hsElevate--spacing--16, 16px) var(--hsElevate--spacing--40, 40px);
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  color: ${({ $menuTextColor }) => $menuTextColor};
+type ColorProps = {
+  menuBackgroundColor: string;
+  textColor: string;
+  menuBackgroundColorHover: string;
+  textColorHover: string;
+};
 
-  font-size: var(--hsElevate--heading--h5__fontSize, 18px);
-  font-weight: 600;
-  text-align: left;
-  flex-shrink: 0;
-`;
+function generateColorCssVars(props: ColorProps): CSSPropertiesMap {
+  const { menuBackgroundColor, menuBackgroundColorHover, textColor, textColorHover } = props;
 
-const LanguageButtonContent = styled.div`
-  display: flex;
-  align-items: center;
-  gap: var(--hsElevate--spacing--12, 12px);
+  return {
+    '--hsElevate--languageSwitcher__backgroundColor': menuBackgroundColor,
+    '--hsElevate--languageSwitcher__textColor': textColor,
+    '--hsElevate--languageSwitcher__hover--backgroundColor': menuBackgroundColorHover,
+    '--hsElevate--languageSwitcher__hover--textColor': textColorHover,
+  };
+}
 
-  svg {
-    height: 20px;
+// Components
 
-    path {
-      fill: currentColor;
-    }
-  }
-`;
-
-const LanguageOptionsContainer = styled.div<{ $isOpen: boolean; $menuBackgroundColor: string }>`
-  padding: var(--hsElevate--spacing--16, 16px) var(--hsElevate--spacing--40, 40px);
-  opacity: ${({ $isOpen }) => ($isOpen ? '1' : '0')};
-  transition: opacity 0.3s ease;
-  background-color: ${({ $menuBackgroundColor }) => $menuBackgroundColor};
-  visibility: ${({ $isOpen }) => ($isOpen ? 'visible' : 'hidden')};
-  flex: 1;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-`;
-
-const LanguageLabel = styled.div<{ $textColor: string }>`
-  font-size: var(--hsElevate--heading--h6__fontSize, 14px);
-  font-weight: 600;
-  margin-bottom: var(--hsElevate--spacing--12, 12px);
-  color: ${({ $textColor }) => $textColor};
-  flex-shrink: 0;
-`;
-
-const OptionsScrollWrapper = styled.div`
-  overflow-y: auto;
-  flex: 1;
-`;
-
-const Overlay = styled.div<{ $isOpen: boolean }>`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  opacity: ${props => (props.$isOpen ? 1 : 0)};
-  visibility: ${props => (props.$isOpen ? 'visible' : 'hidden')};
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  z-index: 1025;
-`;
+const MobileLanguageSwitcherContainer = createComponent('div');
+const LanguageSwitcherButton = createComponent('button');
+const LanguageButtonContent = createComponent('div');
+const LanguageOptionsContainer = createComponent('div');
+const LanguageLabel = createComponent('div');
+const OptionsScrollWrapper = createComponent('div');
+const Overlay = createComponent('div');
 
 const MobileSiteHeaderLanguageSwitcher = (props: LanguageSwitcherProps) => {
   const translations = props.translations ? props.translations : useLanguageVariants();
@@ -132,39 +71,44 @@ const MobileSiteHeaderLanguageSwitcher = (props: LanguageSwitcherProps) => {
     setIsOpen(!isOpen);
   };
 
+  const overlayClassNames = cx('hs-elevate-site-header__language-switcher-overlay', styles['hs-elevate-site-header__language-switcher-overlay'], {
+    [styles['hs-elevate-site-header__language-switcher-overlay--open']]: isOpen,
+  });
+
+  const languageSwitcherContainerClassNames = cx('hs-elevate-site-header__language-switcher-container', styles['hs-elevate-site-header__language-switcher-container'], {
+    [styles['hs-elevate-site-header__language-switcher-container--open']]: isOpen,
+  });
+
+  const cssVarsMap = {
+    ...generateColorCssVars({ menuBackgroundColor, menuBackgroundColorHover, textColor, textColorHover }),
+  };
+
   return (
-    <StyledComponentsRegistry>
-      {isOpen && <Overlay $isOpen={isOpen} onClick={() => setIsOpen(false)} className="hs-elevate-site-header__language-switcher-overlay" />}
+    <>
+      {isOpen && <Overlay onClick={() => setIsOpen(false)} className={overlayClassNames} />}
       <MobileLanguageSwitcherContainer
-        $menuBackgroundColor={menuBackgroundColor}
-        $accentColor={menuBackgroundColorHover}
-        $isOpen={isOpen}
-        className="hs-elevate-site-header__language-switcher-container"
+        className={languageSwitcherContainerClassNames}
+        style={cssVarsMap}
       >
         <LanguageSwitcherButton
           ref={buttonRef}
           onClick={toggleLanguageOptions}
-          $menuTextColor={textColor}
-          $menuBackgroundColor={menuBackgroundColor}
           aria-expanded={isOpen}
           aria-controls="language-options"
-          className="hs-elevate-site-header__language-switcher-button"
+          className={cx('hs-elevate-site-header__language-switcher-button', styles['hs-elevate-site-header__language-switcher-button'])}
         >
-          <LanguageButtonContent className="hs-elevate-site-header__language-switcher-button-content">
+          <LanguageButtonContent className={cx('hs-elevate-site-header__language-switcher-button-content', styles['hs-elevate-site-header__language-switcher-button-content'])}>
             {langSwitcherIcon}
             <span className="hs-elevate-site-header__language-switcher-current-language">{currentPageLanguageDisplayName}</span>
           </LanguageButtonContent>
         </LanguageSwitcherButton>
-
         <LanguageOptionsContainer
-          $isOpen={isOpen}
-          $menuBackgroundColor={menuBackgroundColor}
-          className="hs-elevate-site-header__language-switcher-options-container"
+          className={cx('hs-elevate-site-header__language-switcher-options-container', styles['hs-elevate-site-header__language-switcher-options-container'])}
         >
-          <LanguageLabel className="hs-elevate-site-header__language-switcher-select-language-label" $textColor={textColor}>
+          <LanguageLabel className={cx('hs-elevate-site-header__language-switcher-select-language-label', styles['hs-elevate-site-header__language-switcher-select-language-label'])}>
             {languageSwitcherSelectText}
           </LanguageLabel>
-          <OptionsScrollWrapper>
+          <OptionsScrollWrapper className={cx('hs-elevate-site-header__language-switcher-options-scroll-wrapper', styles['hs-elevate-site-header__language-switcher-options-scroll-wrapper'])}>
             <LanguageOptions
               translations={translations}
               menuBackgroundColorHover={menuBackgroundColorHover}
@@ -175,7 +119,7 @@ const MobileSiteHeaderLanguageSwitcher = (props: LanguageSwitcherProps) => {
           </OptionsScrollWrapper>
         </LanguageOptionsContainer>
       </MobileLanguageSwitcherContainer>
-    </StyledComponentsRegistry>
+    </>
   );
 };
 

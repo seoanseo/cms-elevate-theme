@@ -63,24 +63,6 @@ export interface MenuModulePropTypes extends MenuModuleContentFields {
   styles: MenuModuleStyles;
 }
 
-export type MainNavProps = {
-  $navBarBackgroundColor: string;
-  $menuAccentColor: string;
-  $menuTextColor: string;
-  $menuTextHoverColor: string;
-};
-
-export interface MenuContainerProps {
-  $isMenuSliding?: boolean;
-  $showMenu?: boolean;
-  $headerHeight: number;
-  $mobileButtonContainerHeight: number;
-  $menuBackgroundColor: string;
-  $menuAccentColor: string;
-  $menuTextColor: string;
-  $headerMobileLanguageSwitcherHeight: number;
-}
-
 export interface MobileMenuIslandProps extends MenuComponentProps, MenuModuleContentFields, ButtonStyleFieldLibraryType {
   menuBackgroundColor: string;
   menuAccentColor: string;
