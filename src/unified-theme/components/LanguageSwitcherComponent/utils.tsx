@@ -1,5 +1,4 @@
-import { styled } from 'styled-components';
-import { Icon, LanguageVariant } from '@hubspot/cms-components';
+import { LanguageVariant } from '@hubspot/cms-components';
 
 // Define interfaces for styled components props
 

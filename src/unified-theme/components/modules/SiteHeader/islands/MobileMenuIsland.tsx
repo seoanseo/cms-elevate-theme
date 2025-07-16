@@ -1,157 +1,58 @@
-import { CSSProperties, styled } from 'styled-components';
+import styles from '../mobile-menu.module.css';
+import cx from '../../../utils/classnames.js';
+import { createComponent } from '../../../utils/create-component.js';
 import MenuComponent from '../../../MenuComponent/index.js';
 import { useEffect, useState } from 'react';
 import { useSharedIslandState } from '@hubspot/cms-components';
 import { Button } from '../../../ButtonComponent/index.js';
 import { getLinkFieldHref, getLinkFieldRel, getLinkFieldTarget } from '../../../utils/content-fields.js';
-import { MenuContainerProps, MobileMenuIslandProps } from '../types.js';
+import { MobileMenuIslandProps } from '../types.js';
 import MobileSiteHeaderLanguageSwitcher from '../../../LanguageSwitcherComponent/MobileSiteHeaderLanguageSwitcherComponent.js';
 
-const baseZindex = 1000;
+// Functions to generate CSS variables
 
-const MenuContainer = styled.div<MenuContainerProps>`
-  position: absolute;
-  background-color: white; // Change to actual BG color
-  top: 100%;
-  left: ${({ $isMenuSliding }) => ($isMenuSliding ? '0' : '100%')};
-  margin-top: 0;
-  width: 100%;
-  height: ${({ $headerHeight }) => `calc(100vh - ${$headerHeight}px)`};
-  height: ${({ $headerHeight }) => `calc(100dvh - ${$headerHeight}px)`};
-  z-index: ${baseZindex};
-  transition: all 0.3s ease;
-  display: ${({ $showMenu }) => ($showMenu ? 'flex' : 'none')};
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: flex-start;
+type CSSPropertiesMap = { [key: string]: string };
 
-  > nav {
-    overflow: auto;
-    background-color: ${({ $menuBackgroundColor }) => $menuBackgroundColor};
-  }
+type ColorProps = {
+  menuTextColor: string;
+  menuTextHoverColor: string;
+  menuBackgroundColor: string;
+  menuAccentColor: string;
+};
 
-  ul {
-    height: ${({ $headerHeight, $mobileButtonContainerHeight, $headerMobileLanguageSwitcherHeight }) =>
-      `calc(100vh - ${$headerHeight}px - ${$mobileButtonContainerHeight}px - ${$headerMobileLanguageSwitcherHeight}px)`};
-    width: 100%;
-    background-color: ${({ $menuBackgroundColor }) => $menuBackgroundColor};
-  }
+function generateColorCssVars(props: ColorProps): CSSPropertiesMap {
+  const { menuTextColor, menuTextHoverColor, menuBackgroundColor, menuAccentColor } = props;
 
-  .hs-elevate-menu--mobile,
-  .hs-elevate-menu__flyout-submenu--mobile {
-    padding: 10px 32px;
-  }
+  return {
+    '--hsElevate--mobileMenu__textColor': menuTextColor,
+    '--hsElevate--mobileMenu__hover--textColor': menuTextHoverColor,
+    '--hsElevate--mobileMenu__backgroundColor': menuBackgroundColor,
+    '--hsElevate--mobileMenu__accentColor': menuAccentColor,
+  };
+}
 
-  .hs-elevate-menu {
-    gap: 0;
-    flex: 0 0 100%;
-    margin-bottom: 0;
-    align-items: flex-start;
-    justify-content: flex-start;
+type SizeProps = {
+  headerHeight: number;
+  mobileButtonContainerHeight: number;
+  headerMobileLanguageSwitcherHeight: number;
+};
 
-    &:after {
-      content: '';
-      position: absolute;
-      top: -1px;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background-color: ${({ $menuAccentColor }) => $menuAccentColor};
-    }
+function generateSizeCssVars(props: SizeProps): CSSPropertiesMap {
+  const { headerHeight, mobileButtonContainerHeight, headerMobileLanguageSwitcherHeight } = props;
 
-    li {
-      position: initial;
-      width: 100%;
-      color: ${({ $menuTextColor }) => $menuTextColor};
+  return {
+    '--hsElevate--mobileMenu__height': `${headerHeight}px`,
+    '--hsElevate--mobileMenuButtonContainer__height': `${mobileButtonContainerHeight}px`,
+    '--hsElevate--mobileMenuLanguageSwitcher__height': `${headerMobileLanguageSwitcherHeight}px`,
+  };
+}
 
-      a,
-      .hs-elevate-menu__menu-item-span {
-        color: ${({ $menuTextColor }) => $menuTextColor};
-        font-weight: 600;
-        text-decoration: none;
+// Components
 
-        &:hover {
-          cursor: pointer;
-          text-decoration: none;
-        }
-      }
-
-      .hs-elevate-menu__arrow-path {
-        fill: ${({ $menuTextColor }) => $menuTextColor};
-      }
-    }
-
-    .hs-elevate-menu__menu-item-link-container:hover {
-      background-color: ${({ $menuAccentColor }) => $menuAccentColor};
-    }
-
-    li[data-hs-elevate-menuitem-depth='1'] ul {
-      position: absolute;
-      left: 100%;
-      top: 0;
-      transition: left 0.3s ease;
-      width: 100%;
-      margin-bottom: 0;
-      background-color: ${({ $menuBackgroundColor }) => $menuBackgroundColor};
-      z-index: ${baseZindex + 10};
-    }
-
-    .hs-elevate-menu--has-children.hs-elevate-menu__menu-item--triggered > ul {
-      left: 0;
-    }
-  }
-`;
-
-const MobileSlideoutButtonContainer = styled.div<{
-  $menuBackgroundColor: string;
-  $headerMobileLanguageSwitcherHeight: number;
-}>`
-  @media (min-width: 460px) {
-    display: none;
-  }
-
-  margin-bottom: ${({ $headerMobileLanguageSwitcherHeight }) => $headerMobileLanguageSwitcherHeight}px;
-  display: block;
-  padding: var(--hsElevate--spacing--24);
-  width: 100%;
-  margin-top: 0;
-  z-index: ${baseZindex + 20};
-  background-color: ${({ $menuBackgroundColor }) => $menuBackgroundColor};
-
-  .hs-elevate-site-header__mobile-button {
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-  }
-`;
-
-const HamburgerMenu = styled.div<{ $menuTextColor: string }>`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 30px;
-  height: 25px;
-  cursor: pointer;
-
-  div {
-    width: 100%;
-    height: 4px;
-    background-color: ${({ $menuTextColor }) => $menuTextColor};
-    transition: all 0.3s ease;
-  }
-
-  &.active div:nth-child(1) {
-    transform: rotate(45deg) translate(7px, 5px);
-  }
-
-  &.active div:nth-child(2) {
-    opacity: 0;
-  }
-
-  &.active div:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -5px);
-  }
-`;
+const MobileMenu = createComponent('div');
+const MenuContainer = createComponent('div');
+const HamburgerMenu = createComponent('div');
+const MobileSlideoutButtonContainer = createComponent('div');
 
 export default function MobileMenuIsland(props: MobileMenuIslandProps) {
   const [isAnimating, setIsAnimating] = useState(false);
@@ -306,39 +207,38 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
     setIsAnimating(!isAnimating);
   };
 
+  const topLevelMenuItemStyles = {
+    '--hsElevate--menu--topLevel__gap': '0',
+  } as CSSPropertiesMap;
+
   // Handles smooth scrolling to an anchor link when mobile menu is closed
   const handleMobileAnchorClick = (cb: () => void) => {
     handleOpenCloseMenu();
     setPendingCallback(() => cb);
   };
 
-  const topLevelMenuItemStyles = {
-    '--hsElevate--menu--topLevel__gap': '0',
-  } as CSSProperties;
+  const cssVarsMap = {
+    ...generateColorCssVars({ menuTextColor, menuTextHoverColor, menuBackgroundColor, menuAccentColor }),
+    ...generateSizeCssVars({ headerHeight, mobileButtonContainerHeight, headerMobileLanguageSwitcherHeight }),
+  };
+
+  const menuContainerClassNames = cx('hs-elevate-site-header__menu-container', styles['hs-elevate-site-header__menu-container'], {
+    [styles['hs-elevate-site-header__menu-container--is-sliding']]: isMenuSliding,
+    [styles['hs-elevate-site-header__menu-container--is-hidden']]: !showMenu,
+  });
+
+  const hamburgerMenuClassNames = cx('hs-elevate-site-header__hamburger-menu', styles['hs-elevate-site-header__hamburger-menu'], {
+    [styles['hs-elevate-site-header__hamburger-menu--active']]: showMenu,
+  });
 
   return (
-    <div className="hs-elevate-site-header__mobile-menu">
-      <HamburgerMenu
-        className={`hs-elevate-site-header__hamburger-menu ${showMenu ? 'active' : ''}`}
-        tab-index="1"
-        onClick={handleOpenCloseMenu}
-        $menuTextColor={menuTextColor}
-      >
+    <MobileMenu style={cssVarsMap} className={cx('hs-elevate-site-header__mobile-menu', styles['hs-elevate-site-header__mobile-menu'])}>
+      <HamburgerMenu className={hamburgerMenuClassNames} tab-index="1" onClick={handleOpenCloseMenu}>
         <div></div>
         <div></div>
         <div></div>
       </HamburgerMenu>
-      <MenuContainer
-        $showMenu={showMenu}
-        $isMenuSliding={isMenuSliding}
-        $headerHeight={headerHeight}
-        $mobileButtonContainerHeight={mobileButtonContainerHeight}
-        $headerMobileLanguageSwitcherHeight={headerMobileLanguageSwitcherHeight}
-        $menuAccentColor={menuAccentColor}
-        $menuBackgroundColor={menuBackgroundColor}
-        $menuTextColor={menuTextColor}
-        className="hs-elevate-site-header__menu-container"
-      >
+      <MenuContainer className={menuContainerClassNames}>
         <MenuComponent
           {...rest}
           flow="vertical"
@@ -352,9 +252,7 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
         />
         {showButton && (
           <MobileSlideoutButtonContainer
-            className="hs-elevate-site-header__mobile-button-container"
-            $menuBackgroundColor={menuBackgroundColor}
-            $headerMobileLanguageSwitcherHeight={headerMobileLanguageSwitcherHeight}
+            className={cx('hs-elevate-site-header__mobile-button-container', styles['hs-elevate-site-header__mobile-button-container'])}
           >
             <Button
               href={getLinkFieldHref(buttonLink)}
@@ -365,7 +263,7 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
               showIcon={showIcon}
               iconFieldPath="groupButton.buttonContentIcon"
               iconPosition={iconPosition}
-              additionalClassArray={['hs-elevate-site-header__mobile-button']}
+              additionalClassArray={['hs-elevate-site-header__mobile-button', styles['hs-elevate-site-header__mobile-button']]}
             >
               {buttonText}
             </Button>
@@ -382,6 +280,6 @@ export default function MobileMenuIsland(props: MobileMenuIslandProps) {
           />
         }
       </MenuContainer>
-    </div>
+    </MobileMenu>
   );
 }
