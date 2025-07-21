@@ -124,7 +124,7 @@ export const hublDataTemplate = `
   %}
 `;
 
-export const getServerSideProps = withUrlPath(fetchGatedPosts);
+export const getStaticProps = withUrlPath(fetchGatedPosts);
 
 export const meta: ModuleMeta = {
   label: 'Recent blog posts',

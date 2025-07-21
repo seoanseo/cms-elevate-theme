@@ -91,7 +91,7 @@ export { fields } from './fields.js';
 
 export { default as hublDataTemplate } from './hubl_data.hubl.html?raw';
 
-export const getServerSideProps = withUrlPath(fetchGatedPosts);
+export const getStaticProps = withUrlPath(fetchGatedPosts);
 
 export const meta: ModuleMeta = {
   label: 'Blog listing',
