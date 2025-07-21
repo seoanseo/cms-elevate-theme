@@ -1,10 +1,20 @@
-@import '_layout.hubl.css';
-@import '_typography.hubl.css';
-@import '_colors.hubl.css';
-@import '_button.hubl.css';
-@import '_forms.hubl.css';
-@import '_cards.hubl.css';
-@import '_section-colors.hubl.css';
-@import '_tags.hubl.css';
-@import '_borders.hubl.css';
-@import '_icons.hubl.css';
+{% include '_layout.hubl.css' %}
+
+{% include '_typography.hubl.css' %}
+
+{% include '_colors.hubl.css' %}
+
+{% include '_button.hubl.css' %}
+
+{% include '_forms.hubl.css' %}
+
+{% include '_cards.hubl.css' %}
+
+{% include '_section-colors.hubl.css' %}
+
+{% include '_tags.hubl.css' %}
+
+{% include '_borders.hubl.css' %}
+
+{% include '_icons.hubl.css' %}
+
